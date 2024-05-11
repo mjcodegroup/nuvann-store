@@ -1,0 +1,14 @@
+.lang_selector_container {
+    width: 60px;
+    height: 30px;
+}
+
+.lang_selector_container .selector_option{
+    width: 100%;
+    height: 100%;
+    border:none;
+    padding: 4px;
+}
+.title{
+    color: red;
+}
