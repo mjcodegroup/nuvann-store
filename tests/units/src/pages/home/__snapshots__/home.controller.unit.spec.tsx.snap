@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeController Should render HomePage with props 1`] = `
+<div>
+  <h1>
+    welcome
+  </h1>
+</div>
+`;
