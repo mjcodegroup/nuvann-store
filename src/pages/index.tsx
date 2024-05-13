@@ -1,7 +1,7 @@
 import LanguageSelector from "@/components/language-selector";
 import { Inter } from "next/font/google";
 import { useTranslation } from "react-i18next";
-import HomeController from "./home/controller/home";
+import HomeController from "./home/index";
 
 const inter = Inter({ subsets: ["latin"] });
 
