@@ -1,0 +1,41 @@
+{
+    "coverageAnalysis": "all",
+    "jest": {
+        "projectType": "custom",
+        "configFile": "./jest.config.ts"
+    },
+    "incremental": true,
+    "tempDirName": "stryker-tmp",
+    "testRunner": "jest",
+    "checkers": ["typescript"],
+    "tsconfigFile": "tsconfig.json",
+    "thresholds": {
+        "high": 100,
+        "low": 84,
+        "break":84
+    },
+    "mutate": [
+        "src/**/**.{js,ts,tsx}",
+        "!src/pages/api/**",
+        "!src/**/*.stories.tsx",
+        "!src/utils/enums/**",
+        "!src/utils/mocks/**",
+        "!src/**/*types.ts"
+    ],
+    "disableTypeChecks": "{tests,src,lib}/**/*.{js,ts,jsx,tsx,html,vue}",
+    "timeoutMS": 10000,
+    "ignorePatterns": [
+        "docs",
+        ".husky",
+        ".vscode",
+        ".next",
+        ".storybook",
+        "storybook-static",
+        "tests/components"
+    ],
+    "cleanTempDir": true,
+    "incrementalFile": "reports/mutation/stryker-incremental.json",
+    "jsonReporter": {
+        "fileName": "reports/mutation/mutation.json"
+    }
+}

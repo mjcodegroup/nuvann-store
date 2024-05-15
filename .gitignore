@@ -42,3 +42,11 @@ next-env.d.ts
 .env.development
 .env.production
 *storybook.log
+
+
+#testing
+/coverage
+/stryker-tmp
+
+#vs code
+.vscode*
