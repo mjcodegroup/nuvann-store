@@ -69,7 +69,8 @@ const config: Config = {
       '!**/node_modules/**',
       '!src/**/*.stories.tsx',
       '!src/utils/enums/**',
-      '!src/utils/mocks/**'
+      '!src/utils/mocks/**',
+      '!src/**/*types.ts'
   ],
   testMatch: ['<rootDir>/tests/**/*unit.spec.tsx'],
   testPathIgnorePatterns: [
