@@ -1,4 +1,4 @@
-export default function setCookie(name: string, value: string, days: number) {
+export function setCookie(name: string, value: string, days: number) {
     let expires = "";
     if (days) {
         let date = new Date();
@@ -13,7 +13,6 @@ export function getCookie(name: string) {
         const cookieValue = RegExp('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)').exec(document.cookie);
         return cookieValue ? cookieValue.pop() : '';
     } else {
-        // Tratar caso em que window não está definido (por exemplo, em ambiente Node.js)
         return '';
     }
 }

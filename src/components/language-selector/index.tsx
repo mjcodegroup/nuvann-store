@@ -1,4 +1,4 @@
-import setCookie, { getCookie } from '@/utils/set-cookie';
+import { getCookie, setCookie } from '@/utils/cookie/index';
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import activeLanguage from '@/utils/mocks/active-language';
