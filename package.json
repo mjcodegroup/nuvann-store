@@ -10,8 +10,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test:unit": "jest --silent --maxWorkers=50%",
-    "prepare": "husky",
-    "test": "jest"
+    "test:mutation": "npx stryker run",
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -34,6 +34,9 @@
     "@storybook/nextjs": "^8.0.10",
     "@storybook/react": "^8.0.10",
     "@storybook/test": "^8.0.10",
+    "@stryker-mutator/core": "^8.2.6",
+    "@stryker-mutator/jest-runner": "^8.2.6",
+    "@stryker-mutator/typescript-checker": "^8.2.6",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
     "@types/jest": "^29.5.12",

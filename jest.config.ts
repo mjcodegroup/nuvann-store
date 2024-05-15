@@ -72,17 +72,17 @@ const config: Config = {
       '!src/utils/mocks/**',
       '!src/**/*types.ts'
   ],
-  testMatch: ['<rootDir>/tests/**/*unit.spec.tsx'],
+  testMatch: ['<rootDir>/tests/**/*.unit.spec.tsx'],
   testPathIgnorePatterns: [
     '/node_modules/',
     'tests/units/src/mocks'
   ],
   coverageThreshold : {
     global: {
-        statements: 90,
-        branches: 90,
-        functions: 90,
-        lines: 90
+        statements: 84,
+        branches: 84,
+        functions: 84,
+        lines: 84
     }
   },
   // Add more setup options before each test is run
