@@ -11,8 +11,8 @@
     "tsconfigFile": "tsconfig.json",
     "thresholds": {
         "high": 100,
-        "low": 84,
-        "break":84
+        "low": 90,
+        "break":90
     },
     "mutate": [
         "src/**/**.{js,ts,tsx}",
