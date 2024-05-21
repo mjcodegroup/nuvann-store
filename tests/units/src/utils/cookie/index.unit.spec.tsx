@@ -53,5 +53,14 @@ describe('Cookie Utilities', () => {
         it('should return an empty string if the cookie does not exist', () => {
             expect(getCookie('nonExistentCookie')).toBe('');
         });
+
+        it('should return an empty string for undefined cookie', () => {
+            const originalWindow = global.window;
+            // @ts-ignore
+            delete global.window;
+        
+            expect(getCookie('testCookie')).toBe('');
+            global.window = originalWindow;
+          });
     });
 });

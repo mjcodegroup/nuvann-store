@@ -15,6 +15,5 @@ export const Default = Template.bind({});
 Default.args = {
     lng: 'en',
     handleLangChange: fn()
-
 };
 
