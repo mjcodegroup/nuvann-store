@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   react: {
     useSuspense: false,
-    wait: true
+    wait: false
   },
   images: {
     remotePatterns: [

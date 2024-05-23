@@ -1,0 +1,16 @@
+.navbar_container_principal {
+    height: 146px;
+    background: var(--background-white);
+
+    .nav_header {
+        height: 75%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .navbar_search {
+            height: 40px;
+            width: 521px;
+        }
+    }
+}

@@ -1,5 +1,11 @@
 {
-    "home": {
-      "welcome": "Bienvenue à Nuvann Makertplace"
-    }
+  "navContent": {
+    "home": "Accueil",
+    "promotion": "Promotion",
+    "search": "Rechercher"
+  },
+  "home": {
+    "welcome": "Bienvenue à Nuvann Makertplace",
+    "searchForAProduct": "Rechercher un produit"
+  }
 }

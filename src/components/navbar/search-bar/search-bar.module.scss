@@ -1,0 +1,32 @@
+.search_bar {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  
+    input[type="text"] {
+      flex-grow: 1;
+      border: none;
+      padding: 0 8px;
+
+      &:focus{
+        outline: none;
+    }
+}
+  
+button {
+    margin-left: 8px;
+    border: none;
+    background-color: var(--blue-principal-000052);
+    color: #fff;
+      padding: 8px;
+      border-radius: 0 4px 0 0;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: var(--blue-principal-000052);
+      }
+    }
+  }
+  

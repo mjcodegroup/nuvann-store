@@ -1,6 +1,11 @@
 {
-
+  "navContent": {
+      "home": "Home",
+      "promotion": "Promotion",
+      "search": "Search"
+  },
   "home": {
-    "welcome": "Welcome to Nuvann Makertplace"
+    "welcome": "Welcome to Nuvann Makertplace",
+    "searchForAProduct": "Search for a product"
   }
 }

@@ -1,6 +1,11 @@
 {
-
-    "home": {
-      "welcome": "Bienvenido a Nuvann Makertplace"
-    }
+  "navContent": {
+    "home": "Inico",
+    "promotion": "Promoción",
+    "search": "Buscar"
+  },
+  "home": {
+    "welcome": "Bienvenido a Nuvann Makertplace",
+    "searchForAProduct": "Buscar un producto"
   }
+}
