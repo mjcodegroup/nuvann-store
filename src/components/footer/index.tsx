@@ -1,6 +1,7 @@
 import React from 'react'
 import { AiOutlineUser, AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';
 import {FaMapMarkerAlt, FaPhoneAlt, FaEnvelope} from 'react-icons/fa';
+import Image from 'next/image';
 import styles from './styles.module.scss'
 
 import visaIcon from '../../../public/assets/cards/visa.svg'
@@ -10,7 +11,6 @@ import elo from '../../../public/assets/cards/elo.svg'
 import visacheckout from '../../../public/assets/cards/visacheckout.svg'
 import amex from '../../../public/assets/cards/amex.svg'
 import boleto from '../../../public/assets/cards/boleto.svg'
-import Image from 'next/image';
 
 export const Footer = () => {
 

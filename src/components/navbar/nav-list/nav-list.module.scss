@@ -1,0 +1,32 @@
+.navbar_list {
+    height: 25%;
+    background: var(--background-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+        a, li {
+            font-style: normal;
+            font-weight: 500;
+            color: #0f0f0f;
+            margin: 0 16px;
+            font-size: 1rem;
+            line-height: 1.5;
+            letter-spacing: 0.00938em;
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--blue-principal-000052);
+                border-bottom: 2px solid var(--blue-principal-000052);
+            }
+        }
+    }
+}

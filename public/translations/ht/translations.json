@@ -1,5 +1,12 @@
 {
+  "navContent": {
+    "home": "Akèy",
+    "promotion": "Promosyon",
+    "search": "Cheche"
+  },
   "home": {
-    "welcome": "Byenvini sou Nuvann MarketPlace"
+    "welcome": "Byenvini sou Nuvann MarketPlace",
+    "searchForAProduct": "Chèche yon pwodui"
+
   }
 }
