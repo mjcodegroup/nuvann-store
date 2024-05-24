@@ -6,9 +6,8 @@ import { FormControl, MenuItem, Select } from '@mui/material';
 import Image from 'next/image';
 
 export default function LanguageSelector() {
-    const cookieLng = getCookie("NEXT_I18LANG");
     const [lng, setLng] = useState<string>('fr')
-    const { i18n } = useTranslation(cookieLng, { useSuspense: false });
+    const { i18n } = useTranslation(getCookie("NEXT_I18LANG"), { useSuspense: false });
 
     const handleLangChange = (event: any): void =>  {
         const lang = event.target.value
@@ -22,12 +21,15 @@ export default function LanguageSelector() {
     }, [i18n.language])
     
   return (
-    <FormControl sx={{Width: 30, minHeight: 20}} size="small">
+    <FormControl sx={{borderBottom: 'none'}}>
         <Select
-            variant='filled'
-            id="demo-simple-select-filled"
+            variant='standard'
             value={lng}
             onChange={handleLangChange}
+            sx={{
+                borderBottom: 'none'
+               
+            }}
         >
         {activeLanguage.map(_lng => (
             <MenuItem sx={{
@@ -36,7 +38,8 @@ export default function LanguageSelector() {
                 fontSize: '8px',
                 alignItems: 'center',
                 justifyContent: 'center',
-                alignContent: 'center'
+                alignContent: 'center',
+                overflow: 'hidden'
             }} key={_lng.value} value={_lng.value}>
                 <Image src={_lng.image} alt={_lng.name} width={20} height={12}/>
                 <span style={{fontSize: '14px', marginLeft: '8px'}}>
