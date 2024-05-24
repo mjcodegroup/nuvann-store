@@ -7,21 +7,22 @@ import SearchBar from './search-bar'
 import { useTranslation } from 'react-i18next'
 import { getCookie } from '@/utils/cookie'
 import NavList from './nav-list'
-import LanguageSelector from '../language-selector'
+import NavOptions from './nav-options'
 export const Navbar: React.FC = () => {
     const { t } = useTranslation(getCookie("NEXT_I18LANG"), { useSuspense: false });
+
     return (
         <div className={Styles.navbar_container_principal}>
             <div className={Styles.nav_header}>
                 <Link href="/">
-                <Image src={logo} alt="nuvann.com" />
+                    <Image src={logo} alt="nuvann.com" />
                 </Link>
                 <div className={Styles.navbar_search}>
                     <SearchBar placeholder={t('home.searchForAProduct')} onSearch={()=> console.log("searching")}/>
                 </div>
-                    <LanguageSelector/>
+                <NavOptions user={{}}/>
             </div>
             <NavList />
         </div>
-)
+    )
 }

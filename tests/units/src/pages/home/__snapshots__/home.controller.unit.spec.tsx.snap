@@ -4,14 +4,111 @@ exports[`HomeController Should render HomePage with props 1`] = `
 <div>
   <div>
     <h1>
-      Navbar
+      <div
+        class="navbar_container_principal"
+      >
+        <div
+          class="nav_header"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt="nuvann.com"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </a>
+          <div
+            class="navbar_search"
+          >
+            <div
+              class="search_bar"
+            >
+              <input
+                placeholder="home.searchForAProduct"
+                type="text"
+                value=""
+              />
+              <button>
+                navContent.search
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root css-keqm4u-MuiFormControl-root"
+          >
+            <div
+              class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall  css-utk17j-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root"
+            >
+              <div
+                aria-controls=":r0:"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="demo-simple-select-filled"
+                class="MuiSelect-select MuiSelect-filled MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-1gzkxga-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input"
+                id="demo-simple-select-filled"
+                role="combobox"
+                tabindex="0"
+              >
+                <span
+                  class="notranslate"
+                >
+                  ​
+                </span>
+              </div>
+              <input
+                aria-hidden="true"
+                aria-invalid="false"
+                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                tabindex="-1"
+                value="fr"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconFilled css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+                data-testid="ArrowDropDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <nav
+          class="navbar_list"
+        >
+          <ul>
+            <a
+              href="/"
+            >
+              navContent.home
+            </a>
+            <a
+              href="/promotion"
+            >
+              navContent.promotion
+            </a>
+            <li>
+              Vann
+            </li>
+          </ul>
+        </nav>
+      </div>
     </h1>
     <div
       class="home_page_default_main_container"
     >
-      <h1>
-        welcome
-      </h1>
+      home.welcome
     </div>
     <div
       class="footer_principal_container"

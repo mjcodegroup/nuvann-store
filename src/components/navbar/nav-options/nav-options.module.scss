@@ -1,0 +1,35 @@
+.nav_options_container {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+
+    li {
+        cursor: pointer;
+        align-items: center;
+        display: flex;
+        margin-right: 16px;
+        justify-content: space-between;
+
+        a {
+            margin-right: 16px;
+            button {
+                width: 133px;
+                height: 36px;
+                background-color: var(--blue-principal-000052);
+                border: none;
+                color: var(--background-white);
+                cursor: pointer;
+            }
+        }
+        span{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            margin-left: 8px;
+        }
+        small{
+            color: #ffff;
+        }
+    }
+}
