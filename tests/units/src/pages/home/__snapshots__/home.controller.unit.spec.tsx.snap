@@ -45,33 +45,18 @@ exports[`HomeController Should render HomePage with props 1`] = `
             class="nav_options_container"
           >
             <li>
-              <a
-                href="/login"
+              <div
+                class="MuiAvatar-root MuiAvatar-circular css-1azxqog-MuiAvatar-root"
               >
-                <button>
-                  <svg
-                    fill="none"
-                    height="1em"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                    />
-                    <circle
-                      cx="12"
-                      cy="7"
-                      r="4"
-                    />
-                  </svg>
-                   konekte | Enskri
-                </button>
-              </a>
+                <img
+                  alt="user profile picture"
+                  class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                  src="navAvatar"
+                />
+              </div>
+              <span>
+                Marc
+              </span>
             </li>
             <li>
               <a

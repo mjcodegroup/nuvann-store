@@ -1,4 +1,3 @@
-// utils/set-cookie.test.ts
 import Cookie from '@/utils/cookie/index'
 
 const getCookies = () => {
@@ -20,7 +19,6 @@ describe('Cookie Utilities', () => {
 
     describe('setCookie', () => {
         beforeEach(() => {
-            // Clear the document.cookie before each test
             global.document.cookie = '';
         });
     

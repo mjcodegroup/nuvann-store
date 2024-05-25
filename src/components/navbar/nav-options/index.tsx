@@ -11,14 +11,14 @@ import { NavOptionProps } from '../types';
 export default function NavOptions(props: Readonly<NavOptionProps>) {
   return (
     <ul className={Styles.nav_options_container}>
-    { !props.user ?
+    { props.user ?
       <li>
-        <Avatar 
-          alt={"user.name"}
-          src={"navAvatar"}
+        <Avatar
+        alt='user profile picture'
+          src={props.user.avatar}
           sx={{ width: 32, height: 32 }}
         />
-        <span> Marc</span>
+        <span>{props.user.name}</span>
       </li>
     :
     <li>

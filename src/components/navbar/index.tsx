@@ -20,7 +20,10 @@ export const Navbar: React.FC = () => {
                 <div className={Styles.navbar_search}>
                     <SearchBar placeholder={t('home.searchForAProduct')} onSearch={()=> console.log("searching")}/>
                 </div>
-                <NavOptions user={{}}/>
+                <NavOptions user={{
+                    name: "Marc",
+                    avatar: "navAvatar"
+                }}/>
             </div>
             <NavList />
         </div>
