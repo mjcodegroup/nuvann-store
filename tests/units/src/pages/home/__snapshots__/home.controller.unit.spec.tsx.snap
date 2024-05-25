@@ -41,48 +41,92 @@ exports[`HomeController Should render HomePage with props 1`] = `
               </button>
             </div>
           </div>
-          <div
-            class="MuiFormControl-root css-keqm4u-MuiFormControl-root"
+          <ul
+            class="nav_options_container"
           >
-            <div
-              class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall  css-utk17j-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root"
-            >
+            <li>
               <div
-                aria-controls=":r0:"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-labelledby="demo-simple-select-filled"
-                class="MuiSelect-select MuiSelect-filled MuiInputBase-input MuiFilledInput-input MuiInputBase-inputSizeSmall css-1gzkxga-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input"
-                id="demo-simple-select-filled"
-                role="combobox"
-                tabindex="0"
+                class="MuiAvatar-root MuiAvatar-circular css-1azxqog-MuiAvatar-root"
+              >
+                <img
+                  alt="user profile picture"
+                  class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                  src="navAvatar"
+                />
+              </div>
+              <span>
+                Marc
+              </span>
+            </li>
+            <li>
+              <a
+                href="/carts"
               >
                 <span
-                  class="notranslate"
+                  class="MuiBadge-root css-1c32n2y-MuiBadge-root"
                 >
-                  ​
+                  <img
+                    alt="cartIcon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-imxc6v-MuiBadge-badge"
+                  >
+                    2
+                  </span>
                 </span>
-              </div>
-              <input
-                aria-hidden="true"
-                aria-invalid="false"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="fr"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconFilled css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
+              </a>
+            </li>
+            <li>
+              <div
+                class="MuiFormControl-root css-u4mugv-MuiFormControl-root"
               >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
-            </div>
-          </div>
+                <div
+                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl  css-1pdggju-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                >
+                  <div
+                    aria-controls=":r0:"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                    role="combobox"
+                    tabindex="0"
+                  >
+                    <span
+                      class="notranslate"
+                    >
+                      ​
+                    </span>
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    aria-invalid="false"
+                    class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="fr"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
         <nav
           class="navbar_list"

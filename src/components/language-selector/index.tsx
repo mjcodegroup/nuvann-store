@@ -1,4 +1,4 @@
-import { getCookie, setCookie } from '@/utils/cookie/index';
+import Cookie from '@/utils/cookie/index';
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import activeLanguage from '@/utils/mocks/active-language';
@@ -7,13 +7,13 @@ import Image from 'next/image';
 
 export default function LanguageSelector() {
     const [lng, setLng] = useState<string>('fr')
-    const { i18n } = useTranslation(getCookie("NEXT_I18LANG"), { useSuspense: false });
+    const { i18n } = useTranslation(Cookie.getCookie("NEXT_I18LANG"), { useSuspense: false });
 
     const handleLangChange = (event: any): void =>  {
         const lang = event.target.value
         i18n.changeLanguage(lang)
         setLng(lang)
-        setCookie("NEXT_I18LANG", lang, 180)
+        Cookie.setCookie("NEXT_I18LANG", lang, 180)
     }
 
     useEffect(() => {
