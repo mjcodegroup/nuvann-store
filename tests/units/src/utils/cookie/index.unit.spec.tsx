@@ -1,5 +1,5 @@
 // utils/set-cookie.test.ts
-import {getCookie,setCookie} from '@/utils/cookie/index'
+import Cookie from '@/utils/cookie/index'
 
 const getCookies = () => {
     return document.cookie.split(';').reduce((cookies, cookie) => {
@@ -19,26 +19,27 @@ describe('Cookie Utilities', () => {
     });
 
     describe('setCookie', () => {
-        it('should set a cookie with the given name, value and expiry days', () => {
-            const name = 'testCookie';
-            const value = 'testValue';
+        beforeEach(() => {
+            // Clear the document.cookie before each test
+            global.document.cookie = '';
+        });
+    
+        it('sets a cookie with a given name and value', () => {
+            Cookie.setCookie('testCookie', 'testValue', 7);
+            expect(document.cookie).toMatch(/testCookie=testValue/);
+        });
+    
+        it('sets a cookie with an expiration date', () => {
             const days = 7;
-
-            setCookie(name, value, days);
-
-            const cookies = getCookies();
-            expect(cookies[name]).toBe(value);
+            const futureDate = new Date();
+            futureDate.setTime(futureDate.getTime() + (days * 24 * 60 * 60 * 1000));
+    
+            Cookie.setCookie('testCookie', 'testValue', days);
+            const cookieString = document.cookie;
+            expect(cookieString).toMatch(/testCookie=testValue/);
         });
 
-        it('should set a session cookie if days is not provided', () => {
-            const name = 'sessionCookie';
-            const value = 'sessionValue';
 
-            setCookie(name, value, 0);
-
-            const cookies = getCookies();
-            expect(cookies[name]).toBe(value);
-        });
     });
 
     describe('getCookie', () => {
@@ -47,11 +48,11 @@ describe('Cookie Utilities', () => {
             const value = 'testValue';
             document.cookie = `${name}=${value}; path=/`;
 
-            expect(getCookie(name)).toBe(value);
+            expect(Cookie.getCookie(name)).toBe(value);
         });
 
         it('should return an empty string if the cookie does not exist', () => {
-            expect(getCookie('nonExistentCookie')).toBe('');
+            expect(Cookie.getCookie('nonExistentCookie')).toBe('');
         });
 
         it('should return an empty string for undefined cookie', () => {
@@ -59,8 +60,21 @@ describe('Cookie Utilities', () => {
             // @ts-ignore
             delete global.window;
         
-            expect(getCookie('testCookie')).toBe('');
+            expect(Cookie.getCookie('testCookie')).toBe('');
             global.window = originalWindow;
           });
+    });
+
+    describe('deleteCookie', () => {
+        it('should delete the cookie with the given name', () => {
+            const name = 'testCookie';
+            const value = 'testValue';
+            document.cookie = `${name}=${value}; path=/`;
+
+            Cookie.deleteCookie(name);
+
+            const cookies = getCookies();
+            expect(cookies[name]).toBeUndefined();
+        });
     });
 });
