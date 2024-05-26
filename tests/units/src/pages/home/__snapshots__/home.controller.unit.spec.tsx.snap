@@ -138,13 +138,30 @@ exports[`HomeController Should render HomePage with props 1`] = `
               navContent.home
             </a>
             <a
-              href="/promotion"
+              href="/promotions"
             >
               navContent.promotion
             </a>
-            <li>
-              Vann
-            </li>
+            <a
+              href="/category"
+            >
+              navContent.category
+            </a>
+            <a
+              href="/sell"
+            >
+              navContent.sell
+            </a>
+            <a
+              href="/category?category=man"
+            >
+              navContent.man
+            </a>
+            <a
+              href="/category?category=women"
+            >
+              navContent.women
+            </a>
           </ul>
         </nav>
       </div>

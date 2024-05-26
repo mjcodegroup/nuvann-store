@@ -2,7 +2,11 @@
   "navContent": {
     "home": "Akèy",
     "promotion": "Promosyon",
-    "search": "Chèche"
+    "search": "Chèche",
+    "sell": "Vann",
+    "category": "Kategori",
+    "man": "Gason",
+    "women": "Fanm"
   },
   "home": {
     "welcome": "Byenvini sou Nuvann MarketPlace",

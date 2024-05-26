@@ -10,13 +10,24 @@ export default function NavList() {
     <nav className={Styles.navbar_list}>
         <ul>
             <Link href="/">{t("navContent.home")}</Link>
-            <Link href="/promotion">
+            <Link href="/promotions">
               {t("navContent.promotion")}
+            </Link>
+            <Link href="/category">
+              {t("navContent.category")}
+            </Link>
+            <Link href="/sell">
+              {t("navContent.sell")}
+            </Link>
+            <Link href="/category?category=man">
+              {t("navContent.man")}
+            </Link>
+            <Link href="/category?category=women">
+              {t("navContent.women")}
             </Link>
             {/* <Dropdown categories={productsCategories} contentWidth="100%">
                 <Link to="#">Kategori</Link>
             </Dropdown> */}
-            <li  >Vann</li>
         </ul>
     </nav>
   )
