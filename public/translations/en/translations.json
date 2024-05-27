@@ -2,7 +2,11 @@
   "navContent": {
       "home": "Home",
       "promotion": "Promotion",
-      "search": "Search"
+      "search": "Search",
+      "sell": "Sell",
+      "category": "Category",
+      "man": "Men",
+      "women": "Women"
   },
   "home": {
     "welcome": "Welcome to Nuvann Makertplace",

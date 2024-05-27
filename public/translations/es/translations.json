@@ -2,7 +2,11 @@
   "navContent": {
     "home": "Inico",
     "promotion": "Promoción",
-    "search": "Buscar"
+    "search": "Buscar",
+    "sell": "Vender",
+    "category": "Categoría",
+    "man": "hombre",
+    "women": "Mujer"
   },
   "home": {
     "welcome": "Bienvenido a Nuvann Makertplace",

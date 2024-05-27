@@ -14,6 +14,7 @@ const nextConfig = {
       },
     ],
   },
+  testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
 };
 
 export default nextConfig;

@@ -1,11 +1,7 @@
-// SearchBar.test.js
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'
-import SearchBar from '@/components/navbar/search-bar'; // ajuste o caminho conforme necessário
-import { useTranslation } from 'react-i18next';
-import Cookie from '@/utils/cookie';
-import { debounce } from 'lodash';
+import SearchBar from '@/components/navbar/search-bar';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -13,13 +9,14 @@ jest.mock('react-i18next', () => ({
   }),
 }));
 
+const mockedDebounce = jest.fn(<T extends (...args: any[]) => any>(fn: T) => {
+  const debouncedFn = (...args: Parameters<T>): ReturnType<T> => fn(...args);
+  (debouncedFn as any).cancel = jest.fn();
+  return debouncedFn;
+});
 
 jest.mock('lodash', () => ({
-  debounce: jest.fn((fn) => {
-    const debouncedFn = (...args) => fn(...args);
-    debouncedFn.cancel = jest.fn();
-    return debouncedFn;
-  }),
+  debounce: mockedDebounce,
 }));
 
 describe('SearchBar Component', () => {
@@ -29,22 +26,9 @@ describe('SearchBar Component', () => {
     expect(screen.getByPlaceholderText('Search for products')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /navContent.search/i })).toBeInTheDocument();
   });
+  
 
-//   it('calls onSearch with debounced input value', async () => {
-//     const onSearchMock = jest.fn();
-//     const onDebounceMock = jest.fn();
-//     render(<SearchBar placeholder="Search for products" onSearch={onSearchMock} />);
-
-//     const input = screen.getByPlaceholderText('Search for products');
-//     fireEvent.change(input, { target: { value: 'Test' } });
-
-//     await waitFor(() => {
-//       expect(onDebounceMock).toHaveBeenCalled();
-//       expect(onSearchMock).toHaveBeenCalledWith('Test');
-//     });
-//   });
-
-  it('calls onSearch when button is clicked', async () => {
+  it('should calls onSearch when button is clicked', async () => {
     const onSearchMock = jest.fn();
     render(<SearchBar placeholder="Search for products" onSearch={onSearchMock} />);
 
