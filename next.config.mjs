@@ -15,6 +15,7 @@ const nextConfig = {
     ],
   },
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
+  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
 };
 
 export default nextConfig;
