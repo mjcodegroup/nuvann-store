@@ -1,5 +1,35 @@
 {
   "files": {
+    "src/components/footer/index.tsx": {
+      "language": "typescript",
+      "mutants": [
+        {
+          "id": "0",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "statusReason": "src/components/home-page-default/index.tsx(18,10): error TS2786: 'Footer' cannot be used as a JSX component.\n  Its type '() => void' is not a valid JSX element type.\n    Type '() => void' is not assignable to type '(props: any, deprecatedLegacyContext?: any) => ReactNode'.\n      Type 'void' is not assignable to type 'ReactNode'.\ntests/units/src/components/footer/index.unit.spec.tsx(9,34): error TS2786: 'Footer' cannot be used as a JSX component.\n  Its type '() => void' is not a valid JSX element type.\n",
+          "status": "CompileError",
+          "static": false,
+          "killedBy": [],
+          "coveredBy": [
+            "23",
+            "24",
+            "25"
+          ],
+          "location": {
+            "end": {
+              "column": 2,
+              "line": 83
+            },
+            "start": {
+              "column": 29,
+              "line": 15
+            }
+          }
+        }
+      ],
+      "source": "import React from 'react'\nimport { AiOutlineUser, AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';\nimport {FaMapMarkerAlt, FaPhoneAlt, FaEnvelope} from 'react-icons/fa';\nimport Image from 'next/image';\nimport styles from './styles.module.scss'\n\nimport visaIcon from '../../../public/assets/cards/visa.svg'\nimport masterCard from '../../../public/assets/cards/mastercard.svg'\nimport paypal from '../../../public/assets/cards/paypal.svg'\nimport elo from '../../../public/assets/cards/elo.svg'\nimport visacheckout from '../../../public/assets/cards/visacheckout.svg'\nimport amex from '../../../public/assets/cards/amex.svg'\nimport boleto from '../../../public/assets/cards/boleto.svg'\n\nexport const Footer = () => {\n\n  const today = new Date();\n  const year = today.getFullYear();\n  return (\n    <div className={styles.footer_principal_container}>\n        <div className={styles.footer_principal_cards}>\n          <Image src={visaIcon} alt={visaIcon}/>\n          <Image src={masterCard} alt={masterCard}/>\n          <Image src={paypal} alt={paypal}/>\n          <Image src={elo} alt={elo}/>\n          <Image src={visacheckout} alt={visacheckout}/>\n          <Image src={amex} alt={amex}/>\n          <Image src={boleto} alt={boleto}/>\n        </div>\n        <div className={styles.footer_separate}>\n          <hr />\n        </div>\n        <div className={styles.footer_details}>\n          <div>\n            <h2>Kontakte nou</h2>\n\n            <p>\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris\n            </p> <br />\n\n            <p><span> <FaMapMarkerAlt /> </span>Rua Inambu 540, Efapi-Chapeco, SC </p>\n            <p><span> <FaPhoneAlt/> </span>+55-0000000000</p>\n            <p><span> <FaEnvelope/> </span> nuvann@contact.com</p>\n          </div>\n          <div>\n            <h2>Rakousi Enfo</h2>\n\n            <p>Komanw kapab Vann </p>\n            <p> Komanw ka fè yon reklamasyon </p>\n            <p> Komanw ka pab Vann </p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw ka pab Vann</p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw kapab Vann </p>\n          </div>\n          <div>\n            <h2>Relasyon Nuvann</h2>\n\n            <p>Komanw kapab Vann </p>\n            <p> Komanw ka fè yon reklamasyon </p>\n            <p> Komanw ka pab Vann </p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw ka pab Vann</p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw kapab Vann </p>\n          </div>\n\n          <div>\n            <h2>Espas Kliyan</h2>\n\n            <p><span><AiOutlineUser /></span> Profil</p>\n            <p><span><AiOutlineShoppingCart/></span> Panye</p>\n            <p><span> <AiOutlineLogout /> </span> Dekonekte</p>\n          </div>\n        </div>\n        <div className={styles.footer_signature}>\n            <span>Copyright © {year} - Nuvann webStore | All rights reserved.</span>\n        </div>\n    </div>\n  )\n}"
+    },
     "src/components/home-page-default/index.tsx": {
       "language": "typescript",
       "mutants": [
@@ -3559,35 +3589,6 @@
         }
       ],
       "source": "import i18next from \"i18next\"\nimport { initReactI18next } from \"react-i18next\"\nimport Backend from 'i18next-http-backend'\nimport Cookie from \"../cookie\";\n\ni18next\n    .use(initReactI18next)\n    .use(Backend)\n    .init({\n        lng: Cookie.getCookie(\"NEXT_I18LANG\"),\n        fallbackLng: \"en\",\n        backend: {\n            loadPath: '/translations/{{lng}}/translations.json'\n        }\n    })\nexport default i18next;"
-    },
-    "src/components/footer/index.tsx": {
-      "language": "typescript",
-      "mutants": [
-        {
-          "id": "0",
-          "mutatorName": "BlockStatement",
-          "replacement": "{}",
-          "statusReason": "src/components/home-page-default/index.tsx(18,10): error TS2786: 'Footer' cannot be used as a JSX component.\n  Its type '() => void' is not a valid JSX element type.\n    Type '() => void' is not assignable to type '(props: any, deprecatedLegacyContext?: any) => ReactNode'.\n      Type 'void' is not assignable to type 'ReactNode'.\ntests/units/src/components/footer/index.unit.spec.tsx(9,34): error TS2786: 'Footer' cannot be used as a JSX component.\n  Its type '() => void' is not a valid JSX element type.\n",
-          "status": "CompileError",
-          "static": false,
-          "coveredBy": [
-            "23",
-            "24",
-            "25"
-          ],
-          "location": {
-            "end": {
-              "column": 2,
-              "line": 83
-            },
-            "start": {
-              "column": 29,
-              "line": 15
-            }
-          }
-        }
-      ],
-      "source": "import React from 'react'\nimport { AiOutlineUser, AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';\nimport {FaMapMarkerAlt, FaPhoneAlt, FaEnvelope} from 'react-icons/fa';\nimport Image from 'next/image';\nimport styles from './styles.module.scss'\n\nimport visaIcon from '../../../public/assets/cards/visa.svg'\nimport masterCard from '../../../public/assets/cards/mastercard.svg'\nimport paypal from '../../../public/assets/cards/paypal.svg'\nimport elo from '../../../public/assets/cards/elo.svg'\nimport visacheckout from '../../../public/assets/cards/visacheckout.svg'\nimport amex from '../../../public/assets/cards/amex.svg'\nimport boleto from '../../../public/assets/cards/boleto.svg'\n\nexport const Footer = () => {\n\n  const today = new Date();\n  const year = today.getFullYear();\n  return (\n    <div className={styles.footer_principal_container}>\n        <div className={styles.footer_principal_cards}>\n          <Image src={visaIcon} alt={visaIcon}/>\n          <Image src={masterCard} alt={masterCard}/>\n          <Image src={paypal} alt={paypal}/>\n          <Image src={elo} alt={elo}/>\n          <Image src={visacheckout} alt={visacheckout}/>\n          <Image src={amex} alt={amex}/>\n          <Image src={boleto} alt={boleto}/>\n        </div>\n        <div className={styles.footer_separate}>\n          <hr />\n        </div>\n        <div className={styles.footer_details}>\n          <div>\n            <h2>Kontakte nou</h2>\n\n            <p>\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris\n            </p> <br />\n\n            <p><span> <FaMapMarkerAlt /> </span>Rua Inambu 540, Efapi-Chapeco, SC </p>\n            <p><span> <FaPhoneAlt/> </span>+55-0000000000</p>\n            <p><span> <FaEnvelope/> </span> nuvann@contact.com</p>\n          </div>\n          <div>\n            <h2>Rakousi Enfo</h2>\n\n            <p>Komanw kapab Vann </p>\n            <p> Komanw ka fè yon reklamasyon </p>\n            <p> Komanw ka pab Vann </p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw ka pab Vann</p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw kapab Vann </p>\n          </div>\n          <div>\n            <h2>Relasyon Nuvann</h2>\n\n            <p>Komanw kapab Vann </p>\n            <p> Komanw ka fè yon reklamasyon </p>\n            <p> Komanw ka pab Vann </p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw ka pab Vann</p>\n            <p> Komanw ka fè yon reklamasyon  </p>\n            <p>Komanw kapab Vann </p>\n          </div>\n\n          <div>\n            <h2>Espas Kliyan</h2>\n\n            <p><span><AiOutlineUser /></span> Profil</p>\n            <p><span><AiOutlineShoppingCart/></span> Panye</p>\n            <p><span> <AiOutlineLogout /> </span> Dekonekte</p>\n          </div>\n        </div>\n        <div className={styles.footer_signature}>\n            <span>Copyright © {year} - Nuvann webStore | All rights reserved.</span>\n        </div>\n    </div>\n  )\n}"
     }
   },
   "schemaVersion": "1.0",
