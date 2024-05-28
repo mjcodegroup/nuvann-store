@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from "./home-page-default.module.css"
-import { Footer } from '../footer';
-import { Navbar } from '../navbar';
+import { Footer } from '../footer/index';
+import { Navbar } from '../navbar/index';
 
 interface PageDefaultProps {
     children: React.ReactNode;

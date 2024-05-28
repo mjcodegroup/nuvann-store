@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'
-import SearchBar from '@/components/navbar/search-bar';
+import SearchBar from '@/components/navbar/search-bar/index';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({

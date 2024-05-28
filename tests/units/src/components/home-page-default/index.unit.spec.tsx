@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom'
 
 import { render } from '@testing-library/react';
-import { HomePageDefault } from '@/components/home-page-default';
+import { HomePageDefault } from '@/components/home-page-default/index';
 
 describe('HomePage Default Container', () => {
     it('applies correct class to main container', () => {
