@@ -2,7 +2,7 @@
 import React from 'react';
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react';
-import HomeController from '@/pages/index';
+import HomeController from '@/pages/index.page';
 
 describe("HomeController", () =>{
     it("Should render HomePage with props", ()=>{

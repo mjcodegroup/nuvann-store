@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   react: {
     useSuspense: false,
-    wait: false
+    wait: true
   },
   images: {
     remotePatterns: [
@@ -15,7 +15,7 @@ const nextConfig = {
     ],
   },
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
-  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js']
 };
 
 export default nextConfig;
