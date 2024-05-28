@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Styles from './hero.module.scss';
 import { FaCircleArrowLeft, FaCircleArrowRight } from 'react-icons/fa6';
@@ -9,9 +9,9 @@ type HeroProps = {
 };
 
 const Hero: React.FC<HeroProps> = ({ images, autoSlideInterval }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
     }, autoSlideInterval);
@@ -35,10 +35,10 @@ const Hero: React.FC<HeroProps> = ({ images, autoSlideInterval }) => {
           </div>
         ))}
       </div>
-      <button className={Styles.__prev_btn} onClick={handlePrevSlide}>
+      <button aria-label='_prev' name='_prev' className={Styles.__prev_btn} onClick={handlePrevSlide}>
         <FaCircleArrowLeft />
       </button>
-      <button className={Styles.__next_btn} onClick={handleNextSlide}>
+      <button aria-label='_next' name='_next' className={Styles.__next_btn} onClick={handleNextSlide}>
         <FaCircleArrowRight />
       </button>
     </div>

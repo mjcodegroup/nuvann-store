@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom'
 
 import { render, screen, fireEvent } from '@testing-library/react';
-import LanguageSelector from '@/components/language-selector';
+import LanguageSelector from '@/components/language-selector/index';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '@/utils/i18starter/index';
 
