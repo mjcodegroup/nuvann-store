@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { debounce } from 'lodash';
 import Styles from "./search-bar.module.scss";
-import Cookie from '@/utils/cookie';
 import { useTranslation } from 'react-i18next';
 import { SearchBarProps } from '../types';
 
 const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSearch }) => {
-  const { t } = useTranslation(Cookie.getCookie("NEXT_I18LANG"), { useSuspense: false });
+  const { t } = useTranslation();
   const [query, setQuery] = useState<string>('');
 
   const debouncedSearch = debounce((query: string) => {
