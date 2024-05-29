@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import Styles from "./nav-list.module.scss"
-import Cookie from '@/utils/cookie';
 import { useTranslation } from 'react-i18next';
 
 export default function NavList() {
-  const { t } = useTranslation(Cookie.getCookie("NEXT_I18LANG"), { useSuspense: false });
+  const { t } = useTranslation();
   return (
     <nav className={Styles.navbar_list}>
         <ul>

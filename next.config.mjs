@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  react: {
-    useSuspense: false,
-    wait: true
-  },
   images: {
     remotePatterns: [
       {
@@ -15,6 +11,7 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
+  staticPageGenerationTimeout: 1000,
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   output: "export",

@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function LanguageSelector() {
     const [lng, setLng] = useState<string>('fr')
-    const { i18n } = useTranslation(Cookie.getCookie("NEXT_I18LANG"), { useSuspense: false });
+    const { i18n } = useTranslation();
 
     const handleLangChange = (event: any): void =>  {
         const lang = event.target.value

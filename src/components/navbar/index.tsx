@@ -5,11 +5,10 @@ import logo from "../../../public/logo.svg"
 import Image from 'next/image'
 import SearchBar from './search-bar'
 import { useTranslation } from 'react-i18next'
-import Cookie from '@/utils/cookie'
 import NavList from './nav-list'
 import NavOptions from './nav-options'
 export const Navbar: React.FC = () => {
-    const { t } = useTranslation(Cookie.getCookie("NEXT_I18LANG"), { useSuspense: false });
+    const { t } = useTranslation();
 
     return (
         <div className={Styles.navbar_container_principal}>
