@@ -8,13 +8,13 @@ import { useTranslation } from 'react-i18next'
 import NavList from './nav-list'
 import NavOptions from './nav-options'
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { useAuth0 } from "@auth0/auth0-react";
+
 export const Navbar: React.FC = () => {
     const { t } = useTranslation();
 
-    const { user, error, isLoading } = useUser();
+    const { loginWithRedirect, user, isAuthenticated, isLoading, logout } = useAuth0();
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>{error.message}</div>;
 
     return (
         <div className={Styles.navbar_container_principal}>
@@ -25,7 +25,13 @@ export const Navbar: React.FC = () => {
                 <div className={Styles.navbar_search}>
                     <SearchBar placeholder={t('home.searchForAProduct')} onSearch={()=> console.log("searching")}/>
                 </div>
-                <NavOptions user={user}/>
+                <NavOptions
+                    user={user}
+                    isAuthenticated={isAuthenticated}
+                    onSignIn={loginWithRedirect}
+                    isLoading={isLoading}
+                    onLogout={logout}
+                />
             </div>
             <NavList />
         </div>
