@@ -7,7 +7,6 @@ import SearchBar from './search-bar'
 import { useTranslation } from 'react-i18next'
 import NavList from './nav-list'
 import NavOptions from './nav-options'
-import { useUser } from '@auth0/nextjs-auth0/client';
 import { useAuth0 } from "@auth0/auth0-react";
 
 export const Navbar: React.FC = () => {
