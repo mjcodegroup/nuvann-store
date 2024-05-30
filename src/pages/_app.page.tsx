@@ -8,6 +8,7 @@ import '../styles/globals.scss'
 
 import "@/utils/i18starter/index"
 import { I18nextProvider, getI18n } from "react-i18next";
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -17,7 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <I18nextProvider i18n={getI18n()}>
+      <UserProvider i18nIsDynamicList>
         <Component {...pageProps}/>;
+      </UserProvider>
       </I18nextProvider>
     </>
   )
