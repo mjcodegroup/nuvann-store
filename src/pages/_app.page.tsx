@@ -10,6 +10,13 @@ import '../styles/globals.scss'
 import "@/utils/i18starter/index"
 import { I18nextProvider, getI18n } from "react-i18next";
 export default function App({ Component, pageProps }: AppProps) {
+  const [origin, setOrigin] = React.useState('');
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOrigin(window.location.origin);
+    }
+  }, []);
   return (
     <>
       <style jsx global>{`
@@ -22,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
           domain="https://dev-oy36i2x64cnh58cs.us.auth0.com"
           clientId="BvVWpwUjzMrzvRhM7qpWZQ8XHO79OKiL"
           authorizationParams={{
-            redirect_uri:   window.location.origin
+            redirect_uri: origin
           }}
         >
           <Component {...pageProps}/>;
