@@ -19,8 +19,8 @@ export default function NavOptions(props: Readonly<NavOptionProps>) {
     <>
       <li>
         <Avatar
-        alt='user profile picture'
-          src={props.user.avatar}
+          alt='user profile picture'
+          src={props.user.picture}
           sx={{ width: 32, height: 32 }}
         />
         <span>{props.user.name}</span>
