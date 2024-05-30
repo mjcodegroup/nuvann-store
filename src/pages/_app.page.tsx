@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import { Auth0Provider } from '@auth0/auth0-react';
 import React from "react";
 
 import { Inter } from 'next/font/google'
@@ -8,7 +9,6 @@ import '../styles/globals.scss'
 
 import "@/utils/i18starter/index"
 import { I18nextProvider, getI18n } from "react-i18next";
-import { UserProvider } from '@auth0/nextjs-auth0/client';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -18,9 +18,15 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <I18nextProvider i18n={getI18n()}>
-      <UserProvider i18nIsDynamicList>
-        <Component {...pageProps}/>;
-      </UserProvider>
+        <Auth0Provider
+          domain="https://dev-oy36i2x64cnh58cs.us.auth0.com"
+          clientId="BvVWpwUjzMrzvRhM7qpWZQ8XHO79OKiL"
+          authorizationParams={{
+            redirect_uri: 'http://localhost:3000/'
+          }}
+        >
+          <Component {...pageProps}/>;
+        </Auth0Provider>
       </I18nextProvider>
     </>
   )

@@ -7,11 +7,16 @@ import Styles from "./nav-options.module.scss"
 import Image from 'next/image';
 import cartIcon from "../../../../public/assets/icons/cartIcon.svg"
 import { NavOptionProps } from '../types';
+import { TbLogout } from 'react-icons/tb';
 
 export default function NavOptions(props: Readonly<NavOptionProps>) {
+  if(props.isLoading) {
+    return <h1>Loading...........................</h1>
+  }
   return (
     <ul className={Styles.nav_options_container}>
-    { props.user ?
+    { props.isAuthenticated ?
+    <>
       <li>
         <Avatar
         alt='user profile picture'
@@ -20,9 +25,12 @@ export default function NavOptions(props: Readonly<NavOptionProps>) {
         />
         <span>{props.user.name}</span>
       </li>
+
+      <li onClick={()=>props.onLogout()}><TbLogout /></li>
+    </>
     :
     <li>
-      <Link href="/api/auth/login" >
+      <Link href="#" onClick={()=>props.onSignIn()}>
         <button><FiUser/> konekte | Enskri</button>
       </Link>
     </li>
