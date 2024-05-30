@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
           domain="https://dev-oy36i2x64cnh58cs.us.auth0.com"
           clientId="BvVWpwUjzMrzvRhM7qpWZQ8XHO79OKiL"
           authorizationParams={{
-            redirect_uri: 'http://localhost:3000/'
+            redirect_uri:   window.location.origin
           }}
         >
           <Component {...pageProps}/>;
