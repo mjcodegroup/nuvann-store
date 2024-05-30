@@ -22,7 +22,7 @@ export default function NavOptions(props: Readonly<NavOptionProps>) {
       </li>
     :
     <li>
-      <Link href="/login" >
+      <Link href="/api/auth/login" >
         <button><FiUser/> konekte | Enskri</button>
       </Link>
     </li>
