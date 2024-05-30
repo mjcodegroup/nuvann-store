@@ -10,13 +10,8 @@ import '../styles/globals.scss'
 import "@/utils/i18starter/index"
 import { I18nextProvider, getI18n } from "react-i18next";
 export default function App({ Component, pageProps }: AppProps) {
-  const [origin, setOrigin] = React.useState('');
 
-  React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setOrigin(window.location.origin);
-    }
-  }, []);
+  const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
   return (
     <>
       <style jsx global>{`
