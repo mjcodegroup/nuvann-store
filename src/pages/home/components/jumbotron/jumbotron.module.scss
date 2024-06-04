@@ -1,0 +1,48 @@
+.jumbotron_container {
+    background-color: var(--background-white);
+    margin: 15px 0 0 0;
+    height: 200px;
+    padding: 8px;
+    
+    .home_jumbotron {
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        height: 100%;
+        
+        .jumbotron_content {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        @media (max-width: 768px) {
+            gap: 0 32px;
+        }
+    }
+    width: 100%;
+
+    // Estilos para dispositivos móveis
+    @media (max-width: 768px) {
+        overflow-y: auto; // Adiciona scroll vertical no mobile
+        -webkit-overflow-scrolling: touch; // Suaviza o scroll no iOS
+    }
+
+    // Estilos para a barra de rolagem (opcional)
+    &::-webkit-scrollbar {
+        width: 6px;
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+}
