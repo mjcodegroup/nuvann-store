@@ -9,6 +9,8 @@
         justify-content: space-between;
         align-items:center;
         height: 100%;
+        gap: 0 128px;
+
         
         .jumbotron_content {
             text-align: center;
@@ -23,6 +25,9 @@
         }
     }
     width: 100%;
+    @media (min-width: 768px) {
+        overflow: hidden;
+    }
 
     // Estilos para dispositivos móveis
     @media (max-width: 768px) {
