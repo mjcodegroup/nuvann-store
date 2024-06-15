@@ -11,8 +11,9 @@ export default function Home(props: Readonly<HomeProps>) {
   return (
     <>
     <Hero images={props.heroImages} autoSlideInterval={5000}/>
-      {t('home.welcome')}
+      {/* {t('home.welcome')} */}
     <Jumbotron data={props.jumbotronData}/>
+    <ProductSlide itemToShow={4}  slides={productListMock} title="Nouvo pwodui" havePromo={true} isLoading={false} />
     <ProductSlide itemToShow={4}  slides={productListMock} title="Likidasyon pou Mwa an" havePromo={true} isLoading={false} />
     </>
   )

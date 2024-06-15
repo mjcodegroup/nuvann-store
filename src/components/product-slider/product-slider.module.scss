@@ -151,41 +151,41 @@
     //         }
     //     }
     
-    .slick-prev:hover,.slick-next:hover,
-    .slick-prev:focus,.slick-next:focus{
-      background-color: var(--background-principal);
+    .slick_prev:hover,.slick_next:hover,
+    .slick_prev:focus,.slick_next:focus{
+      background-color: #E5E5E5;
     
     }
     
-    // .slick-prev, .slick-next {
-    //   position: absolute;
-    //   z-index: 1000;
-    //   height: 42px;
-    //   width: 42px;
-    //   border-radius: 50%;
-    //   color: var(--blue-principal-000052) !important;
-    // }
+    .slick_prev, .slick_next {
+      z-index: 1000;
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      color: #000052;
+
+    }
     
       .slick-arrow {
-        background-color: var(--background-principal);
+        background-color: #E5E5E5;
     
       }
       
-      .slick-prev:before, .slick-next:before {
-       color: var(--blue-principal-000052) !important;
+      .slick_prev:before, .slick_next:before {
+       color: #000052;
        background-color: #ffff;
        font-size: 25px;
        border-radius: 50%;
        z-index: 2;
       } 
-      // .slick-slide {
-      //     display: grid;
-      //     place-items: center;
-      //     width: 50%;
-      //     margin: auto;
-      //     height: 100%;
-      //     padding: 0px;
-      // }
+      .slick-slide {
+          display: grid;
+          place-items: center;
+          width: 50%;
+          margin: auto;
+          height: 100%;
+          padding: 0px;
+      }
     .card_home:hover .show_hover{
       opacity:1
     }
