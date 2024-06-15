@@ -7,7 +7,8 @@ import Styles from './product-slider.module.scss'
 // import CustomSkeleton from "../../molecules/CustomSkeleton";
 // import { Card, CardContent, CardMedia, Skeleton } from "@mui/material";
 import Title from "../title";
-import { CgChevronDoubleLeft } from "react-icons/cg";
+import SampleNextArrow from "./sample-next-arrow";
+import SamplePrevArrow from "./sample-prev-arrow";
 
 interface SliderProps {
   slides: any;
@@ -17,6 +18,10 @@ interface SliderProps {
   havePromo?:boolean;
   isLoading?: boolean;
 }
+
+
+
+
 
 const ProductSlide: React.FC<SliderProps> = ({isLoading, slides, title, itemToShow, isnew = false, havePromo = false }) => {
   var settings = {
@@ -52,8 +57,8 @@ const ProductSlide: React.FC<SliderProps> = ({isLoading, slides, title, itemToSh
         }
       }
     ],
-    prevArrow: <CgChevronDoubleLeft width={100} height={100}/>,
-    nextArrow: <CgChevronDoubleLeft width={100} height={100}/>,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
   };
 
 
