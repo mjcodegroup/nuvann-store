@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
             redirect_uri: origin
           }}
         >
-          <Component {...pageProps}/>;
+          <Component {...pageProps}/>
         </Auth0Provider>
       </I18nextProvider>
     </>

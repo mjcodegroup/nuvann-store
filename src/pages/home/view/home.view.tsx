@@ -5,6 +5,7 @@ import { HomeProps } from '../types';
 import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
 import productListMock from '@/utils/mocks/home/product-list';
+import RandomCategories from '../components/random-categories';
 
 export default function Home(props: Readonly<HomeProps>) {
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ export default function Home(props: Readonly<HomeProps>) {
     <Jumbotron data={props.jumbotronData}/>
     <ProductSlide itemToShow={4}  slides={productListMock} title="Nouvo pwodui" havePromo={true} isLoading={false} />
     <ProductSlide itemToShow={4}  slides={productListMock} title="Likidasyon pou Mwa an" havePromo={true} isLoading={false} />
+    <RandomCategories />
     </>
   )
 }
