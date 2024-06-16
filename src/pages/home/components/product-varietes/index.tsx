@@ -1,13 +1,7 @@
 import React from 'react'
 import Styles from './product-varietes.module.scss'
-import { Button, Card, CardContent, CardMedia, Skeleton } from '@mui/material';
+import { Button } from '@mui/material';
 import Image from 'next/image';
-
-interface seeMoreArray  {
-    id: number,
-    title: string,
-    appearence: string
-  }
   
   interface SeeMoreProps {
     data: any;
