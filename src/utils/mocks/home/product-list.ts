@@ -366,6 +366,52 @@ const productListMock = [
                 discountPercent: 0
             }
         }
+    },
+    {
+        id: 60,
+        name: "Awesome Cotton Table",
+        description: "Ergonomic Marble Clock",
+        images: [
+            "https://picsum.photos/1280/1024",
+            "https://picsum.photos/1600/1200",
+            "https://picsum.photos/1680/1050",
+            "https://picsum.photos/1280/1024"
+        ],
+        prices: {
+            before: {
+                raw: 9866.79,
+                formatted: "USD 9866.79",
+                discountPercent: 0
+            },
+            current: {
+                raw: 9866.79,
+                formatted: "USD 9866.79",
+                discountPercent: 0
+            }
+        }
+    },
+    {
+        id: 61,
+        name: "Awesome Cotton Table",
+        description: "Ergonomic Marble Clock",
+        images: [
+            "https://picsum.photos/1280/1024",
+            "https://picsum.photos/1600/1200",
+            "https://picsum.photos/1680/1050",
+            "https://picsum.photos/1280/1024"
+        ],
+        prices: {
+            before: {
+                raw: 9866.79,
+                formatted: "USD 9866.79",
+                discountPercent: 0
+            },
+            current: {
+                raw: 9866.79,
+                formatted: "USD 9866.79",
+                discountPercent: 0
+            }
+        }
     }
 ]
 
