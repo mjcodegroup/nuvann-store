@@ -4,31 +4,19 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Styles from './product-slider.module.scss'
-// import CustomSkeleton from "../../molecules/CustomSkeleton";
-// import { Card, CardContent, CardMedia, Skeleton } from "@mui/material";
+
 import Title from "../title";
 import SampleNextArrow from "./sample-next-arrow";
 import SamplePrevArrow from "./sample-prev-arrow";
-
-interface SliderProps {
-  slides: any;
-  title: string;
-  itemToShow: number;
-  isnew?: boolean;
-  havePromo?:boolean;
-  isLoading?: boolean;
-}
+import { SliderProps } from "./types";
 
 
-
-
-
-const ProductSlide: React.FC<SliderProps> = ({isLoading, slides, title, itemToShow, isnew = false, havePromo = false }) => {
+export default function ProductSlide (props: SliderProps){
   var settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: itemToShow,
+    slidesToShow: props.itemToShow,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
@@ -60,30 +48,30 @@ const ProductSlide: React.FC<SliderProps> = ({isLoading, slides, title, itemToSh
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />
   };
-
+  
 
   return (
     <section className={Styles.custom_slide_section}>
-      <Title title={title} />
-      {!isLoading ? (
-        slides && slides.length > 0 ? (
+      <Title title={props.title} />
+      {!props.isLoading ? (
+        props.slides && props.slides.length > 0 ? (
 
         <Slider {...settings}>
-            {slides?.slice(0,15).map((product: any, index: any) => (
+            {props.slides?.slice(0,15).map((product: any, index: any) => (
             // <div className="card_home" key={product.id} onClick={()=>{navigate(`/products/${product.id}`)}}>
             <div className={Styles.card_home} key={product.id}>
               <div className={Styles.product_img}>
                 <Image src={product.images[0]} alt="" width={100} height={100}/>
                 <Image src={product.images[1]} className={Styles.show_hover} alt="" width={100} height={100}/>
               </div>
-              {isnew && (
+              {props.isnew && (
                 <div className={Styles.product_new_label}>Nouvote</div>
               )}
               <div className={Styles.bottom}>
               <h2>
                 {(product.name && product.name.length > 15) ? product.name.substring(0, 15)+'...' : product.name}
               </h2>
-              {havePromo && (
+              {props.havePromo && (
                 <p className={Styles.daily_deal}>promosyon</p>
               )}
                 <p>
@@ -126,6 +114,3 @@ const ProductSlide: React.FC<SliderProps> = ({isLoading, slides, title, itemToSh
       </section>
     );
   };
-
-
-export default ProductSlide;
