@@ -223,7 +223,3827 @@ exports[`HomeController Should render HomePage with props 1`] = `
           </svg>
         </button>
       </div>
-      home.welcome
+      <div
+        class="jumbotron_container"
+      >
+        <div
+          class="home_jumbotron"
+        >
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Garden_centers?random=650"
+              />
+            </div>
+            <h3>
+              Espò
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Computer_stores?random=155"
+              />
+            </div>
+            <h3>
+              Enfòmatik
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Liquor_stores?random=125"
+              />
+            </div>
+            <h3>
+              Alimantè
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Liquor_stores?random=125"
+              />
+            </div>
+            <h3>
+              Maskilen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Liquor_stores?random=125"
+              />
+            </div>
+            <h3>
+              Maskilen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Men's_clothing_stores?random=780"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=475"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Men's_clothing_stores?random=780"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=475"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=475"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+          <div
+            class="jumbotron_content"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular css-3xou8u-MuiAvatar-root"
+            >
+              <img
+                alt="Remy Sharp"
+                class="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
+                src="https://loremflickr.com/800/600/Farmers_markets?random=486"
+              />
+            </div>
+            <h3>
+              Feminen
+            </h3>
+          </div>
+        </div>
+      </div>
+      <section
+        class="custom_slide_section"
+      >
+        <div
+          class="section_title"
+        >
+          <h4>
+            Nouvo pwodui
+          </h4>
+          <div />
+        </div>
+        <div
+          class="slick-slider slick-initialized"
+          dir="ltr"
+        >
+          <div
+            class="slick-arrow slick-prev slick-disabled"
+            style="display: flex; justify-content: center; align-content: center; align-items: center; text-align: center; background: rgb(0, 0, 82); border-radius: 50%; height: 40px; width: 40px; z-index: 1000;"
+          />
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Ergonomic Linen...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 9718.41
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 9718.41
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Synergistic Ste...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 7445.78
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 7445.78
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="2"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Awesome Leather...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 4029.95
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 4029.95
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="3"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Aerodynamic Iro...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 10103.14
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 10103.14
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="4"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Ergonomic Concr...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 4080.98
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 4080.98
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="5"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Heavy Duty Conc...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 1057.79
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 1057.79
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="6"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Sleek Leather L...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 7076.99
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 7076.99
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="7"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Small Plastic P...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 1356.9
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 1356.9
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="8"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Fantastic Wool ...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 9658.63
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 9658.63
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="9"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Practical Woode...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 7495.31
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 7495.31
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="10"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Heavy Duty Bron...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 4164.35
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 4164.35
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="11"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Fantastic Iron ...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 10256.06
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 10256.06
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="12"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Incredible Cott...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 2786.92
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 2786.92
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="13"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Awesome Granite...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 10489.58
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 10489.58
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="14"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Fantastic Cotto...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 1438.15
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 1438.15
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="slick-arrow slick-next"
+            style="display: flex; justify-content: center; align-content: center; align-items: center; text-align: center; background: rgb(0, 0, 82); border-radius: 50%; height: 40px; width: 40px; z-index: 1000;"
+          />
+        </div>
+      </section>
+      <section
+        class="custom_slide_section"
+      >
+        <div
+          class="section_title"
+        >
+          <h4>
+            Likidasyon pou Mwa an
+          </h4>
+          <div />
+        </div>
+        <div
+          class="slick-slider slick-initialized"
+          dir="ltr"
+        >
+          <div
+            class="slick-arrow slick-prev slick-disabled"
+            style="display: flex; justify-content: center; align-content: center; align-items: center; text-align: center; background: rgb(0, 0, 82); border-radius: 50%; height: 40px; width: 40px; z-index: 1000;"
+          />
+          <div
+            class="slick-list"
+          >
+            <div
+              class="slick-track"
+              style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active slick-current"
+                data-index="0"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Ergonomic Linen...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 9718.41
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 9718.41
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="1"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Synergistic Ste...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 7445.78
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 7445.78
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="2"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Awesome Leather...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 4029.95
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 4029.95
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="3"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Aerodynamic Iro...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 10103.14
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 10103.14
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="4"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Ergonomic Concr...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 4080.98
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 4080.98
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="5"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Heavy Duty Conc...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 1057.79
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 1057.79
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="6"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Sleek Leather L...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 7076.99
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 7076.99
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="7"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Small Plastic P...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 1356.9
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 1356.9
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="8"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Fantastic Wool ...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 9658.63
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 9658.63
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="9"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Practical Woode...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 7495.31
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 7495.31
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="10"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Heavy Duty Bron...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 4164.35
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 4164.35
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="11"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Fantastic Iron ...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 10256.06
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 10256.06
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="12"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Incredible Cott...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 2786.92
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 2786.92
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="13"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Awesome Granite...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 10489.58
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 10489.58
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="14"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <div
+                    class="card_home"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="product_img"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                      <img
+                        alt=""
+                        class="show_hover"
+                        data-nimg="1"
+                        decoding="async"
+                        height="100"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75"
+                        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75 2x"
+                        style="color: transparent;"
+                        width="100"
+                      />
+                    </div>
+                    <div
+                      class="bottom"
+                    >
+                      <h2>
+                        Fantastic Cotto...
+                      </h2>
+                      <p
+                        class="daily_deal"
+                      >
+                        promosyon
+                      </p>
+                      <p>
+                        <i>
+                          de 
+                          <span
+                            class="lastprice"
+                          >
+                             
+                            USD 1438.15
+                          </span>
+                        </i>
+                      </p>
+                      <p
+                        class="currentPrice"
+                      >
+                        USD 1438.15
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="slick-arrow slick-next"
+            style="display: flex; justify-content: center; align-content: center; align-items: center; text-align: center; background: rgb(0, 0, 82); border-radius: 50%; height: 40px; width: 40px; z-index: 1000;"
+          />
+        </div>
+      </section>
+      <div
+        class="home_category_random"
+      >
+        <img
+          alt="img2"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/2.svg"
+          style="color: transparent;"
+          width="100"
+        />
+        <img
+          alt="img4"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/4.svg"
+          style="color: transparent;"
+          width="100"
+        />
+        <img
+          alt="img1"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/1.svg"
+          style="color: transparent;"
+          width="100"
+        />
+      </div>
+      <section
+        class="see_more_container"
+      >
+        <h3
+          class="see_more_Title"
+        >
+          Ann Gade
+        </h3>
+        <div
+          class="see_more_section"
+        >
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 9718.41
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 9718.41
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Ergonomic Linen...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 7445.78
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 7445.78
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Synergistic Ste...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 4029.95
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 4029.95
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Awesome Leather...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F480&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 10103.14
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 10103.14
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Aerodynamic Iro...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 4080.98
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 4080.98
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Ergonomic Concr...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1680%2F1050&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 1057.79
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 1057.79
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Heavy Duty Conc...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 7076.99
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 7076.99
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Sleek Leather L...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F720%2F348&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1024%2F768&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 1356.9
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 1356.9
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Small Plastic P...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 9658.63
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 9658.63
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Fantastic Wool ...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1920%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 7495.31
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 7495.31
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Practical Woode...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 4164.35
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 4164.35
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Heavy Duty Bron...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1366%2F768&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 10256.06
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 10256.06
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Fantastic Iron ...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 2786.92
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 2786.92
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Incredible Cott...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F320%2F200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 10489.58
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 10489.58
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Awesome Granite...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F350&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F640%2F200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 1438.15
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 1438.15
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Fantastic Cotto...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 9866.79
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 9866.79
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Awesome Cotton ...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 9866.79
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 9866.79
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Awesome Cotton ...
+              </p>
+            </div>
+          </div>
+          <div
+            class="see_more_card"
+          >
+            <div
+              class="product_img"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1280%2F1024&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+              <img
+                alt=""
+                class="show_hover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F1600%2F1200&w=256&q=75 2x"
+                style="color: transparent;"
+                width="100"
+              />
+            </div>
+            <div
+              class="bottom"
+            >
+              <p
+                class="daily_deal"
+              >
+                Likidasyon
+              </p>
+              <p>
+                <i>
+                  de 
+                  <span
+                    class="lastprice"
+                  >
+                     
+                    USD 9866.79
+                  </span>
+                </i>
+              </p>
+              <p
+                class="currentPrice"
+              >
+                USD 9866.79
+                 
+                <span>
+                  0
+                   %
+                </span>
+              </p>
+              <p
+                class="description"
+              >
+                Awesome Cotton ...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="see_more_button"
+        >
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+            href="#"
+            tabindex="0"
+          >
+            Kontinye gade
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </a>
+        </div>
+      </section>
     </div>
     <div
       class="footer_principal_container"

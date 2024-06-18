@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import Styles from './random-categories.module.scss'
+import React from 'react'
 import Image from 'next/image'
+import Styles from './random-categories.module.scss'
 import randomcategoriesImagesMock from '@/utils/mocks/home/random-categories-images.mock'
 
 interface MyObjectType {
@@ -10,7 +10,7 @@ interface MyObjectType {
 
 const RandomCategories: React.FC = () => {
    
-    const [randomObjects, setRandomObjects] = useState<MyObjectType | any>(null);
+    const [randomObjects, setRandomObjects] = React.useState<MyObjectType | any>(null);
 
     React.useEffect(() => {
     getRandomObject();
@@ -27,8 +27,6 @@ const RandomCategories: React.FC = () => {
         const deferredRandomObjects: any = randomIndices.map((index) => randomcategoriesImagesMock[index]);
         setRandomObjects(deferredRandomObjects);
     };
-
-    console.log(randomObjects)
   return (
     <> 
         <div  className={Styles.home_category_random}>

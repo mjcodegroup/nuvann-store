@@ -9,7 +9,7 @@ import cartIcon from "../../../../public/assets/icons/cartIcon.svg"
 import { NavOptionProps } from '../types';
 import { TbLogout } from 'react-icons/tb';
 
-export default function NavOptions(props: Readonly<NavOptionProps>) {
+export default function NavOptions(props: NavOptionProps) {
   if(props.isLoading) {
     return <h1>Loading...........................</h1>
   }
@@ -19,7 +19,6 @@ export default function NavOptions(props: Readonly<NavOptionProps>) {
     <>
       <li>
         <Avatar
-          alt='user profile picture'
           src={props.user.picture}
           sx={{ width: 32, height: 32 }}
         />
