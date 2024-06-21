@@ -8,10 +8,11 @@ import Image from 'next/image';
 import cartIcon from "../../../../public/assets/icons/cartIcon.svg"
 import { NavOptionProps } from '../types';
 import { TbLogout } from 'react-icons/tb';
+import NavOptionsSkeleton from './nav-options-skeleton';
 
 export default function NavOptions(props: NavOptionProps) {
   if(props.isLoading) {
-    return <h1>Loading...........................</h1>
+    return <NavOptionsSkeleton />
   }
   return (
     <ul className={Styles.nav_options_container}>
