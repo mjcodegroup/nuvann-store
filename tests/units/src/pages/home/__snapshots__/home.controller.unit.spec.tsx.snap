@@ -41,9 +41,38 @@ exports[`HomeController Should render HomePage with props 1`] = `
               </button>
             </div>
           </div>
-          <h1>
-            Loading...........................
-          </h1>
+          <ul
+            class="nav_options_container"
+          >
+            <li>
+              <span
+                class="MuiSkeleton-root MuiSkeleton-circular MuiSkeleton-pulse css-wkdwxb-MuiSkeleton-root"
+                style="width: 32px; height: 32px;"
+              />
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1e1x4vv-MuiSkeleton-root"
+                style="width: 100px; height: 32px;"
+              />
+            </li>
+            <li>
+              <span
+                class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse css-153n0d3-MuiSkeleton-root"
+                style="width: 24px; height: 24px;"
+              />
+            </li>
+            <li>
+              <span
+                class="MuiSkeleton-root MuiSkeleton-circular MuiSkeleton-pulse css-wkdwxb-MuiSkeleton-root"
+                style="width: 24px; height: 24px;"
+              />
+            </li>
+            <li>
+              <span
+                class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse css-153n0d3-MuiSkeleton-root"
+                style="width: 50px; height: 32px;"
+              />
+            </li>
+          </ul>
         </div>
         <nav
           class="navbar_list"
@@ -2799,16 +2828,6 @@ exports[`HomeController Should render HomePage with props 1`] = `
         class="home_category_random"
       >
         <img
-          alt="img2"
-          data-nimg="1"
-          decoding="async"
-          height="200"
-          loading="lazy"
-          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/2.svg"
-          style="color: transparent;"
-          width="100"
-        />
-        <img
           alt="img4"
           data-nimg="1"
           decoding="async"
@@ -2819,7 +2838,17 @@ exports[`HomeController Should render HomePage with props 1`] = `
           width="100"
         />
         <img
-          alt="img1"
+          alt="img7"
+          data-nimg="1"
+          decoding="async"
+          height="200"
+          loading="lazy"
+          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/7.svg"
+          style="color: transparent;"
+          width="100"
+        />
+        <img
+          alt="img9   "
           data-nimg="1"
           decoding="async"
           height="200"

@@ -2715,6 +2715,16 @@ exports[`HomeController Should render HomePage with props 1`] = `
     class="home_category_random"
   >
     <img
+      alt="img9   "
+      data-nimg="1"
+      decoding="async"
+      height="200"
+      loading="lazy"
+      src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/1.svg"
+      style="color: transparent;"
+      width="100"
+    />
+    <img
       alt="img1"
       data-nimg="1"
       decoding="async"
@@ -2725,22 +2735,12 @@ exports[`HomeController Should render HomePage with props 1`] = `
       width="100"
     />
     <img
-      alt="img7"
+      alt="img8"
       data-nimg="1"
       decoding="async"
       height="200"
       loading="lazy"
-      src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/7.svg"
-      style="color: transparent;"
-      width="100"
-    />
-    <img
-      alt="img2"
-      data-nimg="1"
-      decoding="async"
-      height="200"
-      loading="lazy"
-      src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/2.svg"
+      src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/8.svg"
       style="color: transparent;"
       width="100"
     />
