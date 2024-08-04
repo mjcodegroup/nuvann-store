@@ -1,13 +1,14 @@
-import React from 'react'
-import Styles from './navbar.module.scss'
-import Link from 'next/link'
-import logo from "../../../public/logo.svg"
+import { redirectToLogin } from '@/utils/keycloak.login'
+import { useAuth0 } from "@auth0/auth0-react"
 import Image from 'next/image'
-import SearchBar from './search-bar'
+import Link from 'next/link'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
+import logo from "../../../public/logo.svg"
 import NavList from './nav-list'
 import NavOptions from './nav-options'
-import { useAuth0 } from "@auth0/auth0-react";
+import Styles from './navbar.module.scss'
+import SearchBar from './search-bar'
 
 export const Navbar: React.FC = () => {
     const { t } = useTranslation();
@@ -27,7 +28,7 @@ export const Navbar: React.FC = () => {
                 <NavOptions
                     user={user}
                     isAuthenticated={isAuthenticated}
-                    onSignIn={loginWithRedirect}
+                    onSignIn={redirectToLogin}
                     isLoading={isLoading}
                     onLogout={logout}
                 />
