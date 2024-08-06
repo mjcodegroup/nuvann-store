@@ -1,14 +1,18 @@
 import type { AppProps } from "next/app";
-import { Auth0Provider } from '@auth0/auth0-react';
-import React from "react";
 
-import { Inter } from 'next/font/google'
- 
+import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] })
-import '../styles/globals.scss'
 
-import "@/utils/i18starter/index"
+
+import '../styles/globals.scss';
+ 
+
+import "@/utils/i18starter/index";
 import { I18nextProvider, getI18n } from "react-i18next";
+
+
+
+
 export default function App({ Component, pageProps }: AppProps) {
 
   const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
@@ -20,15 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <I18nextProvider i18n={getI18n()}>
-        <Auth0Provider
-          domain="https://dev-oy36i2x64cnh58cs.us.auth0.com"
-          clientId="BvVWpwUjzMrzvRhM7qpWZQ8XHO79OKiL"
-          authorizationParams={{
-            redirect_uri: origin
-          }}
-        >
           <Component {...pageProps}/>
-        </Auth0Provider>
       </I18nextProvider>
     </>
   )

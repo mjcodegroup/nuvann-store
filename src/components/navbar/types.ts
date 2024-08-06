@@ -1,9 +1,9 @@
 export interface NavOptionProps {
     user: any;
     isAuthenticated: boolean;
-    onSignIn: () => void;
+    onSignIn?: () => void;
     isLoading: boolean;
-    onLogout: () => void;
+    onLogout?: () => void;
 }
 
 export type SearchBarProps = {

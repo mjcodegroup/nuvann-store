@@ -1,22 +1,30 @@
 import LanguageSelector from '@/components/language-selector';
+import { useKeycloak } from '@/hooks/useKeycloak';
 import { Avatar, Badge } from '@mui/material';
-import Link from 'next/link';
-import React from 'react'
-import { FiUser } from 'react-icons/fi';
-import Styles from "./nav-options.module.scss"
 import Image from 'next/image';
-import cartIcon from "../../../../public/assets/icons/cartIcon.svg"
-import { NavOptionProps } from '../types';
+import Link from 'next/link';
+import { FiUser } from 'react-icons/fi';
 import { TbLogout } from 'react-icons/tb';
+import cartIcon from "../../../../public/assets/icons/cartIcon.svg";
+import { NavOptionProps } from '../types';
 import NavOptionsSkeleton from './nav-options-skeleton';
+import Styles from "./nav-options.module.scss";
 
 export default function NavOptions(props: NavOptionProps) {
+
+  const { authenticated, keycloak, isLoading, user, handleLogin } = useKeycloak();
+
+
+  async function handleLogout() {
+  }
+
+
   if(props.isLoading) {
     return <NavOptionsSkeleton />
   }
   return (
     <ul className={Styles.nav_options_container}>
-    { props.isAuthenticated ?
+    { authenticated ?
     <>
       <li>
         <Avatar
@@ -26,11 +34,11 @@ export default function NavOptions(props: NavOptionProps) {
         <span>{props.user.name}</span>
       </li>
 
-      <li onClick={()=>props.onLogout()}><TbLogout /></li>
+      <li onClick={handleLogout}><TbLogout /></li>
     </>
     :
     <li>
-      <Link href="#" onClick={()=>props.onSignIn()}>
+      <Link href="#" onClick={handleLogin}>
         <button><FiUser/> konekte | Enskri</button>
       </Link>
     </li>
