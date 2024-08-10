@@ -1,5 +1,4 @@
 import LanguageSelector from '@/components/language-selector';
-import { useKeycloak } from '@/hooks/useKeycloak';
 import { Avatar, Badge } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,33 +11,27 @@ import Styles from "./nav-options.module.scss";
 
 export default function NavOptions(props: NavOptionProps) {
 
-  const { authenticated, keycloak, isLoading, user, handleLogin } = useKeycloak();
-
-
-  async function handleLogout() {
-  }
-
-
   if(props.isLoading) {
     return <NavOptionsSkeleton />
   }
+
   return (
     <ul className={Styles.nav_options_container}>
-    { authenticated ?
+    { props.isAuthenticated ?
     <>
       <li>
         <Avatar
-          src={props.user.picture}
+          src={props?.user?.picture}
           sx={{ width: 32, height: 32 }}
         />
-        <span>{props.user.name}</span>
+        <span>{props.user?.name}</span>
       </li>
 
-      <li onClick={handleLogout}><TbLogout /></li>
+      <li onClick={props.onLogout}><TbLogout /></li>
     </>
     :
     <li>
-      <Link href="#" onClick={handleLogin}>
+      <Link href="#" onClick={props.onSignIn}>
         <button><FiUser/> konekte | Enskri</button>
       </Link>
     </li>

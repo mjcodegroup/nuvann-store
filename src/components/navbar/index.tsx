@@ -1,22 +1,17 @@
-import { useKeycloak } from '@/hooks/useKeycloak';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../../../public/logo.svg';
 import NavList from './nav-list';
 import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
+import { useKeycloakContext } from '@/hooks/useKeycloak';
 
 export const Navbar: React.FC = () => {
+  const { authenticated, isLoading, user, handleLogin, logout } = useKeycloakContext();
   const { t } = useTranslation();
-
-  const { authenticated, keycloak, isLoading } = useKeycloak();
-
-  console.log('isAuthenticated', authenticated);
-
- console.log('keycloak', keycloak);
 
   return (
     <div className={Styles.navbar_container_principal}>
@@ -31,11 +26,11 @@ export const Navbar: React.FC = () => {
           />
         </div>
         <NavOptions
-          user={null}
-          isAuthenticated={false}
-          //onSignIn={login}
-          isLoading={false}
-          //onLogout={logout}
+          user={user}
+          isAuthenticated={authenticated}
+          onSignIn={handleLogin}
+          isLoading={isLoading}
+          onLogout={logout}
         />
       </div>
       <NavList />
