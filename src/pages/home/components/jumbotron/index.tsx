@@ -3,7 +3,6 @@ import React from 'react'
 
 import Styles from './jumbotron.module.scss';
 import Title from '@/components/title';
-// import Title from '../../atoms/Title';
 
 interface jumbArray  {
   id: number;
@@ -22,9 +21,9 @@ const Jumbotron: React.FC <JumbotronProps>  = ({data}) => {
         {/* <Title title="Kategori" /> */}
         <div className={Styles.home_jumbotron}>
         {data?.map((jumb:jumbArray, index:number) => (
-            <div className={Styles.jumbotron_content} key={jumb.id + index}>
-            <Avatar alt="Remy Sharp" src={jumb.image} sx={{ width: 70, height: 70 }}/>
-            <h3>{jumb.name}</h3>
+            <div className={Styles.jumbotron_content} key={jumb.name + index}>
+              <Avatar alt="Remy Sharp" src={jumb.image} sx={{ width: 70, height: 70 }}/>
+              <h3>{jumb.name}</h3>
             </div>
         ))}
         </div>
