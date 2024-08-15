@@ -40,7 +40,7 @@ export function KeycloakProvider({ children }: { children: React.ReactNode }) {
       checkLoginIframe: true,
       flow: 'hybrid',
       silentCheckSsoRedirectUri: window.location.origin + '/',
-    }).then(authenticated => {
+    }).then((authenticated: any)=> {
       if (authenticated) {
         const userProfile = keycloakInstance.tokenParsed;
         setUser(userProfile);
@@ -54,7 +54,7 @@ export function KeycloakProvider({ children }: { children: React.ReactNode }) {
         setUser(null);
       }
       setIsLoading(false);
-    }).catch(error => {
+    }).catch((error:any) => {
       console.error('Failed to initialize Keycloak:', error);
       setIsLoading(false);
     });
