@@ -31,7 +31,14 @@ const RandomCategories: React.FC = () => {
     <> 
         <div  className={Styles.home_category_random}>
           {randomObjects?.map((rand:MyObjectType, index:number) => (
-            <Image src={rand.img} alt={rand.link} key={rand.img + index} width={100} height={200}/>
+            <Image
+              priority={false}
+              quality={75}
+              src={rand.img}
+              alt={rand.link}
+              key={rand.img + index} width={100} height={200}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           ))}
         </div>
     </>

@@ -31,7 +31,12 @@ const Hero: React.FC<HeroProps> = ({ images, autoSlideInterval }) => {
       <div className={Styles.__slider} style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
         {images.map((image, index) => (
           <div key={index} className={Styles.__slide}>
-            <Image src={image} alt={`Slide ${index + 1}`} />
+              
+            <Image
+            src={image}
+            alt={`Slide ${index + 1}`}
+            priority={false}
+            />
           </div>
         ))}
       </div>

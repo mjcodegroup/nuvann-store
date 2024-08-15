@@ -5,7 +5,7 @@ import { decodeJwt } from "jose";
 const keycloakUrl = "https://keycloak.mjcodegroup.com";
 
 export function redirectToLogin() {
-    const origin = window.location.origin;
+  const origin = window.location.origin;
   const nonce = Math.random().toString(36);
   const state = Math.random().toString(36);
   //lembrar armazenar com cookie seguro (https)
@@ -22,7 +22,7 @@ export function redirectToLogin() {
 
   const url = `${keycloakUrl}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/auth?${loginUrlParams.toString()}`;
   window.location.href = url;
-  
+
 }
 
 export function login(accessToken: string, idToken: string, state: string) {
@@ -37,6 +37,11 @@ export function login(accessToken: string, idToken: string, state: string) {
     decodedAccessToken = decodeJwt(accessToken);
     decodedIdToken = decodeJwt(idToken);
   } catch (e) {
+    Cookies.remove("access_token");
+    Cookies.remove("id_token");
+    Cookies.remove("nonce");
+    Cookies.remove("state");
+  
     throw new Error("Invalid token");
   }
 
@@ -59,12 +64,11 @@ export function login(accessToken: string, idToken: string, state: string) {
 }
 
 export function redirectToLogout() {
-    const origin = window.location.origin;
+  const origin = window.location.origin;
   if (!Cookies.get("id_token")) {
     return false;
   }
   const logoutParams = new URLSearchParams({
-    //client_id: "fullcycle-client",
     id_token_hint: Cookies.get("id_token") as string,
     post_logout_redirect_uri: `${origin}`,
   });
@@ -74,7 +78,7 @@ export function redirectToLogout() {
   Cookies.remove("nonce");
   Cookies.remove("state");
 
-  
+
 
   const redirect = `${keycloakUrl}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/logout?${logoutParams.toString()}`;
   window.location.href = redirect;
