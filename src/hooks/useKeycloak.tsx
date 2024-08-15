@@ -47,20 +47,17 @@ export function KeycloakProvider({ children }: { children: React.ReactNode }) {
         setAuthenticated(true);
         localStorage.setItem('user', JSON.stringify(userProfile));
         localStorage.setItem('authenticated', 'true');
-        setAuthenticated(false);
       } else {
         localStorage.removeItem('user');
         localStorage.removeItem('authenticated');
-        setUser(null);
         setAuthenticated(false);
+        setUser(null);
       }
       setIsLoading(false);
     }).catch((error:any) => {
       console.error('Failed to initialize Keycloak:', error);
-      setIsLoading(false);
-    }).finally(() => {
-      setIsLoading(false);
     });
+    setIsLoading(false);
   }, []);
 
   const handleLogin = () => {
