@@ -8,10 +8,21 @@ import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
 import { useKeycloakContext } from '@/hooks/useKeycloak';
+import { useAuth } from "react-oidc-context";
 
 export const Navbar: React.FC = () => {
-  const { authenticated, isLoading, user, handleLogin, logout } = useKeycloakContext();
   const { t } = useTranslation();
+  const auth = useAuth();
+  // const { authenticated, isLoading, user, handleLogin, logout } = useKeycloakContext();
+
+//   if (auth.isLoading) {
+//     return <div>Loading...</div>;
+// }
+// if (auth.error) {
+//   return <div>Oops... {auth.error.message}</div>;
+// }
+
+console.log(auth.user);
 
   return (
     <div className={Styles.navbar_container_principal}>
@@ -26,11 +37,11 @@ export const Navbar: React.FC = () => {
           />
         </div>
         <NavOptions
-          user={user}
-          isAuthenticated={authenticated}
-          onSignIn={handleLogin}
-          isLoading={isLoading}
-          onLogout={logout}
+          user={auth.user?.profile}
+          isAuthenticated={auth.isAuthenticated}
+          onSignIn={() => void auth.signinRedirect()}
+          isLoading={auth.isLoading}
+          onLogout={() => void auth.signoutSilent()}
         />
       </div>
       <NavList />
