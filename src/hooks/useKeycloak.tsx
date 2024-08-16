@@ -50,9 +50,7 @@ const [token, setToken] = useState<string>("");
     keycloak
       ?.init({
         onLoad: "check-sso",
-        checkLoginIframe: true,
         flow: 'hybrid',
-        silentCheckSsoRedirectUri: window.location.origin + '/',
       })
       .then((res) => {
         setIsAuthenticated(res);
@@ -63,6 +61,7 @@ const [token, setToken] = useState<string>("");
     };
 
   const logout = useCallback(async () => {
+    deleteCookie('access_token');
     window.location.href =
       process.env.NEXT_PUBLIC_KEYCLOAK_URL +
       `/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/logout?post_logout_redirect_uri=${window.location.origin}&client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID}`;
