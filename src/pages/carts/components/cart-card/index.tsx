@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './style.module.scss'; // Ensure this is a CSS Module
+import styles from './style.module.scss';
 
 interface CartCardProps {
   items: {
