@@ -18,7 +18,7 @@ export default function Home(props: Readonly<HomeProps>) {
     <ProductSlide itemToShow={4}  slides={productListMock} title="Nouvo pwodui" havePromo={true} isLoading={false} />
     <ProductSlide itemToShow={4}  slides={productListMock} title="Likidasyon pou Mwa an" havePromo={true} isLoading={false} />
     <RandomCategories />
-    <ProductVarietes loader={false} data={productListMock} getmore={()=>{}}/>
+    <ProductVarietes loader={false} data={productListMock} getmore={()=>{}} onRedirectToProductDetails={props.onRedirectToProductDetails}/>
     </>
   )
 }

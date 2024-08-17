@@ -7,9 +7,11 @@ interface SeeMoreProps {
   data: any;
   getmore: any;
   loader: boolean;
+  onRedirectToProductDetails:(id: string) => void;  
 }
 
-const ProductVarietes: React.FC<SeeMoreProps> = ({ data, getmore, loader }) => {
+const ProductVarietes: React.FC<SeeMoreProps> = (props: SeeMoreProps) => {
+  const { data, getmore, loader } = props;
   return (
     <section className={Styles.see_more_container}>
       <h3 className={Styles.see_more_Title}>Ann Gade</h3>
@@ -18,7 +20,7 @@ const ProductVarietes: React.FC<SeeMoreProps> = ({ data, getmore, loader }) => {
           <div>Loading...</div>
         ) : (
           data.map((see: any) => (
-            <ProductCard key={see.id} product={see} />
+            <ProductCard key={see.id} product={see} onRedirectToProductDetails={props.onRedirectToProductDetails}/>
           ))
         )}
       </div>
