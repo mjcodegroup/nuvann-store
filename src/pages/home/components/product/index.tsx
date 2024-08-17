@@ -5,17 +5,19 @@ import Image from 'next/image';
 
 interface ProductCardProps {
   product: any;
+  onRedirectToProductDetails:(id: string) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
+  const { product } = props;
   const router = useRouter();
 
-  const handleCardClick = () => {
-    router.push(`/details/${product.id}`);
-  };
+  // const handleCardClick = () => {
+  //   router.push(`/product/${product.id}`);
+  // };
 
   return (
-    <div className={Styles.see_more_card} key={product.id} onClick={handleCardClick}>
+    <div className={Styles.see_more_card} key={product.id} onClick={()=>props.onRedirectToProductDetails(product.id)}>
       <div className={Styles.product_img}>
         <Image src={product.images[0]} alt="" width={100} height={100} />
         <Image src={product.images[1]} className={Styles.show_hover} alt="" width={100} height={100} />
