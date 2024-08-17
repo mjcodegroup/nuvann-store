@@ -1,13 +1,33 @@
 const productListMock = [
     {
-        id: 42,
+        id: "42",
         name: "Ergonomic Linen Keyboard",
         description: "Enormous Cotton Clock",
         images: [
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/640/350",
-            "https://picsum.photos/320/200",
-            "https://picsum.photos/1280/1024"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -23,14 +43,34 @@ const productListMock = [
         }
     },
     {
-        id: 43,
+        id: "43",
         name: "Synergistic Steel Shoes",
         description: "Rustic Wool Watch",
         images: [
-            "https://picsum.photos/720/348",
-            "https://picsum.photos/640/350",
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/1280/1024"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -46,14 +86,34 @@ const productListMock = [
         }
     },
     {
-        id: 44,
+        id: "44",
         name: "Awesome Leather Bench",
         description: "Rustic Concrete Computer",
         images: [
-            "https://picsum.photos/640/200",
-            "https://picsum.photos/1680/1050",
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/640/480"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -69,14 +129,34 @@ const productListMock = [
         }
     },
     {
-        id: 45,
+        id: "45",
         name: "Aerodynamic Iron Pants",
         description: "Rustic Marble Bag",
         images: [
-            "https://picsum.photos/640/480",
-            "https://picsum.photos/1024/768",
-            "https://picsum.photos/640/200",
-            "https://picsum.photos/1600/1200"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -92,14 +172,34 @@ const productListMock = [
         }
     },
     {
-        id: 46,
+        id: "46",
         name: "Ergonomic Concrete Shirt",
         description: "Sleek Granite Bench",
         images: [
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/640/350",
-            "https://picsum.photos/720/348",
-            "https://picsum.photos/720/348"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -115,14 +215,34 @@ const productListMock = [
         }
     },
     {
-        id: 47,
+        id: "47",
         name: "Heavy Duty Concrete Pants",
         description: "Sleek Plastic Plate",
         images: [
-            "https://picsum.photos/1680/1050",
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/1920/1200",
-            "https://picsum.photos/1680/1050"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -138,14 +258,34 @@ const productListMock = [
         }
     },
     {
-        id: 48,
+        id: "48",
         name: "Sleek Leather Lamp",
         description: "Sleek Steel Pants",
         images: [
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/320/200",
-            "https://picsum.photos/720/348",
-            "https://picsum.photos/640/480"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -161,14 +301,34 @@ const productListMock = [
         }
     },
     {
-        id: 51,
+        id: "51",
         name: "Small Plastic Pants",
         description: "Intelligent Plastic Bottle",
         images: [
-            "https://picsum.photos/720/348",
-            "https://picsum.photos/1024/768",
-            "https://picsum.photos/1920/1200",
-            "https://picsum.photos/640/200"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -184,14 +344,34 @@ const productListMock = [
         }
     },
     {
-        id: 52,
+        id: "52",
         name: "Fantastic Wool Hat",
         description: "Lightweight Wool Keyboard",
         images: [
-            "https://picsum.photos/320/200",
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/640/480",
-            "https://picsum.photos/1680/1050"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -207,14 +387,34 @@ const productListMock = [
         }
     },
     {
-        id: 53,
+        id: "53",
         name: "Practical Wooden Computer",
         description: "Durable Silk Pants",
         images: [
-            "https://picsum.photos/1920/1200",
-            "https://picsum.photos/640/350",
-            "https://picsum.photos/1920/1200",
-            "https://picsum.photos/320/200"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -230,14 +430,34 @@ const productListMock = [
         }
     },
     {
-        id: 54,
+        id: "54",
         name: "Heavy Duty Bronze Bag",
         description: "Incredible Granite Bag",
         images: [
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/320/200",
-            "https://picsum.photos/640/480",
-            "https://picsum.photos/1920/1200"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -253,14 +473,34 @@ const productListMock = [
         }
     },
     {
-        id: 55,
+        id: "55",
         name: "Fantastic Iron Wallet",
         description: "Small Copper Computer",
         images: [
-            "https://picsum.photos/640/350",
-            "https://picsum.photos/1366/768",
-            "https://picsum.photos/320/200",
-            "https://picsum.photos/1680/1050"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -276,14 +516,34 @@ const productListMock = [
         }
     },
     {
-        id: 56,
+        id: "56",
         name: "Incredible Cotton Car",
         description: "Small Cotton Hat",
         images: [
-            "https://picsum.photos/320/200",
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/720/348"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -299,14 +559,34 @@ const productListMock = [
         }
     },
     {
-        id: 57,
+        id: "57",
         name: "Awesome Granite Soap",
         description: "Heavy Duty Wooden Shirt",
         images: [
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/320/200",
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/640/480"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -322,14 +602,34 @@ const productListMock = [
         }
     },
     {
-        id: 58,
+        id: "58",
         name: "Fantastic Cotton Soap",
         description: "Aerodynamic Granite Plate",
         images: [
-            "https://picsum.photos/640/350",
-            "https://picsum.photos/640/200",
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/320/200"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -345,14 +645,34 @@ const productListMock = [
         }
     },
     {
-        id: 59,
+        id: "59",
         name: "Awesome Cotton Table",
         description: "Ergonomic Marble Clock",
         images: [
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/1680/1050",
-            "https://picsum.photos/1280/1024"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -368,14 +688,34 @@ const productListMock = [
         }
     },
     {
-        id: 60,
+        id: "60",
         name: "Awesome Cotton Table",
         description: "Ergonomic Marble Clock",
         images: [
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/1680/1050",
-            "https://picsum.photos/1280/1024"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
@@ -391,14 +731,34 @@ const productListMock = [
         }
     },
     {
-        id: 61,
+        id: "61",
         name: "Awesome Cotton Table",
         description: "Ergonomic Marble Clock",
         images: [
-            "https://picsum.photos/1280/1024",
-            "https://picsum.photos/1600/1200",
-            "https://picsum.photos/1680/1050",
-            "https://picsum.photos/1280/1024"
+            {
+                id: "1",
+                title: "Image 1",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 1"
+            },
+            {
+                id: "2",
+                title: "Image 2",
+                url: "https://picsum.photos/1600/1200",
+                alt: "Image 2"
+            },
+            {
+                id: "3",
+                title: "Image 3",
+                url: "https://picsum.photos/1680/1050",
+                alt: "Image 3"
+            },
+            {
+                id: "4",
+                title: "Image 4",
+                url: "https://picsum.photos/1280/1024",
+                alt: "Image 4"
+            }
         ],
         prices: {
             before: {
