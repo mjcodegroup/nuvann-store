@@ -45,32 +45,101 @@ exports[`HomeController Should render HomePage with props 1`] = `
             class="nav_options_container"
           >
             <li>
-              <span
-                class="MuiSkeleton-root MuiSkeleton-circular MuiSkeleton-pulse css-wkdwxb-MuiSkeleton-root"
-                style="width: 32px; height: 32px;"
-              />
-              <span
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1e1x4vv-MuiSkeleton-root"
-                style="width: 100px; height: 32px;"
-              />
+              <a
+                href="#"
+              >
+                <button>
+                  <svg
+                    fill="none"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                    />
+                    <circle
+                      cx="12"
+                      cy="7"
+                      r="4"
+                    />
+                  </svg>
+                   konekte | Enskri
+                </button>
+              </a>
             </li>
             <li>
-              <span
-                class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse css-153n0d3-MuiSkeleton-root"
-                style="width: 24px; height: 24px;"
-              />
+              <a
+                href="/carts"
+              >
+                <span
+                  class="MuiBadge-root css-1c32n2y-MuiBadge-root"
+                >
+                  <img
+                    alt="cartIcon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    class="MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorError css-imxc6v-MuiBadge-badge"
+                  >
+                    2
+                  </span>
+                </span>
+              </a>
             </li>
             <li>
-              <span
-                class="MuiSkeleton-root MuiSkeleton-circular MuiSkeleton-pulse css-wkdwxb-MuiSkeleton-root"
-                style="width: 24px; height: 24px;"
-              />
-            </li>
-            <li>
-              <span
-                class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-pulse css-153n0d3-MuiSkeleton-root"
-                style="width: 50px; height: 32px;"
-              />
+              <div
+                class="MuiFormControl-root css-u4mugv-MuiFormControl-root"
+              >
+                <div
+                  class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl  css-1pdggju-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+                >
+                  <div
+                    aria-controls=":r0:"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input"
+                    role="combobox"
+                    tabindex="0"
+                  >
+                    <span
+                      class="notranslate"
+                    >
+                      ​
+                    </span>
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    aria-invalid="false"
+                    class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="fr"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -2828,12 +2897,12 @@ exports[`HomeController Should render HomePage with props 1`] = `
         class="home_category_random"
       >
         <img
-          alt="img4"
+          alt="img2"
           data-nimg="1"
           decoding="async"
           height="200"
           loading="lazy"
-          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/4.svg"
+          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/2.svg"
           style="color: transparent;"
           width="100"
         />
@@ -2848,12 +2917,12 @@ exports[`HomeController Should render HomePage with props 1`] = `
           width="100"
         />
         <img
-          alt="img9   "
+          alt="img8"
           data-nimg="1"
           decoding="async"
           height="200"
           loading="lazy"
-          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/1.svg"
+          src="https://nuvann-files.s3.amazonaws.com/categories/home-sections/8.svg"
           style="color: transparent;"
           width="100"
         />
