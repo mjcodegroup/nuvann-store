@@ -13,12 +13,14 @@ const Cart: React.FC<CartProps> = (props) => {
   };
 
   return (
-    <div className={styles.cartWrapper}>
-      <div className={styles.cartCard}>
-        <CartCard items={props.data} />
-      </div>
-      <div className={styles.cartResume}>
-        <CartResume count={2} cartTotal={17} shipTotal='564,26' productSubtotal='98564,64' OnclickContinue={OnclickContinue} />
+    <div>
+      <div className={styles.cartWrapper}>
+        <div className={styles.cartCard}>
+          <CartCard items={props.data} />
+        </div>
+        <div className={styles.cartResume}>
+          <CartResume count={2} cartTotal={17} shipTotal='564,26' productSubtotal='98564,64' OnclickContinue={OnclickContinue} />
+        </div>
       </div>
     </div>
   );

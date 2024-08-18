@@ -55,6 +55,9 @@ const CartCard: React.FC<CartCardProps> = ({ items }) => {
 
   return (
     <>
+      <div className={styles.cardTitle}>
+          <h3>Nuvann Panye</h3>
+      </div>
       {items.map((item, index) => (
         <div key={item.id} className={styles.cart_card_container}>
           <div className={styles.cart_card_content}>

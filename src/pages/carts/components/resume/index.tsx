@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './style.module.scss'; // Import the CSS module
+import styles from './style.module.scss';
 import Link from 'next/link';
-// import Title from '../../../UI/atoms/Title';
-// import CustomButton from '../../../UI/atoms/CustomButton';
+import Title from '../title';
+import CustomButton from '../custom-buttom';
 
 interface CartResumeProps {
   count: number;
@@ -15,7 +15,7 @@ interface CartResumeProps {
 const CartResume: React.FC<CartResumeProps> = ({ count, cartTotal = 0, shipTotal = '0', productSubtotal = '0', OnclickContinue }) => {
   return (
     <div className={styles.card_resume}>
-      {/* <Title title='Rezime' className={styles.resume_title} /> */}
+      <Title title='Rezime' className={styles.resume_title} />
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
@@ -38,12 +38,12 @@ const CartResume: React.FC<CartResumeProps> = ({ count, cartTotal = 0, shipTotal
       </div>
 
       <div className={styles.resume_buttons}>
-        {/* <CustomButton backgroundColor='#00C02A' textColor="#fff"> */}
+        <CustomButton backgroundColor ='#00C02A' textColor="#fff" onClick={() => alert('Button clicked!')}>
           <Link href="/checkout/userinfos">Kontinye</Link>
-        {/* </CustomButton> */}
-        {/* <CustomButton backgroundColor='#001A5C' textColor="#fff" onClick={OnclickContinue}> */}
-          Kontinye Achte
-        {/* </CustomButton> */}
+        </CustomButton>
+        <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>
+            Kontinye Achte
+        </CustomButton>
       </div>
     </div>
   );
