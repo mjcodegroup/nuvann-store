@@ -6,6 +6,7 @@ export interface SliderProps {
     isnew?: boolean;
     havePromo?:boolean;
     isLoading?: boolean;
+    onRedirectToProductDetails:(id: string) => void;
   }
   
   
