@@ -3,6 +3,20 @@ const productListMock = [
         id: "42",
         name: "Ergonomic Linen Keyboard",
         description: "Enormous Cotton Clock",
+        category: {
+            id: "string",
+            name: "string",
+            description: "string",
+            tags: [
+              "string"
+            ],
+            image: {
+              id: "string",
+              title: "string",
+              url: "string",
+              alt: "string"
+            }
+        },
         images: [
             {
                 id: "1",
@@ -40,7 +54,52 @@ const productListMock = [
                 formatted: "USD 9718.41",
                 discountPercent: 0
             }
-        }
+        },
+        seller: {
+            name: "string",
+            country: {
+              code: "string",
+              name: "string"
+            }
+        },
+        properties: {
+            additionalProp1: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp2: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp3: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ]
+        },
+        shipments: [
+            {
+              id: "string",
+              price: 0,
+              currency: "string",
+              delivery_deadline: "string",
+              coverage_area: "string",
+              default_shipment: true
+            }
+          ],
+          available_amount: 0,
+          sold_amount: 0,
+          available_countries: [
+            "string"
+        ]
     },
     {
         id: "43",
@@ -84,6 +143,52 @@ const productListMock = [
                 discountPercent: 0
             }
         }
+        ,
+        seller: {
+            name: "string",
+            country: {
+              code: "string",
+              name: "string"
+            }
+        },
+        properties: {
+            additionalProp1: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp2: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp3: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ]
+        },
+        shipments: [
+            {
+              id: "string",
+              price: 0,
+              currency: "string",
+              delivery_deadline: "string",
+              coverage_area: "string",
+              default_shipment: true
+            }
+          ],
+          available_amount: 0,
+          sold_amount: 0,
+          available_countries: [
+            "string"
+        ]
     },
     {
         id: "44",
@@ -126,7 +231,52 @@ const productListMock = [
                 formatted: "USD 4029.95",
                 discountPercent: 0
             }
-        }
+        },
+        seller: {
+            name: "string",
+            country: {
+              code: "string",
+              name: "string"
+            }
+        },
+        properties: {
+            additionalProp1: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp2: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp3: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ]
+        },
+        shipments: [
+            {
+              id: "string",
+              price: 0,
+              currency: "string",
+              delivery_deadline: "string",
+              coverage_area: "string",
+              default_shipment: true
+            }
+          ],
+          available_amount: 0,
+          sold_amount: 0,
+          available_countries: [
+            "string"
+        ]
     },
     {
         id: "45",
@@ -169,7 +319,52 @@ const productListMock = [
                 formatted: "USD 10103.14",
                 discountPercent: 0
             }
-        }
+        },
+        seller: {
+            name: "string",
+            country: {
+              code: "string",
+              name: "string"
+            }
+        },
+        properties: {
+            additionalProp1: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp2: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp3: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ]
+        },
+        shipments: [
+            {
+              id: "string",
+              price: 0,
+              currency: "string",
+              delivery_deadline: "string",
+              coverage_area: "string",
+              default_shipment: true
+            }
+          ],
+          available_amount: 0,
+          sold_amount: 0,
+          available_countries: [
+            "string"
+        ]
     },
     {
         id: "46",
@@ -212,7 +407,52 @@ const productListMock = [
                 formatted: "USD 4080.98",
                 discountPercent: 0
             }
-        }
+        },
+        seller: {
+            name: "string",
+            country: {
+              code: "string",
+              name: "string"
+            }
+        },
+        properties: {
+            additionalProp1: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp2: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ],
+            additionalProp3: [
+              {
+                key: "string",
+                value: "string",
+                quantity: 0
+              }
+            ]
+        },
+        shipments: [
+            {
+              id: "string",
+              price: 0,
+              currency: "string",
+              delivery_deadline: "string",
+              coverage_area: "string",
+              default_shipment: true
+            }
+          ],
+          available_amount: 0,
+          sold_amount: 0,
+          available_countries: [
+            "string"
+        ]
     },
     {
         id: "47",
