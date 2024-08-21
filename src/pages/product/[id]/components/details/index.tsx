@@ -4,6 +4,9 @@ import ColorComponent from '../color-component';
 import SizeComponent from '../size-component';
 import ShipmentInfos from '../shipment-infos';
 import AvailableCountries from '../available-countries';
+import InputQuantity from '@/components/input-quantity';
+import CustomButton from '@/components/custom-button';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 
 interface DetailsProps {
@@ -20,9 +23,12 @@ export default function Details(props: DetailsProps) {
     key: "",
     value: ""
     });
+    const [qty, setQty] = React.useState<number>(1);
+
+
     const handleSelectShippingInfo = (selectedShippingInfo: any) => {
-    setSelectedShippingInfo(selectedShippingInfo);
-    sethandleError(false)
+        setSelectedShippingInfo(selectedShippingInfo);
+        sethandleError(false)
     };
 
       
@@ -44,6 +50,20 @@ export default function Details(props: DetailsProps) {
         });
         sethandleError(false)
       };
+
+      const handleIncrement = () =>{
+        setQty(qty+1);
+      }
+    
+      const handleDecrement = ()=> {
+        if(qty>1) {
+          setQty(qty-1);
+        }
+      }
+
+      const handleChangeQuantity = (qty: number) => {
+        setQty(Number(qty));
+      }
 
   return (
     <div className={Styles.product_infos}>
@@ -85,10 +105,34 @@ export default function Details(props: DetailsProps) {
             }
         </section>
         <section>
-        <div className='avalaible_countries'>
-            <AvailableCountries countries={productInfos?.available_countries} />
+            <div className='avalaible_countries'>
+                <AvailableCountries countries={productInfos?.available_countries} />
             </div>
         </section>
+
+        <InputQuantity
+            total={productInfos?.available_amount}
+            label='Kantite'
+            onChange={handleChangeQuantity} 
+            value={qty}
+            increment={handleIncrement}
+            decrement={handleDecrement}
+        />
+
+        <section className={Styles.detail_infos_footer}>
+            <CustomButton
+              isLoading={false}
+              startIcon={<AiOutlineShoppingCart/>}
+              textColor='#000052'
+              className={Styles.btn_cart}
+              variant='outlined'
+              onClick={()=>{}}
+              >
+                Ajoute nan panye
+            </CustomButton>
+            <CustomButton className={Styles.btn_purchase} backgroundColor="#00B127" textColor='#fff'>Achte</CustomButton>
+        </section>
+
     </div>
   )
 }

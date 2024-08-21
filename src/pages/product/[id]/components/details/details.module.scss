@@ -71,7 +71,74 @@
         }
     }
 
-    .avalaible_countries {
-        margin: 16px 0;
+    .detail_infos_footer {
+        display: flex;
+
+        margin: 2% 2% 0 0;
+        
+        button {
+            margin-right: 20px;
+            height: 45px;
+        }
+
+        .btn_cart {
+            border: 1px solid var(--blue-principal-000052);
+            background-color: rgba(0, 0, 0, 0.04);
+            min-width: 250px;
+        }
+
+        .btn_purchase {
+            min-width: 200px;
+        }
     }
+
+    .selected_section {
+        // color: red;
+        
+        .detail_error_message {
+          text-align: center;
+          font-size: 16px;
+          margin-left: 25px;
+        }
+      }
 }
+
+@keyframes shake {
+    0% {
+      transform: translate(0);
+    }
+    10% {
+      transform: translate(-10px, 0);
+    }
+    20% {
+      transform: translate(10px, 0);
+    }
+    30% {
+      transform: translate(-10px, 0);
+    }
+    40% {
+      transform: translate(10px, 0);
+    }
+    50% {
+      transform: translate(-10px, 0);
+    }
+    60% {
+      transform: translate(10px, 0);
+    }
+    70% {
+      transform: translate(-10px, 0);
+    }
+    80% {
+      transform: translate(10px, 0);
+    }
+    90% {
+      transform: translate(-10px, 0);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  .shake {
+    animation: shake 0.5s;
+  }

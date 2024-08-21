@@ -50,7 +50,7 @@ const ColorCircle: React.FC<CircleProps> = ({ color, selected, onSelectColor }) 
 
       <div
         style={{
-          'margin': '0px 8px 8px 0px',
+          margin: '16px',
           flexWrap: 'wrap',
           minWidth: '2.025rem',
           minHeight: '2.025rem',

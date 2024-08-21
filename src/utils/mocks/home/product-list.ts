@@ -68,6 +68,16 @@ const productListMock = [
                 key: "string",
                 value: "string",
                 quantity: 0
+              },
+              {
+                key: "string",
+                value: "red",
+                quantity: 0
+              },
+              {
+                key: "string",
+                value: "green",
+                quantity: 0
               }
             ],
             additionalProp2: [
@@ -75,7 +85,17 @@ const productListMock = [
                 key: "string",
                 value: "string",
                 quantity: 0
-              }
+              },
+              {
+                key: "string",
+                value: "green",
+                quantity: 0
+              },
+            {
+                key: "string",
+                value: "red",
+                quantity: 0
+            }
             ],
             additionalProp3: [
               {

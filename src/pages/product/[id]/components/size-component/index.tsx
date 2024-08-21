@@ -54,7 +54,7 @@ const SizeCircle: React.FC<CircleProps> = ({ size, selected, onSelectSize }) => 
 
       <div
         style={{
-          'margin': '0px 8px 8px 0px',
+          margin: '16px',
           flexWrap: 'wrap',
           minWidth: '4rem',
           border: selected ? '1px solid #000052' : '1px solid rgba(0, 0, 0, 0.09)',
