@@ -1,70 +1,102 @@
-import Keycloak, { KeycloakInstance } from 'keycloak-js';
-import { createContext, useContext, useState, useEffect } from 'react';
-import Cookies from "js-cookie";
-import { decodeJwt } from "jose";
-import { login } from '@/utils/keycloak.util';
+import keycloak from "@/libs/pkg/keycloak";
+import { deleteCookie, getCookie, setCookie } from "cookies-next";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
-export interface KeycloakContextType {
-  authenticated: boolean;
-  isLoading: boolean;
-  user: any;
-  getAuth: () => any;
-}
+const AuthContext = createContext({
+  isAuthenticated: false,
+  token: "",
+  user: {} as any,
+  logout: () => {},
+  login: () => {},
+  handleLogin: () => {},
+});
 
-const KeycloakContext = createContext<KeycloakContextType>({} as KeycloakContextType);
+export const AuthProvider = ({ children }: any) => {
+  const [user, setUser] = useState();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+const [token, setToken] = useState<string>("");
+  const isRun = useRef(false);
 
-export function KeycloakProvider({ children }: { children: React.ReactNode }) {
-  const [authenticated, setAuthenticated] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [user, setUser] = useState<any>(null);
+  const getUserInfo = async (token:string) => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-  function getAuth() {
-    setIsLoading(true);
-    const token = Cookies.get("access_token");
-  
-    if (!token) {
-      return null;
+    if (res.status === 200) {
+      const data = await res.json();
+      setUser(data);
+      setIsAuthenticated(true);
+    } else {
+      login();
     }
-  
-    try {
-      return decodeJwt(token);
-    } catch (e) {
-      console.error(e);
-      return null;
-    } finally {
-      setIsLoading(false);
+  };
+
+  const login = async () => {
+    if (isRun.current) return;
+    isRun.current = true;
+    keycloak
+      ?.init({
+        onLoad: "check-sso",
+        flow: 'hybrid',
+      })
+      .then((res) => {
+        setIsAuthenticated(res);
+        setCookie("access_token", keycloak?.token);
+        getUserInfo(keycloak?.token as string)
+        
+      });
+    };
+
+  const logout = useCallback(async () => {
+    deleteCookie('access_token');
+    window.location.href =
+      process.env.NEXT_PUBLIC_KEYCLOAK_URL +
+      `/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/logout?post_logout_redirect_uri=${window.location.origin}&client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID}`;
+  }, []);
+
+  const handleLogin = () => {
+    if (keycloak) {
+      keycloak.login();
     }
-  }
+  };
 
   useEffect(() => {
-    let hash = window.location.hash;
-
-    console.log('hash', hash);
-
-    if (hash) {
-      hash = hash.replace('#', '');
-
-      const params = new URLSearchParams(hash);
-
-      const accessToken = params.get('access_token');
-      const idToken = params.get('id_token');
-      const state = params.get('state');
-
-      if (accessToken && idToken && state) {
-        login(accessToken, idToken, state);
-      }
+    if (!getCookie("access_token")) {
+      login();
+    } else {
+      setToken(getCookie("access_token") as string);
+      getUserInfo(getCookie("access_token") as string);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    const authUser = getAuth();
-    setUser(authUser);
-    setAuthenticated(!!authUser);
-    setIsLoading(false);
-}, []);
   return (
-    <KeycloakContext.Provider value={{ authenticated, isLoading, user, getAuth }}>
+    <AuthContext.Provider
+      value={{
+        isAuthenticated,
+        user,
+        handleLogin,
+        token,
+        logout,
+        login,
+      }}
+    >
       {children}
-    </KeycloakContext.Provider>
+    </AuthContext.Provider>
   );
-}
+};
 
-export const useKeycloakContext = () => useContext(KeycloakContext);
+export const useAuth = () => useContext(AuthContext);

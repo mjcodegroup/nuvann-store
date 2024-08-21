@@ -1,0 +1,43 @@
+.input_quantity_container {
+    margin: 16px 0;
+    ._qty_min, ._qty_max {
+        width: 24px;
+        height: 24px;
+        background: transparent;
+        text-align: center;
+        font-size: 19px;
+        line-height: 24px;
+        color: #000;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    ._qty_min {
+        line-height: 22px;
+        border-radius: 3px 0 0 3px; 
+    }
+    ._qty_plus {
+        border-radius: 0 3px 3px 0; 
+    }
+    ._qty {
+        width: 40px;
+        text-align: center;
+        border: none;
+    }
+    .count_inlineflex {
+        display: inline-flex;
+        border: solid 2px #ccc;
+        border-radius: 20px;
+    
+        input {
+            background-color:rgb(236, 236, 236);
+        }
+    }
+    
+    ._label {
+        color: rgb(117, 117, 117);
+        width: 110px;
+        text-transform: capitalize;
+        flex-shrink: 0;
+        align-items: center;
+    }
+}

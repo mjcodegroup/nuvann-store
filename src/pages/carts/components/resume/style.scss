@@ -1,0 +1,60 @@
+.card_resume {
+    width: 100%;
+    height: 364px;
+    background-color: var(--background-white);
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    padding: 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    .resume_title {
+        text-align: center;
+    }
+
+    .resume_separated_info {
+        margin: 18px 0;
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+
+            color: #5a5555;
+        }
+
+        h5{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            
+            color: #000000;
+        }
+    }
+
+    .resume_buttons {
+        display: grid;
+        gap: 16px;
+
+        button {
+
+            span {
+                a {
+                    width: 100%;
+                    text-decoration: none;
+                    color: white;
+                }
+
+            }
+        }
+
+    }
+}

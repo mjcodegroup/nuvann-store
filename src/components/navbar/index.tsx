@@ -7,11 +7,10 @@ import NavList from './nav-list';
 import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
-import { useKeycloakContext } from '@/hooks/useKeycloak';
-import { redirectToLogin, redirectToLogout } from '@/utils/keycloak.util';
+import { useAuth } from '@/hooks/useKeycloak';
 
 export const Navbar: React.FC = () => {
-  const { authenticated, user, isLoading } = useKeycloakContext();
+  const { isAuthenticated, user, logout, handleLogin} = useAuth();
   const { t } = useTranslation();
 
   return (
@@ -28,10 +27,10 @@ export const Navbar: React.FC = () => {
         </div>
         <NavOptions
           user={user}
-          isAuthenticated={authenticated}
-          onSignIn={() => redirectToLogin()}
-          isLoading={isLoading}
-          onLogout={()=>redirectToLogout()}
+          isAuthenticated={isAuthenticated}
+          onSignIn={handleLogin}
+          isLoading={false}
+          onLogout={logout}
         />
       </div>
       <NavList />

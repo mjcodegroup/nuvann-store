@@ -9,7 +9,7 @@ import '../styles/globals.scss';
 
 import "@/utils/i18starter/index";
 import { I18nextProvider, getI18n } from "react-i18next";
-import { KeycloakProvider } from "@/hooks/useKeycloak";
+import { AuthProvider } from "@/hooks/useKeycloak";
 
 
 
@@ -23,11 +23,11 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <KeycloakProvider>
+      <AuthProvider >
       <I18nextProvider i18n={getI18n()}>
           <Component {...pageProps}/>
       </I18nextProvider>
-      </KeycloakProvider>
+      </AuthProvider>
     </>
   )
   
