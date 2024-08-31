@@ -13,7 +13,6 @@ const nextConfig = {
   },
   staticPageGenerationTimeout: 1000,
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
-  output: "export",
 };
 
 export default nextConfig;
