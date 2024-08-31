@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Styles from './product-card.module.scss';
 import Image from 'next/image';
 
@@ -10,17 +9,12 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
   const { product } = props;
-  const router = useRouter();
-
-  // const handleCardClick = () => {
-  //   router.push(`/product/${product.id}`);
-  // };
 
   return (
     <div className={Styles.see_more_card} key={product.id} onClick={()=>props.onRedirectToProductDetails(product.id)}>
       <div className={Styles.product_img}>
-        <Image src={product.images[0]} alt="" width={100} height={100} />
-        <Image src={product.images[1]} className={Styles.show_hover} alt="" width={100} height={100} />
+        <Image src={product.images[0].url} alt="" width={100} height={100} />
+        <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100} />
       </div>
       <div className={Styles.bottom}>
         <p className={Styles.daily_deal}>Likidasyon</p>

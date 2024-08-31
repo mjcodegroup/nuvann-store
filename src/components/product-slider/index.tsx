@@ -9,10 +9,15 @@ import Title from "../title";
 import SampleNextArrow from "./sample-next-arrow";
 import SamplePrevArrow from "./sample-prev-arrow";
 import { SliderProps } from "./types";
+import { useNavigation } from "@/hooks/useNavigation";
+import { RoutesUrls } from "@/utils/enums/routesUrl";
+
 
 
 export default function ProductSlide (props: SliderProps){
-  var settings = {
+  const {redirect} = useNavigation();
+  
+  const settings = {
     dots: false,
     infinite: false,
     speed: 500,
@@ -48,7 +53,6 @@ export default function ProductSlide (props: SliderProps){
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />
   };
-  
 
   return (
     <section className={Styles.custom_slide_section}>
@@ -59,10 +63,10 @@ export default function ProductSlide (props: SliderProps){
         <Slider {...settings}>
             {props.slides?.slice(0,15).map((product: any, index: any) => (
             // <div className="card_home" key={product.id} onClick={()=>{navigate(`/products/${product.id}`)}}>
-            <div className={Styles.card_home} key={product.id}>
+            <div className={Styles.card_home} key={product.id} onClick={()=>{redirect(RoutesUrls.PRODUCT_DETAILS_PAGE + `/${product.id}` as RoutesUrls)}}>
               <div className={Styles.product_img}>
-                <Image src={product.images[0]} alt="" width={100} height={100}/>
-                <Image src={product.images[1]} className={Styles.show_hover} alt="" width={100} height={100}/>
+                <Image src={product.images[0].url} alt="" width={100} height={100}/>
+                <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100}/>
               </div>
               {props.isnew && (
                 <div className={Styles.product_new_label}>Nouvote</div>
