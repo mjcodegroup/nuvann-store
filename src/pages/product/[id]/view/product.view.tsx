@@ -22,7 +22,7 @@ export default function Product(props: Readonly<ProductProps>) {
         pro_seller={props.product?.seller?.country?.name}
         pro_category={props.product?.category?.name}
         // pro_subCategory={productInfos?.subcategory.name}
-        pro_tags={props.product?.category.tags}
+        // pro_tags={props.product?.category.tags}
       />
 
     </section>
