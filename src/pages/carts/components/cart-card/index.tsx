@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './style.module.scss';
+import Image from 'next/image';
 
 interface CartCardProps {
   items: {
@@ -62,7 +63,7 @@ const CartCard: React.FC<CartCardProps> = ({ items }) => {
         <div key={item.id} className={styles.cart_card_container}>
           <div className={styles.cart_card_content}>
             <div className={styles.cart_card_content_img}>
-              <img 
+              <Image
                 src={item.images[0] || '/path/to/default-image.jpg'} 
                 alt={item.name || 'Product Image'} 
               />

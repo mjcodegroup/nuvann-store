@@ -1,3 +1,4 @@
 export interface ProductProps {
-    productId?: number;
+    product?: any;
+    fullLoading?: boolean;
 }
