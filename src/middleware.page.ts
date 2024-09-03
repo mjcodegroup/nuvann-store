@@ -6,7 +6,7 @@ export async function middleware(req: NextRequest) {
   const token = getCookie('access_token', { req });
   const url = req.nextUrl.clone();
 
-  const keycloakLoginUrl = `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/auth?client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID}&redirect_uri=${encodeURIComponent(url.origin)}&response_type=code&scope=openid`;
+  const keycloakLoginUrl = `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/auth?client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_KEYCLOAK_REDIRECT_URI}&response_type=code&scope=openid`;
 
   if (!token) {
     return NextResponse.redirect(keycloakLoginUrl);
