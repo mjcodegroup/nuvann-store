@@ -19,12 +19,12 @@ const AuthContext = createContext({
 });
 
 export const AuthProvider = ({ children }: any) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<any>(undefined);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-const [token, setToken] = useState<string>("");
+  const [token, setToken] = useState<string>("");
   const isRun = useRef(false);
 
-  const getUserInfo = async (token:string) => {
+  const getUserInfo = useCallback(async (token: string) => {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
       {
@@ -38,13 +38,15 @@ const [token, setToken] = useState<string>("");
     if (res.status === 200) {
       const data = await res.json();
       setUser(data);
+      setCookie("user", JSON.stringify(data));
       setIsAuthenticated(true);
     } else {
       login();
     }
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const login = async () => {
+  const login = useCallback(async () => {
     if (isRun.current) return;
     isRun.current = true;
     keycloak
@@ -53,15 +55,19 @@ const [token, setToken] = useState<string>("");
         flow: 'hybrid',
       })
       .then((res) => {
-        setIsAuthenticated(res);
-        setCookie("access_token", keycloak?.token);
-        getUserInfo(keycloak?.token as string)
-        
+        if (res) {
+          const newToken = keycloak?.token;
+          setIsAuthenticated(true);
+          setToken(newToken as string);
+          setCookie("access_token", newToken);
+          getUserInfo(newToken as string);
+        }
       });
-    };
+  }, [getUserInfo]);
 
   const logout = useCallback(async () => {
     deleteCookie('access_token');
+    deleteCookie('user');
     window.location.href =
       process.env.NEXT_PUBLIC_KEYCLOAK_URL +
       `/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/logout?post_logout_redirect_uri=${window.location.origin}&client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID}`;
@@ -74,14 +80,15 @@ const [token, setToken] = useState<string>("");
   };
 
   useEffect(() => {
-    if (!getCookie("access_token")) {
-      login();
+    const token = getCookie("access_token");
+
+    if (token) {
+      setToken(token as string);
+      getUserInfo(token as string);
     } else {
-      setToken(getCookie("access_token") as string);
-      getUserInfo(getCookie("access_token") as string);
+      login();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [login, getUserInfo]);
 
   return (
     <AuthContext.Provider
