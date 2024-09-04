@@ -16,7 +16,7 @@ export default function ProductController() {
     try {
         await getProductDetails(id);
       } catch (error) {
-        alert("algo deu errado")
+        console.log("algo deu errado")
       } finally {
         setIsLoading(false)
       }
