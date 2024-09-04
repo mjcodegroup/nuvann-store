@@ -14,6 +14,7 @@ export default function LanguageSelector() {
         i18n.changeLanguage(lang)
         setLng(lang)
         Cookie.setCookie("NEXT_I18LANG", lang, 180)
+        window.location.reload()
     }
 
     useEffect(() => {

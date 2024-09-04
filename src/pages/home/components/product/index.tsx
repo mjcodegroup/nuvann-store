@@ -19,9 +19,9 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
       <div className={Styles.bottom}>
         <p className={Styles.daily_deal}>Likidasyon</p>
         <p>
-          <i>de <span className={Styles.lastprice}>{product.prices.before.formatted}</span></i>
+          <i>de <span className={Styles.lastprice}>{product.prices.original_price.formatted}</span></i>
         </p>
-        <p className={Styles.currentPrice}>{product.prices.current.formatted} <span>{product.prices.current.discountPercent} %</span></p>
+        <p className={Styles.currentPrice}>{product.prices.current_price.formatted} <span>{product.prices.current_price.discountPercent} %</span></p>
         <p className={Styles.description}>
           {(product.name && product.name.length > 15) ? product.name.substring(0, 15) + '...' : product.name}
         </p>  
