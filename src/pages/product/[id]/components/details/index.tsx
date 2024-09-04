@@ -77,8 +77,8 @@ export default function Details(props: DetailsProps) {
 
             <div className={Styles.prices_class}>
                 <p>
-                <small>{productInfos?.prices?.before?.formatted}</small>
-                {productInfos?.prices?.current?.formatted}
+                <small>{productInfos?.prices?.original_price?.formatted}</small>
+                {productInfos?.prices?.current_price?.formatted}
                 {
                     productInfos?.prices?.current?.discountPercent && 
                     <span>-{productInfos?.prices?.current?.discountPercent} %</span>
@@ -89,10 +89,10 @@ export default function Details(props: DetailsProps) {
 
         <section className={Styles.selected_section} style={{backgroundColor: handleError ? '#fff5f5' : '', marginTop:'8px'}}>
             <div className={`colores_container ${handleError && !selectedColor.value ? 'shake' : ''}` }>
-                <ColorComponent colors={productInfos?.properties.additionalProp1}  selectedColor={selectedColor.value} onSelectColor={handleSelectColor} />
+                <ColorComponent colors={productInfos?.properties?.additionalProp1}  selectedColor={selectedColor?.value} onSelectColor={handleSelectColor} />
             </div>
             <div className={`sizes_container  ${handleError && !selectedSize.value ? 'shake' : ''}`}>
-                <SizeComponent sizes={productInfos?.properties.additionalProp2} selectedSize={selectedSize.value} onSelectSize={handleSelectSize} />
+                <SizeComponent sizes={productInfos?.properties?.additionalProp2} selectedSize={selectedSize?.value} onSelectSize={handleSelectSize} />
             </div>
 
             <div className={`shipment_infos  ${handleError && !selectedShippingInfo.id ? 'shake' : ''}`}>
@@ -100,7 +100,7 @@ export default function Details(props: DetailsProps) {
             </div>
             {
             handleError ? 
-                <small className="detail_error_message">Svp, seleksyone {!selectedColor.value || !selectedSize.value? 'Size oubyen koulè' : 'Enfòmasyon pou Livrezon'} pwodui an</small>
+                <small className="detail_error_message">Svp, seleksyone {!selectedColor?.value || !selectedSize?.value? 'Size oubyen koulè' : 'Enfòmasyon pou Livrezon'} pwodui an</small>
             : ''
             }
         </section>

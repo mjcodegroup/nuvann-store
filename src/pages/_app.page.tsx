@@ -10,6 +10,7 @@ import '../styles/globals.scss';
 import "@/utils/i18starter/index";
 import { I18nextProvider, getI18n } from "react-i18next";
 import { AuthProvider } from "@/hooks/useKeycloak";
+import { ProductsProvider } from "@/contexts/products";
 
 
 
@@ -24,9 +25,11 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <AuthProvider >
-      <I18nextProvider i18n={getI18n()}>
-          <Component {...pageProps}/>
-      </I18nextProvider>
+        <I18nextProvider i18n={getI18n()}>
+          <ProductsProvider>
+            <Component {...pageProps}/>
+          </ProductsProvider>
+        </I18nextProvider>
       </AuthProvider>
     </>
   )
