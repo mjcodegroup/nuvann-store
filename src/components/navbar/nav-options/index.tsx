@@ -38,7 +38,7 @@ export default function NavOptions(props: NavOptionProps) {
     }
     <li>
       <Link href="/carts">
-        <Badge color="error" badgeContent={2}>
+        <Badge color="error" badgeContent={props.cartCount}>
           <Image src={cartIcon} alt="cartIcon" />
         </Badge>
       </Link>

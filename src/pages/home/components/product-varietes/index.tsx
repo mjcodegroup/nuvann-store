@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import ProductCard from '../product';
 
 interface SeeMoreProps {
-  data: any;
+  data: any[];
   getmore: any;
   loader: boolean;
   onRedirectToProductDetails:(id: string) => void;  
@@ -12,6 +12,7 @@ interface SeeMoreProps {
 
 const ProductVarietes: React.FC<SeeMoreProps> = (props: SeeMoreProps) => {
   const { data, getmore, loader } = props;
+  console.log("____________---", data);
   return (
     <section className={Styles.see_more_container}>
       <h3 className={Styles.see_more_Title}>Ann Gade</h3>
@@ -19,7 +20,7 @@ const ProductVarietes: React.FC<SeeMoreProps> = (props: SeeMoreProps) => {
         {loader ? (
           <div>Loading...</div>
         ) : (
-          data.map((see: any) => (
+          data?.map((see: any) => (
             <ProductCard key={see.id} product={see} onRedirectToProductDetails={props.onRedirectToProductDetails}/>
           ))
         )}

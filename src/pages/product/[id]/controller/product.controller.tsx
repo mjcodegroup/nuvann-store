@@ -2,30 +2,35 @@ import React, { useEffect } from 'react'
 import { HomePageDefault } from '@/components/home-page-default'
 import Product from '../view/product.view'
 import { useParams } from 'next/navigation';
-import productListMock from '@/utils/mocks/home/product-list';
+import { useProducts } from '@/contexts/products';
+import { useProductsInfo } from '@/hooks/use-products-info';
 
 export default function ProductController() {
   const params = useParams<{ id: string; }>()
-  const product = React.useRef<any>();
+  const {state: productDetails, dispatch: productDetailsDispatch} = useProducts();
+  const {getProductDetails} = useProductsInfo();
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
-const getProduct = async (id: string) => {
-  setTimeout(() => {
-    const response = productListMock.find((product) => product.id === id)
-    product.current= response
-    setIsLoading(false)
-  }, 1500);
-}
+  async function getDetailsInformations(id: string) {
+    try {
+        await getProductDetails(id);
+      } catch (error) {
+        console.log("algo deu errado")
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
 
 useEffect(() => {
-  getProduct(params?.id)
+  if(params?.id) getDetailsInformations(params?.id);
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [params?.id])
 
 
-console.log(product.current)
   return (
     <HomePageDefault>
-      <Product product={product.current} fullLoading={isLoading}/>
+      <Product product={productDetails.product} fullLoading={isLoading}/>
     </HomePageDefault>
   )
 }

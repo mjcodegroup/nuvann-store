@@ -10,12 +10,14 @@ import '../styles/globals.scss';
 import "@/utils/i18starter/index";
 import { I18nextProvider, getI18n } from "react-i18next";
 import { AuthProvider } from "@/hooks/useKeycloak";
+import { ProductsProvider } from "@/contexts/products";
+import { CartProvider } from "@/contexts/cart";
+import { CategoriesProvider } from "@/contexts/categories";
 
 
 
 
 export default function App({ Component, pageProps }: AppProps) {
-
   return (
     <>
       <style jsx global>{`
@@ -24,9 +26,15 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <AuthProvider >
-      <I18nextProvider i18n={getI18n()}>
-          <Component {...pageProps}/>
-      </I18nextProvider>
+        <I18nextProvider i18n={getI18n()}>
+          <ProductsProvider>
+            <CategoriesProvider>
+              <CartProvider>
+                <Component {...pageProps}/>
+              </CartProvider>
+            </CategoriesProvider>
+          </ProductsProvider>
+        </I18nextProvider>
       </AuthProvider>
     </>
   )
