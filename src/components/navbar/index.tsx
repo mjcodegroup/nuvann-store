@@ -10,32 +10,38 @@ import SearchBar from './search-bar';
 import { useAuth } from '@/hooks/useKeycloak';
 import { useCart } from '@/contexts/cart';
 import { useCartInfo } from '@/hooks/use-cart-info';
+import { useCategories } from '@/contexts/categories';
+import { useCategoriesInfo } from '@/hooks/use-categories-info';
 
 export const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
   const {state: cartState, dispatch: cartDispatch} = useCart();
+  const {state: categoriesState, dispatch: categoriesDispatch} = useCategories();
   const {getCart} = useCartInfo();
-  const { t } = useTranslation();
+  const {getCategories} = useCategoriesInfo();
 
 
   async function getStartedInformations() {
       setIsLoading(true)
     try {
+      await getCategories();
+      if(isAuthenticated){
         await getCart();
-      } catch (error) {
-        console.log("algo deu errado")
-      } finally {
-        setIsLoading(false)
-      }
+      } 
+    } catch (error) {
+      console.log("algo deu errado")
+    } finally {
+      setIsLoading(false)
     }
-    
-
-useEffect(() => {
-  if(isAuthenticated) getStartedInformations();
+  }
+  
+  
+  useEffect(() => {
+    getStartedInformations();
 // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [])
-
+}, [isAuthenticated])
 
   return (
     <div className={Styles.navbar_container_principal}>
@@ -58,7 +64,10 @@ useEffect(() => {
           cartCount={cartState.cart?.count}
         />
       </div>
-      <NavList />
+      <NavList
+        width='100%'
+        categories={categoriesState?.categories}
+        onCategorySelect={(e: any)=>console.log(e)}/>
     </div>
   );
 };

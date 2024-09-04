@@ -1,3 +1,5 @@
+import { Category } from "@/contexts/categories/types";
+
 export interface NavOptionProps {
     user: any;
     isAuthenticated: boolean;
@@ -11,3 +13,9 @@ export type SearchBarProps = {
     placeholder: string;
     onSearch: (query: string) => void;
 };
+
+export interface NavListProps {
+    categories: Category[];
+    onCategorySelect: (category: Category) => void;
+    width: string;
+  }
