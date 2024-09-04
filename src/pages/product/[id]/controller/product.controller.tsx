@@ -9,7 +9,7 @@ import { useProductsInfo } from '@/hooks/use-products-info';
 export default function ProductController() {
   const params = useParams<{ id: string; }>()
   const {state: productDetails, dispatch: productDetailsDispatch} = useProducts();
-  const {getProducts, getProductDetails} = useProductsInfo();
+  const {getProductDetails} = useProductsInfo();
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   async function getDetailsInformations(id: string) {

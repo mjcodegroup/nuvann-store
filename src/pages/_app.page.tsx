@@ -16,7 +16,6 @@ import { ProductsProvider } from "@/contexts/products";
 
 
 export default function App({ Component, pageProps }: AppProps) {
-
   return (
     <>
       <style jsx global>{`

@@ -16,6 +16,7 @@ const AuthContext = createContext({
   logout: () => {},
   login: () => {},
   handleLogin: () => {},
+  loading: true
 });
 
 export const AuthProvider = ({ children }: any) => {
@@ -23,6 +24,8 @@ export const AuthProvider = ({ children }: any) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [token, setToken] = useState<string>("");
   const isRun = useRef(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
 
   const getUserInfo = useCallback(async (token: string) => {
     const res = await fetch(
@@ -49,6 +52,7 @@ export const AuthProvider = ({ children }: any) => {
   const login = useCallback(async () => {
     if (isRun.current) return;
     isRun.current = true;
+    setLoading(true);
     keycloak
       ?.init({
         onLoad: "check-sso",
@@ -62,7 +66,10 @@ export const AuthProvider = ({ children }: any) => {
           setCookie("access_token", newToken);
           getUserInfo(newToken as string);
         }
-      });
+      })
+      .finally(() => {
+        setLoading(false);
+      })
   }, [getUserInfo]);
 
   const logout = useCallback(async () => {
@@ -77,6 +84,7 @@ export const AuthProvider = ({ children }: any) => {
     if (keycloak) {
       keycloak.login();
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -88,11 +96,13 @@ export const AuthProvider = ({ children }: any) => {
     } else {
       login();
     }
+    setLoading(false);
   }, [login, getUserInfo]);
 
   return (
     <AuthContext.Provider
       value={{
+        loading,
         isAuthenticated,
         user,
         handleLogin,

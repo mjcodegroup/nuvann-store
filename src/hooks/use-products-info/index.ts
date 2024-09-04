@@ -5,12 +5,12 @@ export function useProductsInfo() {
     const { state: productsState, dispatch: productsDispatch } = useProducts();
 
     async function getProducts() {
-        const response = await nuvannApi('/products')
+        const response = await nuvannApi.get('/products')
         productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
     }
 
     async function getProductDetails(id: string) {
-        const response = await nuvannApi(`/products/${id}`)
+        const response = await nuvannApi.get(`/products/${id}`)
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
     }
 

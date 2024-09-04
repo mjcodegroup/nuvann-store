@@ -35,10 +35,12 @@ nuvannApi.interceptors.response.use(handleResponse, handleError);
 nuvannApi.interceptors.request.use(
     async (config: any) => {
          const TOKEN = getCookie('access_token');
+         const selectedLanguage = getCookie('NEXT_I18LANG');
 
         config.headers = {
             ...config.headers,
-            Authorization: TOKEN ? `Bearer ${TOKEN}`: ''
+            Authorization: TOKEN ? `Bearer ${TOKEN}`: '',
+            'Accept-Language' : selectedLanguage || process.env.NEXT_I18LANG
         };
 
         return config;

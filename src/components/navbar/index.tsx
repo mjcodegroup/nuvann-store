@@ -10,8 +10,9 @@ import SearchBar from './search-bar';
 import { useAuth } from '@/hooks/useKeycloak';
 
 export const Navbar: React.FC = () => {
-  const { isAuthenticated, user, logout, handleLogin} = useAuth();
+  const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
   const { t } = useTranslation();
+
 
   return (
     <div className={Styles.navbar_container_principal}>
@@ -29,7 +30,7 @@ export const Navbar: React.FC = () => {
           user={user}
           isAuthenticated={isAuthenticated}
           onSignIn={handleLogin}
-          isLoading={false}
+          isLoading={loading}
           onLogout={logout}
         />
       </div>

@@ -19,7 +19,7 @@ export default function HomeController() {
 
   async function getHomeInformations() {
     try {
-        const response = await getProducts();
+        await getProducts();
       } catch (error) {
         console.log("algo deu errado")
       }
