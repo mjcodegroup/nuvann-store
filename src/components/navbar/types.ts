@@ -4,6 +4,7 @@ export interface NavOptionProps {
     onSignIn?: () => void;
     isLoading: boolean;
     onLogout?: () => void;
+    cartCount?: number;
 }
 
 export type SearchBarProps = {
