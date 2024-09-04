@@ -13,7 +13,7 @@ const handleError = (error: any ) => {
 
         const {protocol, host } = window.location;
 
-        alert("Sua sessão expirou, por favor faça login novamente")
+        console.log("Sua sessão expirou, por favor faça login novamente")
         // window.location.replace(`${protocol}//${host}/login`)
     }
 

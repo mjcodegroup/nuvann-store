@@ -28,7 +28,6 @@ useEffect(() => {
 }, [params?.id])
 
 
-console.log(productDetails)
   return (
     <HomePageDefault>
       <Product product={productDetails.product} fullLoading={isLoading}/>
