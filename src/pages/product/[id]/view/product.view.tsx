@@ -8,6 +8,8 @@ export default function Product(props: Readonly<ProductProps>) {
   if(props.fullLoading){
     return <h1>Loading</h1>
   }
+
+  console.log(props.product)
   return (
     <section className={Styles.poduct_details_page_section}>
       <div className={Styles.__container}>
@@ -22,7 +24,7 @@ export default function Product(props: Readonly<ProductProps>) {
         pro_seller={props.product?.seller?.country?.name}
         pro_category={props.product?.category?.name}
         // pro_subCategory={productInfos?.subcategory.name}
-        pro_tags={props.product?.category.tags}
+        pro_tags={props.product?.category?.tags}
       />
 
     </section>

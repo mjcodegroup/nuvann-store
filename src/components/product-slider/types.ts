@@ -1,6 +1,6 @@
 
 export interface SliderProps {
-    slides: any;
+    products: any;
     title: string;
     itemToShow: number;
     isnew?: boolean;

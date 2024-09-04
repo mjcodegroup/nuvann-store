@@ -9,13 +9,10 @@ import Title from "../title";
 import SampleNextArrow from "./sample-next-arrow";
 import SamplePrevArrow from "./sample-prev-arrow";
 import { SliderProps } from "./types";
-import { useNavigation } from "@/hooks/useNavigation";
-import { RoutesUrls } from "@/utils/enums/routesUrl";
 
 
 
 export default function ProductSlide (props: SliderProps){
-  const {redirect} = useNavigation();
   
   const settings = {
     dots: false,
@@ -53,17 +50,16 @@ export default function ProductSlide (props: SliderProps){
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />
   };
-
   return (
     <section className={Styles.custom_slide_section}>
       <Title title={props.title} />
       {!props.isLoading ? (
-        props.slides && props.slides.length > 0 ? (
+        props.products && props.products.length > 0 ? (
 
         <Slider {...settings}>
-            {props.slides?.slice(0,15).map((product: any, index: any) => (
+            {props.products?.slice(0,15).map((product: any, index: any) => (
             // <div className="card_home" key={product.id} onClick={()=>{navigate(`/products/${product.id}`)}}>
-            <div className={Styles.card_home} key={product.id} onClick={()=>{redirect(RoutesUrls.PRODUCT_DETAILS_PAGE + `/${product.id}` as RoutesUrls)}}>
+            <div className={Styles.card_home} key={product.id} onClick={()=> props.onRedirectToProductDetails(product.id)}>
               <div className={Styles.product_img}>
                 <Image src={product.images[0].url} alt="" width={100} height={100}/>
                 <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100}/>
@@ -79,12 +75,12 @@ export default function ProductSlide (props: SliderProps){
                 <p className={Styles.daily_deal}>promosyon</p>
               )}
                 <p>
-                  <i>de <span className={Styles.lastprice}> {product.prices.before.formatted}</span></i>
+                  <i>de <span className={Styles.lastprice}> {product.prices.original_price?.formatted}</span></i>
                 </p>
-                <p className={Styles.currentPrice}>{product.prices.current.formatted}
+                <p className={Styles.currentPrice}>{product.prices.current_price.formatted}
                 {
-                  product.prices.current.discountPercent &&
-                  <span>{product.prices.current.discountPercent} %</span>
+                  product.prices.current_price.discountPercent &&
+                  <span>{product.prices.current_price.discountPercent} %</span>
                 }
                 </p>
                 {/* <p className='description'>

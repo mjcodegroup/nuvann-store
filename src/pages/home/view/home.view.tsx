@@ -4,12 +4,13 @@ import Hero from '../components/hero';
 import { HomeProps } from '../types';
 import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
-import productListMock from '@/utils/mocks/home/product-list';
 import RandomCategories from '../components/random-categories';
 import ProductVarietes from '../components/product-varietes';
 
 export default function Home(props: Readonly<HomeProps>) {
   // const { t } = useTranslation();
+  const {products } = props;
+  console.log("Home props", products.items);
   return (
     <>
     <Hero
@@ -22,14 +23,14 @@ export default function Home(props: Readonly<HomeProps>) {
     <ProductSlide
       title="Nouvo pwodui"
       itemToShow={4}
-      slides={productListMock} 
+      products={products.items} 
       havePromo={true} 
       isLoading={false}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <ProductSlide
       itemToShow={4} 
-      slides={productListMock}
+      products={props.products.items}
       title="Likidasyon pou Mwa an"
       havePromo={true}
       isLoading={false}
@@ -38,7 +39,7 @@ export default function Home(props: Readonly<HomeProps>) {
     <RandomCategories />
     <ProductVarietes
       loader={false}
-      data={productListMock} 
+      data={products.items as any} 
       getmore={()=>{}}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
