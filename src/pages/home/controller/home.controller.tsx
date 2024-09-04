@@ -21,7 +21,7 @@ export default function HomeController() {
     try {
         const response = await getProducts();
       } catch (error) {
-        alert("algo deu errado")
+        console.log("algo deu errado")
       }
     }
     
