@@ -12,7 +12,7 @@ import { useCart } from '@/contexts/cart';
 import { useCartInfo } from '@/hooks/use-cart-info';
 
 export const Navbar: React.FC = () => {
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
   const {state: cartState, dispatch: cartDispatch} = useCart();
   const {getCart} = useCartInfo();
@@ -20,6 +20,7 @@ export const Navbar: React.FC = () => {
 
 
   async function getStartedInformations() {
+      setIsLoading(true)
     try {
         await getCart();
       } catch (error) {
@@ -31,7 +32,7 @@ export const Navbar: React.FC = () => {
     
 
 useEffect(() => {
-  getStartedInformations();
+  if(isAuthenticated) getStartedInformations();
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
