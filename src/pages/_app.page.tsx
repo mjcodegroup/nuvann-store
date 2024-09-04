@@ -11,6 +11,7 @@ import "@/utils/i18starter/index";
 import { I18nextProvider, getI18n } from "react-i18next";
 import { AuthProvider } from "@/hooks/useKeycloak";
 import { ProductsProvider } from "@/contexts/products";
+import { CartProvider } from "@/contexts/cart";
 
 
 
@@ -26,7 +27,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <AuthProvider >
         <I18nextProvider i18n={getI18n()}>
           <ProductsProvider>
-            <Component {...pageProps}/>
+            <CartProvider>
+              <Component {...pageProps}/>
+            </CartProvider>
           </ProductsProvider>
         </I18nextProvider>
       </AuthProvider>

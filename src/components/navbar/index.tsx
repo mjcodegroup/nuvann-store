@@ -8,10 +8,32 @@ import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
 import { useAuth } from '@/hooks/useKeycloak';
+import { useCart } from '@/contexts/cart';
+import { useCartInfo } from '@/hooks/use-cart-info';
 
 export const Navbar: React.FC = () => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
+  const {state: cartState, dispatch: cartDispatch} = useCart();
+  const {getCart} = useCartInfo();
   const { t } = useTranslation();
+
+
+  async function getStartedInformations() {
+    try {
+        await getCart();
+      } catch (error) {
+        console.log("algo deu errado")
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+
+useEffect(() => {
+  getStartedInformations();
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [])
 
 
   return (
@@ -30,8 +52,9 @@ export const Navbar: React.FC = () => {
           user={user}
           isAuthenticated={isAuthenticated}
           onSignIn={handleLogin}
-          isLoading={loading}
+          isLoading={loading || isLoading}
           onLogout={logout}
+          cartCount={cartState.cart?.count}
         />
       </div>
       <NavList />
