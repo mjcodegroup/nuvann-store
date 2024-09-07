@@ -4,20 +4,31 @@ import Image from 'next/image';
 
 interface CartCardProps {
   items: {
-    id: number;
-    name: string;
-    description: string;
-    images: string[];
-    prices: {
-      before: {
-        raw: number;
-        formatted: string;
-        discountPercent: number;
-      };
-      current: {
-        raw: number;
-        formatted: string;
-        discountPercent: number;
+    id: string;
+    price: number;
+    quantity: number;
+    product: {
+      id: string;
+      name: string;
+      description: string;
+      images: { id: string; url: string; alt: string }[];
+      price: number;
+      properties: { key: string; value: string; quantity: number }[];
+    };
+    shipment: {
+      id: string;
+      price: number;
+      currency: string;
+      delivery_deadline: string;
+      coverage_area: string;
+      default_shipment: boolean;
+    };
+    sub_total: {
+      raw: number;
+      formatted: string;
+      discount: {
+        percent: number;
+        value: number;
       };
     };
   }[];
@@ -26,61 +37,35 @@ interface CartCardProps {
 const CartCard: React.FC<CartCardProps> = ({ items }) => {
   const [errorMessage, setErrorMessage] = useState('');
 
-  // function incrementButton(index: number): void {
-  //   let newCart = [...items];
-  //   let proQty = items[index].quantity + 1;
-  //   const proAmount = items[index]?.product?.availableAmount || 0;
-
-  //   if (proAmount < proQty) {
-  //     setErrorMessage(`Maximum quantity: ${proAmount}`);
-  //   } else {
-  //     setErrorMessage('');
-  //     items[index].quantity++;
-  //     // Handle state updates as needed
-  //   }
-  // }
-
-  // function decrementButton(index: number): void {
-  //   let newCart = [...items];
-  //   let proQty = items[index].quantity - 1;
-  //   const proAmount = items[index]?.product?.availableAmount || 0;
-
-  //   if (proAmount < proQty) {
-  //     setErrorMessage(`Maximum quantity: ${proAmount}`);
-  //   } else if (proQty >= 1) {
-  //     setErrorMessage('');
-  //     items[index].quantity--;
-  //     // Handle state updates as needed
-  //   }
-  // }
-
   return (
     <>
       <div className={styles.cardTitle}>
-          <h3>Nuvann Panye</h3>
+        <h3>Nuvann Panye</h3>
       </div>
       {items.map((item, index) => (
         <div key={item.id} className={styles.cart_card_container}>
           <div className={styles.cart_card_content}>
             <div className={styles.cart_card_content_img}>
               <Image
-                src={item.images[0] || '/path/to/default-image.jpg'} 
-                alt={item.name || 'Product Image'} 
+                src={item.product.images[0]?.url || '/path/to/default-image.jpg'}
+                alt={item.product.name || 'Product Image'}
+                width={150}
+                height={150}
               />
             </div>
             <div className={styles.cart_card_content_desc}>
               <h3>
-                {item.name.length > 12
-                  ? item.name.substring(0, 12) + '...'
-                  : item.name}
+                {item.product.name.length > 12
+                  ? item.product.name.substring(0, 12) + '...'
+                  : item.product.name}
               </h3>
               <div className={styles.content_desc}>
                 <p>Description:</p>
-                <span>{item.description || 'No Description Available'}</span>
+                <span>{item.product.description || 'No Description Available'}</span>
               </div>
               <div className={styles.content_desc}>
                 <p>Price:</p>
-                <span>{item.prices.current.formatted}</span>
+                <span>{item.sub_total.formatted}</span>
               </div>
             </div>
             <div className={styles.content_icon_delete}>
@@ -89,12 +74,12 @@ const CartCard: React.FC<CartCardProps> = ({ items }) => {
           </div>
           <hr />
           <div className={styles.cart_card_footer}>
-            <div className={styles.cart_card_quantity}>Quantity</div>
+            <div className={styles.cart_card_quantity}>Quantity: {item.quantity}</div>
             <div className={styles.cart_card_total}>
               <p>
-                {item.prices.current.formatted}
-                {item.prices.before.raw !== item.prices.current.raw && (
-                  <span>{item.prices.before.formatted}</span>
+                {item.sub_total.formatted}
+                {item.sub_total.raw !== item.price && (
+                  <span> (Before Discount: {item.price})</span>
                 )}
               </p>
             </div>

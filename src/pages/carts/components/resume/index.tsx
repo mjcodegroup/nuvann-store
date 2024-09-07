@@ -7,12 +7,12 @@ import CustomButton from '../custom-buttom';
 interface CartResumeProps {
   count: number;
   cartTotal?: number;
-  shipTotal: string;
-  productSubtotal: string;
+  shipTotal: number;
+  productSubtotal: number;
   OnclickContinue: () => void;
 }
 
-const CartResume: React.FC<CartResumeProps> = ({ count, cartTotal = 0, shipTotal = '0', productSubtotal = '0', OnclickContinue }) => {
+const CartResume: React.FC<CartResumeProps> = ({ count, cartTotal = 0, shipTotal = 0, productSubtotal = 0, OnclickContinue }) => {
   return (
     <div className={styles.card_resume}>
       <Title title='Rezime' className={styles.resume_title} />

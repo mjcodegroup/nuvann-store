@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './style.module.scss'; // Assuming you rename it to use CSS Modules
+import styles from './style.module.scss';
 
 interface InputQuantityProps {
     label: string;
@@ -39,5 +39,3 @@ const InputQuantity: React.FC<InputQuantityProps> = ({
         </>
     );
 };
-
-export default InputQuantity;

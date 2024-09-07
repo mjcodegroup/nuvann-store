@@ -5,8 +5,9 @@ export function useCartInfo() {
     const { state: cartState, dispatch: cartDispatch } = useCart();
 
     async function getCart() {
-        const response = await nuvannApi.get('/carts/items')
+        const response = await nuvannApi.get('/carts/items');
         cartDispatch({ type: 'SET_CART', value: response.data });
+        return response.data; // Return the API response
     }
 
     return {
