@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Styles from './product-slider.module.scss'
+import Styles from './product-slider.module.scss';
 
 import Title from "../title";
 import SampleNextArrow from "./sample-next-arrow";
-import SamplePrevArrow from "./sample-prev-arrow";
 import { SliderProps } from "./types";
+import { SamplePrevArrow } from "./sample-prev-arrow";
+import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
 
+export default function ProductSlide(props: SliderProps) {
+  const [showArrows, setShowArrows] = useState(false);
+  const [showNext, setShowNext] = useState(true);
+  const [showPrev, setShowPrev] = useState(false);
+  const sliderRef = useRef<any>(null);
 
-
-export default function ProductSlide (props: SliderProps){
-
-  var settings = {
+  const settings:any = {
     dots: false,
     infinite: false,
     speed: 500,
@@ -47,73 +50,69 @@ export default function ProductSlide (props: SliderProps){
         }
       }
     ],
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    nextArrow: showArrows && showNext ? <SampleNextArrow /> : null,
+    prevArrow: showArrows && showPrev ? <SamplePrevArrow /> : null,
+    afterChange: (current: number) => {
+      const slider = sliderRef.current;
+      if (slider) {
+        setShowPrev(current > 0);
+        setShowNext(current + slider.props.slidesToShow < props.products.length);
+      }
+    }
   };
-  
+
+  const handleMouseEnter = () => setShowArrows(true);
+  const handleMouseLeave = () => setShowArrows(false);
+
   return (
-    <section className={Styles.custom_slide_section}>
+    <section
+      className={Styles.custom_slide_section}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Title title={props.title} />
       {!props.isLoading ? (
         props.products && props.products.length > 0 ? (
-
-        <Slider {...settings} centerPadding="100">
+          <Slider ref={sliderRef} {...settings} centerPadding="100">
             {props.products?.map((product: any, index: any) => (
-            <div className={Styles.card_home} key={product.id} onClick={()=> props.onRedirectToProductDetails(product.id)}>
+              <div className={Styles.card_home} key={product.id}>
                 {props.isnew && (
                   <div className={Styles.product_new_label}>Nouvote</div>
                 )}
-              <div className={Styles.__card}>
-                <div className={Styles.product_img}>
-                  <Image src={product.images[0].url} alt="" width={100} height={100}/>
-                  <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100}/>
-                </div>
-                <div className={Styles.img_separator}></div>
-                <div className={Styles.bottom}>
-                  {props.havePromo && (
-                    <p className={Styles.daily_deal}>Òf pou jou an</p>
-                  )}
+                <div className={Styles.__card} onClick={() => props.onRedirectToProductDetails(product.id)}>
+                  <div className={Styles.product_img}>
+                    <Image src={product.images[0].url} alt="" width={100} height={100} />
+                    <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100} />
+                  </div>
+                  <div className={Styles.img_separator}></div>
+                  <div className={Styles.bottom}>
+                    {props.havePromo && (
+                      <p className={Styles.daily_deal}>Òf pou jou an</p>
+                    )}
                     <p>
-                      <i><span className={Styles.lastprice}> {product.prices.original_price?.formatted}</span></i>
+                      <i><span className={Styles.lastprice}>{product.prices.original_price?.formatted}</span></i>
                     </p>
                     <p className={Styles.currentPrice}>{product.prices.current_price.formatted}
-                    {
-                      product.prices.current_price.discountPercent &&
-                      <span>{product.prices.current_price.discountPercent} % OFF</span>
-                    }
+                      {product.prices.current_price.discountPercent && <span>{product.prices.current_price.discountPercent} % OFF</span>}
                     </p>
-                  <h2>
-                    {(product.name && product.name.length > 50) ? product.name.substring(0, 50)+'...' : product.name}
-                  </h2>
-                    {/* <p className='description'>
-                      {(product.name && product.name.length > 80) ? product.name.substring(0, 80)+'...' : product.name}
-                    </p>   */}
+                    <h2>
+                      {truncateStringWithEllipsis(product.name, 50)}
+                    </h2>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
-        </Slider>
-          ) : (
-            <div style={{
-              textAlign: 'center',
-              color: 'gray'
-            }}>
-              Pa gen Pwodui Disponib
-            </div>
-          )
+          </Slider>
         ) : (
-          <div className='skeleton_container'>
-            loading..........
-            {/* {Array.from({ length: 4 }).map((_, index) => (
-              <Card>
-                <CardMedia component={Skeleton} variant="rectangular" height={200} />
-                <CardContent>
-                  
-                </CardContent>
-              </Card>
-              ))} */}
+          <div style={{ textAlign: 'center', color: 'gray' }}>
+            Pa gen Pwodui Disponib
           </div>
-        )}
-      </section>
-    );
-  };
+        )
+      ) : (
+        <div className='skeleton_container'>
+          loading..........
+        </div>
+      )}
+    </section>
+  );
+};

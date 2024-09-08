@@ -29,7 +29,6 @@ export default function LanguageSelector() {
             onChange={handleLangChange}
             sx={{
                 borderBottom: 'none'
-               
             }}
         >
         {activeLanguage.map(_lng => (
