@@ -15,7 +15,7 @@ interface JumbotronProps {
   data: jumbArray[];
 }
 
-const Jumbotron: React.FC <JumbotronProps>  = ({data}) => {
+const Categories: React.FC <JumbotronProps>  = ({data}) => {
   return (
     <div className={Styles.jumbotron_container}>
         {/* <Title title="Kategori" /> */}
@@ -31,4 +31,4 @@ const Jumbotron: React.FC <JumbotronProps>  = ({data}) => {
   )
 }
 
-export default Jumbotron;
+export default Categories;

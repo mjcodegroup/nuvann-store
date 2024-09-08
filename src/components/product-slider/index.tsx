@@ -13,12 +13,12 @@ import { SliderProps } from "./types";
 
 
 export default function ProductSlide (props: SliderProps){
-  
-  const settings = {
+
+  var settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: props.itemToShow,
+    slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
@@ -28,7 +28,7 @@ export default function ProductSlide (props: SliderProps){
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: false
+          dots: true
         }
       },
       {
@@ -50,42 +50,45 @@ export default function ProductSlide (props: SliderProps){
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />
   };
+  
   return (
     <section className={Styles.custom_slide_section}>
       <Title title={props.title} />
       {!props.isLoading ? (
         props.products && props.products.length > 0 ? (
 
-        <Slider {...settings}>
+        <Slider {...settings} centerPadding="100">
             {props.products?.slice(0,15).map((product: any, index: any) => (
-            // <div className="card_home" key={product.id} onClick={()=>{navigate(`/products/${product.id}`)}}>
             <div className={Styles.card_home} key={product.id} onClick={()=> props.onRedirectToProductDetails(product.id)}>
-              <div className={Styles.product_img}>
-                <Image src={product.images[0].url} alt="" width={100} height={100}/>
-                <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100}/>
-              </div>
-              {props.isnew && (
-                <div className={Styles.product_new_label}>Nouvote</div>
-              )}
-              <div className={Styles.bottom}>
-              <h2>
-                {(product.name && product.name.length > 15) ? product.name.substring(0, 15)+'...' : product.name}
-              </h2>
-              {props.havePromo && (
-                <p className={Styles.daily_deal}>promosyon</p>
-              )}
-                <p>
-                  <i>de <span className={Styles.lastprice}> {product.prices.original_price?.formatted}</span></i>
-                </p>
-                <p className={Styles.currentPrice}>{product.prices.current_price.formatted}
-                {
-                  product.prices.current_price.discountPercent &&
-                  <span>{product.prices.current_price.discountPercent} %</span>
-                }
-                </p>
-                {/* <p className='description'>
-                  {(product.name && product.name.length > 80) ? product.name.substring(0, 80)+'...' : product.name}
-                </p>   */}
+              <div className={Styles.__card}>
+                <div className={Styles.product_img}>
+                  <Image src={product.images[0].url} alt="" width={100} height={100}/>
+                  <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100}/>
+                </div>
+                <div className={Styles.img_separator}></div>
+                {props.isnew && (
+                  <div className={Styles.product_new_label}>Nouvote</div>
+                )}
+                <div className={Styles.bottom}>
+                  {props.havePromo && (
+                    <p className={Styles.daily_deal}>Òf pou jou an</p>
+                  )}
+                    <p>
+                      <i><span className={Styles.lastprice}> {product.prices.original_price?.formatted}</span></i>
+                    </p>
+                    <p className={Styles.currentPrice}>{product.prices.current_price.formatted}
+                    {
+                      product.prices.current_price.discountPercent &&
+                      <span>{product.prices.current_price.discountPercent} % OFF</span>
+                    }
+                    </p>
+                  <h2>
+                    {(product.name && product.name.length > 40) ? product.name.substring(0, 40)+'...' : product.name}
+                  </h2>
+                    {/* <p className='description'>
+                      {(product.name && product.name.length > 80) ? product.name.substring(0, 80)+'...' : product.name}
+                    </p>   */}
+                </div>
               </div>
             </div>
             ))}
