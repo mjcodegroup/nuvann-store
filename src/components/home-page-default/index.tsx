@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from "./home-page-default.module.css"
+import Styles from "./home-page-default.module.scss"
 import { Footer } from '../footer/index';
 import { Navbar } from '../navbar/index';
 
@@ -11,7 +11,7 @@ export const HomePageDefault: React.FC<PageDefaultProps> = ({ children }) =>{
     <div>
         <h1><Navbar /></h1>
 
-        <div className={classes.home_page_default_main_container}>
+        <div className={Styles.home_page_default_main_container}>
             {children}
         </div>
 

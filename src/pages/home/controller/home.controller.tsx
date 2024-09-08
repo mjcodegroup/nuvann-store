@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import Home from '../view/home.view'
 import { HomePageDefault } from '@/components/home-page-default'
 import heroImagesMock from '@/utils/mocks/home/hero-images-slider.mock'
-import jumbArrayMock from '@/utils/mocks/home/jumbotron.mock'
+import { categoriesMock, jumDataMock } from '@/utils/mocks/home/jumbotron.mock'
 import { useProducts } from '@/contexts/products'
 import { useNavigation } from '@/hooks/useNavigation'
 import { RouteUrl } from '@/utils/enums/routesUrl'
@@ -29,10 +29,18 @@ export default function HomeController() {
       getHomeInformations();
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    console.log(jumDataMock)
   
   return (
     <HomePageDefault>
-      <Home products={homeState.products} heroImages={heroImagesMock} jumbotronData={jumbArrayMock} onRedirectToProductDetails={handleRedirectToDetailsPage}/>
+      <Home
+        heroImages={heroImagesMock}
+        jumbsData={jumDataMock}
+        products={homeState.products}
+        categories={categoriesMock} 
+        onRedirectToProductDetails={handleRedirectToDetailsPage}
+      />
     </HomePageDefault>
   )
 }

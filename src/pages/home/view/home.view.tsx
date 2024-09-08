@@ -2,7 +2,7 @@ import React from 'react'
 // import { useTranslation } from 'react-i18next';
 import Hero from '../components/hero';
 import { HomeProps } from '../types';
-import Jumbotron from '../components/categories';
+import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
 import RandomCategories from '../components/random-categories';
 import ProductVarietes from '../components/product-varietes';
@@ -17,8 +17,11 @@ export default function Home(props: Readonly<HomeProps>) {
       images={props.heroImages}
       autoSlideInterval={5000}
     />
+
+    <Jumbotron  jumbs={props.jumbsData} />
+
     <Categories 
-      data={props.jumbotronData}
+      data={props.categories}
     />
     <ProductSlide
       title="Nouvo pwodui"

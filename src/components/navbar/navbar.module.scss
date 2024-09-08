@@ -1,11 +1,11 @@
 .navbar_container_principal {
     height: 146px;
     background: var(--background-white);
-
     .nav_header {
-        border: 1px solid green;
+        margin: 0 80px;
+        // border: 1px solid green;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
 
         .navbar_search {

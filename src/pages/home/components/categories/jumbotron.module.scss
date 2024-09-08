@@ -1,22 +1,35 @@
-.jumbotron_container {
-    background-color: var(--background-white);
-    margin: 15px 0 0 0;
-    height: 200px;
-    padding: 8px;
-    
-    .home_jumbotron {
+.category_container {
+    margin: 64px 0;
+    height: 100%;
+
+    .category_content {
         display: flex;
         justify-content: space-between;
-        align-items:center;
         height: 100%;
-        gap: 0 128px;
+        gap: 0 16px;
 
-        .jumbotron_content {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        ._card_container {
+            h3{
+                margin-top: 8px;
+                text-align: center;
+            }
+
+            ._card {
+                height: 265px;
+                width: 263px;
+                border-radius: 15px;
+                background:#FFD700;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                img{
+                    width: 80%;
+                    height: 80%;
+                    border-radius: 15px;
+                }
+            }
         }
 
         @media (max-width: 768px) {
@@ -24,9 +37,9 @@
         }
     }
     width: 100%;
-    @media (min-width: 768px) {
-        overflow: hidden;
-    }
+    // @media (min-width: 768px) {
+    //     overflow-x: hidden;
+    // }
 
     // Estilos para dispositivos móveis
     @media (max-width: 768px) {
