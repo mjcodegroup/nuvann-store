@@ -8,8 +8,8 @@ export default function Product(props: Readonly<ProductProps>) {
   if(props.fullLoading){
     return <h1>Loading</h1>
   }
+  
 
-  console.log(props.product)
   return (
     <section className={Styles.poduct_details_page_section}>
       <div className={Styles.__container}>
