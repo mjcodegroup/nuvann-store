@@ -6,25 +6,29 @@ import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
 import RandomCategories from '../components/random-categories';
 import ProductVarietes from '../components/product-varietes';
+import Categories from '../components/categories';
 
 export default function Home(props: Readonly<HomeProps>) {
   // const { t } = useTranslation();
   const {products } = props;
-  console.log("Home props", products.items);
   return (
     <>
     <Hero
       images={props.heroImages}
       autoSlideInterval={5000}
     />
-    <Jumbotron 
-      data={props.jumbotronData}
+
+    <Jumbotron  jumbs={props.jumbsData} />
+
+    <Categories 
+      data={props.categories}
     />
     <ProductSlide
       title="Nouvo pwodui"
       itemToShow={4}
       products={products.items} 
-      havePromo={true} 
+      havePromo={false}
+      isnew
       isLoading={false}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
@@ -32,17 +36,17 @@ export default function Home(props: Readonly<HomeProps>) {
       itemToShow={4} 
       products={props.products.items}
       title="Likidasyon pou Mwa an"
-      havePromo={true}
+      havePromo
       isLoading={false}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <RandomCategories />
-    <ProductVarietes
+    {/* <ProductVarietes
       loader={false}
       data={products.items as any} 
       getmore={()=>{}}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
-    />
+    /> */}
     </>
   )
 }

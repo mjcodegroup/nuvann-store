@@ -1,53 +1,24 @@
-.jumbotron_container {
-    background-color: var(--background-white);
-    margin: 15px 0 0 0;
-    height: 200px;
-    padding: 8px;
-    
-    .home_jumbotron {
+.jumb_container {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px 0;
+
+    .jumb_content{
         display: flex;
-        justify-content: space-between;
-        align-items:center;
+        justify-content: center;
+        align-items: center;
         height: 100%;
-        gap: 0 128px;
-
-        
-        .jumbotron_content {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        gap: 0 8px;
+        img{
+            height: 30px;
+            width: 30px;
         }
-
-        @media (max-width: 768px) {
-            gap: 0 32px;
+        p{
+            color: #252424;
+            line-height: 19;
+            font-weight: 400;
         }
     }
-    width: 100%;
-    @media (min-width: 768px) {
-        overflow: hidden;
-    }
-
-    // Estilos para dispositivos móveis
-    @media (max-width: 768px) {
-        overflow-y: auto; // Adiciona scroll vertical no mobile
-        -webkit-overflow-scrolling: touch; // Suaviza o scroll no iOS
-    }
-
-    // Estilos para a barra de rolagem (opcional)
-    &::-webkit-scrollbar {
-        width: 6px;
-        display: none;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: darkgrey;
-        border-radius: 3px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
 }

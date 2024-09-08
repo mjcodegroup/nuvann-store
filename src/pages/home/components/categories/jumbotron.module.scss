@@ -1,0 +1,65 @@
+.category_container {
+    margin: 64px 0;
+    height: 100%;
+
+    .category_content {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        gap: 0 16px;
+
+        ._card_container {
+            h3{
+                margin-top: 8px;
+                text-align: center;
+            }
+
+            ._card {
+                height: 265px;
+                width: 263px;
+                border-radius: 15px;
+                background:#FFD700;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                img{
+                    width: 80%;
+                    height: 80%;
+                    border-radius: 15px;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            gap: 0 32px;
+        }
+    }
+    width: 100%;
+    // @media (min-width: 768px) {
+    //     overflow-x: hidden;
+    // }
+
+    // Estilos para dispositivos móveis
+    @media (max-width: 768px) {
+        overflow-y: auto; // Adiciona scroll vertical no mobile
+        -webkit-overflow-scrolling: touch; // Suaviza o scroll no iOS
+    }
+
+    // Estilos para a barra de rolagem (opcional)
+    &::-webkit-scrollbar {
+        width: 6px;
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+}

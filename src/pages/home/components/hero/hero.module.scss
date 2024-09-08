@@ -1,50 +1,52 @@
 .carousel {
-    position: relative;
+  margin-top: 24px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 480px;
+  border-radius: 20px;
+  
+  .__slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .__slide {
+    flex-shrink: 0;
     width: 100%;
-    overflow: hidden;
-    height: 350px;
-    
-    .__slider {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    
-    .__slide {
-      flex-shrink: 0;
-      width: 100%;
 
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        height: 350px;
-      }
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      height: 480px;
     }
+  }
   
-    .__prev_btn,
-    .__next_btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
-      width: 60px;
-      height: 60px;
-      background-color: inherit;
-      color: var(--background-principal);
-      font-size: 36px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      
-      &:hover {
-        color: var(--background-yellow);
-      }
+  .__prev_btn,
+  .__next_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    background-color: inherit;
+    color: var(--background-principal);
+    font-size: 36px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+    &:hover {
+      color: var(--background-yellow);
     }
-  
-    .__prev_btn {
-      left: 0;
-      border-radius: 0 4px 4px 0;
-    }
+  }
+
+  .__prev_btn {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+  }
   
     .__next_btn {
       right: 0;
