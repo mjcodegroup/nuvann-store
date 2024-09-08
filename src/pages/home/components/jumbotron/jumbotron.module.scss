@@ -1,24 +1,43 @@
 .jumb_container {
-    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 32px 0;
+    flex-wrap: wrap; // Permite que os itens quebrem para a próxima linha
+    gap: 16px; // Espaçamento entre os itens
 
-    .jumb_content{
+    .jumb_content {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        gap: 0 8px;
-        img{
+        gap: 8px;
+
+        img {
             height: 30px;
             width: 30px;
         }
-        p{
+
+        p {
             color: #252424;
-            line-height: 19;
+            line-height: 19px;
             font-weight: 400;
+        }
+    }
+
+    // Ajuste para telas pequenas
+    @media (max-width: 480px) {
+        justify-content: center; // Centraliza os itens
+        gap: 12px; // Reduz o espaçamento entre os itens
+
+        .jumb_content {
+            img {
+                height: 20px;
+                width: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
         }
     }
 }

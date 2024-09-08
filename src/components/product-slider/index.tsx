@@ -58,17 +58,17 @@ export default function ProductSlide (props: SliderProps){
         props.products && props.products.length > 0 ? (
 
         <Slider {...settings} centerPadding="100">
-            {props.products?.slice(0,15).map((product: any, index: any) => (
+            {props.products?.map((product: any, index: any) => (
             <div className={Styles.card_home} key={product.id} onClick={()=> props.onRedirectToProductDetails(product.id)}>
+                {props.isnew && (
+                  <div className={Styles.product_new_label}>Nouvote</div>
+                )}
               <div className={Styles.__card}>
                 <div className={Styles.product_img}>
                   <Image src={product.images[0].url} alt="" width={100} height={100}/>
                   <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100}/>
                 </div>
                 <div className={Styles.img_separator}></div>
-                {props.isnew && (
-                  <div className={Styles.product_new_label}>Nouvote</div>
-                )}
                 <div className={Styles.bottom}>
                   {props.havePromo && (
                     <p className={Styles.daily_deal}>Òf pou jou an</p>
@@ -83,7 +83,7 @@ export default function ProductSlide (props: SliderProps){
                     }
                     </p>
                   <h2>
-                    {(product.name && product.name.length > 40) ? product.name.substring(0, 40)+'...' : product.name}
+                    {(product.name && product.name.length > 50) ? product.name.substring(0, 50)+'...' : product.name}
                   </h2>
                     {/* <p className='description'>
                       {(product.name && product.name.length > 80) ? product.name.substring(0, 80)+'...' : product.name}
