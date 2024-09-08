@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <AuthProvider >
-        <I18nextProvider i18n={getI18n()}>
+        <I18nextProvider i18n={getI18n()} defaultNS={'fr'}>
           <ProductsProvider>
             <CategoriesProvider>
               <CartProvider>

@@ -7,9 +7,10 @@ import ProductSlide from '@/components/product-slider';
 import RandomCategories from '../components/random-categories';
 import ProductVarietes from '../components/product-varietes';
 import Categories from '../components/categories';
+import { useTranslation } from 'react-i18next';
 
 export default function Home(props: Readonly<HomeProps>) {
-  // const { t } = useTranslation();
+  const { t } = useTranslation("home");
   const {products } = props;
   return (
     <>
@@ -24,7 +25,7 @@ export default function Home(props: Readonly<HomeProps>) {
       data={props.categories}
     />
     <ProductSlide
-      title="Nouvo pwodui"
+      title={t("home.newProducts")}
       itemToShow={4}
       products={products.items} 
       havePromo={false}

@@ -1,7 +1,21 @@
 .home_page_default_main_container {
-    // overflow: auto;
     min-height: calc(100vh - 27px);
-    // width: 100%;
     height: 100%;
     margin: 0 80px;
-}
+  
+    // Para telas menores que 768px (celulares)
+    @media (max-width: 768px) {
+      margin: 0 20px; // Reduzir a margem
+    }
+  
+    // Para telas menores que 480px (celulares muito pequenos)
+    @media (max-width: 480px) {
+      margin: 0 10px; // Ainda menor para telefones pequenos
+    }
+  
+    // Para telas entre 768px e 1024px (tablets)
+    @media (min-width: 769px) and (max-width: 1024px) {
+      margin: 0 40px; // Margem intermediária para tablets
+    }
+  }
+  

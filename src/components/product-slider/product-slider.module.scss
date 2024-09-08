@@ -2,8 +2,6 @@
   width: 100%;
   padding: 1% 40px;
   height: 100%;
-  
-  
   .skeleton_container {
     width: 100%;
     display: grid;
@@ -16,7 +14,7 @@
   .card_home{
     // display: flex;
     // gap: 0 32px;
-    height: 500px;
+    height: 404px;
     transition: 0.1s ease-in-out;
     padding: 0 16px;
     
@@ -93,7 +91,7 @@
     
       .product_img{
         width: 100%;
-        height: 55%;
+        height: 60%;
         background: #E5E5E5;
         position:relative;
         img{
@@ -119,16 +117,17 @@
         background-color: var(--background-yellow);
         font-size:12px;
         text-transform:uppercase;
-        padding:2px 7px;
-        // display:block;
+        padding:2px 4px;
+        display:block;
         position:absolute;
-        top:5px;
+        top: 0;
+        border-start-start-radius: 8px;
+        border-end-end-radius: 8px;
+        z-index: 1;
       }
     
       .bottom{
-        width: 90%;
         height: 100px;
-
         h2 {
           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
           font-size: 13px;
@@ -174,53 +173,68 @@
             }
         }
     
-    .slick_prev:hover,.slick_next:hover,
-    .slick_prev:focus,.slick_next:focus{
-      background-color: #E5E5E5;
-    
-    }
-    
-    .slick_prev, .slick_next {
-      z-index: 1000;
-      height: 42px;
-      width: 42px;
-      border-radius: 50%;
-      color: #000052;
-
-    }
-    
-      .slick-arrow {
-        background-color: #E5E5E5;
-    
+        .card_home:hover .show_hover{
+          opacity:1
+        }
       }
       
-      .slick_prev:before, .slick_next:before {
-       color: #000052;
-       background-color: #ffff;
-       font-size: 25px;
-       border-radius: 50%;
-       z-index: 2;
-      } 
-      .slick-slide {
-          display: grid;
-          place-items: center;
-          width: 50%;
-          margin: auto;
-          height: 100%;
-          padding: 0px;
+      
+      .slick_prev:hover,.slick_next:hover,
+      .slick_prev:focus,.slick_next:focus{
+        background-color: #E5E5E5;
+      
       }
-
-
-    .slick-list {
-      margin: 8px;
-      border: 1px solid red;
-      background-color: #ffff;
-
-    }
-    .card_home:hover .show_hover{
-      opacity:1
-    }
-  }
-
-
+      
+      .slick_prev, .slick_next {
+        z-index: 1000;
+        height: 42px;
+        width: 42px;
+        border-radius: 50%;
+        color: #000052;
   
+      }
+      
+        .slick-arrow {
+          background-color: #E5E5E5;
+      
+        }
+        
+        .slick_prev:before, .slick_next:before {
+         color: #000052;
+         background-color: #ffff;
+         font-size: 25px;
+         border-radius: 50%;
+         z-index: 2;
+        } 
+        .slick-slide {
+            display: grid;
+            place-items: center;
+            width: 50%;
+            margin: auto;
+            height: 100%;
+            padding: 0px;
+        }
+  
+        .slick-arrow {
+          background-color: #b0b0b0; // cor cinza
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          height: 42px;
+          width: 42px;
+          transition: background-color 0.3s ease-in-out;
+        
+          .arrow-icon {
+            color: #fff; // ícone branco
+            font-size: 20px;
+          }
+        
+          &:hover {
+            background-color: #000052; // fundo azul
+            .arrow-icon {
+              color: #fff; // ícone branco
+            }
+          }
+        }
+      
