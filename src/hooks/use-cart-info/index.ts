@@ -2,8 +2,10 @@ import { useCart } from "@/contexts/cart";
 import { nuvannApi } from "@/services/api";
 import { useNavigation } from "../useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
+import { useToast } from "@/contexts/toast";
 
 export function useCartInfo() {
+    const {successToast, errorToast} = useToast();
   const {redirect} = useNavigation();
 
     const { state: cartState, dispatch: cartDispatch } = useCart();
@@ -14,17 +16,22 @@ export function useCartInfo() {
     }
 
     async function addProductToCart(data: CreateProductData) {
-        // console.log(data);
+        cartDispatch({ type: 'SET_CART_LOADER', value: true });
         try {
-            await nuvannApi.post('/carts/items', data);
+            const response = await nuvannApi.post('/carts/items', data);
+            successToast(response.data.message || 'Product added to cart');
             getCart();
             redirect(RoutesUrls.CARTS);
         } catch (error: any) {
-            alert(error.response.data.message);
+            errorToast(error.response.data.message);
+            
+        } finally {
+            cartDispatch({ type: 'SET_CART_LOADER', value: false });
         }
     }
 
     return {
+        isLoading: cartState.cart_loader,
         getCart,
         addProductToCart,
     }
