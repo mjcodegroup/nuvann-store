@@ -39,9 +39,10 @@ interface CartProps {
       };
     }[];
   };
+  removeFromCart: (id: string) => Promise<void>;
 }
 
-const Cart: React.FC<CartProps> = (props) => {
+const Cart: React.FC<CartProps> = ({ data, removeFromCart }) => {
   const { t } = useTranslation();
 
   const OnclickContinue = () => {
@@ -52,14 +53,14 @@ const Cart: React.FC<CartProps> = (props) => {
     <div>
       <div className={styles.cartWrapper}>
         <div className={styles.cartCard}>
-          <CartCard items={props.data.items} />
+          <CartCard items={data.items} removeFromCart={removeFromCart}/>
         </div>
         <div className={styles.cartResume}>
           <CartResume
-            count={props.data.count}
-            cartTotal={props.data.total}
-            shipTotal={props.data.count}
-            productSubtotal={props.data.total}
+            count={data.count}
+            cartTotal={data.total}
+            shipTotal={data.count}
+            productSubtotal={data.total}
             OnclickContinue={OnclickContinue}
           />
         </div>

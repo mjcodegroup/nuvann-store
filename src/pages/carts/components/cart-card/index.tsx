@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import styles from './style.module.scss';
+import { MdDelete } from 'react-icons/md';
 import Image from 'next/image';
+import styles from './style.module.scss';
+import InputQuantity from '@/components/input-quantity';
 
 interface CartCardProps {
   items: {
@@ -32,17 +34,20 @@ interface CartCardProps {
       };
     };
   }[];
+  removeFromCart: (id: string) => Promise<void>;
 }
 
-const CartCard: React.FC<CartCardProps> = ({ items }) => {
+const CartCard: React.FC<CartCardProps> = ({ items, removeFromCart }) => {
   const [errorMessage, setErrorMessage] = useState('');
+  function incrementButton(index: number): void { }
+  function decrementButton(index: number): void { }
 
   return (
     <>
       <div className={styles.cardTitle}>
         <h3>Nuvann Panye</h3>
       </div>
-      {items.map((item, index) => (
+      {items.map((item) => (
         <div key={item.id} className={styles.cart_card_container}>
           <div className={styles.cart_card_content}>
             <div className={styles.cart_card_content_img}>
@@ -69,17 +74,27 @@ const CartCard: React.FC<CartCardProps> = ({ items }) => {
               </div>
             </div>
             <div className={styles.content_icon_delete}>
-              {/* <MdDelete color='red' size={22} onClick={() => removeFromCart(Number(item.id))} /> */}
+              <MdDelete
+                color='red'
+                size={22}
+                onClick={() => removeFromCart(item.id)}
+              />
             </div>
           </div>
           <hr />
           <div className={styles.cart_card_footer}>
-            <div className={styles.cart_card_quantity}>Quantity: {item.quantity}</div>
+            <div className="cart_card_quantity">
+              <InputQuantity
+                value={item?.quantity}
+                label="kantite"
+                increment={() => incrementButton(item?.quantity)}
+                decrement={() => decrementButton(item?.quantity)} />
+            </div>
             <div className={styles.cart_card_total}>
               <p>
                 {item.sub_total.formatted}
                 {item.sub_total.raw !== item.price && (
-                  <span> (Before Discount: {item.price})</span>
+                  <span> {item.price}</span>
                 )}
               </p>
             </div>

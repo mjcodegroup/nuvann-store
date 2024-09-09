@@ -11,13 +11,13 @@ export default function CartController() {
     count: 0,
     items: [],
   });
-  const { getCart } = useCartInfo();
+  const { getCart, removeFromCart } = useCartInfo();
 
   useEffect(() => {
     async function fetchCart() {
       try {
         const cartResponse = await getCart();
-        setCartData(cartResponse); // Set the cart data here
+        setCartData(cartResponse);
       } catch (error) {
         console.error('Error fetching cart data:', error);
       } finally {
@@ -34,7 +34,7 @@ export default function CartController() {
 
   return (
     <HomePageDefault>
-      <Cart data={cartData} />
+      <Cart data={cartData} removeFromCart={removeFromCart} />
     </HomePageDefault>
   );
 }

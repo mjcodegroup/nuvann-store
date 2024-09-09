@@ -12,10 +12,10 @@ export type Action =
     //     type: 'ADD_TO_CART';
     //     value: any;
     // }
-    // | {
-    //     type: 'REMOVE_FROM_CART';
-    //     value: any;
-    // }
+    | {
+        type: 'REMOVE_FROM_CART';
+        value: any;
+    }
     // | {
     //     type: 'CLEAR_CART';
     // };

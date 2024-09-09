@@ -5,6 +5,9 @@ export function reducer(state: State, action: Action): State {
         case 'SET_CART': {
             return { ...state, cart: action.value };
         }
+        case 'REMOVE_FROM_CART': {
+            return { ...state, cart: action.value };
+        }
         default: {
             return state;
         }
