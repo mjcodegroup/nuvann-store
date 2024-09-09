@@ -30,11 +30,10 @@ export default function HomeController() {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    console.log(jumDataMock)
-  
   return (
     <HomePageDefault>
       <Home
+        loader={homeState.isLoading}
         heroImages={heroImagesMock}
         jumbsData={jumDataMock}
         products={homeState.products}

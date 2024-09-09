@@ -1,6 +1,7 @@
 export interface State {
     products: ProductsData;
     product: ProductDetails;
+    isLoading: boolean;
 }
 
 export type Action =
@@ -11,6 +12,10 @@ export type Action =
     | {
         type: 'SET_PRODUCT_DETAILS';
         value: ProductDetails;
+    }
+    | {
+        type: 'SET_LOADING';
+        value: boolean;
     };
 
 export interface ProductsContextProps {

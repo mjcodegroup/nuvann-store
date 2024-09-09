@@ -13,6 +13,7 @@ import { AuthProvider } from "@/hooks/useKeycloak";
 import { ProductsProvider } from "@/contexts/products";
 import { CartProvider } from "@/contexts/cart";
 import { CategoriesProvider } from "@/contexts/categories";
+import ToastProvider from "@/contexts/toast";
 
 
 
@@ -28,11 +29,13 @@ export default function App({ Component, pageProps }: AppProps) {
       <AuthProvider >
         <I18nextProvider i18n={getI18n()} defaultNS={'fr'}>
           <ProductsProvider>
-            <CategoriesProvider>
-              <CartProvider>
-                <Component {...pageProps}/>
-              </CartProvider>
-            </CategoriesProvider>
+            <ToastProvider>
+              <CategoriesProvider>
+                <CartProvider>
+                  <Component {...pageProps}/>
+                </CartProvider>
+              </CategoriesProvider>
+            </ToastProvider>
           </ProductsProvider>
         </I18nextProvider>
       </AuthProvider>
