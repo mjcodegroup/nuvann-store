@@ -13,12 +13,23 @@
         a {
             margin-right: 16px;
             button {
-                width: 133px;
-                height: 36px;
-                background-color: var(--blue-principal-000052);
+                width: 150px;
+                height: 45px;
                 border: none;
-                color: var(--background-white);
+                background-color: transparent;
+                // color: var(--background-white);
                 cursor: pointer;
+                font-family: Roboto;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 15.23px;
+                border-radius: 8px;
+
+                &:hover {
+                    border-left: 1px solid var(--blue-principal-000052);
+                    border-bottom: 1px solid var(--blue-principal-000052);
+                }
+
             }
         }
         span{

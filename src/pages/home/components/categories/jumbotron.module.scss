@@ -1,0 +1,91 @@
+.category_container {
+    margin: 64px 0;
+    height: 100%;
+    width: 100%;
+
+    .category_content {
+        display: flex;
+        justify-content: space-between; // Distribui os cartões uniformemente
+        flex-wrap: wrap; // Permite que os itens quebrem em várias linhas
+        gap: 16px; // Espaçamento entre os cartões
+        width: 100%;
+
+        ._card_container {
+            flex: 1 1 calc(25% - 16px); // Define a largura dos cartões como 25% da tela, com espaçamento
+            max-width: calc(25% - 16px); // Garante que não ultrapassem 25%
+            min-width: 240px; // Define uma largura mínima para evitar cartões muito pequenos
+
+            h3 {
+                margin-top: 8px;
+                text-align: center;
+            }
+
+            ._card {
+                height: 265px;
+                width: 100%;
+                border-radius: 15px;
+                background: #FFD700;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+
+                img {
+                    width: 80%;
+                    height: 80%;
+                    border-radius: 15px;
+                }
+            }
+        }
+
+        // Ajustes para telas grandes
+        @media (max-width: 1024px) {
+            ._card_container {
+                flex: 1 1 calc(33.33% - 16px); // 3 colunas no tablet grande
+                max-width: calc(33.33% - 16px);
+            }
+        }
+
+        // Ajustes para tablets médios
+        @media (max-width: 768px) {
+            ._card_container {
+                flex: 1 1 calc(50% - 16px); // 2 colunas no tablet
+                max-width: calc(50% - 16px);
+            }
+        }
+
+        // Ajustes para mobile
+        @media (max-width: 480px) {
+            ._card_container {
+                flex: 1 1 100%; // 1 coluna no mobile
+                max-width: 100%;
+            }
+        }
+    }
+
+    // Centraliza o título
+    h1, h2, h3 {
+        text-align: center;
+    }
+
+    // Estilos para dispositivos móveis
+    @media (max-width: 768px) {
+        overflow-y: auto; // Adiciona scroll vertical no mobile
+        -webkit-overflow-scrolling: touch; // Suaviza o scroll no iOS
+    }
+
+    // Estilos para a barra de rolagem (opcional)
+    &::-webkit-scrollbar {
+        width: 6px;
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+}

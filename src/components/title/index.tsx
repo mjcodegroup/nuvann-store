@@ -5,12 +5,15 @@ import Styles from './title.module.scss'
 interface TitleProps {
     title: string;
     className?: string;
+    centered?: boolean;
 }
 
-const Title: React.FC<TitleProps> =({title, className}) =>{
+const Title: React.FC<TitleProps> =({title, className, centered=false}) =>{
     return (
-        <div className={Styles.section_title}>
-            <h4 className={className}>{title}</h4>
+        <div className={Styles.section_title} style={{
+            textAlign: centered ?"center" : 'inherit',
+        }}>
+            <h1 className={className}>{title}</h1>
         <div></div>
         </div>
     )

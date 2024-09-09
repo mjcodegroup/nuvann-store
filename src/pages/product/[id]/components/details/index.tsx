@@ -7,12 +7,24 @@ import AvailableCountries from '../available-countries';
 import InputQuantity from '@/components/input-quantity';
 import CustomButton from '@/components/custom-button';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { useAuth } from '@/hooks/useKeycloak';
+import { set } from 'lodash';
+import { useCartInfo } from '@/hooks/use-cart-info';
+import { useNavigation } from '@/hooks/useNavigation';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
 
 
 interface DetailsProps {
     productInfos: any;
 }
 export default function Details(props: DetailsProps) {
+  const {redirect} = useNavigation();
+
+  const { isAuthenticated} = useAuth();
+  const {addProductToCart} = useCartInfo();
+
+
+
     const [selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
 
     const [selectedSize, setSelectedSize] = React.useState({
@@ -65,6 +77,42 @@ export default function Details(props: DetailsProps) {
         setQty(Number(qty));
       }
 
+      function handleCartValidation(){
+        const color = !!(props.productInfos?.properties?.color?.length && !selectedColor?.value)
+        const size = !!(props.productInfos?.properties?.size?.length && !selectedSize?.value)
+
+        // if(color || size || !selectedShippingInfo?.id) {
+          if(color || size) {
+            sethandleError(true)
+          return false;
+        } else {
+          sethandleError(false)
+          return true;
+        }
+      }
+
+    const handleAddProductToCart = async() => {
+      const ifExist = [
+        selectedSize,
+        selectedColor
+      ]
+      const properties: any = ifExist?.filter(exist=> {
+        return exist.value
+      })
+      if(isAuthenticated) {
+        if(handleCartValidation()) {
+          await addProductToCart({
+           product_id: productInfos.id,
+           quantity: qty,
+           shipment_id:  selectedShippingInfo.id> 0 ? String(selectedShippingInfo.id) : undefined,
+           properties
+          });
+        }
+      } else {
+          redirect(RoutesUrls.CARTS)
+      }
+    }
+
   return (
     <div className={Styles.product_infos}>
         <section>
@@ -89,10 +137,10 @@ export default function Details(props: DetailsProps) {
 
         <section className={Styles.selected_section} style={{backgroundColor: handleError ? '#fff5f5' : '', marginTop:'8px'}}>
             <div className={`colores_container ${handleError && !selectedColor.value ? 'shake' : ''}` }>
-                <ColorComponent colors={productInfos?.properties?.additionalProp1}  selectedColor={selectedColor?.value} onSelectColor={handleSelectColor} />
+                <ColorComponent colors={productInfos?.properties?.color}  selectedColor={selectedColor?.value} onSelectColor={handleSelectColor} />
             </div>
             <div className={`sizes_container  ${handleError && !selectedSize.value ? 'shake' : ''}`}>
-                <SizeComponent sizes={productInfos?.properties?.additionalProp2} selectedSize={selectedSize?.value} onSelectSize={handleSelectSize} />
+                <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={handleSelectSize} />
             </div>
 
             <div className={`shipment_infos  ${handleError && !selectedShippingInfo.id ? 'shake' : ''}`}>
@@ -126,7 +174,7 @@ export default function Details(props: DetailsProps) {
               textColor='#000052'
               className={Styles.btn_cart}
               variant='outlined'
-              onClick={()=>{}}
+              onClick={handleAddProductToCart}
               >
                 Ajoute nan panye
             </CustomButton>

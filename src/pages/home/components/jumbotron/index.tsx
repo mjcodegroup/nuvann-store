@@ -1,34 +1,27 @@
-import { Avatar } from '@mui/material';
-import React from 'react'
-
+import React from 'react';
 import Styles from './jumbotron.module.scss';
-import Title from '@/components/title';
+import Image from 'next/image';
 
-interface jumbArray  {
-  id: number;
-  name: string;
-  image: string;
-  tags?:string[];
+export interface JumbotronProps {
+    jumbs: JumbData[];
 }
 
-interface JumbotronProps {
-  data: jumbArray[];
+type JumbData = {
+    title: string;
+    Icon: string;
 }
-
-const Jumbotron: React.FC <JumbotronProps>  = ({data}) => {
+export default function Jumbotron(props: JumbotronProps) {
   return (
-    <div className={Styles.jumbotron_container}>
-        {/* <Title title="Kategori" /> */}
-        <div className={Styles.home_jumbotron}>
-        {data?.map((jumb:jumbArray, index:number) => (
-            <div className={Styles.jumbotron_content} key={jumb.name + index}>
-              <Avatar alt="Remy Sharp" src={jumb.image} sx={{ width: 70, height: 70 }}/>
-              <h3>{jumb.name}</h3>
-            </div>
-        ))}
-        </div>
+    <div className={Styles.jumb_container}>
+        {
+            props.jumbs?.map((jumb, index) =>
+                <div key={index} className={Styles.jumb_content}>
+                    <Image src={jumb?.Icon} alt={jumb?.title} width={100} height={100} /> 
+                    <p className={Styles.jumb_title}>{jumb?.title}</p>
+                </div>
+            )
+        }
+
     </div>
   )
 }
-
-export default Jumbotron;

@@ -10,6 +10,7 @@
   },
   "home": {
     "welcome": "Welcome to Nuvann Makertplace",
-    "searchForAProduct": "Search for a product"
+    "searchForAProduct": "Search for a product",
+    "newProducts": "New products"
   }
 }
