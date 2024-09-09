@@ -30,15 +30,15 @@ export default function Home(props: Readonly<HomeProps>) {
       products={products.items} 
       havePromo={false}
       isnew
-      isLoading={false}
+      isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <ProductSlide
       itemToShow={4} 
-      products={props.products.items}
+      products={products.items}
       title="Likidasyon pou Mwa an"
       havePromo
-      isLoading={false}
+      isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <RandomCategories />

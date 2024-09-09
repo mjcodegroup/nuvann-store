@@ -33,6 +33,7 @@ export default function HomeController() {
   return (
     <HomePageDefault>
       <Home
+        loader={homeState.isLoading}
         heroImages={heroImagesMock}
         jumbsData={jumDataMock}
         products={homeState.products}
