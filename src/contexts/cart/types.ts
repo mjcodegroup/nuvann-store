@@ -1,5 +1,6 @@
 export interface State {
     cart: Cart;
+    cart_loader: boolean;
 }
 
 
@@ -16,6 +17,14 @@ export type Action =
         type: 'REMOVE_FROM_CART';
         value: any;
     }
+    | {
+        type: 'SET_CART_LOADER';
+        value: boolean;
+    }
+    // | {
+    //     type: 'REMOVE_FROM_CART';
+    //     value: any;
+    // }
     // | {
     //     type: 'CLEAR_CART';
     // };

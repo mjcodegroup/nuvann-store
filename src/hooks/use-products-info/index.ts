@@ -5,8 +5,10 @@ export function useProductsInfo() {
     const { state: productsState, dispatch: productsDispatch } = useProducts();
 
     async function getProducts() {
+        productsDispatch({ type: 'SET_LOADING', value: true });
         const response = await nuvannApi.get('/products')
         productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
+        productsDispatch({ type: 'SET_LOADING', value: false });
     }
 
     async function getProductDetails(id: string) {
@@ -15,6 +17,7 @@ export function useProductsInfo() {
     }
 
     return {
+        loading: productsState.isLoading,
         getProducts,
         getProductDetails
     }

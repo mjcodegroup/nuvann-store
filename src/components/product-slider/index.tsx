@@ -10,6 +10,7 @@ import SampleNextArrow from "./sample-next-arrow";
 import { SliderProps } from "./types";
 import { SamplePrevArrow } from "./sample-prev-arrow";
 import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
+import { ProductSlideSkeleton } from "./product-slider-skeleton";
 
 export default function ProductSlide(props: SliderProps) {
   const [showArrows, setShowArrows] = useState(false);
@@ -109,9 +110,7 @@ export default function ProductSlide(props: SliderProps) {
           </div>
         )
       ) : (
-        <div className='skeleton_container'>
-          loading..........
-        </div>
+         <ProductSlideSkeleton itemToShow={4}/>
       )}
     </section>
   );

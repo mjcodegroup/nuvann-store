@@ -19,9 +19,8 @@ interface DetailsProps {
 }
 export default function Details(props: DetailsProps) {
   const {redirect} = useNavigation();
-
   const { isAuthenticated} = useAuth();
-  const {addProductToCart} = useCartInfo();
+  const {addProductToCart,isLoading} = useCartInfo();
 
 
 
@@ -169,7 +168,7 @@ export default function Details(props: DetailsProps) {
 
         <section className={Styles.detail_infos_footer}>
             <CustomButton
-              isLoading={false}
+              isLoading={isLoading}
               startIcon={<AiOutlineShoppingCart/>}
               textColor='#000052'
               className={Styles.btn_cart}
