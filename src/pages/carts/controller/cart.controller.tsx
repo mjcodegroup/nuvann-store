@@ -24,9 +24,10 @@ export default function CartController() {
         setIsLoading(false);
       }
     }
-
     fetchCart();
-  }, [getCart]);
+  }, []);
+
+
 
   if (isLoading) {
     return <div>Loading...</div>;
