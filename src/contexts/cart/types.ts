@@ -1,3 +1,5 @@
+import { ImageMedia, Price } from "../products/types";
+
 export interface State {
     cart: Cart;
     cart_loader: boolean;
@@ -10,16 +12,13 @@ export type Action =
         value:Cart;
     }
     | {
+        type: 'REMOVE_FROM_CART';
+        value: any;
+    }
+    | {
         type: 'SET_CART_LOADER';
         value: boolean;
     }
-    // | {
-    //     type: 'REMOVE_FROM_CART';
-    //     value: any;
-    // }
-    // | {
-    //     type: 'CLEAR_CART';
-    // };
 
 
 export interface CartContextProps {
@@ -32,13 +31,40 @@ export interface Cart {
     total: number;
     count: number;
     items: CartItem[];
+    sub_total: number;
+    shipping_cost: number;
 }
 
 export type CartItem = {
     id: number;
     price: number;
     quantity: number;
-    product: any;
-    shipment: any;
-    sub_total: number;
+    product: cartProduct;
+    shipment: Shipment
+    sub_total: Price;
+}
+
+export type cartProduct = {
+    id: number;
+    name: string;
+    description: string;
+    images: ImageMedia[];
+    price: number;
+    properties: cartProperties[];
+}
+
+export type cartProperties = {
+    key: string;
+    value: string;
+    quantity: number;
+}
+
+
+export type Shipment = {
+    id: string,
+    price: number,
+    currency: string,
+    delivery_deadline: string,
+    coverage_area: string,
+    default_shipment: boolean,
 }
