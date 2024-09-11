@@ -5,15 +5,36 @@ import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 
 export function useCartInfo() {
-    const {successToast, errorToast} = useToast();
+  const {successToast, errorToast} = useToast();
   const {redirect} = useNavigation();
 
     const { state: cartState, dispatch: cartDispatch } = useCart();
 
-    async function getCart() {
-        const response = await nuvannApi.get('/carts/items')
-        cartDispatch({ type: 'SET_CART', value: response.data });
+  async function getCart() {
+    const response = await nuvannApi.get('/carts/items');
+    cartDispatch({ type: 'SET_CART', value: response.data });
+    return response.data;
+  }
+
+  const removeFromCart = async (id: number) => {
+    try {
+      await nuvannApi.delete(`/carts/items/${id}`);
+      cartDispatch({ type: 'REMOVE_FROM_CART', value: id });
+    } catch (error: any) {
+      console.error('Error removing item:', error.response?.data.message);
     }
+  };
+
+  const updateCart = async (id: string) => {
+    try {
+      await nuvannApi.delete(`/carts/items/${id}`);
+      cartDispatch({ type: 'REMOVE_FROM_CART', value: id });
+    } catch (error: any) {
+      console.error('Error removing item:', error.response?.data.message);
+    }
+  };
+
+  
 
     async function addProductToCart(data: CreateProductData) {
         cartDispatch({ type: 'SET_CART_LOADER', value: true });
@@ -31,10 +52,12 @@ export function useCartInfo() {
     }
 
     return {
-        isLoading: cartState.cart_loader,
-        getCart,
-        addProductToCart,
-    }
+      getCart,
+      removeFromCart,
+      updateCart,
+      addProductToCart,
+      isLoading: cartState.cart_loader,
+    };
 }
 
 export interface CreateProductData {

@@ -1,0 +1,15 @@
+.cartWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0% 5% 0 5%;
+}
+
+.cartCard {
+  flex: 2;
+}
+
+.cartResume {
+  flex: 1;
+  max-width: 400px;
+}
