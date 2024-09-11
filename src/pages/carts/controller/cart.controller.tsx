@@ -2,41 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { HomePageDefault } from '@/components/home-page-default';
 import Cart from '../view/cart.view';
 import { useCartInfo } from '@/hooks/use-cart-info';
+import { useCart } from '@/contexts/cart';
 
 export default function CartController() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [cartData, setCartData] = useState({
-    currency: '',
-    total: 0,
-    count: 0,
-    items: [],
-  });
+  const { state: cartState, dispatch: cartDispatch } = useCart();
   const { getCart, removeFromCart } = useCartInfo();
 
-  useEffect(() => {
-    async function fetchCart() {
-      try {
-        const cartResponse = await getCart();
-        setCartData(cartResponse);
-      } catch (error) {
-        console.error('Error fetching cart data:', error);
-      } finally {
-        setIsLoading(false);
-      }
+  async function getCartInformations() {
+    try {
+      await getCart();
+    } catch (error) {
+      console.log("algo deu errado")
     }
-    fetchCart();
+  }
+
+  useEffect(() => {
+
+    getCartInformations();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
 
-  if (isLoading) {
+  if (cartState.cart_loader) {
     return <div>Loading...</div>;
   }
 
   return (
     <HomePageDefault>
-      <Cart data={cartData} removeFromCart={removeFromCart} />
+      <Cart data={cartState.cart} removeFromCart={removeFromCart} />
     </HomePageDefault>
   );
 }

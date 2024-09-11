@@ -7,29 +7,26 @@ import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsi
 import { Cart, CartItem } from '@/contexts/cart/types';
 
 interface CartCardProps {
-  data: CartItem[];
+  data: Cart;
   removeFromCart: (id: number) => Promise<void>;
 }
 
-
-
 const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
-  const [errorMessage, setErrorMessage] = useState('');
+  // const [errorMessage, setErrorMessage] = useState('');
   function incrementButton(index: number): void { }
   function decrementButton(index: number): void { }
-
 
   return (
     <>
       <div className={styles.cardTitle}>
         <h3>Nuvann Panye</h3>
       </div>
-      {props.data.map((item: CartItem) => (
+      {props.data?.items?.map((item: CartItem) => (
         <div key={item.id} className={styles.cart_card_container}>
           <div className={styles.cart_card_content}>
             <div className={styles.cart_card_content_img}>
               <Image
-                src={item.product.images[0]?.url}
+                src={item?.product.images?.[0]?.url as string}
                 alt={item.product.name}
                 width={150}
                 height={150}
@@ -45,8 +42,18 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
               </div>
               <div className={styles.content_desc}>
                 <p>Price:</p>
-                <span>{item.sub_total}</span>
+                <span>{item.sub_total.formatted}</span>
               </div>
+              {
+                item.product.properties?.map((property, index) => (
+                  property?.key && property?.value && (
+                    <div key={index} className={styles.content_desc}>
+                      <p>{property.key}:</p>
+                      <span>{property.value}</span>
+                    </div>
+                  )
+                ))
+              }
             </div>
             <div className={styles.content_icon_delete}>
               <MdDelete
@@ -66,14 +73,14 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 decrement={() => decrementButton(item?.quantity)} 
               />
             </div>
-            {/* <div className={styles.cart_card_total}>
+            <div className={styles.cart_card_total}>
               <p>
-                {item.sub_total}
-                {item.sub_total !== item.price && (
-                  <span> {item.price}</span>
+                {item.sub_total?.formatted}
+                {item.sub_total?.raw !== item.product?.price && (
+                  <span> Original: {item?.product?.price}</span>
                 )}
               </p>
-            </div> */}
+            </div>
           </div>
         </div>
       ))}

@@ -25,7 +25,7 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
 
       <div className={styles.cartWrapper}>
         <div className={styles.cartCard}>
-          <CartCard data={data.items} removeFromCart={removeFromCart}/>
+          <CartCard data={data} removeFromCart={removeFromCart}/>
         </div>
         <div className={styles.cartResume}>
           <CartResume

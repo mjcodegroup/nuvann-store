@@ -5,7 +5,7 @@ import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 
 export function useCartInfo() {
-    const {successToast, errorToast} = useToast();
+  const {successToast, errorToast} = useToast();
   const {redirect} = useNavigation();
 
     const { state: cartState, dispatch: cartDispatch } = useCart();
@@ -16,7 +16,7 @@ export function useCartInfo() {
     return response.data;
   }
 
-  const removeFromCart = async (id: string) => {
+  const removeFromCart = async (id: number) => {
     try {
       await nuvannApi.delete(`/carts/items/${id}`);
       cartDispatch({ type: 'REMOVE_FROM_CART', value: id });
