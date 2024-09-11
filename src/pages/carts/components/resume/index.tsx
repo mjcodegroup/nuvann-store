@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './style.module.scss';
 import Link from 'next/link';
 import Title from '../title';
-import CustomButton from '../custom-buttom';
+import CustomButton from '@/components/custom-button';
 
 interface CartResumeProps {
   count: number;

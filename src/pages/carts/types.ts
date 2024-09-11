@@ -1,3 +1,7 @@
+import { Cart } from "@/contexts/cart/types";
+
 export interface CartProps {
-    data: any
+    data: Cart
+  removeFromCart: (id: number) => Promise<void>;
+
 }

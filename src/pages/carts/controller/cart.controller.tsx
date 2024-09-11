@@ -25,6 +25,7 @@ export default function CartController() {
       }
     }
     fetchCart();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

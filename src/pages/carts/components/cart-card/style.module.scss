@@ -84,9 +84,16 @@
     }
   
     .cart_card_footer {
-      margin: 10px 0;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      .cart_card_quantity{
+
+        section {
+          margin: 8px 0;
+        }
+      }
   
       .cart_card_total {
         p {
