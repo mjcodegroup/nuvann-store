@@ -13,10 +13,13 @@ import React from 'react';
 import { FaPerson } from 'react-icons/fa6';
 import { FcShipped } from "react-icons/fc";
 import { IoChevronDownSharp } from "react-icons/io5";
+import { useNavigation } from '@/hooks/useNavigation';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
 
 export default function NavOptions(props: NavOptionProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const {redirect} = useNavigation()
 
   if(props.isLoading) {
     return <NavOptionsSkeleton />
@@ -117,7 +120,7 @@ export default function NavOptions(props: NavOptionProps) {
     </li>
     }
     <li>
-      <Link href="/carts">
+      <Link href="#" onClick={()=> redirect(RoutesUrls.CARTS)}>
         <Badge color="error" badgeContent={props.cartCount}>
           <Image src={cartIcon} alt="cartIcon" />
         </Badge>

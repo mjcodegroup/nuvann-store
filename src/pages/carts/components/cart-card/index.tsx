@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MdDelete } from 'react-icons/md';
 import Image from 'next/image';
 import styles from './style.module.scss';
 import InputQuantity from '@/components/input-quantity';
 import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsis';
-import { Cart, CartItem } from '@/contexts/cart/types';
+import { CartItem } from '@/contexts/cart/types';
+import { CartCardProps } from '../../types';
+import { useTranslation } from 'react-i18next';
 
-interface CartCardProps {
-  data: Cart;
-  removeFromCart: (id: number) => Promise<void>;
-}
 
 const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
-  // const [errorMessage, setErrorMessage] = useState('');
-  function incrementButton(index: number): void { }
-  function decrementButton(index: number): void { }
-
+  const { t } = useTranslation('cart');
   return (
     <>
-      <div className={styles.cardTitle}>
-        <h3>Nuvann Panye</h3>
-      </div>
       {props.data?.items?.map((item: CartItem) => (
         <div key={item.id} className={styles.cart_card_container}>
           <div className={styles.cart_card_content}>
@@ -37,18 +29,18 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
              { truncateStringWithEllipsis(item.product.name, 40)}
               </h3>
               <div className={styles.content_desc}>
-                <p>Description:</p>
+                <p>{t('cart.description')}:</p>
                 <span>{truncateStringWithEllipsis(item.product.description, 60) || 'No Description Available'}</span>
               </div>
               <div className={styles.content_desc}>
-                <p>Price:</p>
+                <p>{t('cart.price')}:</p>
                 <span>{item.sub_total.formatted}</span>
               </div>
               {
                 item.product.properties?.map((property, index) => (
                   property?.key && property?.value && (
                     <div key={index} className={styles.content_desc}>
-                      <p>{property.key}:</p>
+                      <p>{property.key === "size" ? t('cart.size') : t('cart.color')}:</p>
                       <span>{property.value}</span>
                     </div>
                   )
@@ -68,23 +60,24 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
             <div className={styles.cart_card_quantity}>
               <InputQuantity
                 value={item?.quantity}
-                label="kantite"
-                increment={() => incrementButton(item?.quantity)}
-                decrement={() => decrementButton(item?.quantity)} 
+                label={t('cart.quantity')}
+                availableText={t('cart.available')}
+                increment={() => props.onIncrementButton(item.quantity)}
+                decrement={() => props.onDecrementButton(item.quantity)} 
               />
             </div>
             <div className={styles.cart_card_total}>
               <p>
                 {item.sub_total?.formatted}
                 {item.sub_total?.raw !== item.product?.price && (
-                  <span> Original: {item?.product?.price}</span>
+                  <span> {item?.product?.price}</span>
                 )}
               </p>
             </div>
           </div>
         </div>
       ))}
-      </>
+    </>
   );
 };
 

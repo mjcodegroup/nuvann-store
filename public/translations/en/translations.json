@@ -12,5 +12,19 @@
     "welcome": "Welcome to Nuvann Makertplace",
     "searchForAProduct": "Search for a product",
     "newProducts": "New products"
+  },
+  "cart": {
+    "shopping_cart": "Shopping cart",
+    "product": "Product",
+    "quantity": "Quantity",
+    "available": "Available",
+    "price": "Price",
+    "total": "Total",
+    "checkout": "Checkout",
+    "summary": "Summary",
+    "delivery": "Delivery",
+    "description": "Description",
+    "size": "Size",
+    "color": "Color"
   }
 }

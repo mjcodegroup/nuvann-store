@@ -1,49 +1,46 @@
 import React from 'react';
-import styles from './style.module.scss';
 import Link from 'next/link';
+import { CartResumeProps } from '../../types';
+import styles from './resume.module.scss';
 import Title from '../title';
 import CustomButton from '@/components/custom-button';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
-interface CartResumeProps {
-  count: number;
-  cartTotal?: number;
-  shipTotal: number;
-  productSubtotal: number;
-  OnclickContinue: () => void;
-}
-
-const CartResume: React.FC<CartResumeProps> = ({ count, cartTotal = 0, shipTotal = 0, productSubtotal = 0, OnclickContinue }) => {
+const CartResume: React.FC<CartResumeProps> = (props: CartResumeProps) => {
+  const {t} = useTranslation('cart');
+  const { data } = props;
   return (
     <div className={styles.card_resume}>
-      <Title title='Rezime' className={styles.resume_title} />
+      <Title title={t('cart.summary')} className={styles.resume_title} />
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>Total Pwodui ({count})</p>
-          <h5>{productSubtotal}</h5>
+          <p>{t('cart.product')} ({data.count})</p>
+          <h5>{data.sub_total}</h5>
         </div>
         <hr />
 
         <div className={styles.resume_separated_info}>
-          <p>Livrezon</p>
-          <h5>{shipTotal}</h5>
+          <p>{t('cart.delivery')}</p>
+          <h5>{data.shipping_cost}</h5>
         </div>
         <hr />
 
         <div className={styles.resume_separated_info}>
-          <p>Total </p>
-          <h5>{cartTotal}</h5>
+          <p>{t("cart.total")} </p>
+          <h5>{data.total}</h5>
         </div>
         <hr />
       </div>
 
       <div className={styles.resume_buttons}>
-        <CustomButton backgroundColor ='#00C02A' textColor="#fff" onClick={() => alert('Button clicked!')}>
-          <Link href="/checkout/userinfos">Kontinye</Link>
+        <CustomButton backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
+          <Link href="/checkout/userinfos">{t('cart.checkout')}</Link>
         </CustomButton>
-        <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>
+        {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>
             Kontinye Achte
-        </CustomButton>
+        </CustomButton> */}
       </div>
     </div>
   );
