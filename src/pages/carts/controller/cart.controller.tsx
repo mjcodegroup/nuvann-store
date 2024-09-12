@@ -17,10 +17,22 @@ export default function CartController() {
   }
 
   useEffect(() => {
-
     getCartInformations();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
+  const handleCheckout = () => {
+    // Define the action for the "Continue" button
+    alert('Checkout');
+  };
+
+  function handleIncrementButton(index: number): void {
+    console.log('incrementButton', index);
+  }
+  function handleDecrementButton(index: number): void {
+    console.log('decrementButton', index);
+  }
 
 
 
@@ -30,7 +42,13 @@ export default function CartController() {
 
   return (
     <HomePageDefault>
-      <Cart data={cartState.cart} removeFromCart={removeFromCart} />
+      <Cart
+        onCheckout={handleCheckout}
+        data={cartState.cart}
+        removeFromCart={removeFromCart}
+        onDecrementButton={handleDecrementButton}
+        onIncrementButton={handleIncrementButton}
+      />
     </HomePageDefault>
   );
 }

@@ -8,32 +8,31 @@ import EmptyCart from '../components/empty-cart';
 
 
 const Cart: React.FC<CartProps> = (props: CartProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("cart");
   const { data, removeFromCart } = props;
-
-  const OnclickContinue = () => {
-    // Define the action for the "Continue" button
-  };
 
   return (
     <div>
       {
       data.count < 1 ? (
        <EmptyCart/>
-      ) :
-       (
-
+      ) : (
       <div className={styles.cartWrapper}>
         <div className={styles.cartCard}>
-          <CartCard data={data} removeFromCart={removeFromCart}/>
+          <div className={styles.cardTitle}>
+            <h3>{t("cart.shopping_cart")}</h3>
+          </div>
+          <CartCard 
+            data={data}
+            removeFromCart={removeFromCart}
+            onDecrementButton={props.onIncrementButton}
+            onIncrementButton={props.onDecrementButton}
+          />
         </div>
         <div className={styles.cartResume}>
           <CartResume
-            count={data.count}
-            cartTotal={data.total}
-            shipTotal={data.count}
-            productSubtotal={data.total}
-            OnclickContinue={OnclickContinue}
+            data={data}
+            OnCheckout={props.onCheckout}
           />
         </div>
       </div>

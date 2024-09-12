@@ -12,5 +12,19 @@
     "welcome": "Byenvini sou Nuvann MarketPlace",
     "searchForAProduct": "Chèche yon pwodui",
     "newProducts": "Nouvo pwodui"
+  },
+  "cart": {
+    "shopping_cart": "Panye",
+    "product": "Pwodui",
+    "quantity": "Kantite",
+    "available": "Disponib",
+    "price": "Pri",
+    "total": "Total",
+    "checkout": "Kontinye",
+    "summary": "Rezime",
+    "delivery": "Livrezon",
+    "description": "Deskripsyon",
+    "size": "Gwosè",
+    "color": "Koulè"
   }
 }
