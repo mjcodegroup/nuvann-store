@@ -1,17 +1,38 @@
 {
-  "navContent": {
+  "nav_content": {
     "home": "Akèy",
     "promotion": "Promosyon",
     "search": "Chèche",
     "sell": "Vann",
     "category": "Kategori",
     "man": "Gason",
-    "women": "Fanm"
+    "women": "Fanm",
+    "sign_in": "Konekte",
+    "sign_up": "Enskri"
   },
   "home": {
     "welcome": "Byenvini sou Nuvann MarketPlace",
     "searchForAProduct": "Chèche yon pwodui",
     "newProducts": "Nouvo pwodui"
+  },
+  "details": {
+    "seller": "Vandè",
+    "country": "Peyi",
+    "sales": "Vant",
+    "sizes": "Gwosè",
+    "colors": "Koulè",
+    "add_to_cart": "Ajoute nan panye",
+    "buy_now": "Achte kounye a",
+    "delivery_information": "Enfòmasyon livrezon",
+    "available_countries": "Peyi disponib",
+    "quantity": "Quantité",
+    "specific_information": "Enfòmasyon espesifik",
+    "origin": "Orijin",
+    "categories": "Kategori",
+    "tags": "Etikèt",
+    "product_description": "Deskripsyon pwodui",
+    "description": "Deskripsyon",
+    "price": "Pri"
   },
   "cart": {
     "shopping_cart": "Panye",

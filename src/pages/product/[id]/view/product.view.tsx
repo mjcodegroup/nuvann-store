@@ -9,24 +9,22 @@ export default function Product(props: Readonly<ProductProps>) {
     return <h1>Loading</h1>
   }
   
+  console.log(props.product)
 
   return (
     <section className={Styles.poduct_details_page_section}>
       <div className={Styles.__container}>
-          <div className={Styles.__container_infos}>
-              <ContainerInfos product={props.product}/>
-          </div>
+        <div className={Styles.__container_infos}>
+          <ContainerInfos product={props.product}/>
+        </div>
       </div>
-      
       <MoreDetails
         description={props.product?.description}
         pro_country={props.product?.availableCountries}
         pro_seller={props.product?.seller?.country?.name}
-        pro_category={props.product?.category?.name}
+        pro_categories={props.product?.categories}
         // pro_subCategory={productInfos?.subcategory.name}
-        pro_tags={props.product?.category?.tags}
       />
-
     </section>
   )
 }
