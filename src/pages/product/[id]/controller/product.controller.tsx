@@ -9,29 +9,24 @@ import { useCartInfo } from '@/hooks/use-cart-info';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 
+
+interface SizeandProductIE {
+  key: string;
+  value: string;
+}
 export default function ProductController() {
   const params = useParams<{ id: string; }>()
-  const {redirect} = useNavigation();
-  const { state: productDetails, dispatch: productDetailsDispatch } = useProducts();
   const { isAuthenticated} = useAuth();
+  const { redirect } = useNavigation();
+  const { state: productDetails } = useProducts();
+  const { getProductDetails } = useProductsInfo();
   const {addProductToCart, isLoading: cartLoader} = useCartInfo();
 
-
-  const { getProductDetails } = useProductsInfo();
-  const [selectedSize, setSelectedSize] = React.useState({
-    key:"",
-    value : ""
-});
+  const [selectedSize, setSelectedSize] = React.useState({} as SizeandProductIE);
 
 const [selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
-
-const [selectedColor, setSelectedColor] = React.useState({
-key: "",
-value: ""
-});
+const [selectedColor, setSelectedColor] = React.useState({} as SizeandProductIE);
 const [qty, setQty] = React.useState<number>(1);
-
-  
 const [handleError, sethandleError] = React.useState<boolean>(false)
 
   const handleSelectColor = (color:any) => {
@@ -59,7 +54,6 @@ const [handleError, sethandleError] = React.useState<boolean>(false)
   function handleCartValidation(){
     const color = !!(productDetails.product?.properties?.color?.length && !selectedColor?.value)
     const size = !!(productDetails.product?.properties?.size?.length && !selectedSize?.value)
-
     // if(color || size || !selectedShippingInfo?.id) {
       if(color || size) {
         sethandleError(true)
@@ -78,12 +72,13 @@ const handleAddProductToCart = async() => {
   const properties: any = ifExist?.filter(exist=> {
     return exist.value
   })
+  const defaultInfo = productDetails.product.shipments.find((info: any) => info.default_shipment);
   if(isAuthenticated) {
     if(handleCartValidation()) {
       await addProductToCart({
        product_id: String(productDetails.product.id),
        quantity: qty,
-       shipment_id:  selectedShippingInfo.id> 0 ? String(selectedShippingInfo.id) : undefined,
+       shipment_id:  selectedShippingInfo.id> 0 ? String(selectedShippingInfo.id) : defaultInfo.id,
        properties
       });
     }
@@ -108,7 +103,6 @@ const handleAddProductToCart = async() => {
   }, [params?.id])
 
   const handleSelectShippingInfo = (selectedShippingInfo: any) => {
-    console.log(selectedShippingInfo)
     setSelectedShippingInfo(selectedShippingInfo);
     sethandleError(false)
   };
@@ -120,6 +114,8 @@ const handleAddProductToCart = async() => {
     });
     sethandleError(false)
   };
+
+  
 
 
   return (

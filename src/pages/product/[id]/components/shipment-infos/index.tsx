@@ -19,29 +19,24 @@ interface ShippingProps {
 const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
   const { t } = useTranslation('details');
   
-  const [selectedId, setSelectedId] = useState<string | null>(() => {
-    const defaultInfo = shippingInfos?.find((info) => info.default_shipment);
-    return defaultInfo ? defaultInfo.id : null;
-  });
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   useEffect(() => {
     // Define o valor de envio padrão ao carregar as informações
-    if (selectedId) {
-      const selectedInfo = shippingInfos.find((info) => info.id === selectedId);
-      if (selectedInfo) {
-        onInfoSelect(selectedInfo);
-      }
+    const defaultInfo = shippingInfos.find((info) => info.default_shipment);
+    if (defaultInfo && !selectedId) {
+      setSelectedId(defaultInfo.id);
+      onInfoSelect(defaultInfo); // Notifica o pai sobre a seleção padrão
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shippingInfos]);
+  }, [shippingInfos, onInfoSelect, selectedId]);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const id = event.target.value;
-    setSelectedId(id);
+    setSelectedId(id); // Atualiza o estado com o ID selecionado
 
     const selectedInfo = shippingInfos.find((info) => info.id === id);
     if (selectedInfo) {
-      onInfoSelect(selectedInfo);
+      onInfoSelect(selectedInfo); // Notifica o pai sobre a seleção
     }
   };
 
@@ -57,8 +52,8 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
                 id={`shipping-${info.id}`}
                 name="shipping"
                 value={info.id}
-                checked={selectedId === info.id}
-                onChange={handleRadioChange}
+                checked={selectedId === info.id} // Verifica se o ID selecionado é o atual
+                onChange={handleRadioChange} // Atualiza o valor selecionado
               />
               <div className={Styles.info_details}>
                 <div className={Styles.delivery}>{info?.delivery_deadline}</div>
