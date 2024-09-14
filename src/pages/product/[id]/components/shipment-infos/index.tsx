@@ -2,9 +2,12 @@ import React, { FC, useState } from 'react';
 import Styles from './shipment-infos.module.scss';
 import { useTranslation } from 'react-i18next';
 interface ShippingInfo {
-  id: number;
+  id: string;
   delivery_deadline: string;
-  price: any;
+  price: number;
+  default_shipment: boolean;
+  coverage_area: string;
+  currency: string;
 }
 
 interface ShippingProps {
@@ -14,10 +17,11 @@ interface ShippingProps {
 
 const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
   const { t } = useTranslation('details');
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const id = parseInt(event.target.value);
+    console.log(event.target.value)
+    const id = String(event.target.value);
     setSelectedId(id);
     const selectedInfo = shippingInfos.find((info) => info.id === id);
     if (selectedInfo) {
@@ -37,7 +41,7 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
                 id={`shipping-${info.id}`}
                 name="shipping"
                 value={info.id}
-                checked={selectedId === info.id}
+                checked={info.default_shipment ? true : selectedId === info.id}
                 onChange={handleRadioChange}
               />
               <div className={Styles.info_details}>
