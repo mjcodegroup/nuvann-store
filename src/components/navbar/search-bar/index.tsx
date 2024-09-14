@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { SearchBarProps } from '../types';
 
 const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSearch }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('nav_content');
   const [query, setQuery] = useState<string>('');
 
   const debouncedSearch = debounce((query: string) => {
@@ -36,7 +36,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSearch }) => {
         value={query}
         onChange={handleInputChange}
       />
-      <button onClick={handleButtonClick}>{t("navContent.search")}</button>
+      <button onClick={handleButtonClick}>{t("nav_content.search")}</button>
     </div>
   );
 };

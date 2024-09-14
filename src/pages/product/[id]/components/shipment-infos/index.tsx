@@ -1,9 +1,13 @@
 import React, { FC, useState } from 'react';
 import Styles from './shipment-infos.module.scss';
+import { useTranslation } from 'react-i18next';
 interface ShippingInfo {
-  id: number;
+  id: string;
   delivery_deadline: string;
-  price: any;
+  price: number;
+  default_shipment: boolean;
+  coverage_area: string;
+  currency: string;
 }
 
 interface ShippingProps {
@@ -12,10 +16,12 @@ interface ShippingProps {
 }
 
 const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const { t } = useTranslation('details');
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const id = parseInt(event.target.value);
+    console.log(event.target.value)
+    const id = String(event.target.value);
     setSelectedId(id);
     const selectedInfo = shippingInfos.find((info) => info.id === id);
     if (selectedInfo) {
@@ -25,7 +31,7 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
 
   return (
     <div className={Styles.shipping}>
-      <h4>Enfòmasyon sou livrezon</h4>
+      <h4>{t('details.delivery_information')}</h4>
       <div className={Styles.shipping_list}>
         {shippingInfos?.map((info, index) => (
           <div key={info.id+index} className={Styles.shipping_info}>
@@ -35,12 +41,12 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
                 id={`shipping-${info.id}`}
                 name="shipping"
                 value={info.id}
-                checked={selectedId === info.id}
+                checked={info.default_shipment ? true : selectedId === info.id}
                 onChange={handleRadioChange}
               />
               <div className={Styles.info_details}>
-                <div className="delivery">{info?.delivery_deadline}</div>
-                <div className="price">Price: {info?.price}</div>
+                <div className={Styles.delivery}>{info?.delivery_deadline}</div>
+                <div className={Styles.price}>{t('details.price')}: {info?.price}</div>
               </div>
             </label>
           </div>

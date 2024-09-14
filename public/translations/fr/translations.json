@@ -1,17 +1,38 @@
 {
-  "navContent": {
+  "nav_content": {
     "home": "Accueil",
     "promotion": "Promotion",
     "search": "Rechercher",
     "sell": "Vendre",
     "category": "Catégorie",
     "man": "Homme",
-    "women": "Femme"
+    "women": "Femme",
+    "sign_in": "Se connecter",
+    "sign_up": "S'inscrire"
   },
   "home": {
     "welcome": "Bienvenue à Nuvann Makertplace",
     "searchForAProduct": "Rechercher un produit",
     "newProducts": "Nouveaux produits"
+  },
+  "details": {
+    "seller": "Vendeur",
+    "country": "Pays",
+    "sales": "Ventes",
+    "sizes": "Tailles",
+    "colors": "Couleurs",
+    "add_to_cart": "Ajouter au panier",
+    "buy_now": "Acheter maintenant",
+    "delivery_information": "Informations de livraison",
+    "available_countries": "Pays disponibles",
+    "quantity": "Quantité",
+    "specific_information": "Informations spécifiques",
+    "origin": "Origine",
+    "categories": "Catégories",
+    "tags": "Étiquettes",
+    "product_description": "Description du produit",
+    "description": "Description",
+    "price": "Prix"
   },
   "cart": {
     "shopping_cart": "Panier",

@@ -12,12 +12,14 @@ import { set } from 'lodash';
 import { useCartInfo } from '@/hooks/use-cart-info';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useTranslation } from 'react-i18next';
 
 
 interface DetailsProps {
     productInfos: any;
 }
 export default function Details(props: DetailsProps) {
+  const { t } = useTranslation('details');
   const {redirect} = useNavigation();
   const { isAuthenticated} = useAuth();
   const {addProductToCart,isLoading} = useCartInfo();
@@ -117,9 +119,9 @@ export default function Details(props: DetailsProps) {
         <section>
             <h3>{productInfos?.name}</h3>
             <div className={Styles.title_footer}>
-                <p><span>Vandè:</span> <small>{productInfos?.seller?.name}</small>  </p>
-                <p><span>Pays:</span> <small>{productInfos?.seller?.country?.name}</small></p>
-                <p>Vant: <small>{productInfos?.sold_amount} unite</small></p>
+                <p><span>{t('details.seller')}:</span> <small>{productInfos?.seller?.name}</small>  </p>
+                <p><span>{t('details.country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
+                <p><span>{t('details.sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
             </div>
 
             <div className={Styles.prices_class}>
@@ -127,22 +129,22 @@ export default function Details(props: DetailsProps) {
                 <small>{productInfos?.prices?.original_price?.formatted}</small>
                 {productInfos?.prices?.current_price?.formatted}
                 {
-                    productInfos?.prices?.current?.discountPercent && 
-                    <span>-{productInfos?.prices?.current?.discountPercent} %</span>
+                  productInfos?.prices?.current?.discountPercent && 
+                  <span>-{productInfos?.prices?.current?.discountPercent} %</span>
                 }
                 </p>
             </div>
         </section>
 
         <section className={Styles.selected_section} style={{backgroundColor: handleError ? '#fff5f5' : '', marginTop:'8px'}}>
-            <div className={`colores_container ${handleError && !selectedColor.value ? 'shake' : ''}` }>
+            <div className={`colores_container ${handleError && !selectedColor.value ? Styles.shake : ''}` }>
                 <ColorComponent colors={productInfos?.properties?.color}  selectedColor={selectedColor?.value} onSelectColor={handleSelectColor} />
             </div>
-            <div className={`sizes_container  ${handleError && !selectedSize.value ? 'shake' : ''}`}>
+            <div className={`sizes_container  ${handleError && !selectedSize.value ? Styles.shake : ''}`}>
                 <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={handleSelectSize} />
             </div>
 
-            <div className={`shipment_infos  ${handleError && !selectedShippingInfo.id ? 'shake' : ''}`}>
+            <div className={`shipment_infos  ${handleError && !selectedShippingInfo.id ? Styles.shake : ''}`}>
                 <ShipmentInfos shippingInfos={productInfos?.shipments} onInfoSelect={handleSelectShippingInfo} />
             </div>
             {
@@ -159,7 +161,7 @@ export default function Details(props: DetailsProps) {
 
         <InputQuantity
             total={productInfos?.available_amount}
-            label='Kantite'
+            label={t('details.quantity')}
             onChange={handleChangeQuantity} 
             value={qty}
             increment={handleIncrement}
@@ -175,9 +177,9 @@ export default function Details(props: DetailsProps) {
               variant='outlined'
               onClick={handleAddProductToCart}
               >
-                Ajoute nan panye
+                {t('details.add_to_cart')}
             </CustomButton>
-            <CustomButton className={Styles.btn_purchase} backgroundColor="#00B127" textColor='#fff'>Achte</CustomButton>
+            <CustomButton className={Styles.btn_purchase} backgroundColor="#00B127" textColor='#fff'>{t('details.buy_now')}</CustomButton>
         </section>
 
     </div>
