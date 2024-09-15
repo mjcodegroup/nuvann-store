@@ -8,7 +8,11 @@
     "man": "Gason",
     "women": "Fanm",
     "sign_in": "Konekte",
-    "sign_up": "Enskri"
+    "sign_up": "Enskri",
+    "logout": "Dekonekte",
+    "my_orders": "kòmand",
+    "my_profile": "Profil mwen",
+    "fast_delivery": "Livrezon rapid"
   },
   "home": {
     "welcome": "Byenvini sou Nuvann MarketPlace",

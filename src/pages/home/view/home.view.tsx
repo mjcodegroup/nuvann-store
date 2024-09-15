@@ -5,7 +5,6 @@ import { HomeProps } from '../types';
 import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
 import RandomCategories from '../components/random-categories';
-import ProductVarietes from '../components/product-varietes';
 import Categories from '../components/categories';
 import { useTranslation } from 'react-i18next';
 

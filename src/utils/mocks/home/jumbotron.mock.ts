@@ -55,10 +55,12 @@ const categoriesMock: Category[] = [
   const jumDataMock = [
     {
       title: "Livrezon Rapid",
+      transCode: "fast_delivery",
       Icon: "../assets/jumbs/delivery-plane.png"
     },
     {
       title: "Lajan Garanti",
+      trasCode: "guaranteed_money",
       Icon: "../assets/jumbs/PaymentCard.png"
     },
     {

@@ -8,12 +8,16 @@
       "man": "Men",
       "women": "Women",
       "sign_in": "Sign in",
-      "sign_up": "Register"
+      "sign_up": "Register",
+      "logout": "Logout",
+      "my_orders": "My orders",
+      "my_profile": "My profile"
   },
   "home": {
     "welcome": "Welcome to Nuvann Makertplace",
     "searchForAProduct": "Search for a product",
-    "newProducts": "New products"
+    "newProducts": "New products",
+    "fast_delivery": "Fast delivery"
   },
   "details": {
     "seller": "Seller",
