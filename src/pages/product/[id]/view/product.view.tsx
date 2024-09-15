@@ -9,13 +9,28 @@ export default function Product(props: Readonly<ProductProps>) {
     return <h1>Loading</h1>
   }
   
-  console.log(props.product)
 
   return (
     <section className={Styles.poduct_details_page_section}>
       <div className={Styles.__container}>
         <div className={Styles.__container_infos}>
-          <ContainerInfos product={props.product}/>
+          <ContainerInfos
+            isLoading={props.isLoading}
+            onError={props.onError}
+            qty={props.qty}
+            onSelectedColor={props.onSelectedColor}
+            onSelectedSize={props.onSelectedSize}
+            selectedColor={props.selectedColor}
+            selectedSize={props.selectedSize}
+            selectedShippingInfo={props.selectedShippingInfo}
+            onChangeQuantity={props.onChangeQuantity}
+            onIncrement={props.onIncrement}
+            onDecrement={props.onDecrement}
+            onAddToCart={props.onAddToCart}
+            onPurchase={props.onPurchase}
+            product={props.product}
+            onSelectedShippingInfo={props.onSelectedShippingInfo}
+          />
         </div>
       </div>
       <MoreDetails
@@ -23,7 +38,6 @@ export default function Product(props: Readonly<ProductProps>) {
         pro_country={props.product?.availableCountries}
         pro_seller={props.product?.seller?.country?.name}
         pro_categories={props.product?.categories}
-        // pro_subCategory={productInfos?.subcategory.name}
       />
     </section>
   )
