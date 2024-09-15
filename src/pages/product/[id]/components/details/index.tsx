@@ -7,119 +7,37 @@ import AvailableCountries from '../available-countries';
 import InputQuantity from '@/components/input-quantity';
 import CustomButton from '@/components/custom-button';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { useAuth } from '@/hooks/useKeycloak';
-import { set } from 'lodash';
-import { useCartInfo } from '@/hooks/use-cart-info';
-import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useTranslation } from 'react-i18next';
+import { DetailsProps } from '../../types';
 
-
-interface DetailsProps {
-    productInfos: any;
-}
 export default function Details(props: DetailsProps) {
-  const {redirect} = useNavigation();
-  const { isAuthenticated} = useAuth();
-  const {addProductToCart,isLoading} = useCartInfo();
-
-
-
-    const [selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
-
-    const [selectedSize, setSelectedSize] = React.useState({
-        key:"",
-        value : ""
-    });
-    const [selectedColor, setSelectedColor] = React.useState({
-    key: "",
-    value: ""
-    });
-    const [qty, setQty] = React.useState<number>(1);
-
-
-    const handleSelectShippingInfo = (selectedShippingInfo: any) => {
-        setSelectedShippingInfo(selectedShippingInfo);
-        sethandleError(false)
-    };
-
-      
-    const [handleError, sethandleError] = React.useState<boolean>(false)
-    const {productInfos} = props;
-
-    const handleSelectSize = (size: any) => {
-        setSelectedSize({
-          key: "size",
-          value: (size).toString()
-        });
-        sethandleError(false)
-      };
-    
-      const handleSelectColor = (color:any) => {
-        setSelectedColor({
-          key: "color",
-          value:color
-        });
-        sethandleError(false)
-      };
-
-      const handleIncrement = () =>{
-        setQty(qty+1);
-      }
-    
-      const handleDecrement = ()=> {
-        if(qty>1) {
-          setQty(qty-1);
-        }
-      }
-
-      const handleChangeQuantity = (qty: number) => {
-        setQty(Number(qty));
-      }
-
-      function handleCartValidation(){
-        const color = !!(props.productInfos?.properties?.color?.length && !selectedColor?.value)
-        const size = !!(props.productInfos?.properties?.size?.length && !selectedSize?.value)
-
-        // if(color || size || !selectedShippingInfo?.id) {
-          if(color || size) {
-            sethandleError(true)
-          return false;
-        } else {
-          sethandleError(false)
-          return true;
-        }
-      }
-
-    const handleAddProductToCart = async() => {
-      const ifExist = [
-        selectedSize,
-        selectedColor
-      ]
-      const properties: any = ifExist?.filter(exist=> {
-        return exist.value
-      })
-      if(isAuthenticated) {
-        if(handleCartValidation()) {
-          await addProductToCart({
-           product_id: productInfos.id,
-           quantity: qty,
-           shipment_id:  selectedShippingInfo.id> 0 ? String(selectedShippingInfo.id) : undefined,
-           properties
-          });
-        }
-      } else {
-          redirect(RoutesUrls.CARTS)
-      }
-    }
+  const { t } = useTranslation('details');
+  const {
+    productInfos, 
+    onError,
+    onSelectedShippingInfo,
+    selectedShippingInfo,
+    onSelectedSize,
+    selectedSize,
+    onSelectedColor,
+    selectedColor,
+    onChangeQuantity,
+    qty,
+    onIncrement,
+    onDecrement,
+    onAddToCart,
+    isLoading,
+    onPurchase
+  } = props;
 
   return (
     <div className={Styles.product_infos}>
         <section>
-            <h3>{productInfos?.name}</h3>
+            <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
-                <p><span>Vandè:</span> <small>{productInfos?.seller?.name}</small>  </p>
-                <p><span>Pays:</span> <small>{productInfos?.seller?.country?.name}</small></p>
-                <p>Vant: <small>{productInfos?.sold_amount} unite</small></p>
+                <p><span>{t('details.seller')}:</span> <small>{productInfos?.seller?.name}</small>  </p>
+                <p><span>{t('details.country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
+                <p><span>{t('details.sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
             </div>
 
             <div className={Styles.prices_class}>
@@ -127,26 +45,26 @@ export default function Details(props: DetailsProps) {
                 <small>{productInfos?.prices?.original_price?.formatted}</small>
                 {productInfos?.prices?.current_price?.formatted}
                 {
-                    productInfos?.prices?.current?.discountPercent && 
-                    <span>-{productInfos?.prices?.current?.discountPercent} %</span>
+                  productInfos?.prices?.current?.discountPercent && 
+                  <span>-{productInfos?.prices?.current?.discountPercent} %</span>
                 }
                 </p>
             </div>
         </section>
 
-        <section className={Styles.selected_section} style={{backgroundColor: handleError ? '#fff5f5' : '', marginTop:'8px'}}>
-            <div className={`colores_container ${handleError && !selectedColor.value ? 'shake' : ''}` }>
-                <ColorComponent colors={productInfos?.properties?.color}  selectedColor={selectedColor?.value} onSelectColor={handleSelectColor} />
+        <section className={Styles.selected_section} style={{backgroundColor: onError ? '#fff5f5' : '', marginTop:'8px'}}>
+            <div className={`colores_container ${onError && !selectedColor.value ? Styles.shake : ''}` }>
+                <ColorComponent colors={productInfos?.properties?.color}  selectedColor={selectedColor?.value} onSelectColor={onSelectedColor} />
             </div>
-            <div className={`sizes_container  ${handleError && !selectedSize.value ? 'shake' : ''}`}>
-                <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={handleSelectSize} />
+            <div className={`sizes_container  ${onError && !selectedSize.value ? Styles.shake : ''}`}>
+                <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={onSelectedSize} />
             </div>
 
-            <div className={`shipment_infos  ${handleError && !selectedShippingInfo.id ? 'shake' : ''}`}>
-                <ShipmentInfos shippingInfos={productInfos?.shipments} onInfoSelect={handleSelectShippingInfo} />
+            <div className={`shipment_infos  ${onError && !selectedShippingInfo.id ? Styles.shake : ''}`}>
+                <ShipmentInfos shippingInfos={productInfos?.shipments} onInfoSelect={onSelectedShippingInfo} />
             </div>
             {
-            handleError ? 
+            onError ? 
                 <small className="detail_error_message">Svp, seleksyone {!selectedColor?.value || !selectedSize?.value? 'Size oubyen koulè' : 'Enfòmasyon pou Livrezon'} pwodui an</small>
             : ''
             }
@@ -159,11 +77,11 @@ export default function Details(props: DetailsProps) {
 
         <InputQuantity
             total={productInfos?.available_amount}
-            label='Kantite'
-            onChange={handleChangeQuantity} 
+            label={t('details.quantity')}
+            onChange={onChangeQuantity} 
             value={qty}
-            increment={handleIncrement}
-            decrement={handleDecrement}
+            increment={onIncrement}
+            decrement={onDecrement}
         />
 
         <section className={Styles.detail_infos_footer}>
@@ -173,11 +91,18 @@ export default function Details(props: DetailsProps) {
               textColor='#000052'
               className={Styles.btn_cart}
               variant='outlined'
-              onClick={handleAddProductToCart}
+              onClick={onAddToCart}
               >
-                Ajoute nan panye
+                {t('details.add_to_cart')}
             </CustomButton>
-            <CustomButton className={Styles.btn_purchase} backgroundColor="#00B127" textColor='#fff'>Achte</CustomButton>
+            <CustomButton
+                className={Styles.btn_purchase}
+                backgroundColor="#00B127"
+                textColor='#fff'
+                onClick={onPurchase}
+            >
+                    {t('details.buy_now')}
+            </CustomButton>
         </section>
 
     </div>

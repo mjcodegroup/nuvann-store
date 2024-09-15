@@ -13,20 +13,32 @@ export default function Product(props: Readonly<ProductProps>) {
   return (
     <section className={Styles.poduct_details_page_section}>
       <div className={Styles.__container}>
-          <div className={Styles.__container_infos}>
-              <ContainerInfos product={props.product}/>
-          </div>
+        <div className={Styles.__container_infos}>
+          <ContainerInfos
+            isLoading={props.isLoading}
+            onError={props.onError}
+            qty={props.qty}
+            onSelectedColor={props.onSelectedColor}
+            onSelectedSize={props.onSelectedSize}
+            selectedColor={props.selectedColor}
+            selectedSize={props.selectedSize}
+            selectedShippingInfo={props.selectedShippingInfo}
+            onChangeQuantity={props.onChangeQuantity}
+            onIncrement={props.onIncrement}
+            onDecrement={props.onDecrement}
+            onAddToCart={props.onAddToCart}
+            onPurchase={props.onPurchase}
+            product={props.product}
+            onSelectedShippingInfo={props.onSelectedShippingInfo}
+          />
+        </div>
       </div>
-      
       <MoreDetails
         description={props.product?.description}
         pro_country={props.product?.availableCountries}
         pro_seller={props.product?.seller?.country?.name}
-        pro_category={props.product?.category?.name}
-        // pro_subCategory={productInfos?.subcategory.name}
-        pro_tags={props.product?.category?.tags}
+        pro_categories={props.product?.categories}
       />
-
     </section>
   )
 }
