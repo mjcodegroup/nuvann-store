@@ -23,7 +23,7 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
 
   useEffect(() => {
     // Define o valor de envio padrão ao carregar as informações
-    const defaultInfo = shippingInfos.find((info) => info.default_shipment);
+    const defaultInfo = shippingInfos?.find((info) => info.default_shipment);
     if (defaultInfo && !selectedId) {
       setSelectedId(defaultInfo.id);
       onInfoSelect(defaultInfo); // Notifica o pai sobre a seleção padrão

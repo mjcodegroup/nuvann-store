@@ -72,13 +72,13 @@ const handleAddProductToCart = async() => {
   const properties: any = ifExist?.filter(exist=> {
     return exist.value
   })
-  const defaultInfo = productDetails.product.shipments.find((info: any) => info.default_shipment);
+  const defaultInfo = productDetails.product.shipments ? productDetails?.product?.shipments.find((info: any) => info?.default_shipment) : {id:0};
   if(isAuthenticated) {
     if(handleCartValidation()) {
       await addProductToCart({
        product_id: String(productDetails.product.id),
        quantity: qty,
-       shipment_id:  selectedShippingInfo.id> 0 ? String(selectedShippingInfo.id) : defaultInfo.id,
+       shipment_id:  selectedShippingInfo.id> 0 ? String(selectedShippingInfo?.id) : defaultInfo?.id,
        properties
       });
     }
@@ -86,21 +86,6 @@ const handleAddProductToCart = async() => {
       redirect(RoutesUrls.CARTS)
   }
 }
-
-
-  async function getDetailsInformations(id: string) {
-    try {
-      await getProductDetails(id);
-    } catch (error) {
-      console.log("algo deu errado")
-    }
-  }
-
-
-  useEffect(() => {
-    if (params?.id) getDetailsInformations(params?.id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params?.id])
 
   const handleSelectShippingInfo = (selectedShippingInfo: any) => {
     setSelectedShippingInfo(selectedShippingInfo);
@@ -115,8 +100,10 @@ const handleAddProductToCart = async() => {
     sethandleError(false)
   };
 
-  
-
+  useEffect(() => {
+    if (params?.id) getProductDetails(params?.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params?.id])
 
   return (
     <HomePageDefault>
