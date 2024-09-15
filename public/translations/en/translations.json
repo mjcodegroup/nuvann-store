@@ -17,7 +17,15 @@
     "welcome": "Welcome to Nuvann Makertplace",
     "searchForAProduct": "Search for a product",
     "newProducts": "New products",
-    "fast_delivery": "Fast delivery"
+    "fast_delivery": "Fast delivery",
+    "choose_how_to_pay": "Choose how to pay",
+    "pay_in_security": "Pay in security",
+    "24h_support": "24/24 support",
+    "most_popular_categories": "Most popular categories",
+    "month_clearance": "Clearance of the month",
+    "new": "New",
+    "today_deals": "Today's deals",
+    "no_products_found": "No products found"
   },
   "details": {
     "seller": "Seller",
@@ -36,7 +44,8 @@
     "tags": "Tags",
     "product_description": "Product description",
     "description": "Description",
-    "price": "Price"
+    "price": "Price",
+    "please_select_size_or_color": "Please select a size or color"
   },
   "cart": {
     "shopping_cart": "Shopping cart",

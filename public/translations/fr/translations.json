@@ -17,7 +17,16 @@
     "welcome": "Bienvenue à Nuvann Makertplace",
     "searchForAProduct": "Rechercher un produit",
     "newProducts": "Nouveaux produits",
-    "fast_delivery": "Livraison rapide"
+    "fast_delivery": "Livraison rapide",
+    "choose_how_to_pay": "Choisissez comment payer",
+    "pay_in_security": "Payer en toute sécurité",
+    "24h_support": "Assistance 24h/24",
+    "most_popular_categories": "Catégories les plus populaires",
+    "month_clearance": "Liquidation du mois",
+    "new": "Nouveau",
+    "today_deals": "Offres du jour",
+    "no_products_found": "Aucun produit trouvé",
+    "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
   },
   "details": {
     "seller": "Vendeur",

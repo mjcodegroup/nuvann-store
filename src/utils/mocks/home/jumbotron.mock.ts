@@ -60,21 +60,19 @@ const categoriesMock: Category[] = [
     },
     {
       title: "Lajan Garanti",
-      trasCode: "guaranteed_money",
+      transCode: "choose_how_to_pay",
       Icon: "../assets/jumbs/PaymentCard.png"
     },
     {
       title: "Peye an Sekirite",
+      transCode: "pay_in_security",
       Icon: "../assets/jumbs/security.png"
     },
     {
       title: "Sipò 24/24",
+      transCode: "24h_support",
       Icon: "../assets/jumbs/support.png"
     },
-    {
-      title: "Nou Rapid",
-      Icon: "../assets/jumbs/faster.png"
-    }
   ]
 
 export  {

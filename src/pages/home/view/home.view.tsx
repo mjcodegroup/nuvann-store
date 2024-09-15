@@ -35,7 +35,7 @@ export default function Home(props: Readonly<HomeProps>) {
     <ProductSlide
       itemToShow={4} 
       products={products.items}
-      title="Likidasyon pou Mwa an"
+      title={t("home.month_clearance")}
       havePromo
       isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
