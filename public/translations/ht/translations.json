@@ -8,12 +8,26 @@
     "man": "Gason",
     "women": "Fanm",
     "sign_in": "Konekte",
-    "sign_up": "Enskri"
+    "sign_up": "Enskri",
+    "logout": "Dekonekte",
+    "my_orders": "kòmand",
+    "my_profile": "Profil mwen",
+    "fast_delivery": "Livrezon rapid"
   },
   "home": {
     "welcome": "Byenvini sou Nuvann MarketPlace",
     "searchForAProduct": "Chèche yon pwodui",
-    "newProducts": "Nouvo pwodui"
+    "newProducts": "Nouvo pwodui",
+    "fast_delivery": "Livrezon rapid",
+    "choose_how_to_pay": "Chwazi kijan pou peye",
+    "pay_in_security": "Peye an sekirite",
+    "24h_support": "Sipò 24/24",
+    "most_popular_categories": "Kategori ki pi popilè",
+    "month_clearance": "Likidasyon pou Mwa an",
+    "new": "Nouvote",
+    "today_deals": "Òf jounen an",
+    "no_products_found": "Pa gen pwodui disponib",
+    "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
   },
   "details": {
     "seller": "Vandè",

@@ -11,8 +11,10 @@ import { SliderProps } from "./types";
 import { SamplePrevArrow } from "./sample-prev-arrow";
 import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
 import { ProductSlideSkeleton } from "./product-slider-skeleton";
+import { useTranslation } from "react-i18next";
 
 export default function ProductSlide(props: SliderProps) {
+  const { t } = useTranslation("home");
   const [showArrows, setShowArrows] = useState(false);
   const [showNext, setShowNext] = useState(true);
   const [showPrev, setShowPrev] = useState(false);
@@ -78,7 +80,7 @@ export default function ProductSlide(props: SliderProps) {
             {props.products?.map((product: any, index: any) => (
               <div className={Styles.card_home} key={product.id}>
                 {props.isnew && (
-                  <div className={Styles.product_new_label}>Nouvote</div>
+                  <div className={Styles.product_new_label}>{t("home.new")}</div>
                 )}
                 <div className={Styles.__card} onClick={() => props.onRedirectToProductDetails(product.id)}>
                   <div className={Styles.product_img}>
@@ -88,7 +90,7 @@ export default function ProductSlide(props: SliderProps) {
                   <div className={Styles.img_separator}></div>
                   <div className={Styles.bottom}>
                     {props.havePromo && (
-                      <p className={Styles.daily_deal}>Òf pou jou an</p>
+                      <p className={Styles.daily_deal}>{t("home.today_deals")}</p>
                     )}
                     <p>
                       <i><span className={Styles.lastprice}>{product.prices.original_price?.formatted}</span></i>
@@ -106,7 +108,7 @@ export default function ProductSlide(props: SliderProps) {
           </Slider>
         ) : (
           <div style={{ textAlign: 'center', color: 'gray' }}>
-            Pa gen Pwodui Disponib
+            {t("home.no_products_found")}
           </div>
         )
       ) : (

@@ -20,14 +20,12 @@ export default function ProductController() {
   const { redirect } = useNavigation();
   const { state: productDetails } = useProducts();
   const { getProductDetails } = useProductsInfo();
-  const {addProductToCart, isLoading: cartLoader} = useCartInfo();
-
-  const [selectedSize, setSelectedSize] = React.useState({} as SizeandProductIE);
-
-const [selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
-const [selectedColor, setSelectedColor] = React.useState({} as SizeandProductIE);
-const [qty, setQty] = React.useState<number>(1);
-const [handleError, sethandleError] = React.useState<boolean>(false)
+  const { addProductToCart, isLoading: cartLoader} = useCartInfo();
+  const [ selectedSize, setSelectedSize] = React.useState({} as SizeandProductIE);
+  const [ selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
+  const [ selectedColor, setSelectedColor] = React.useState({} as SizeandProductIE);
+  const [ qty, setQty] = React.useState<number>(1);
+  const [ handleError, sethandleError] = React.useState<boolean>(false)
 
   const handleSelectColor = (color:any) => {
     setSelectedColor({

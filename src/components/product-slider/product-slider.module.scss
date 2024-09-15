@@ -147,12 +147,13 @@
         }
     
         .daily_deal {
-    
           background-color: #3483fa;
           -webkit-border-radius: 3px;
           border-radius: 3px;
           color: #fff;
-          display: inline-block;
+          display: flex;
+          width: 55%;
+          align-items: center;
           font-size: 12px;
           font-weight: 600;
           line-height: 1.2;
@@ -165,12 +166,11 @@
     
       @media only screen and (max-width: 1125px)
       {
-            .card_1
-            {
+          .card_1 {
             width: 290px;
             height: 424px;
             // display: none;
-            }
+          }
         }
     
         .card_home:hover .show_hover{

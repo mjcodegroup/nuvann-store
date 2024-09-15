@@ -62,4 +62,4 @@ export interface ContainerInfosProps {
     onDecrement: () => void;
     onAddToCart: () => void;
     onPurchase: () => void;
-  }
+}
