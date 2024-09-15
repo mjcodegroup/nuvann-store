@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { use } from 'react';
 import Styles from './jumbotron.module.scss';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 export interface JumbotronProps {
     jumbs: JumbData[];
@@ -8,16 +9,18 @@ export interface JumbotronProps {
 
 type JumbData = {
     title: string;
+    transCode: string;
     Icon: string;
 }
 export default function Jumbotron(props: JumbotronProps) {
+    const { t } = useTranslation("home");
   return (
     <div className={Styles.jumb_container}>
         {
             props.jumbs?.map((jumb, index) =>
                 <div key={index} className={Styles.jumb_content}>
                     <Image src={jumb?.Icon} alt={jumb?.title} width={100} height={100} /> 
-                    <p className={Styles.jumb_title}>{jumb?.title}</p>
+                    <p className={Styles.jumb_title}>{t(`home.${jumb?.transCode}`)}</p>
                 </div>
             )
         }

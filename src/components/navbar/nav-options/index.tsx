@@ -91,26 +91,26 @@ export default function NavOptions(props: NavOptionProps) {
                   <ListItemIcon>
                     <FaPerson fontSize="small" />
                   </ListItemIcon>
-                  Profil
+                  {t('nav_content.my_profile')}
                 </MenuItem>
                 <MenuItem onClick={()=> null}>
                   <ListItemIcon>
                     <FcShipped fontSize="small" />
                   </ListItemIcon>
-                  Pwodui ou achte
+                  {t('nav_content.my_orders')}
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                {/* <MenuItem onClick={handleClose}>
                   <ListItemIcon>
                     <FiSettings fontSize="small" />
                   </ListItemIcon>
                   Settings
-                </MenuItem>
+                </MenuItem> */}
                 <Divider />
                 <MenuItem onClick={props.onLogout}>
                   <ListItemIcon>
                     <FiLogOut fontSize="small" />
                   </ListItemIcon>
-                  Logout
+                  {t('nav_content.logout')}
                 </MenuItem>
               </Menu>
     </>

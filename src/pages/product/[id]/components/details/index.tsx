@@ -52,7 +52,7 @@ export default function Details(props: DetailsProps) {
             </div>
         </section>
 
-        <section className={Styles.selected_section} style={{backgroundColor: onError ? '#fff5f5' : '', marginTop:'8px'}}>
+        <section className={Styles.selected_section} style={{backgroundColor: onError ? '#fff5f5' : '', marginTop:'8px', paddingLeft: '8px'}}>
             <div className={`colores_container ${onError && !selectedColor.value ? Styles.shake : ''}` }>
                 <ColorComponent colors={productInfos?.properties?.color}  selectedColor={selectedColor?.value} onSelectColor={onSelectedColor} />
             </div>
@@ -65,12 +65,12 @@ export default function Details(props: DetailsProps) {
             </div>
             {
             onError ? 
-                <small className="detail_error_message">Svp, seleksyone {!selectedColor?.value || !selectedSize?.value? 'Size oubyen koulè' : 'Enfòmasyon pou Livrezon'} pwodui an</small>
+                <small className="detail_error_message">{t("details.please_select_size_or_color")}</small>
             : ''
             }
         </section>
         <section>
-            <div className='avalaible_countries'>
+            <div className={Styles.avalaible_countries}>
                 <AvailableCountries countries={productInfos?.available_countries} />
             </div>
         </section>

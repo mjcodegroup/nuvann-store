@@ -5,7 +5,6 @@ import { HomeProps } from '../types';
 import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
 import RandomCategories from '../components/random-categories';
-import ProductVarietes from '../components/product-varietes';
 import Categories from '../components/categories';
 import { useTranslation } from 'react-i18next';
 
@@ -36,7 +35,7 @@ export default function Home(props: Readonly<HomeProps>) {
     <ProductSlide
       itemToShow={4} 
       products={products.items}
-      title="Likidasyon pou Mwa an"
+      title={t("home.month_clearance")}
       havePromo
       isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}

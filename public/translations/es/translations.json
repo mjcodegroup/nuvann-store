@@ -8,12 +8,25 @@
     "man": "hombre",
     "women": "Mujer",
     "sign_in": "Iniciar sesión",
-    "sign_up": "Registrarse"
+    "sign_up": "Registrarse",
+    "logout": "Cerrar sesión",
+    "my_orders": "Mis pedidos",
+    "my_profile": "Mi perfil"
   },
   "home": {
     "welcome": "Bienvenido a Nuvann Makertplace",
     "searchForAProduct": "Buscar un producto",
-    "newProducts": "Nuevos productos"
+    "newProducts": "Nuevos productos",
+    "fast_delivery": "Entrega rápida",
+    "choose_how_to_pay": "Elija cómo pagar",
+    "pay_in_security": "Pague con seguridad",
+    "24h_support": "Soporte 24/24",
+    "most_popular_categories": "Categorías más populares",
+    "month_clearance": "Liquidación del mes",
+    "new": "Nuevo",
+    "today_deals": "Ofertas del día",
+    "no_products_found": "No se encontraron productos"
+
   },
   "details": {
     "seller": "Vendedor",
@@ -32,7 +45,8 @@
     "tags": "Etiquetas",
     "product_description": "Descripción del producto",
     "description": "Descripción",
-    "price": "Precio"
+    "price": "Precio",
+    "please_select_size_or_color": "Por favor seleccione una talla o color"
   },
   "cart": {
     "shopping_cart": "Carro de la compra",
