@@ -62,8 +62,8 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 value={item?.quantity}
                 label={t('cart.quantity')}
                 availableText={t('cart.available')}
-                increment={() => props.onIncrementButton(item.quantity)}
-                decrement={() => props.onDecrementButton(item.quantity)} 
+                decrement={() => props.onDecrementButton(item.id, item?.quantity)} 
+                increment={() => props.onIncrementButton(item.id, item?.quantity)}
               />
             </div>
             <div className={styles.cart_card_total}>
