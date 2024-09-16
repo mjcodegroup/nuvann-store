@@ -14,8 +14,18 @@
     "my_profile": "Profil mwen",
     "fast_delivery": "Livrezon rapid"
   },
+  "placeholders": {
+    "custom_select_placeholder": "Chwazi yon opsyon"
+  },
+  "buttons": {
+    "confirm": "Konfime",
+    "cancel": "Anile"
+  },
   "home": {
     "welcome": "Byenvini sou Nuvann MarketPlace",
+    "term_and_contitions": "Tèm ak kondisyon",
+    "business_name": "Non antrepriz",
+    "country": "Peyi",
     "searchForAProduct": "Chèche yon pwodui",
     "newProducts": "Nouvo pwodui",
     "fast_delivery": "Livrezon rapid",

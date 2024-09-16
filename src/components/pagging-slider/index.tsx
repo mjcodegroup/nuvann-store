@@ -62,19 +62,24 @@ const PaggingSlides: React.FC<PaggingSliderProps> =({images}) =>{
         onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
           {
             images?.map((img: ImagesData, index:number)=> (
-              <div key={index} className={`${Styles.slider_box} ${index+1 === slideIndex && Styles.active}}`} 
-              onClick={() => setSlideIndex(index + 1)}>
+              <div
+                key={img.id}
+                className={`${Styles.slider_box} ${(index+1 === slideIndex) && Styles.active}}`} 
+                onClick={() => setSlideIndex(index + 1)}
+              >
                 <Image src={img.url} alt={img.alt} width={100} height={100}/>
               </div>
             ))
           }
         </div>
           
-        <div className={Styles.Product_page_img}>
+        <div className={Styles.product_page_img}>
           {
           images?.map((img: ImagesData, index:number)=> (
-            <div key={index} className={Styles.slides}
-            style={{display:(index+1) ===slideIndex ?"block" : "none"}}>
+            <div
+              key={index} className={Styles.slides}
+              style={{display:(index+1) ===slideIndex ?"block" : "none"}}
+            >
               <Image src={img.url} alt={img.alt} width={100} height={100}/>
             </div>
           ))
