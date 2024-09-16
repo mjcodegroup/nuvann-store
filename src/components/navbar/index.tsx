@@ -16,6 +16,9 @@ import ModalActions from '../modal-actions';
 import CustomInput from '../custom-input';
 import CustomSelect from '../custom-select';
 import { countriesMock } from '@/utils/mocks/home/countries.mock';
+import { useUser } from '@/contexts/user';
+import { useUserInfo } from '@/hooks/use-user-info';
+import { set } from 'lodash';
 
 
 interface selectedCountry {
@@ -26,9 +29,11 @@ export const Navbar: React.FC = () => {
   const { t } = useTranslation(["home, buttons"]);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
+  const { state: userState, dispatch: userDispatch } = useUser();
   const {state: cartState, dispatch: cartDispatch} = useCart();
   const {state: categoriesState, dispatch: categoriesDispatch} = useCategories();
   const {getCart} = useCartInfo();
+  const {handleBecomeSeller} = useUserInfo();
   const {getCategories} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
@@ -47,6 +52,14 @@ export const Navbar: React.FC = () => {
       setIsLoading(false)
     }
   }
+
+  const handleClickToBecomeSeller = () => {
+    if(userState.user.seller_infos) {
+      return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
+    }
+    setModalTerm(true)
+  }
+
   
   
   useEffect(() => {
@@ -67,10 +80,10 @@ export const Navbar: React.FC = () => {
           />
         </div>
         <NavOptions
-          user={user}
+          user={userState.user}
           isAuthenticated={isAuthenticated}
           onSignIn={handleLogin}
-          isLoading={loading || isLoading}
+          isLoading={loading}
           onLogout={logout}
           cartCount={cartState.cart?.count}
         />
@@ -79,16 +92,20 @@ export const Navbar: React.FC = () => {
         width='100%'
         categories={categoriesState?.categories}
         onCategorySelect={(e: any)=>console.log(e)}
-        onClickSellerMenu={()=>setModalTerm(true)}
+        onClickSellerMenu={()=>handleClickToBecomeSeller()}
         />
 
         <ModalActions
           title={t('home.term_and_contitions')}
           open ={modalTerm}
           setOpen= {setModalTerm}
+          loading={userState.isLoading}
           disable={!businessName || !selectedCountry.value}
           onClickBtnConfirm= {(): void =>{
-            // updateSeller()
+            handleBecomeSeller({
+              business_name: businessName,
+              country: selectedCountry
+            })
           }}
         >
             <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />

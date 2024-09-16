@@ -35,10 +35,9 @@ export default function CartController() {
   }
 
 
-
-  if (cartState.cart_loader) {
-    return <div>Loading...</div>;
-  }
+  // if (cartState.cart_loader) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <HomePageDefault>
