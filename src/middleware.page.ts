@@ -7,6 +7,7 @@ import Token from "@/utils/token";
 
 export async function middleware(req: NextRequest) {
   const token = getCookie('access_token', { req });
+  const url = req.nextUrl.clone();
 
   const keycloakLoginUrl = `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/auth?client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_KEYCLOAK_REDIRECT_URI}&response_type=code&scope=openid`;
   if (!token) {
@@ -15,35 +16,39 @@ export async function middleware(req: NextRequest) {
 
   const sessionValid = await verifySessionFromKeycloak(token);
 
-  if(sessionValid) {
-    return NextResponse.next();
-  } else {
+  if(!sessionValid) {
     return NextResponse.redirect(keycloakLoginUrl);
   }
-}
 
-async function verifySessionFromKeycloak(token: string) {
-  return Token.decodeToken(token) ? true : false;
+  if (url.search) {
+    url.search = '';
+    return NextResponse.redirect(url);
+  }
 
+  return NextResponse.next();
 }
 
 // async function verifySessionFromKeycloak(token: string) {
-//   try {
-//     const res = await fetch(
-//       `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
-//       {
-//         method: 'GET',
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       }
-//     );
-
-//     return res.status === 200;
-//   } catch (error) {
-//     return false;
-//   }
+//   return Token.decodeToken(token) ? true : false;
 // }
+
+async function verifySessionFromKeycloak(token: string) {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return res.status === 200;
+  } catch (error) {
+    return false;
+  }
+}
 
 export const config = {
   matcher: ['/carts'],
