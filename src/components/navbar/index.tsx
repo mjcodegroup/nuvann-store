@@ -70,7 +70,7 @@ export const Navbar: React.FC = () => {
           user={user}
           isAuthenticated={isAuthenticated}
           onSignIn={handleLogin}
-          isLoading={loading || isLoading}
+          isLoading={loading}
           onLogout={logout}
           cartCount={cartState.cart?.count}
         />
