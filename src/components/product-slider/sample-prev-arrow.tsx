@@ -1,21 +1,22 @@
-export default function SamplePrevArrow(props:any) {
-    const { className, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          background: "#000052",
-          borderRadius: '50%',
-          height: '40px',
-          width: '40px',
-          zIndex: 1000
-        }}
-        onClick={onClick}
-      />
-    );
+export function SamplePrevArrow(props: any) {
+  const { className, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#B0B0B0", // Cinza claro
+        borderRadius: "50%",
+        height: "42px",
+        width: "42px",
+        zIndex: 1000,
+        cursor: "pointer",
+      }}
+      onClick={onClick}
+    >
+      <i className="arrow-icon" style={{ color: "#FFF", fontSize: "20px" }}></i>
+    </div>
+  );
 }

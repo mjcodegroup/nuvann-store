@@ -1,15 +1,74 @@
 {
-  "navContent": {
+  "nav_content": {
       "home": "Home",
       "promotion": "Promotion",
       "search": "Search",
       "sell": "Sell",
       "category": "Category",
       "man": "Men",
-      "women": "Women"
+      "women": "Women",
+      "sign_in": "Sign in",
+      "sign_up": "Register",
+      "logout": "Logout",
+      "my_orders": "My orders",
+      "my_profile": "My profile"
+  },
+  "placeholders": {
+    "custom_select_placeholder": "Select an option"
+  },
+  "buttons": {
+    "confirm": "Confirm",
+    "cancel": "Cancel"
   },
   "home": {
     "welcome": "Welcome to Nuvann Makertplace",
-    "searchForAProduct": "Search for a product"
+    "term_and_contitions": "Terms and conditions",
+    "business_name": "Business name",
+    "country": "Country",
+    "searchForAProduct": "Search for a product",
+    "newProducts": "New products",
+    "fast_delivery": "Fast delivery",
+    "choose_how_to_pay": "Choose how to pay",
+    "pay_in_security": "Pay in security",
+    "24h_support": "24/24 support",
+    "most_popular_categories": "Most popular categories",
+    "month_clearance": "Clearance of the month",
+    "new": "New",
+    "today_deals": "Today's deals",
+    "no_products_found": "No products found"
+  },
+  "details": {
+    "seller": "Seller",
+    "country": "Country",
+    "sales": "Sales",
+    "sizes": "Sizes",
+    "colors": "Colors",
+    "add_to_cart": "Add to cart",
+    "buy_now": "Buy now",
+    "delivery_information": "Delivery information",
+    "available_countries": "Available countries",
+    "quantity": "Quantity",
+    "specific_information": "Specific information",
+    "origin": "Origin",
+    "categories": "Categories",
+    "tags": "Tags",
+    "product_description": "Product description",
+    "description": "Description",
+    "price": "Price",
+    "please_select_size_or_color": "Please select a size or color"
+  },
+  "cart": {
+    "shopping_cart": "Shopping cart",
+    "product": "Product",
+    "quantity": "Quantity",
+    "available": "Available",
+    "price": "Price",
+    "total": "Total",
+    "checkout": "Checkout",
+    "summary": "Summary",
+    "delivery": "Delivery",
+    "description": "Description",
+    "size": "Size",
+    "color": "Color"
   }
 }

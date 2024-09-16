@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   sizes: string[];
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const SizeComponent: React.FC<Props> = ({ sizes, selectedSize, onSelectSize }) => {
+  const { t } = useTranslation();
   return (
     <>
     {
@@ -17,7 +19,7 @@ const SizeComponent: React.FC<Props> = ({ sizes, selectedSize, onSelectSize }) =
        textTransform: 'capitalize',
        flexShrink: '0',
        alignItems: 'center',
-      }}>Sizes: </p>
+      }}>{t('details.sizes')}: </p>
       :
       ''
     }
@@ -43,6 +45,7 @@ interface CircleProps {
 }
 
 const SizeCircle: React.FC<CircleProps> = ({ size, selected, onSelectSize }) => {
+  const { t } = useTranslation();
   const [verified, setVerified] = useState(false);
   const handleClick = () => {
     onSelectSize(size);
@@ -54,7 +57,9 @@ const SizeCircle: React.FC<CircleProps> = ({ size, selected, onSelectSize }) => 
 
       <div
         style={{
-          margin: '16px',
+          marginTop: '16px',
+          marginBottom: '16px',
+          marginRight: '8px',
           flexWrap: 'wrap',
           minWidth: '4rem',
           border: selected ? '1px solid #000052' : '1px solid rgba(0, 0, 0, 0.09)',

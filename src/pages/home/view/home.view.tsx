@@ -5,44 +5,48 @@ import { HomeProps } from '../types';
 import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
 import RandomCategories from '../components/random-categories';
-import ProductVarietes from '../components/product-varietes';
+import Categories from '../components/categories';
+import { useTranslation } from 'react-i18next';
 
 export default function Home(props: Readonly<HomeProps>) {
-  // const { t } = useTranslation();
+  const { t } = useTranslation("home");
   const {products } = props;
-  console.log("Home props", products.items);
   return (
     <>
     <Hero
       images={props.heroImages}
       autoSlideInterval={5000}
     />
-    <Jumbotron 
-      data={props.jumbotronData}
+
+    <Jumbotron  jumbs={props.jumbsData} />
+
+    <Categories 
+      data={props.categories}
     />
     <ProductSlide
-      title="Nouvo pwodui"
+      title={t("home.newProducts")}
       itemToShow={4}
       products={products.items} 
-      havePromo={true} 
-      isLoading={false}
+      havePromo={false}
+      isnew
+      isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <ProductSlide
       itemToShow={4} 
-      products={props.products.items}
-      title="Likidasyon pou Mwa an"
-      havePromo={true}
-      isLoading={false}
+      products={products.items}
+      title={t("home.month_clearance")}
+      havePromo
+      isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <RandomCategories />
-    <ProductVarietes
+    {/* <ProductVarietes
       loader={false}
       data={products.items as any} 
       getmore={()=>{}}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
-    />
+    /> */}
     </>
   )
 }

@@ -93,12 +93,11 @@
     }
 
     .selected_section {
-        // color: red;
-        
-        .detail_error_message {
+      color: red;
+      .detail_error_message {
           text-align: center;
           font-size: 16px;
-          margin-left: 25px;
+          margin-left: 32px;
         }
       }
 }

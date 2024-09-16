@@ -1,8 +1,11 @@
-import { Product, ProductsData } from "@/contexts/products/types";
+import { Category } from "@/contexts/categories/types";
+import { ProductsData } from "@/contexts/products/types";
 
 export interface HomeProps {
+    loader: boolean;
     heroImages: string[];
-    jumbotronData: any[];
+    jumbsData: any[];
     onRedirectToProductDetails: (id: string) => void;
-    products: ProductsData;    
+    products: ProductsData;
+    categories: Category[];  
 }

@@ -1,24 +1,25 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { getCookie } from 'cookies-next';
+import { getCookie, deleteCookie, setCookie } from 'cookies-next';
+import Token from "@/utils/token";
+
+
 
 export async function middleware(req: NextRequest) {
   const token = getCookie('access_token', { req });
   const url = req.nextUrl.clone();
 
   const keycloakLoginUrl = `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/auth?client_id=${process.env.NEXT_PUBLIC_KEYCLOAK_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_KEYCLOAK_REDIRECT_URI}&response_type=code&scope=openid`;
-
   if (!token) {
     return NextResponse.redirect(keycloakLoginUrl);
   }
 
-  const sessionValid = await verifySession(token);
+  const sessionValid = await verifySessionFromKeycloak(token);
 
-  if (!sessionValid) {
+  if(!sessionValid) {
     return NextResponse.redirect(keycloakLoginUrl);
   }
 
-  // Limpa a URL dos parâmetros de consulta após o login
   if (url.search) {
     url.search = '';
     return NextResponse.redirect(url);
@@ -27,7 +28,11 @@ export async function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-async function verifySession(token: string) {
+// async function verifySessionFromKeycloak(token: string) {
+//   return Token.decodeToken(token) ? true : false;
+// }
+
+async function verifySessionFromKeycloak(token: string) {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,

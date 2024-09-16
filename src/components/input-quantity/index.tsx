@@ -6,6 +6,7 @@ interface InputQuantityProps {
     type?: string;
     name?: string;
     value?: number;
+    availableText?: string;
     decrement: () => void;
     increment: () => void;
     onChange?: (value: number) => void;
@@ -15,6 +16,7 @@ interface InputQuantityProps {
 
 const InputQuantity: React.FC<InputQuantityProps> =({
     label,
+    availableText,
     name,
     decrement,
     value,
@@ -32,7 +34,7 @@ const InputQuantity: React.FC<InputQuantityProps> =({
             <div className={Styles._qty_max} onClick={increment}>+</div>
         </form>
         {total ? 
-        <span className={Styles._label}> {total} disponib </span>
+        <span className={Styles._label}> {total} {availableText}</span>
         :''}
     </section>
   )

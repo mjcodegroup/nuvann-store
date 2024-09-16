@@ -19,7 +19,9 @@ i18next
         react: {
             useSuspense: false,
         },
-        defaultNS: 'common',
+        defaultNS: [
+            "home"
+        ],
     })
 
 export default i18next;

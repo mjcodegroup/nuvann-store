@@ -1,16 +1,75 @@
 {
-  "navContent": {
+  "nav_content": {
     "home": "Akèy",
     "promotion": "Promosyon",
     "search": "Chèche",
     "sell": "Vann",
     "category": "Kategori",
     "man": "Gason",
-    "women": "Fanm"
+    "women": "Fanm",
+    "sign_in": "Konekte",
+    "sign_up": "Enskri",
+    "logout": "Dekonekte",
+    "my_orders": "kòmand",
+    "my_profile": "Profil mwen",
+    "fast_delivery": "Livrezon rapid"
+  },
+  "placeholders": {
+    "custom_select_placeholder": "Chwazi yon opsyon"
+  },
+  "buttons": {
+    "confirm": "Konfime",
+    "cancel": "Anile"
   },
   "home": {
     "welcome": "Byenvini sou Nuvann MarketPlace",
-    "searchForAProduct": "Chèche yon pwodui"
-
+    "term_and_contitions": "Tèm ak kondisyon",
+    "business_name": "Non antrepriz",
+    "country": "Peyi",
+    "searchForAProduct": "Chèche yon pwodui",
+    "newProducts": "Nouvo pwodui",
+    "fast_delivery": "Livrezon rapid",
+    "choose_how_to_pay": "Chwazi kijan pou peye",
+    "pay_in_security": "Peye an sekirite",
+    "24h_support": "Sipò 24/24",
+    "most_popular_categories": "Kategori ki pi popilè",
+    "month_clearance": "Likidasyon pou Mwa an",
+    "new": "Nouvote",
+    "today_deals": "Òf jounen an",
+    "no_products_found": "Pa gen pwodui disponib",
+    "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
+  },
+  "details": {
+    "seller": "Vandè",
+    "country": "Peyi",
+    "sales": "Vant",
+    "sizes": "Gwosè",
+    "colors": "Koulè",
+    "add_to_cart": "Ajoute nan panye",
+    "buy_now": "Achte kounye a",
+    "delivery_information": "Enfòmasyon livrezon",
+    "available_countries": "Peyi disponib",
+    "quantity": "Quantité",
+    "specific_information": "Enfòmasyon espesifik",
+    "origin": "Orijin",
+    "categories": "Kategori",
+    "tags": "Etikèt",
+    "product_description": "Deskripsyon pwodui",
+    "description": "Deskripsyon",
+    "price": "Pri"
+  },
+  "cart": {
+    "shopping_cart": "Panye",
+    "product": "Pwodui",
+    "quantity": "Kantite",
+    "available": "Disponib",
+    "price": "Pri",
+    "total": "Total",
+    "checkout": "Kontinye",
+    "summary": "Rezime",
+    "delivery": "Livrezon",
+    "description": "Deskripsyon",
+    "size": "Gwosè",
+    "color": "Koulè"
   }
 }

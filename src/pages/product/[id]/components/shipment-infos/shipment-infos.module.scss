@@ -42,6 +42,7 @@
             padding: 0;
             position: relative;
             flex-shrink: 0;
+            cursor: pointer;
   
             &:checked::before {
               content: '';

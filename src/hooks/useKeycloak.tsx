@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import Token from "@/utils/token";
 
 const AuthContext = createContext({
   isAuthenticated: false,
@@ -26,28 +27,32 @@ export const AuthProvider = ({ children }: any) => {
   const isRun = useRef(false);
   const [loading, setLoading] = useState<boolean>(true);
 
-
+  
+  
   const getUserInfo = useCallback(async (token: string) => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    if (res.status === 200) {
-      const data = await res.json();
-      setUser(data);
-      setCookie("user", JSON.stringify(data));
+    const user = Token.decodeToken(token);
+    // const res = await fetch(
+    //   `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
+    //   {
+    //     method: "GET",
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   }
+    // );
+    
+    if (user) {
+      setUser(user);
+      setCookie("user", JSON.stringify(user));
       setIsAuthenticated(true);
     } else {
+      console.log('entrei no login pelo getUserInfo')
       login();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
 
   const login = useCallback(async () => {
     if (isRun.current) return;
@@ -56,7 +61,7 @@ export const AuthProvider = ({ children }: any) => {
     keycloak
       ?.init({
         onLoad: "check-sso",
-        flow: 'hybrid',
+        flow: 'implicit',
       })
       .then((res) => {
         if (res) {
@@ -88,12 +93,12 @@ export const AuthProvider = ({ children }: any) => {
   };
 
   useEffect(() => {
-    const token = getCookie("access_token");
-
+    const token = getCookie("KEYCLOAK_SESSION");
     if (token) {
       setToken(token as string);
       getUserInfo(token as string);
-    } else {
+    } 
+    else {
       login();
     }
     setLoading(false);

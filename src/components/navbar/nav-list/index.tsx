@@ -8,31 +8,31 @@ import { NavListProps } from '../types';
 
 
 export default function NavList(props: NavListProps) {  
-  const { t } = useTranslation();
+  const { t } = useTranslation('nav_content');
   return (
     <nav className={Styles.navbar_list}>
         <ul>
-            <Link href="/">{t("navContent.home")}</Link>
+            <Link href="/">{t("nav_content.home")}</Link>
             <DropdownSimple
               onCategorySelect={(category: Category) => props.onCategorySelect(category)}
               categories={props.categories}
               contentWidth={props.width}
             >
             <Link href="/#">
-              {t("navContent.category")}
+              {t("nav_content.category")}
             </Link>
             </DropdownSimple>
             <Link href="/promotions">
-              {t("navContent.promotion")}
+              {t("nav_content.promotion")}
             </Link>
-            <Link href="/sell">
-              {t("navContent.sell")}
+            <Link href="#" onClick={props.onClickSellerMenu}>
+              {t("nav_content.sell")}
             </Link>
               <Link href="/category?category=man">
-                {t("navContent.man")}
+                {t("nav_content.man")}
               </Link>
             <Link href="/category?category=women">
-              {t("navContent.women")}
+              {t("nav_content.women")}
             </Link>
         </ul>
     </nav>

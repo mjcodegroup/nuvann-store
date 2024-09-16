@@ -1,31 +1,24 @@
 import React from "react";
 import Styles from "./more-details.module.scss";
-
-
-interface MoreDetailsProps {
-    description?: any;
-    pro_country?: any
-    pro_seller?:string;
-    pro_category?: any
-    // pro_subCategory?:any;
-    pro_tags?: any;
-}
+import { Category } from "@/contexts/categories/types";
+import { MoreDetailsProps } from "../../types";
+import { useTranslation } from "react-i18next";
 
 
 const MoreDetails: React.FC<MoreDetailsProps> =({
     description,
     pro_seller,
-    pro_category,
-    pro_tags
+    pro_categories,
 }) =>{
+    const { t } = useTranslation('details');
     return (
         <div className={Styles.full_desc_section}>
             <div className={Styles.__title}>
-                <h3 className={Styles.full_desc_title}>Detay spesifik</h3>
+                <h3 className={Styles.full_desc_title}>{t('details.specific_information')}</h3>
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p> Origin:</p>
+                    <p>{t('details.origin')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     <p>{pro_seller}</p>
@@ -33,21 +26,25 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p> kategori:</p>
+                    <p>{t('details.categories')}:</p>
                 </div>
                 <div className={Styles.__desc}>
-                    <p className={Styles.tag}>{pro_category}</p>
+                    {
+                        pro_categories?.map((category: Category, index:number) =>(
+                            <p key={index} className={Styles.tag}> {category.name} </p>
+                        ))
+                    }
                 </div>
             </div>
 
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p> Tag:</p>
+                    <p>{t('details.tags')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     {
-                        pro_tags?.map((tag: string, index:number) =>(
-                            <p key={index} className={Styles.tag}> #{tag} </p>
+                        pro_categories ?.map((tag: Category, index:number) =>(
+                            <p key={index} className={Styles.tag}> #{tag.tags} </p>
                         ))
                     }
                 </div>
@@ -55,11 +52,11 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
 
             <br /><br /> <br />
             <div className={Styles.__title}>
-                <h3 className="full_desc_title">Deskripsyon Pwodui an</h3>
+                <h3 className={Styles.full_desc_title}>{t('details.product_description')}</h3>
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p> Dekripsyon:</p>
+                    <p>{t('details.description')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     <p>{description}</p>

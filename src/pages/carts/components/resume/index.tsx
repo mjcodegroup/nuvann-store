@@ -1,52 +1,49 @@
-import React from 'react'
-import './styles.scss'
+import React from 'react';
+import Link from 'next/link';
+import { CartResumeProps } from '../../types';
+import styles from './resume.module.scss';
+import Title from '../title';
+import CustomButton from '@/components/custom-button';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
-interface CartResumeProps {
-count: number;
-cartTotal?: number,
-shipTotal:string,
-productSubtotal: string,
-OnclickContinue: ()=> void;
-}
-
-const CartResume: React.FC<CartResumeProps> =({count, cartTotal = 0, shipTotal=0, productSubtotal = 0, OnclickContinue}) =>{
-
+const CartResume: React.FC<CartResumeProps> = (props: CartResumeProps) => {
+  const {t} = useTranslation('cart');
+  const { data } = props;
   return (
-    <div className="card_resume">
-      <span title='Rezime' className='resume_title'/>
+    <div className={styles.card_resume}>
+      <Title title={t('cart.summary')} className={styles.resume_title} />
 
-      <div className="content">
-        <div className="resume_separated_info">
-          <p>Total Pwodui ({count})</p>
-          <h5>{productSubtotal}</h5>
+      <div className={styles.content}>
+        <div className={styles.resume_separated_info}>
+          <p>{t('cart.product')} ({data.count})</p>
+          <h5>{data.sub_total}</h5>
         </div>
         <hr />
 
-        <div className="resume_separated_info">
-          <p>Livrezon</p>
-          <h5>{shipTotal}</h5>
+        <div className={styles.resume_separated_info}>
+          <p>{t('cart.delivery')}</p>
+          <h5>{data.shipping_cost}</h5>
         </div>
         <hr />
 
-        <div className="resume_separated_info">
-          <p>Total </p>
-          <h5>{cartTotal}</h5>
+        <div className={styles.resume_separated_info}>
+          <p>{t("cart.total")} </p>
+          <h5>{data.total}</h5>
         </div>
         <hr />
-
       </div>
 
-
-      {/* <div className="resume_buttons">
-        <CustomButton backgroundColor ='#00C02A' textColor="#fff">
-        <Link to="/checkout/userinfos">Kontinye</Link>
+      <div className={styles.resume_buttons}>
+        <CustomButton backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
+          <Link href="/checkout/userinfos">{t('cart.checkout')}</Link>
         </CustomButton>
-        <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={OnclickContinue}>
-          Kontinye Achte
-        </CustomButton>
-      </div> */}
+        {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>
+            Kontinye Achte
+        </CustomButton> */}
+      </div>
     </div>
-  )
+  );
 }
 
 export default CartResume;
