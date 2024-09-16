@@ -113,10 +113,10 @@
 
 @media (max-width: 480px) {
   .cart_card_container {
-    width: 100%; // Ensure the container spans the full width on mobile
+    width: 100%;
     height: auto;
     padding: 10px;
-    overflow: hidden; // Prevent any overflow
+    overflow: hidden;
   }
 
   .cart_card_content {
