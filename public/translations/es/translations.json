@@ -13,8 +13,18 @@
     "my_orders": "Mis pedidos",
     "my_profile": "Mi perfil"
   },
+  "placeholders": {
+    "custom_select_placeholder": "Seleccione una opción"
+  },
+  "buttons": {
+    "confirm": "Confirmar",
+    "cancel": "Cancelar"
+  },
   "home": {
     "welcome": "Bienvenido a Nuvann Makertplace",
+    "term_and_contitions": "Términos y condiciones",
+    "business_name": "Nombre de la empresa",
+    "country": "País",
     "searchForAProduct": "Buscar un producto",
     "newProducts": "Nuevos productos",
     "fast_delivery": "Entrega rápida",
