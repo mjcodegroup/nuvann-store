@@ -20,15 +20,13 @@ export function useUserInfo() {
     async function handleBecomeSeller(data: PostBecomeSellerRequest) {
         userDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.patch('/users/becomeseller', data)
+            const response = await nuvannApi.patch('/users/becomeSeller', data)
             successToast(response.data?.message || 'Success');
             if(response.data?.is_able_to_sell) {
-                setTimeout(() => {
-                    window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
-                }, 1500)
+                window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
             }
         } catch (error: any) {
-            errorToast(error.message || error.response.data.message);
+            errorToast( error.response.data.message);
         }
         userDispatch({ type: 'SET_LOADING', value: false });
     }

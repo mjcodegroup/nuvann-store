@@ -19,4 +19,5 @@ export interface NavListProps {
     onCategorySelect: (category: Category) => void;
     onClickSellerMenu: () => void;
     width: string;
+    isAuthenticated: boolean;
   }
