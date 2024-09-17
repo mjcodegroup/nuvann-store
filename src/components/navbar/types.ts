@@ -17,5 +17,7 @@ export type SearchBarProps = {
 export interface NavListProps {
     categories: Category[];
     onCategorySelect: (category: Category) => void;
+    onClickSellerMenu: () => void;
     width: string;
+    isAuthenticated: boolean;
   }

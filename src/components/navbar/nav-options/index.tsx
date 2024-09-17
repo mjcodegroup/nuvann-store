@@ -122,7 +122,7 @@ export default function NavOptions(props: NavOptionProps) {
     </li>
     }
     <li>
-      <Link href="#" onClick={()=> redirect(RoutesUrls.CARTS)}>
+      <Link href={RoutesUrls.CARTS}>
         <Badge color="error" badgeContent={props.cartCount}>
           <Image src={cartIcon} alt="cartIcon" />
         </Badge>
