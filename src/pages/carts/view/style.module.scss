@@ -34,3 +34,12 @@
     max-width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .cartCard {
+
+    .cardTitle {
+      width: 100%;
+    }
+  }
+}

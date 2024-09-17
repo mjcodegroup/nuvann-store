@@ -31,7 +31,7 @@ export default function CartController() {
       const updatedCartItems = cartState.cart.items.map(item =>
         item.id === itemId ? { ...item, quantity: newQuantity } : item
       );
-      cartDispatch({ type: 'UPDATE_CART', value: { ...cartState.cart, items: updatedCartItems } });
+      // cartDispatch({ type: 'UPDATE_CART', value: { ...cartState.cart, items: updatedCartItems } });
 
       await updateCart(itemId, newQuantity);
     } catch (error) {
@@ -47,7 +47,7 @@ export default function CartController() {
       const updatedCartItems = cartState.cart.items.map(item =>
         item.id === itemId ? { ...item, quantity: newQuantity } : item
       );
-      cartDispatch({ type: 'UPDATE_CART', value: { ...cartState.cart, items: updatedCartItems } });
+      // cartDispatch({ type: 'UPDATE_CART', value: { ...cartState.cart, items: updatedCartItems } });
 
       await updateCart(itemId, newQuantity);
     } catch (error) {

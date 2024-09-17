@@ -22,6 +22,7 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 alt={item.product.name}
                 width={150}
                 height={150}
+                layout="fixed"
               />
             </div>
             <div className={styles.cart_card_content_desc}>
