@@ -29,11 +29,11 @@ export const Navbar: React.FC = () => {
   const { t } = useTranslation(["home, buttons"]);
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
+  const {handleBecomeSeller} = useUserInfo();
   const { state: userState, dispatch: userDispatch } = useUser();
   const {state: cartState, dispatch: cartDispatch} = useCart();
   const {state: categoriesState, dispatch: categoriesDispatch} = useCategories();
   const {getCart} = useCartInfo();
-  const {handleBecomeSeller} = useUserInfo();
   const {getCategories} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
           />
         </div>
         <NavOptions
-          user={userState.user}
+          user={userState.user || user}
           isAuthenticated={isAuthenticated}
           onSignIn={handleLogin}
           isLoading={loading}
@@ -93,6 +93,7 @@ export const Navbar: React.FC = () => {
         categories={categoriesState?.categories}
         onCategorySelect={(e: any)=>console.log(e)}
         onClickSellerMenu={()=>handleClickToBecomeSeller()}
+        isAuthenticated={isAuthenticated}
         />
 
         <ModalActions
@@ -104,7 +105,10 @@ export const Navbar: React.FC = () => {
           onClickBtnConfirm= {(): void =>{
             handleBecomeSeller({
               business_name: businessName,
-              country: selectedCountry
+              country: {
+                code: selectedCountry.value,
+                name: selectedCountry.label
+              }
             })
           }}
         >
