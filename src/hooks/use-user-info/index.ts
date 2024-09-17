@@ -29,8 +29,8 @@ export function useUserInfo() {
             }
         } catch (error: any) {
             errorToast(error.message || error.response.data.message);
-            userDispatch({ type: 'SET_LOADING', value: false });
         }
+        userDispatch({ type: 'SET_LOADING', value: false });
     }
 
     useEffect(() => {
