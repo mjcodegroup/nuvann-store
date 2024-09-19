@@ -25,8 +25,8 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
           <CartCard 
             data={data}
             removeFromCart={removeFromCart}
-            onDecrementButton={props.onIncrementButton}
-            onIncrementButton={props.onDecrementButton}
+            onDecrementButton={props.onDecrementButton}
+            onIncrementButton={props.onIncrementButton}
           />
         </div>
         <div className={styles.cartResume}>

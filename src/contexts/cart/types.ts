@@ -19,6 +19,10 @@ export type Action =
         type: 'SET_CART_LOADER';
         value: boolean;
     }
+    | {
+        type: 'UPDATE_CART';
+        value: any;
+    }
 
 
 export interface CartContextProps {
