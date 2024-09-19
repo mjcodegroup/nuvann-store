@@ -24,34 +24,30 @@ export default function CartController() {
     alert('Checkout');
   };
 
-  async function handleIncrementButton(itemId: number, currentQuantity: number): Promise<void> {
-    const newQuantity = currentQuantity + 1;
-
+  async function handleIncrementButton(itemId: number, position: number): Promise<void> {
+    const cart= cartState.cart.items
+    let newCart = [...cart]
     try {
-      const updatedCartItems = cartState.cart.items.map(item =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      );
-      // cartDispatch({ type: 'UPDATE_CART', value: { ...cartState.cart, items: updatedCartItems } });
+      cart[position].quantity++
+      cartDispatch({ type: 'SET_CART', value: { ...cartState.cart, items: newCart } });
 
-      await updateCart(itemId, newQuantity);
+      await updateCart(itemId, cart[position].quantity);
     } catch (error) {
       console.error('Failed to update cart:', error);
     }
   }
 
-  async function handleDecrementButton(itemId: number, currentQuantity: number): Promise<void> {
-    if (currentQuantity <= 1) return;
-    const newQuantity = currentQuantity - 1;
-
-    try {
-      const updatedCartItems = cartState.cart.items.map(item =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      );
-      // cartDispatch({ type: 'UPDATE_CART', value: { ...cartState.cart, items: updatedCartItems } });
-
-      await updateCart(itemId, newQuantity);
-    } catch (error) {
-      console.error('Failed to update cart:', error);
+  async function handleDecrementButton(itemId: number, position: number): Promise<void> {
+    const cart= cartState.cart.items
+    let newCart = [...cart]
+    if(cart[position].quantity >= 1) {
+      try {
+        cart[position].quantity--
+        cartDispatch({ type: 'SET_CART', value: { ...cartState.cart, items: newCart } });
+        await updateCart(itemId, cart[position].quantity);
+      } catch (error) {
+        console.error('Failed to update cart:', error);
+      }
     }
   }
 
