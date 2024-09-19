@@ -55,7 +55,8 @@
     "tags": "Étiquettes",
     "product_description": "Description du produit",
     "description": "Description",
-    "price": "Prix"
+    "price": "Prix",
+    "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
   },
   "cart": {
     "shopping_cart": "Panier",

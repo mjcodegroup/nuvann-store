@@ -56,7 +56,8 @@
     "tags": "Etikèt",
     "product_description": "Deskripsyon pwodui",
     "description": "Deskripsyon",
-    "price": "Pri"
+    "price": "Pri",
+    "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
   },
   "cart": {
     "shopping_cart": "Panye",

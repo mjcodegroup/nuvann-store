@@ -77,7 +77,7 @@ const handleAddProductToCart = async() => {
        product_id: String(productDetails.product.id),
        quantity: qty,
        shipment_id:  selectedShippingInfo.id> 0 ? String(selectedShippingInfo?.id) : defaultInfo?.id,
-       properties
+       properties: properties.length ? properties : undefined
       });
     }
   } else {
