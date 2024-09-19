@@ -13,7 +13,7 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
   const { t } = useTranslation('cart');
   return (
     <>
-      {props.data?.items?.map((item: CartItem) => (
+      {props.data?.items?.map((item: CartItem, index) => (
         <div key={item.id} className={styles.cart_card_container}>
           <div className={styles.cart_card_content}>
             <div className={styles.cart_card_content_img}>
@@ -22,6 +22,7 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 alt={item.product.name}
                 width={150}
                 height={150}
+                layout="fixed"
               />
             </div>
             <div className={styles.cart_card_content_desc}>
@@ -62,8 +63,8 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 value={item?.quantity}
                 label={t('cart.quantity')}
                 availableText={t('cart.available')}
-                increment={() => props.onIncrementButton(item.quantity)}
-                decrement={() => props.onDecrementButton(item.quantity)} 
+                decrement={() => props.onDecrementButton(item.id, index)} 
+                increment={() => props.onIncrementButton(item.id, index)}
               />
             </div>
             <div className={styles.cart_card_total}>

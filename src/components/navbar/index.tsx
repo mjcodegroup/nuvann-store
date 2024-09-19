@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
           />
         </div>
         <NavOptions
-          user={userState.user || user}
+          user={userState.user.name? userState.user : user}
           isAuthenticated={isAuthenticated}
           onSignIn={handleLogin}
           isLoading={loading}
