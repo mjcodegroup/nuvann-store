@@ -2,6 +2,7 @@ import { Cart } from "@/contexts/cart/types";
 
 export interface CartProps {
     data: Cart
+    fullLoader: boolean;
     removeFromCart: (id: number) => Promise<void>;
     onIncrementButton: (items: any, index: number) => void;
     onDecrementButton: (index: number, quantity: number) => void;

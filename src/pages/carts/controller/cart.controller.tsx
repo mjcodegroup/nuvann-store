@@ -54,6 +54,7 @@ export default function CartController() {
   return (
     <HomePageDefault>
       <Cart
+      fullLoader={cartState.cart_loader}
         onCheckout={handleCheckout}
         data={cartState.cart}
         removeFromCart={removeFromCart}
