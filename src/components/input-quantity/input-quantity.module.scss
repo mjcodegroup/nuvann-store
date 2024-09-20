@@ -40,4 +40,12 @@
         flex-shrink: 0;
         align-items: center;
     }
+
+
+    .disabled {
+      cursor: not-allowed;
+      opacity: 0.1; // Aparência de desativado
+    //   pointer-events: none; // Desabilita interação
+    }
+      
 }

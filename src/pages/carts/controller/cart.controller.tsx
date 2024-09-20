@@ -18,47 +18,49 @@ export default function CartController() {
 
   useEffect(() => {
     getCartInformations();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleCheckout = () => {
     alert('Checkout');
   };
 
-  async function handleIncrementButton(itemId: number, position: number): Promise<void> {
-    const cart= cartState.cart.items
-    let newCart = [...cart]
-    try {
-      cart[position].quantity++
+  const debouncedUpdateCart = async (itemId: number, quantity: number) => {
+    await updateCart(itemId, quantity);
+  }
+
+  const  handleIncrementButton = (itemId: number, position: number): void => {
+    const cart = cartState.cart.items;
+    let newCart = [...cart];
+    let itemToUpdate = { ...newCart[position] };
+    
+    itemToUpdate.quantity++;
+    newCart[position] = itemToUpdate;
+    cartDispatch({ type: 'SET_CART', value: { ...cartState.cart, items: newCart } });
+    debouncedUpdateCart(itemId, newCart[position].quantity);
+  }
+
+  function handleDecrementButton(itemId: number, position: number): void {
+    const cart = cartState.cart.items;
+    let newCart = [...cart];
+    let itemToUpdate = { ...newCart[position] };
+    if(newCart[position].quantity > 1) {
+      itemToUpdate.quantity--;
+      newCart[position] = itemToUpdate;
       cartDispatch({ type: 'SET_CART', value: { ...cartState.cart, items: newCart } });
-
-      await updateCart(itemId, cart[position].quantity);
-    } catch (error) {
-      console.error('Failed to update cart:', error);
+      debouncedUpdateCart(itemId, newCart[position].quantity);
     }
   }
-
-  async function handleDecrementButton(itemId: number, position: number): Promise<void> {
-    const cart= cartState.cart.items
-    let newCart = [...cart]
-    if(cart[position].quantity >= 1) {
-      try {
-        cart[position].quantity--
-        cartDispatch({ type: 'SET_CART', value: { ...cartState.cart, items: newCart } });
-        await updateCart(itemId, cart[position].quantity);
-      } catch (error) {
-        console.error('Failed to update cart:', error);
-      }
-    }
-  }
-
   return (
     <HomePageDefault>
       <Cart
+      fullLoader={cartState.cart_loader}
         onCheckout={handleCheckout}
         data={cartState.cart}
         removeFromCart={removeFromCart}
         onDecrementButton={handleDecrementButton}
         onIncrementButton={handleIncrementButton}
+        disableIncrementAndDecrementBtn={cartState.cart_loader}
       />
     </HomePageDefault>
   );
