@@ -3,6 +3,7 @@ import { ImageMedia, Price } from "../products/types";
 export interface State {
     cart: Cart;
     cart_loader: boolean;
+    update_cart_loader: boolean;
 }
 
 

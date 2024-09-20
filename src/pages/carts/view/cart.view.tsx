@@ -22,7 +22,8 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
           <div className={styles.cardTitle}>
             <h3>{t("cart.shopping_cart")}</h3>
           </div>
-          <CartCard 
+          <CartCard
+            disableIncrementAndDecrementBtn={props.disableIncrementAndDecrementBtn}
             data={data}
             removeFromCart={removeFromCart}
             onDecrementButton={props.onDecrementButton}
@@ -33,6 +34,7 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
           <CartResume
             data={data}
             OnCheckout={props.onCheckout}
+            loading={props.disableIncrementAndDecrementBtn}
           />
         </div>
       </div>

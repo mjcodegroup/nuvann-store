@@ -4,8 +4,8 @@ import { CartResumeProps } from '../../types';
 import styles from './resume.module.scss';
 import Title from '../title';
 import CustomButton from '@/components/custom-button';
-import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { Skeleton } from '@mui/material';
 
 const CartResume: React.FC<CartResumeProps> = (props: CartResumeProps) => {
   const {t} = useTranslation('cart');
@@ -17,25 +17,42 @@ const CartResume: React.FC<CartResumeProps> = (props: CartResumeProps) => {
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
           <p>{t('cart.product')} ({data.count})</p>
-          <h5>{data.sub_total}</h5>
+          {props.loading ? (
+            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
+            ) :
+            (
+              <h5>{data.sub_total}</h5>
+            )}
         </div>
         <hr />
 
         <div className={styles.resume_separated_info}>
           <p>{t('cart.delivery')}</p>
-          <h5>{data.shipping_cost}</h5>
+          {props.loading ? (
+            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
+            ) :
+            (
+              <h5>{data.shipping_cost}</h5>
+            )
+          }
         </div>
         <hr />
 
         <div className={styles.resume_separated_info}>
           <p>{t("cart.total")} </p>
-          <h5>{data.total}</h5>
+          {props.loading ? (
+            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
+            ) :
+            (
+              <h5>{data.total}</h5>
+            )
+          }
         </div>
         <hr />
       </div>
 
       <div className={styles.resume_buttons}>
-        <CustomButton backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
+        <CustomButton disabled={props.loading} backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
           <Link href="/checkout/userinfos">{t('cart.checkout')}</Link>
         </CustomButton>
         {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>

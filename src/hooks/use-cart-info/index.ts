@@ -17,6 +17,7 @@ export function useCartInfo() {
   }
 
   async function removeFromCart(id: number) {
+    cartDispatch({ type: 'SET_CART_LOADER', value: true });
     try {
       const response = await nuvannApi.delete(`/carts/items/${id}`);
       successToast(response.data.message || 'Product deleted to cart');
@@ -24,14 +25,19 @@ export function useCartInfo() {
     } catch (error: any) {
       console.error('Error removing item:', error.response?.data.message);
     }
+    cartDispatch({ type: 'SET_CART_LOADER', value: false });
   };
 
   async function updateCart(itemId: number, newQuantity: number) {
+    cartDispatch({ type: 'SET_CART_LOADER', value: true });
     try {
       await nuvannApi.patch(`/carts/items/${itemId}?quantity=${newQuantity}`);
       await getCart();
     } catch (error: any) {
       console.error('Error updating item:', error.response?.data.message);
+    }
+    finally {
+      cartDispatch({ type: 'SET_CART_LOADER', value: false });
     }
   }
 

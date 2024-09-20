@@ -18,7 +18,6 @@ import CustomSelect from '../custom-select';
 import { countriesMock } from '@/utils/mocks/home/countries.mock';
 import { useUser } from '@/contexts/user';
 import { useUserInfo } from '@/hooks/use-user-info';
-import { set } from 'lodash';
 
 
 interface selectedCountry {
