@@ -36,6 +36,7 @@ export function useUserInfo() {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
     return {
+        user: state.user,
         getUserInfo,
         handleBecomeSeller
     }

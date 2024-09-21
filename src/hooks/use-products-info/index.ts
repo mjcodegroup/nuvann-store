@@ -6,9 +6,14 @@ export function useProductsInfo() {
 
     async function getProducts() {
         productsDispatch({ type: 'SET_LOADING', value: true });
-        const response = await nuvannApi.get('/products')
-        productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
-        productsDispatch({ type: 'SET_LOADING', value: false });
+        try {
+            const response = await nuvannApi.get('/products')
+            productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
+        } catch (error) {
+            
+        } finally {
+            productsDispatch({ type: 'SET_LOADING', value: false });
+        }
     }
 
     async function getProductDetails(id: string) {

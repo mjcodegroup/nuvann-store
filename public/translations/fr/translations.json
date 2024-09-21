@@ -71,5 +71,11 @@
     "description": "Description",
     "size": "Taille",
     "color": "Couleur"
+  },
+  "checkout": {
+    "delivery_address": "Adresse de livraison",
+    "btn_to_replace_address": "Changer",
+    "btn_add_address": "Ajouter une nouvelle adresse",
+    "title_products_ordered": "Produits commandés"
   }
 }

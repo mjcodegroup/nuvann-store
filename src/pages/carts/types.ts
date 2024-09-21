@@ -17,9 +17,3 @@ export interface CartCardProps {
     onDecrementButton: (item: any, position: number) => void;
     disableIncrementAndDecrementBtn: boolean;
 }
-
-export interface CartResumeProps {
-    data: Cart;
-    OnCheckout: () => void;
-    loading: boolean;
-}
