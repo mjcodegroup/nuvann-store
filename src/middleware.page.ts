@@ -51,5 +51,5 @@ async function verifySessionFromKeycloak(token: string) {
 }
 
 export const config = {
-  matcher: ['/carts'],
+  matcher: ['/carts', '/checkout'],
 };
