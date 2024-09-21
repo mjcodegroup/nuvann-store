@@ -3,10 +3,12 @@ export enum RoutesUrls {
     HOME = '/home',
     PRODUCT_DETAILS_PAGE = '/product',
     CARTS = '/carts',
+    CHECKOUT = '/checkout',
 }
 
 export type RouteUrl = 
     |RoutesUrls.BASE_url 
     |RoutesUrls.HOME
     |RoutesUrls.PRODUCT_DETAILS_PAGE
-    |RoutesUrls.CARTS;
+    |RoutesUrls.CARTS
+    |RoutesUrls.CHECKOUT;

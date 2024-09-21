@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import CartCard from '../components/cart-card';
-import CartResume from '../components/resume';
 import styles from './style.module.scss';
 import { CartProps } from '../types';
 import EmptyCart from '../components/empty-cart';
 import CartCardSkeleton from '../components/cart-card-skeleton';
+import OrderResume from '@/components/order-resume';
 
 
 const Cart: React.FC<CartProps> = (props: CartProps) => {
@@ -40,7 +40,7 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
           }
         </div>
         <div className={styles.cartResume}>
-          <CartResume
+          <OrderResume
             data={data}
             OnCheckout={props.onCheckout}
             loading={props.disableIncrementAndDecrementBtn || props.fullLoader}

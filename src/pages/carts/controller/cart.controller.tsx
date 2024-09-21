@@ -3,10 +3,14 @@ import { HomePageDefault } from '@/components/home-page-default';
 import Cart from '../view/cart.view';
 import { useCartInfo } from '@/hooks/use-cart-info';
 import { useCart } from '@/contexts/cart';
+import { useNavigation } from '@/hooks/useNavigation';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
 
 export default function CartController() {
   const { state: cartState, dispatch: cartDispatch } = useCart();
   const { getCart, removeFromCart, updateCart } = useCartInfo();
+
+  const { redirect } = useNavigation();
 
   async function getCartInformations() {
     try {
@@ -21,9 +25,9 @@ export default function CartController() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleCheckout = () => {
-    alert('Checkout');
-  };
+  const handleCheckout = React.useCallback(() => {
+    redirect(RoutesUrls.CHECKOUT)
+  }, [redirect])
 
   const debouncedUpdateCart = async (itemId: number, quantity: number) => {
     await updateCart(itemId, quantity);

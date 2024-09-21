@@ -1,13 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import { CartResumeProps } from '../../types';
-import styles from './resume.module.scss';
+import styles from './order-resume.module.scss';
 import Title from '../title';
 import CustomButton from '@/components/custom-button';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
+import { Cart } from '@/contexts/cart/types';
 
-const CartResume: React.FC<CartResumeProps> = (props: CartResumeProps) => {
+export interface OrderResumeProps {
+    data: Cart;
+    OnCheckout: () => void;
+    loading: boolean;
+}
+
+const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
   const {t} = useTranslation('cart');
   const { data } = props;
   return (
@@ -53,7 +59,7 @@ const CartResume: React.FC<CartResumeProps> = (props: CartResumeProps) => {
 
       <div className={styles.resume_buttons}>
         <CustomButton disabled={props.loading} backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
-          <Link href="/checkout/userinfos">{t('cart.checkout')}</Link>
+          <Link href="#">{t('cart.checkout')}</Link>
         </CustomButton>
         {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>
             Kontinye Achte
@@ -63,4 +69,4 @@ const CartResume: React.FC<CartResumeProps> = (props: CartResumeProps) => {
   );
 }
 
-export default CartResume;
+export default OrderResume;
