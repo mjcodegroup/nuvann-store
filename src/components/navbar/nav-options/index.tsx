@@ -93,12 +93,14 @@ export default function NavOptions(props: NavOptionProps) {
                   </ListItemIcon>
                   {t('nav_content.my_profile')}
                 </MenuItem>
-                <MenuItem onClick={()=> null}>
-                  <ListItemIcon>
-                    <FcShipped fontSize="small" />
-                  </ListItemIcon>
-                  {t('nav_content.my_orders')}
-                </MenuItem>
+                <Link href={RoutesUrls.ORDERS}>
+                  <MenuItem onClick={()=> null}>
+                    <ListItemIcon>
+                      <FcShipped fontSize="small" />
+                    </ListItemIcon>
+                    {t('nav_content.my_orders')}
+                  </MenuItem>
+                </Link>
                 {/* <MenuItem onClick={handleClose}>
                   <ListItemIcon>
                     <FiSettings fontSize="small" />
