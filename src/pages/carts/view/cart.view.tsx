@@ -41,7 +41,12 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
         </div>
         <div className={styles.cartResume}>
           <OrderResume
-            data={data}
+            data={{
+              count: data.count,
+              sub_total: data.sub_total,
+              shipping_cost: data.shipping_cost,
+              total: data.total,
+            }}
             OnCheckout={props.onCheckout}
             loading={props.disableIncrementAndDecrementBtn || props.fullLoader}
           />

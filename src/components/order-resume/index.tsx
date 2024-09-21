@@ -5,10 +5,15 @@ import Title from '../title';
 import CustomButton from '@/components/custom-button';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
-import { Cart } from '@/contexts/cart/types';
 
+export interface OrderResumeData {
+  count: number;
+  sub_total: number;
+  shipping_cost: number;
+  total: number;
+}
 export interface OrderResumeProps {
-    data: Cart;
+    data: OrderResumeData;
     OnCheckout: () => void;
     loading: boolean;
 }

@@ -23,6 +23,7 @@ export function useCheckoutInfo() {
       }, []);
 
     return {
+        checkout: checkoutState.checkout,
         loading: checkoutState.loading,
         getCheckout,
     }
