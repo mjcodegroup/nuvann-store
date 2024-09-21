@@ -16,6 +16,7 @@ export interface OrderResumeProps {
     data: OrderResumeData;
     OnCheckout: () => void;
     loading: boolean;
+    disabled?: boolean;
 }
 
 const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
@@ -63,7 +64,7 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
       </div>
 
       <div className={styles.resume_buttons}>
-        <CustomButton disabled={props.loading} backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
+        <CustomButton disabled={props.loading || props.disabled} backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
           <Link href="#">{t('cart.checkout')}</Link>
         </CustomButton>
         {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>

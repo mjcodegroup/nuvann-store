@@ -1,10 +1,30 @@
 .address_wrapper {
     width: 100%;
-    height: auto;
     background-color: var(--background-white);
     box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
     border-radius: 7px;
     margin: 20px 0;
     padding: 2%;
     box-sizing: border-box;
+
+    h4 {
+        margin-bottom: 32px;
+    }
+    
+    ._content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+
+        ._infos {
+            margin: 4px 8px;
+            color: gray;
+        }
+    }
+
+    ._address_footer {
+        display: flex;
+        justify-content: center;
+    }
 }

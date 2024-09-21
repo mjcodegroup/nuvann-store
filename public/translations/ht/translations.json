@@ -72,5 +72,11 @@
     "description": "Deskripsyon",
     "size": "Gwosè",
     "color": "Koulè"
+  },
+  "checkout": {
+    "delivery_address": "Adrès livrezon",
+    "btn_to_replace_address": "Chanje",
+    "btn_add_address": "Ajoute yon nouvo adrès",
+    "title_products_ordered": "Kòmand"
   }
 }

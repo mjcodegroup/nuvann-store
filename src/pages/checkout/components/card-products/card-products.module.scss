@@ -7,4 +7,22 @@
     margin: 20px 0;
     padding: 2%;
     box-sizing: border-box;
+
+    .products_row {
+
+        .row {
+            display: grid; 
+            grid-template-columns: 2.5fr 1fr 1fr 1fr; 
+            grid-template-rows: 1fr 1fr 1fr; 
+            gap: 0px 0px; 
+            grid-template-areas: 
+                ". . . ."
+                ". . . ."
+                ". . . ."; 
+        }
+        ._row_footer{
+    
+        }
+    }
+
 }

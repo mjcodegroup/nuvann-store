@@ -25,12 +25,12 @@ export interface Checkout {
     currency: string;
     total: number;
     count: number;
-    items: Item[];
+    items: CheckoutItem[];
     sub_total: number;
     shipping_cost: number;
 }
 
-export interface Item {
+export interface CheckoutItem {
     id: number;
     price: number;
     quantity: number;
