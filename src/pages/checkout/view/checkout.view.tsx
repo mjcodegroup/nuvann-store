@@ -9,12 +9,16 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
   return (
     <div className={Styles.checkout_wrapper}>
         <div className={Styles.address_container}>
-            <CardAddress/>
+            <CardAddress
+              user={props.userInfos}
+              onAddAddress={props.onAddAddress}
+              onChangeAddress={props.onChangeAddress}
+            />
             <CardProducts/>
         </div>
 
         <div className={Styles.resume_container}>
-            <OrderResume data={props.orderResume} OnCheckout={() => {}} loading={false}/>
+            <OrderResume disabled={!props.userInfos.address} data={props.orderResume} OnCheckout={() => {}} loading={false}/>
         </div>
     </div>
   )
