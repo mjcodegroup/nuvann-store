@@ -11,6 +11,7 @@ export default function CheckoutController() {
   return (
     <HomePageDefault>
         <Checkout 
+          orderItems={checkout.items}
           userInfos={user}
           orderResume={{
             count: checkout.count,

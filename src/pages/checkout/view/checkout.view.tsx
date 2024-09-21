@@ -14,7 +14,7 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
               onAddAddress={props.onAddAddress}
               onChangeAddress={props.onChangeAddress}
             />
-            <CardProducts/>
+            <CardProducts items={props.orderItems}/>
         </div>
 
         <div className={Styles.resume_container}>
