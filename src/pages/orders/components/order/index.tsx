@@ -1,25 +1,35 @@
 import React, { useEffect } from 'react';
-import Link from 'next/link';
 import styles from './style.module.scss';
-import { HomePageDefault } from '@/components/home-page-default';
 import { useOrdersInfo } from '@/hooks/use-orders-info';
+import CustomButton from '@/components/custom-button';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useNavigation } from '@/hooks/useNavigation';
+
 
 export default function Orders() {
     const { orders, getOrders } = useOrdersInfo();
+    const { redirect } = useNavigation();
 
     useEffect(() => {
         getOrders();
     }, []);
 
     return (
-        <HomePageDefault>
+        <>
             {orders.length === 0 ? (
                 <div className={styles.AchasHolder2}>
                     <div className={styles.messageAnyen}>
                         <h3>Ou poko achte anyen !!</h3>
-                        <Link href="/#">
-                            <button className={styles.plispwodui}>Plis pwodui</button>
-                        </Link>
+                        <CustomButton
+                            variant="outlined"
+                            onClick={() => redirect(RoutesUrls.HOME)}
+                            backgroundColor="#000052"
+                            textColor="#ffff"
+                            width={200}
+                            height={35}
+                        >
+                        Achte
+                    </CustomButton>
                     </div>
                 </div>
             ) : (
@@ -30,7 +40,6 @@ export default function Orders() {
                             {orders.map((order: any) => (
                                 <div className={styles.ActualCard} key={order.id}>
                                     <img src="" alt="product" />
-
                                     <div className={styles.CardstitleDate}>
                                         <h4>{order.status}</h4>
                                         <h5>Dat: <span>{order.date}</span></h5>
@@ -47,6 +56,6 @@ export default function Orders() {
                     </div>
                 </div>
             )}
-        </HomePageDefault>
+        </>
     );
 }
