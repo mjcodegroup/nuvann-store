@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './style.module.scss';
-import { useOrdersInfo } from '@/hooks/use-orders-info';
 import CustomButton from '@/components/custom-button';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
 
+interface OrdersProps {
+    orders: any[];
+    isLoading: boolean;
+}
 
-export default function Orders() {
-    const { orders, getOrders } = useOrdersInfo();
+export default function Orders({ orders, isLoading }: OrdersProps) {
     const { redirect } = useNavigation();
-
-    useEffect(() => {
-        getOrders();
-    }, []);
 
     return (
         <>
@@ -28,8 +26,8 @@ export default function Orders() {
                             width={200}
                             height={35}
                         >
-                        Achte
-                    </CustomButton>
+                            Achte
+                        </CustomButton>
                     </div>
                 </div>
             ) : (
@@ -45,7 +43,6 @@ export default function Orders() {
                                         <h5>Dat: <span>{order.date}</span></h5>
                                         <h5>Estati: <span>{order.status}</span></h5>
                                     </div>
-
                                     <div className={styles.CardsButtons}>
                                         <button onClick={() => {}}>Wè plis</button> <br />
                                         <button className={styles.Achtebtn}>Achte ankò</button>

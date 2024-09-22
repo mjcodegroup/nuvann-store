@@ -4,28 +4,15 @@ import { useOrdersInfo } from '@/hooks/use-orders-info';
 import Orders from '../components/order';
 
 export default function OrdersController() {
-    const { getOrders, isLoading } = useOrdersInfo();
-
-    async function getOrdersInformations() {
-        try {
-            await getOrders();
-        } catch (error) {
-            console.log('Something went wrong');
-        }
-    }
+    const { orders, getOrders, isLoading } = useOrdersInfo();
 
     useEffect(() => {
-      getOrdersInformations();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    const handleCheckout = () => {
-        alert('Checkout');
-    };
+        getOrders();
+      }, []);
 
     return (
         <HomePageDefault>
-            <Orders />
+            <Orders orders={orders} isLoading={isLoading} />
         </HomePageDefault>
     );
 }
