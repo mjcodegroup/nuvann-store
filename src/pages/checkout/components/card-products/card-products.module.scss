@@ -1,24 +1,57 @@
 .products_wrapper {
     width: 100%;
     height: auto;
-    background-color: var(--background-white);
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
     border-radius: 7px;
     margin: 20px 0;
     padding: 2%;
     box-sizing: border-box;
-
+    background-color: var(--background-white);
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
+    
     .products_row {
+        margin-bottom: 15px;
+        border-radius: 7px;
 
         .row {
             display: grid; 
             grid-template-columns: 2.5fr 1fr 1fr 1fr; 
-            grid-template-rows: 1fr 1fr 1fr; 
-            gap: 0px 0px; 
+            gap:  16px; 
             grid-template-areas: 
-                ". . . ."
-                ". . . ."
-                ". . . ."; 
+            ". . . ."
+            ". . . ."
+            ". . . ."; 
+            height: 150px;
+            align-items: center;
+
+            // border: 1px solid  #f1f1f1;
+            ._image {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+            }
+
+            .row_content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                p{
+                    color: rgba(0, 0, 0, .54);
+                    font-size: 14px;
+                }
+
+                span{
+                    color: #222;
+                    display: flex;
+                    font-size: 14px;
+                }
+            }
         }
         ._row_footer{
     

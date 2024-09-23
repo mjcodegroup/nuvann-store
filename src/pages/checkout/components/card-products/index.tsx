@@ -16,33 +16,32 @@ export default function CardProducts(props: CardProductsProps) {
           props.items?.map((item: CheckoutItem, index) => (
               <div className={Styles.products_row} key={item.id}>
                 <div className={Styles.row}>
-                  <div>
+                  <div className={Styles._image}>
                     <Image src={item.product.images[0]?.url || ''} alt={item.product.images[0].alt|| ''} width={50} height={50} />
                     {item.product.name}
                   </div>
-                  <div>
+                  <div className={Styles.row_content}>
                     <p>Price</p>
                     <span>{item.product.price}</span>
                   </div>
-                  <div>
+                  <div className={Styles.row_content}>
                     <p>Amount</p>
                     <span>{item.quantity}</span>
                   </div>
-                  <div>
+                  <div className={Styles.row_content}>
                     <p>Item Subtotal</p>
                     <span>{item.sub_total.formatted}</span>
                   </div>
                 </div>
                 <div className={Styles._row_footer}>
-                  <hr />
                   <div>
                     <p>Shipping</p>
                     <span>{item.shipping_amount}</span>
                   </div>
-                  <div>
+                  {/* <div>
                     <p>Total Price</p>
                     <span>{item.total_price}</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
           ))}
