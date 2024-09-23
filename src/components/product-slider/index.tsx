@@ -12,6 +12,7 @@ import { SamplePrevArrow } from "./sample-prev-arrow";
 import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
 import { ProductSlideSkeleton } from "./product-slider-skeleton";
 import { useTranslation } from "react-i18next";
+import { Product } from "@/contexts/products/types";
 
 export default function ProductSlide(props: SliderProps) {
   const { t } = useTranslation("home");
@@ -77,15 +78,15 @@ export default function ProductSlide(props: SliderProps) {
       {!props.isLoading ? (
         props.products && props.products.length > 0 ? (
           <Slider ref={sliderRef} {...settings} centerPadding="100">
-            {props.products?.map((product: any, index: any) => (
+            {props.products?.map((product:any, index: any) => (
               <div className={Styles.card_home} key={product.id}>
                 {props.isnew && (
                   <div className={Styles.product_new_label}>{t("home.new")}</div>
                 )}
                 <div className={Styles.__card} onClick={() => props.onRedirectToProductDetails(product.id)}>
                   <div className={Styles.product_img}>
-                    <Image src={product.images[0].url} alt="" width={100} height={100} />
-                    <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100} />
+                    <Image src={product.images[0]?.url} alt="" width={100} height={100} />
+                    <Image src={product.images[1]?.url} className={Styles.show_hover} alt="" width={100} height={100} />
                   </div>
                   <div className={Styles.img_separator}></div>
                   <div className={Styles.bottom}>
