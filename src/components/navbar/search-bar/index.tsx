@@ -4,7 +4,7 @@ import Styles from "./search-bar.module.scss";
 import { useTranslation } from 'react-i18next';
 import { SearchBarProps } from '../types';
 
-const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSearch }) => {
+const SearchBar: React.FC<SearchBarProps> = ({  onSearch }) => {
   const { t } = useTranslation('nav_content');
   const [query, setQuery] = useState<string>('');
 
@@ -32,11 +32,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSearch }) => {
     <div className={Styles.search_bar}>
       <input
         type="text"
-        placeholder={placeholder}
+        placeholder={t("searchForAProduct")}
         value={query}
         onChange={handleInputChange}
       />
-      <button onClick={handleButtonClick}>{t("nav_content.search")}</button>
+      <button onClick={handleButtonClick}>{t("search")}</button>
     </div>
   );
 };

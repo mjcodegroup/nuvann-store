@@ -15,12 +15,12 @@ type JumbData = {
 export default function Jumbotron(props: JumbotronProps) {
     const { t } = useTranslation("home");
   return (
-    <div className={Styles.jumb_container}>
+    <div className={Styles.jumb_container} suppressHydrationWarning>
         {
             props.jumbs?.map((jumb, index) =>
                 <div key={index} className={Styles.jumb_content}>
                     <Image src={jumb?.Icon} alt={jumb?.title} width={100} height={100} /> 
-                    <p className={Styles.jumb_title}>{t(`home.${jumb?.transCode}`)}</p>
+                    <div className={Styles.jumb_title}>{t(`${jumb?.transCode}`)}</div>
                 </div>
             )
         }

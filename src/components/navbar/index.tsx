@@ -25,7 +25,7 @@ interface selectedCountry {
   value: string;
 }
 export const Navbar: React.FC = () => {
-  const { t } = useTranslation(["home, buttons"]);
+  const { t } = useTranslation("home");
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
   const {handleBecomeSeller} = useUserInfo();
@@ -74,7 +74,6 @@ export const Navbar: React.FC = () => {
         </Link>
         <div className={Styles.navbar_search}>
           <SearchBar
-            placeholder={t('home.searchForAProduct')}
             onSearch={() => console.log('searching')}
           />
         </div>

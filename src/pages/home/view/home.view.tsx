@@ -1,18 +1,17 @@
 import React from 'react'
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import Hero from '../components/hero';
 import { HomeProps } from '../types';
 import Jumbotron from '../components/jumbotron';
 import ProductSlide from '@/components/product-slider';
 import RandomCategories from '../components/random-categories';
 import Categories from '../components/categories';
-import { useTranslation } from 'react-i18next';
 
 export default function Home(props: Readonly<HomeProps>) {
   const { t } = useTranslation("home");
   const {products } = props;
   return (
-    <>
+    <div suppressHydrationWarning>
     <Hero
       images={props.heroImages}
       autoSlideInterval={5000}
@@ -47,6 +46,6 @@ export default function Home(props: Readonly<HomeProps>) {
       getmore={()=>{}}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     /> */}
-    </>
+    </div>
   )
 }
