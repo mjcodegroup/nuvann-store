@@ -32,6 +32,7 @@ export function useUserInfo() {
     }
 
     useEffect(() => {
+        if(state.user) return;
         getUserInfo();
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);

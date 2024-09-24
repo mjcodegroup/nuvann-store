@@ -3,12 +3,15 @@ import { nuvannApi } from "@/services/api";
 import { useNavigation } from "../useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
+import React from "react";
+import { useAuth } from "../useKeycloak";
 
 export function useCartInfo() {
   const { successToast, errorToast } = useToast();
   const { redirect } = useNavigation();
 
   const { state: cartState, dispatch: cartDispatch } = useCart();
+  const { isAuthenticated } = useAuth();
 
   async function getCart() {
     const response = await nuvannApi.get('/carts/items');
@@ -56,7 +59,14 @@ export function useCartInfo() {
     }
   }
 
+  React.useEffect(() => {
+    if(cartState.cart.items?.length || !isAuthenticated) return;
+    getCart();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
+
   return {
+    cartState,
     getCart,
     removeFromCart,
     updateCart,

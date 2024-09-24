@@ -77,6 +77,7 @@
     "delivery_address": "Adrès livrezon",
     "btn_to_replace_address": "Chanje",
     "btn_add_address": "Ajoute yon nouvo adrès",
-    "title_products_ordered": "Kòmand"
+    "title_products_ordered": "Kòmand",
+    "shipping_options": "Opsyon livrezon"
   }
 }
