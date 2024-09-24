@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { getCookie, deleteCookie, setCookie } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 import Token from "@/utils/token";
 
 

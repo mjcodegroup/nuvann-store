@@ -75,6 +75,7 @@
     "delivery_address": "Delivery Address",
     "btn_to_replace_address": "Change",
     "btn_add_address": "Add a new address",
-    "title_products_ordered": "Products ordered"
+    "title_products_ordered": "Products ordered",
+    "shipping_options": "Shipping options"
   }
 }

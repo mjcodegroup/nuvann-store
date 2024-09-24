@@ -25,32 +25,15 @@ interface selectedCountry {
   value: string;
 }
 export const Navbar: React.FC = () => {
-  const { t } = useTranslation(["home, buttons"]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const { t } = useTranslation("home");
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
   const {handleBecomeSeller} = useUserInfo();
   const { state: userState, dispatch: userDispatch } = useUser();
-  const {state: cartState, dispatch: cartDispatch} = useCart();
-  const {state: categoriesState, dispatch: categoriesDispatch} = useCategories();
-  const {getCart} = useCartInfo();
-  const {getCategories} = useCategoriesInfo();
+  const { cartState} = useCartInfo();
+  const { categoriesState} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const [modalTerm, setModalTerm] = React.useState<boolean>(false);
-
-  async function getStartedInformations() {
-      setIsLoading(true)
-    try {
-      await getCategories();
-      if(isAuthenticated){
-        await getCart();
-      } 
-    } catch (error) {
-      console.log("algo deu errado")
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   const handleClickToBecomeSeller = () => {
     if(userState.user.seller_infos) {
@@ -58,13 +41,6 @@ export const Navbar: React.FC = () => {
     }
     setModalTerm(true)
   }
-
-  
-  
-  useEffect(() => {
-    getStartedInformations();
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [isAuthenticated])
 
   return (
     <div className={Styles.navbar_container_principal}>

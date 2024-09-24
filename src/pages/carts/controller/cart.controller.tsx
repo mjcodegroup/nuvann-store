@@ -8,22 +8,9 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 
 export default function CartController() {
   const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { getCart, removeFromCart, updateCart } = useCartInfo();
+  const { removeFromCart, updateCart } = useCartInfo();
 
   const { redirect } = useNavigation();
-
-  async function getCartInformations() {
-    try {
-      await getCart();
-    } catch (error) {
-      console.log("algo deu errado");
-    }
-  }
-
-  useEffect(() => {
-    getCartInformations();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const handleCheckout = React.useCallback(() => {
     redirect(RoutesUrls.CHECKOUT)

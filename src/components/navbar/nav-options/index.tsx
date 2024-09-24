@@ -21,7 +21,6 @@ export default function NavOptions(props: NavOptionProps) {
   const { t } = useTranslation('nav_content');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const {redirect} = useNavigation()
 
   if(props.isLoading) {
     return <NavOptionsSkeleton />
