@@ -20,20 +20,18 @@
             ". . . ."
             ". . . ."
             ". . . ."; 
-            height: 100px;
-            align-items: center;
-            justify-content: center;
+            height: 150px;
             align-content: center;
 
 
             ._image {
                 display: flex;
-                align-items: center;
+                // align-items: center;
                 gap: 0 32px;
 
                 img {
-                    width: 30px;
-                    height: 30px;
+                    width: 40px;
+                    height: 40px;
                     border-radius: 50%;
                 }
             }
@@ -42,8 +40,9 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                height: 60px;
-                
+                align-items: center;
+                align-content: center;
+                min-height: 80px!important;
                 p{
                     color: rgba(0, 0, 0, .54);
                     font-size: 14px;
@@ -75,7 +74,17 @@
             border:1px solid rgba(88, 83, 83, 0.54);
         }
         ._row_footer{
-    
+            margin: 32px 0;
+            display: flex;
+            justify-content: end;
+            align-items: right;
+            text-align: right;
+            gap: 0 40px;
+
+            span {
+                color: #888;
+                font-size: 12px;
+            }
         }
     }
 

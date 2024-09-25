@@ -11,8 +11,10 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
         <div className={Styles.address_container}>
             <CardAddress
               user={props.userInfos}
-              onAddAddress={props.onAddAddress}
-              onChangeAddress={props.onChangeAddress}
+              openModalAddress={props.openModalAddress}
+              setOpenModalAddress={props.setOpenModalAddress}
+              disableModalAddressButton={props.disableModalAddressButton}
+              onConfirmModalAddress={props.onConfirmModalAddress}
             />
             <CardProducts items={props.orderItems}/>
         </div>

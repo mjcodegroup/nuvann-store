@@ -78,6 +78,8 @@
     "btn_to_replace_address": "Chanje",
     "btn_add_address": "Ajoute yon nouvo adrès",
     "title_products_ordered": "Kòmand",
-    "shipping_options": "Opsyon livrezon"
+    "shipping_options": "Opsyon livrezon",
+     "new_address": "Nouvo adrès",
+    "edit_address": "Edite adrès"
   }
 }

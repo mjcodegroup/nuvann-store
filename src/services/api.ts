@@ -1,3 +1,4 @@
+import cookie from '@/utils/cookie';
 import axios from 'axios'
 import { getCookie } from 'cookies-next';
 
@@ -14,6 +15,8 @@ const handleError = (error: any ) => {
         const {protocol, host } = window.location;
 
         console.log("Sua sessão expirou, por favor faça login novamente")
+        cookie.deleteCookie('access_token');
+        cookie.deleteCookie('user');
         // window.location.replace(`${protocol}//${host}/login`)
     }
 
