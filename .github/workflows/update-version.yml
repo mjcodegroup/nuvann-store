@@ -1,0 +1,44 @@
+name: Update project version
+
+on:
+  push:
+    branches: ["develop"]
+    
+ # pull_request:
+   # branches:
+     #  - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Update Package Version
+        run: |
+          npm version patch -m "Update project version to %s" --force
+          cat package.json
+
+      - name: Push Changes
+        run: |
+          git push

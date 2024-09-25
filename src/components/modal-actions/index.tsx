@@ -6,9 +6,9 @@ import Styles from './modal-actions.module.scss';
 import { useTranslation } from 'react-i18next';
 
 interface CustomModalProps {
-    title: string; // Add the title prop
+    title: string; 
     open: boolean;
-    setOpen?: any
+    setOpen?: any;
     textBtnConfirm?: string;
     widthBtnConfirm?: string;
     textBtnCancel?: string;
@@ -36,7 +36,7 @@ export const ModalActions: React.FC<CustomModalProps> = ({
     children,
     disable = false,
 }) => {
-  const { t } = useTranslation("buttons");
+    const { t } = useTranslation('buttons');
 
     const handleClose = () => {
         setOpen(false);
@@ -49,14 +49,20 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                 onClose={handleClose}
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
+                autoFocus={false}
+                disableEnforceFocus
+                disableAutoFocus
+                disableRestoreFocus
                 style={{
-                    border: 'none'
+                    outline: 'none', // Remove outline from Modal
+                    border: 'none', // Prevent border styling
                 }}
             >
                 <div
                     className={Styles.__modal_container}
                     style={{
-                        border:'none',
+                        outline: 'none', // Ensure no outline on modal content
+                        border: 'none',
                         position: 'absolute',
                         top: '50%',
                         left: '50%',
@@ -73,9 +79,7 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                     <h2 id="__modal-title" className={Styles.title}>
                         {title} <AiOutlineQuestionCircle color="#f50057" />
                     </h2>
-                    <div className={Styles.__description}>
-                        {children}
-                    </div>
+                    <div className={Styles.__description}>{children}</div>
                     <div className={Styles.simple_modal_buttons}>
                         <CustomButton
                             type="button"
@@ -97,7 +101,6 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                             backgroundColor="#000052"
                             width={widthBtnConfirm}
                             onClick={() => {
-                                // setOpen(false);
                                 onClickBtnConfirm && onClickBtnConfirm();
                             }}
                             isLoading={loading}
