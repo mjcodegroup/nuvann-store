@@ -8,6 +8,12 @@ export default function CheckoutController() {
   const { checkout } = useCheckoutInfo();
   const {user} = useUserInfo();
 
+  const [openModalAddress, setOpenModalAddress] = React.useState(false);
+
+  const handleConfirmModalAddress = () => {
+    alert('Address confirmed');
+  }
+
   return (
     <HomePageDefault>
         <Checkout 
@@ -19,8 +25,11 @@ export default function CheckoutController() {
             shipping_cost: checkout.shipping_cost,
             total: checkout.total
           }}
-          onAddAddress={() => {}}
-          onChangeAddress={() => {}}
+          openModalAddress={openModalAddress}
+          setOpenModalAddress={setOpenModalAddress}
+          disableModalAddressButton={false}
+          onConfirmModalAddress={handleConfirmModalAddress}
+          
         />
     </HomePageDefault>
   )

@@ -11,7 +11,6 @@ import { getDefaultShipment } from '@/utils/get-default-shipment';
 export default function CardProducts(props: CardProductsProps) {
   const { t } = useTranslation("checkout");
   
-  console.log('props.items', props.items);
   return (
     <div className={Styles.products_wrapper}>
         <h4>{t("checkout.title_products_ordered")}</h4> <br />

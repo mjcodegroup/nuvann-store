@@ -5,10 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { RiMapPin2Line } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
 import { CardAddressProps } from '../../types';
+import ModalActions from '@/components/modal-actions';
+import CustomInput from '@/components/custom-input';
+import CustomSelect from '@/components/custom-select';
 
 export default function CardAddress(props: CardAddressProps) {
   const { t } = useTranslation("checkout");
   const { user } = props;
+
   return (
     <div className={Styles.address_wrapper}>
         <h4><RiMapPin2Line /> {t("checkout.delivery_address")}</h4>
@@ -33,7 +37,7 @@ export default function CardAddress(props: CardAddressProps) {
                 user.address ? (
                   <CustomButton
                   variant='text'
-                  onClick={props.onChangeAddress}
+                  onClick={()=>props.setOpenModalAddress(true)}
                   >
                     {t("checkout.btn_to_replace_address")}
                   </CustomButton>
@@ -41,7 +45,7 @@ export default function CardAddress(props: CardAddressProps) {
                 ) : (
                   <CustomButton
                   startIcon={<IoMdAdd />}
-                  onClick={props.onAddAddress}
+                  onClick={()=>props.setOpenModalAddress(true)}
                   >
                     {t("checkout.btn_add_address")}
                   </CustomButton>
@@ -49,7 +53,18 @@ export default function CardAddress(props: CardAddressProps) {
               
               }
             </div>
-    </div>
+        </div>
+
+        <ModalActions
+          title={t(user.address ?'checkout.edit_address':'checkout.new_address')}
+          open ={props.openModalAddress}
+          setOpen= {props.setOpenModalAddress}
+          disable={props.disableModalAddressButton}
+          onClickBtnConfirm= {props.onConfirmModalAddress}
+        >
+            <CustomInput label={t('home.business_name')} type='text' value={""} onChange={(e: any) =>null} />
+            <CustomInput label={t('home.business_name')} type='text' value={""} onChange={(e: any) =>null} />
+        </ModalActions>
     </div>
   )
 }
