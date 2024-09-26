@@ -1,6 +1,6 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../../../public/logo.svg';
 import NavList from './nav-list';
@@ -8,16 +8,14 @@ import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
 import { useAuth } from '@/hooks/useKeycloak';
-import { useCart } from '@/contexts/cart';
 import { useCartInfo } from '@/hooks/use-cart-info';
-import { useCategories } from '@/contexts/categories';
 import { useCategoriesInfo } from '@/hooks/use-categories-info';
 import ModalActions from '../modal-actions';
 import CustomInput from '../custom-input';
 import CustomSelect from '../custom-select';
-import { countriesMock } from '@/utils/mocks/home/countries.mock';
-import { useUser } from '@/contexts/user';
 import { useUserInfo } from '@/hooks/use-user-info';
+import { useCountriesInfo } from '@/hooks/use-countries-info';
+import { formatCountriesArray } from '@/utils/format-countries-array';
 
 
 interface selectedCountry {
@@ -27,8 +25,9 @@ interface selectedCountry {
 export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
+  const {countries} = useCountriesInfo();
   const {handleBecomeSeller} = useUserInfo();
-  const { state: userState, dispatch: userDispatch } = useUser();
+  const { user: userInfos, isLoading: userInfosLoader} = useUserInfo();
   const { cartState} = useCartInfo();
   const { categoriesState} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
@@ -36,7 +35,7 @@ export const Navbar: React.FC = () => {
   const [modalTerm, setModalTerm] = React.useState<boolean>(false);
 
   const handleClickToBecomeSeller = () => {
-    if(userState.user.seller_infos) {
+    if(userInfos.seller_infos) {
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
     setModalTerm(true)
@@ -55,7 +54,7 @@ export const Navbar: React.FC = () => {
           />
         </div>
         <NavOptions
-          user={userState.user.name? userState.user : user}
+          user={userInfos.name? userInfos : user}
           isAuthenticated={isAuthenticated}
           onSignIn={handleLogin}
           isLoading={loading}
@@ -75,7 +74,7 @@ export const Navbar: React.FC = () => {
           title={t('home.term_and_contitions')}
           open ={modalTerm}
           setOpen= {setModalTerm}
-          loading={userState.isLoading}
+          loading={userInfosLoader}
           disable={!businessName || !selectedCountry.value}
           onClickBtnConfirm= {(): void =>{
             handleBecomeSeller({
@@ -88,7 +87,7 @@ export const Navbar: React.FC = () => {
           }}
         >
             <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
-            <CustomSelect options={countriesMock as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
+            <CustomSelect options={formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
         </ModalActions>
     </div>
   );

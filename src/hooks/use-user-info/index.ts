@@ -38,6 +38,7 @@ export function useUserInfo() {
       }, []);
     return {
         user: state.user,
+        isLoading: state.isLoading,
         getUserInfo,
         handleBecomeSeller
     }

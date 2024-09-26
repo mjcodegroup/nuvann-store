@@ -9,10 +9,17 @@ import ModalActions from '@/components/modal-actions';
 import CustomInput from '@/components/custom-input';
 import CustomSelect from '@/components/custom-select';
 import CustomValidateInput from '@/components/custom-validate-input';
+import CustomValidateSelect from '@/components/custom-validate-select';
 
 export default function CardAddress(props: CardAddressProps) {
   const { t } = useTranslation("checkout");
   const { user } = props;
+
+  const options = [
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+    { value: "3", label: "Option 3" },
+  ];
 
 
   return (
@@ -64,6 +71,14 @@ export default function CardAddress(props: CardAddressProps) {
           disable={props.disableModalAddressButton}
           onClickBtnConfirm= {props.onConfirmModalAddress}
         >
+
+          <CustomValidateSelect
+           options={options}
+           title="Select an option"
+           onSelect={(value) => props.setValues("selectedCountry", value)} // Usa setValue para registrar o valor selecionado
+           name="selectedCountry" // Nome do campo
+           error={props.shipmentformErrors?.selectedCountry ? props.shipmentformErrors?.selectedCountry?.message : undefined}
+           />
 
           <CustomValidateInput
             type="text"

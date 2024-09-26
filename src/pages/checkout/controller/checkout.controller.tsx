@@ -13,14 +13,16 @@ type FormValues = {
 }
 
 const schema = z.object({
-  name: z
-  .string()
-  .min(1, "Name is required"),
-  phone: z
+  name: z.string().min(1, "Name is required"),
+phone: z
   .string()
   .min(1, "Phone is required")
   .regex(/^[0-9]*$/, "Phone must be a number") // Garante que seja um número
-  .transform((val) => parseInt(val)), // Converte para número
+  .transform((val) => parseInt(val)),
+   selectedCountry: z.object({
+    value: z.string().min(1, "Option is required"), // Validação Zod
+    label: z.string().min(1,"Option label is required"),
+   })
 });
 
 export default function CheckoutController() {
