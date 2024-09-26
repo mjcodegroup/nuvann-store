@@ -14,6 +14,7 @@ import { CategoriesProvider } from "@/contexts/categories";
 import ToastProvider from "@/contexts/toast";
 import { UserProvider } from "@/contexts/user";
 import { CheckoutProvider } from "@/contexts/checkout";
+import { CountriesProvider } from "@/contexts/countries";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -23,23 +24,25 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <AuthProvider >
         <I18nextProvider i18n={getI18n()} defaultNS={'fr'}>
-          <UserProvider>
-          <ProductsProvider>
-            <ToastProvider>
-              <CategoriesProvider>
-                <CartProvider>
-                  <CheckoutProvider>
-                    <Component {...pageProps}/>
-                  </CheckoutProvider>
-                </CartProvider>
-              </CategoriesProvider>
-            </ToastProvider>
-          </ProductsProvider>
-          </UserProvider>
+          <CountriesProvider>
+            <AuthProvider >
+              <UserProvider>
+              <ProductsProvider>
+                <ToastProvider>
+                  <CategoriesProvider>
+                    <CartProvider>
+                      <CheckoutProvider>
+                        <Component {...pageProps}/>
+                      </CheckoutProvider>
+                    </CartProvider>
+                  </CategoriesProvider>
+                </ToastProvider>
+              </ProductsProvider>
+              </UserProvider>
+            </AuthProvider>
+          </CountriesProvider>
         </I18nextProvider>
-      </AuthProvider>
     </>
   )
   

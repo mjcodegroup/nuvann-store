@@ -16,10 +16,10 @@
             display: grid; 
             grid-template-columns: 2.5fr 1fr 1fr 1fr; 
             gap: 0  16px; 
-            grid-template-areas: 
-            ". . . ."
-            ". . . ."
-            ". . . ."; 
+            // grid-template-areas: 
+            // ". . . ."
+            // ". . . ."
+            // ". . . ."; 
             height: 150px;
             align-content: center;
 
@@ -57,15 +57,14 @@
             }
             
         }
-        &:nth-last-of-type(1){
-            p{
-                display: none;
-            }
-
-            .row_content{
-                height: 100%;
-            }
-        }
+        // &:nth-last-of-type(1){
+        //     p{
+        //         display: none;
+        //     }
+        //     .row_content{
+        //         height: 100%;
+        //     }
+        // }
 
         .separator{
             float: right;

@@ -9,6 +9,7 @@ export const CheckoutContext = createContext<CheckoutContextProps>(
 const initialState: State = {
     checkout: {} as Checkout,
     loading: false,
+    updateShippingInfosLoading: false,
 };
 
 export function CheckoutProvider({ children }: { children: React.ReactNode }) {

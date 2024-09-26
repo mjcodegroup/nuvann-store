@@ -8,6 +8,9 @@ export function reducer(state: State, action: Action) {
         case 'SET_LOADING': {
             return { ...state, loading: action.value };
         }
+        case 'SET_UPDATE_SHIPPINGINFOS_LOADING': {
+            return { ...state, updateShippingInfosLoading: action.value };
+        }
         default: {
             return state;
         }

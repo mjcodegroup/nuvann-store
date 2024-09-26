@@ -79,6 +79,16 @@
     "title_products_ordered": "Produits commandés",
     "shipping_options": "Options de livraison",
     "new_address": "Nouvelle adresse",
-    "edit_address": "Modifier l'adresse"
+    "edit_address": "Modifier l'adresse",
+    "countries": "Pays",
+    "full_name": "Nom complet",
+    "phone_number": "Numéro de téléphone",
+    "postal_code": "Code postal",
+    "state_department_province": "État/Département/Province",
+    "city": "Ville",
+    "neighborhood": "Quartier",
+    "street_name": "Rue",
+    "street_number": "Numéro",
+    "complement": "Complément"
   }
 }
