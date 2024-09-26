@@ -7,12 +7,13 @@ export interface Orders {
 
 export interface State {
     orders: Orders[];
-    cart_loader: boolean;
-    update_cart_loader: boolean;
+    order_loader: boolean;
+    update_order_loader: boolean;
 }
 
 export type Action = 
-    | { type: 'SET_ORDERS'; value: Orders[] };
+    | { type: 'SET_ORDERS'; value: Orders[] }
+    | { type: 'SET_ORDER_LOADER'; value: boolean };
 
 export interface OrdersContextProps {
     state: State;
