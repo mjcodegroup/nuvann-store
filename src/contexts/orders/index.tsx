@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from 'react';
-import { OrdersContextProps, State, Orders } from './types';
+import { OrdersContextProps, State } from './types';
 import { reducer } from './order-reducer';
 
 export const OrdersContext = createContext<OrdersContextProps>(
@@ -8,8 +8,8 @@ export const OrdersContext = createContext<OrdersContextProps>(
 
 const initialState: State = {
     orders: [],
-    cart_loader: false,
-    update_cart_loader: false,
+    order_loader: false,
+    update_order_loader: false,
 };
 
 export function OrdersProvider({ children }: { children: React.ReactNode }) {

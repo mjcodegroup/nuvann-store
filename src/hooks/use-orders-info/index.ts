@@ -7,14 +7,14 @@ export function useOrdersInfo() {
     const { state: ordersState, dispatch: ordersDispatch } = useOrder();
 
     async function getOrders() {
-        ordersDispatch({ type: 'SET_ORDER_LOADER', value: true }); // Start loading
+        ordersDispatch({ type: 'SET_ORDER_LOADER', value: true });
         try {
             const response = await nuvannApi.get('/orders/purchases');
             ordersDispatch({ type: 'SET_ORDERS', value: response.data });
         } catch (error: any) {
             errorToast(error.response?.data.message || 'Failed to fetch orders');
         } finally {
-            ordersDispatch({ type: 'SET_ORDER_LOADER', value: false }); // Stop loading
+            ordersDispatch({ type: 'SET_ORDER_LOADER', value: false });
         }
     }
     

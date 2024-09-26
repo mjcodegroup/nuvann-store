@@ -5,17 +5,9 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
 import OrdersCardSkeleton from '../components/orders-card-skeleton';
 import OrdersResume from '../components/order-resume';
+import { Order } from '@/contexts/orders/types';
 
-interface Order {
-    id: string;
-    status: string;
-    date: string;
-    sub_total: number;
-    shipping_cost: number;
-    imageUrl: string;
-    total: number;
-    items: { /* Define item properties */ }[];
-}
+
 
 interface OrdersProps {
     orders: any[];
