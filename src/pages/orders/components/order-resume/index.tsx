@@ -13,14 +13,14 @@ export interface OrderResumeData {
   total: number;
 }
 export interface OrderResumeProps {
-    data: OrderResumeData;
-    OnCheckout: () => void;
-    loading: boolean;
-    disabled?: boolean;
+  data: OrderResumeData;
+  OnCheckout: () => void;
+  loading: boolean;
+  disabled?: boolean;
 }
 
 const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
-  const {t} = useTranslation('cart');
+  const { t } = useTranslation('cart');
   const { data } = props;
   return (
     <div className={styles.card_resume}>
@@ -30,8 +30,8 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <div className={styles.resume_separated_info}>
           <p>{t('cart.product')} ({data.count})</p>
           {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
-            ) :
+            <p><Skeleton typeof='..........' width={100} height={30} /> </p>
+          ) :
             (
               <h5>{data.sub_total}</h5>
             )}
@@ -41,8 +41,8 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <div className={styles.resume_separated_info}>
           <p>{t('cart.delivery')}</p>
           {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
-            ) :
+            <p><Skeleton typeof='..........' width={100} height={30} /> </p>
+          ) :
             (
               <h5>{data.shipping_cost}</h5>
             )
@@ -53,8 +53,8 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <div className={styles.resume_separated_info}>
           <p>{t("cart.total")} </p>
           {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
-            ) :
+            <p><Skeleton typeof='..........' width={100} height={30} /> </p>
+          ) :
             (
               <h5>{data.total}</h5>
             )
@@ -64,7 +64,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
       </div>
 
       <div className={styles.resume_buttons}>
-        <CustomButton disabled={props.loading || props.disabled} backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
+        <CustomButton disabled={props.loading || props.disabled} backgroundColor='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
           <Link href="#">{t('cart.checkout')}</Link>
         </CustomButton>
         {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>

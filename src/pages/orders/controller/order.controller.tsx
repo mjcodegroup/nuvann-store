@@ -8,7 +8,7 @@ export default function OrdersController() {
 
     useEffect(() => {
         getOrders();
-      }, []);
+    }, []);
 
     return (
         <HomePageDefault>

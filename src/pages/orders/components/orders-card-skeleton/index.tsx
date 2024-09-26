@@ -4,14 +4,14 @@ import React from 'react'
 export default function OrdersCardSkeleton() {
   return (
     <Card>
-        <CardMedia component={Skeleton} variant="rectangular" height={200} />
-        <CardContent style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-        }}>
-        <Skeleton  width={100} height={30} animation="pulse" />
-        <Skeleton  width={100} height={30} animation="pulse" />
-        </CardContent>
+      <CardMedia component={Skeleton} variant="rectangular" height={200} />
+      <CardContent style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+      }}>
+        <Skeleton width={100} height={30} animation="pulse" />
+        <Skeleton width={100} height={30} animation="pulse" />
+      </CardContent>
     </Card>
   )
 }

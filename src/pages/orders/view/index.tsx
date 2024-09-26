@@ -12,6 +12,7 @@ interface Order {
     date: string;
     sub_total: number;
     shipping_cost: number;
+    imageUrl: string;
     total: number;
     items: { /* Define item properties */ }[];
 }
@@ -51,7 +52,6 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                 </div>
             ) : (
                 <div className={styles.AchasHolder}>
-                    {/* Orders List */}
                     <div className={styles.PurchaseCards}>
                         <h3>Pwodwi ou achte deja</h3>
                         <div className={styles.PurchaseScroll}>
@@ -61,7 +61,7 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                                     key={order.id}
                                     onClick={() => handleOrderClick(order)}
                                 >
-                                    <img src="" alt="product" />
+                                    <img src={order.imageUrl} alt="product" />
                                     <div className={styles.CardstitleDate}>
                                         <h4>{order.status}</h4>
                                         <h5>Dat: <span>{order.date}</span></h5>
