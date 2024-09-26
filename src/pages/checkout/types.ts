@@ -9,7 +9,10 @@ export interface CheckoutProps {
     openModalAddress: boolean;
     setOpenModalAddress: React.Dispatch<React.SetStateAction<boolean>>;
     disableModalAddressButton: boolean;
-    onConfirmModalAddress: () => void;
+    onConfirmModalAddress: any;
+    shipmentAddress: any;
+    shipmentformErrors: any;
+    setValues: any;
 }
 
 export interface CardAddressProps {
@@ -18,6 +21,9 @@ export interface CardAddressProps {
     setOpenModalAddress: React.Dispatch<React.SetStateAction<boolean>>;
     disableModalAddressButton: boolean;
     onConfirmModalAddress: () => void;
+    shipmentAddress: any;
+    shipmentformErrors: any;
+    setValues: any;
 }
 
 export interface CardProductsProps {

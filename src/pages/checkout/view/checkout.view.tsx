@@ -15,6 +15,9 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
               setOpenModalAddress={props.setOpenModalAddress}
               disableModalAddressButton={props.disableModalAddressButton}
               onConfirmModalAddress={props.onConfirmModalAddress}
+              shipmentAddress={props.shipmentAddress}
+              shipmentformErrors={props.shipmentformErrors}
+              setValues={props.setValues}
             />
             <CardProducts items={props.orderItems}/>
         </div>

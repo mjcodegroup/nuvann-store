@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styles from "./card-address.module.scss"
 import CustomButton from '@/components/custom-button';
 import { useTranslation } from 'react-i18next';
@@ -8,10 +8,12 @@ import { CardAddressProps } from '../../types';
 import ModalActions from '@/components/modal-actions';
 import CustomInput from '@/components/custom-input';
 import CustomSelect from '@/components/custom-select';
+import CustomValidateInput from '@/components/custom-validate-input';
 
 export default function CardAddress(props: CardAddressProps) {
   const { t } = useTranslation("checkout");
   const { user } = props;
+
 
   return (
     <div className={Styles.address_wrapper}>
@@ -62,8 +64,19 @@ export default function CardAddress(props: CardAddressProps) {
           disable={props.disableModalAddressButton}
           onClickBtnConfirm= {props.onConfirmModalAddress}
         >
-            <CustomInput label={t('home.business_name')} type='text' value={""} onChange={(e: any) =>null} />
-            <CustomInput label={t('home.business_name')} type='text' value={""} onChange={(e: any) =>null} />
+
+          <CustomValidateInput
+            type="text"
+            label={t('home.business_name')}  
+            {...props.shipmentAddress('name', { required: 'Business name is required' })}
+            error={props.shipmentformErrors.name?.message}
+           />
+
+             <CustomValidateInput
+              label={t('home.business_name')}
+              {...props.shipmentAddress('phone', { required: 'phone name is required' })}
+              error={props.shipmentformErrors.phone?.message}
+              />
         </ModalActions>
     </div>
   )
