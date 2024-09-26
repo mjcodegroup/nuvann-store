@@ -7,23 +7,27 @@ export interface CheckoutProps {
     userInfos: User;
     orderItems: CheckoutItem[];
     openModalAddress: boolean;
-    setOpenModalAddress: React.Dispatch<React.SetStateAction<boolean>>;
+    setOpenModalAddress: React.Dispatch<React.SetStateAction<boolean>>;;
     disableModalAddressButton: boolean;
     onConfirmModalAddress: any;
     shipmentAddress: any;
     shipmentformErrors: any;
     setValues: any;
+    countryList: any;
+    updateShippingInfoLoading: boolean;
 }
 
 export interface CardAddressProps {
     user: User;
     openModalAddress: boolean;
-    setOpenModalAddress: React.Dispatch<React.SetStateAction<boolean>>;
+    setOpenModalAddress: React.Dispatch<React.SetStateAction<boolean>>;;
     disableModalAddressButton: boolean;
-    onConfirmModalAddress: () => void;
+    onConfirmModalAddress: any;
     shipmentAddress: any;
     shipmentformErrors: any;
     setValues: any;
+    countryList: any;
+    updateShippingInfoLoading: boolean;
 }
 
 export interface CardProductsProps {

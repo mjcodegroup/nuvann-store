@@ -5,8 +5,8 @@ import Styles from "./custom-select.module.scss";
 import { UseFormRegister } from "react-hook-form";
 
 type Option = {
-  value: any;
-  label: string;
+  code: any;
+  name: string;
 };
 
 type SelectProps = {
@@ -16,12 +16,19 @@ type SelectProps = {
   register?: UseFormRegister<any>;
   name: string;
   error?: string;
+  defaultValue?: Option; // Nova prop para valor padrão
 };
 
-const CustomValidateSelect: React.FC<SelectProps> = ({ options, onSelect, title, register, name, error }) => {
+const CustomValidateSelect: React.FC<SelectProps> = ({
+  options,
+  onSelect,
+  title,
+  error,
+  defaultValue, // Adicionada aqui
+}) => {
   const { t } = useTranslation("placeholders");
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const [selectedOption, setSelectedOption] = useState<Option | null>(defaultValue || null); // Define valor padrão
 
   const toggleSelect = () => {
     setIsOpen(!isOpen);
@@ -40,12 +47,13 @@ const CustomValidateSelect: React.FC<SelectProps> = ({ options, onSelect, title,
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedOption]);
 
+
   return (
     <div className={`${Styles.custom_select} ${isOpen ? Styles.open : ""}`}>
       <p>{title} <span>*</span></p>
       <div className={Styles.select_header} onClick={toggleSelect}>
         <span className={Styles.selected_option}>
-          {selectedOption ? selectedOption.label : t("placeholders.custom_select_placeholder")}
+          {selectedOption ? selectedOption.name : t("placeholders.custom_select_placeholder")}
         </span>
         <BiChevronDown className={`${Styles.toggle_icon} ${isOpen ? Styles.rotated : ""}`} />
       </div>
@@ -53,11 +61,11 @@ const CustomValidateSelect: React.FC<SelectProps> = ({ options, onSelect, title,
         <ul className={Styles.options_list}>
           {options.map((option) => (
             <li
-              key={option.value}
+              key={option.code}
               className={Styles.option}
               onClick={() => handleOptionSelect(option)}
             >
-              {option.label}
+              {option.name}
             </li>
           ))}
         </ul>

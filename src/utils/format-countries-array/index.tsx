@@ -1,8 +1,8 @@
 export const formatCountriesArray = (countries: any) => {
     return countries.map((country: any) => {
         return {
-        value: country.isoAlpha2,
-        label: country.name,
+        code: country.isoAlpha2,
+        name: country.name,
         };
     });
 }
