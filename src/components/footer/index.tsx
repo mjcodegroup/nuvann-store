@@ -11,6 +11,7 @@ import elo from '../../../public/assets/cards/elo.svg'
 import visacheckout from '../../../public/assets/cards/visacheckout.svg'
 import amex from '../../../public/assets/cards/amex.svg'
 import boleto from '../../../public/assets/cards/boleto.svg'
+import pack from '../../.../../../package.json';
 
 export const Footer = () => {
 
@@ -76,7 +77,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className={styles.footer_signature}>
-            <span>Copyright © {year} - Nuvann webStore | All rights reserved.</span>
+            <span>Copyright © {year} - Nuvann-Store | All rights reserved. © {pack?.version}</span>
         </div>
     </div>
   )
