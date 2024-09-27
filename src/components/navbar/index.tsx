@@ -42,11 +42,11 @@ export const Navbar: React.FC = () => {
   }
 
   React.useEffect(() => {
-    if(Object.keys(userInfos).length === 0){
+    if(Object.keys(userInfos).length === 0 && isAuthenticated) {
       getUserInfo();
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  } , []);
+  } , [isAuthenticated]);
 
   return (
     <div className={Styles.navbar_container_principal}>
