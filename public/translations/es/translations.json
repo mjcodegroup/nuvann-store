@@ -39,6 +39,7 @@
 
   },
   "details": {
+    "available": "Disponible",
     "seller": "Vendedor",
     "country": "País",
     "sales": "Ventas",
