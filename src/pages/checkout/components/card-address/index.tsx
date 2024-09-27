@@ -21,7 +21,7 @@ export default function CardAddress(props: CardAddressProps) {
           {
             user.address && (
               <div className={Styles._infos}>
-                  <span className={Styles.first_line}>{user.name} {user.phone_number}</span>
+                  <span className={Styles.first_line}>{user.shipping_contact?.name} - {user.shipping_contact?.phoneNumber}</span>
                   <span>{user?.address?.street},</span>
                   <span>{user.address?.number},</span>
                   <span>{user.address?.neighborhood},</span>

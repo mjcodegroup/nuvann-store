@@ -46,6 +46,7 @@ export interface CheckoutItem {
     shipping_amount: number;
     total_price: number;
     tax_amount: number;
+    shipment: Shipment;
     discount_amount: number;
     price_with_applied_discount: number;
 }

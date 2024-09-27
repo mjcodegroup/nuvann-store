@@ -26,7 +26,7 @@ export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
   const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
   const {countries} = useCountriesInfo();
-  const {handleBecomeSeller} = useUserInfo();
+  const {handleBecomeSeller, getUserInfo} = useUserInfo();
   const { user: userInfos, isLoading: userInfosLoader} = useUserInfo();
   const { cartState} = useCartInfo();
   const { categoriesState} = useCategoriesInfo();
@@ -40,6 +40,13 @@ export const Navbar: React.FC = () => {
     }
     setModalTerm(true)
   }
+
+  React.useEffect(() => {
+    if(Object.keys(userInfos).length === 0){
+      getUserInfo();
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  } , []);
 
   return (
     <div className={Styles.navbar_container_principal}>
