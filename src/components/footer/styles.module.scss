@@ -1,67 +1,66 @@
 .footer_principal_container {
     background-color: #FFFFFF;
     height: 100%;
+    border-top: 4px solid #000052;
+    margin-top: 80px;
+    padding: 0 80px;
 
-    .footer_separate {
-        display: flex;
-        justify-content: center;
 
-        hr {
-            border: 0.1rem solid #000052;
-            width: 60%;
-        }
-    }
-    
-
-    .footer_principal_cards {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 10px 350px;
-
-    }
-    
     .footer_details {
         height: 92%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        width: 100%;
+        gap: 0px 25px;
         
-        display: grid; 
-        grid-template-columns: 1fr 1fr 1fr 1fr; 
-        gap: 0px 50px;
-        
-        margin:0 8%;
         padding-top: 8px;
-
+        padding-bottom: 16px;
+        
         h2 {
-            font-style: normal;
-            font-weight: 500;
-            font-size: 20px;
             line-height: 23px;
-
+            
             color: #000052;
+            margin:12px 0 15px 0;
+            
+            font-size: .75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
 
-            margin:12px 0 20px 0;
+            text-transform: uppercase;
         }
-
+        
+        
         p {
             margin: 12px 0;
-
+            
             font-style: normal;
             font-weight: 400;
             font-size: 12px;
             line-height: 14px;
-
-            color: #000000;
-
+            color: rgba(0, 0, 0, .65);
+            
+        }
+        .footer_principal_cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px 16px;
+            align-items: center;
+            flex-wrap: wrap;
         }
     }
 
     .footer_signature {
-        text-align: center;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        display: flex;
+        justify-content: space-around;
+        gap: 16px 50px;
+        padding: 32px;
         span {
             color: #707070;
             font-weight: 300;
             font-size: 12px;
         }
-        padding-bottom: 16px;
     }
 }

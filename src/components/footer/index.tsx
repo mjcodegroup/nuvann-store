@@ -19,31 +19,19 @@ export const Footer = () => {
   const year = today.getFullYear();
   return (
     <div className={styles.footer_principal_container}>
-        <div className={styles.footer_principal_cards}>
-          <Image src={visaIcon} alt={visaIcon}/>
-          <Image src={masterCard} alt={masterCard}/>
-          <Image src={paypal} alt={paypal}/>
-          <Image src={elo} alt={elo}/>
-          <Image src={visacheckout} alt={visacheckout}/>
-          <Image src={amex} alt={amex}/>
-          <Image src={boleto} alt={boleto}/>
-        </div>
-        <div className={styles.footer_separate}>
-          <hr />
-        </div>
         <div className={styles.footer_details}>
           <div>
             <h2>Kontakte nou</h2>
 
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             </p> <br />
 
-            <p><span> <FaMapMarkerAlt /> </span>Rua Inambu 540, Efapi-Chapeco, SC </p>
-            <p><span> <FaPhoneAlt/> </span>+55-0000000000</p>
-            <p><span> <FaEnvelope/> </span> nuvann@contact.com</p>
+            <p><span> <FaMapMarkerAlt color='#000052'/> </span>Rua Inambu 540, Efapi-Chapeco, SC </p>
+            <p><span> <FaPhoneAlt color='#000052'/> </span>+55-0000000000</p>
+            <p><span> <FaEnvelope color='#000052'/> </span> nuvann@contact.com</p>
           </div>
           <div>
             <h2>Rakousi Enfo</h2>
@@ -52,32 +40,31 @@ export const Footer = () => {
             <p> Komanw ka fè yon reklamasyon </p>
             <p> Komanw ka pab Vann </p>
             <p> Komanw ka fè yon reklamasyon  </p>
-            <p>Komanw ka pab Vann</p>
-            <p> Komanw ka fè yon reklamasyon  </p>
-            <p>Komanw kapab Vann </p>
           </div>
-          <div>
-            <h2>Relasyon Nuvann</h2>
 
-            <p>Komanw kapab Vann </p>
-            <p> Komanw ka fè yon reklamasyon </p>
-            <p> Komanw ka pab Vann </p>
-            <p> Komanw ka fè yon reklamasyon  </p>
-            <p>Komanw ka pab Vann</p>
-            <p> Komanw ka fè yon reklamasyon  </p>
-            <p>Komanw kapab Vann </p>
+          <div>
+            <h2>Metòd Pèman</h2>
+            <div className={styles.footer_principal_cards}>
+              <Image src={visaIcon} alt={visaIcon}/>
+              <Image src={masterCard} alt={masterCard}/>
+              <Image src={paypal} alt={paypal}/>
+              <Image src={elo} alt={elo}/>
+              <Image src={visacheckout} alt={visacheckout}/>
+              <Image src={amex} alt={amex}/>
+              <Image src={boleto} alt={boleto}/>
+            </div>
           </div>
 
           <div>
             <h2>Espas Kliyan</h2>
-
-            <p><span><AiOutlineUser /></span> Profil</p>
+            <p><span><AiOutlineUser/></span> Profil</p>
             <p><span><AiOutlineShoppingCart/></span> Panye</p>
             <p><span> <AiOutlineLogout /> </span> Dekonekte</p>
           </div>
         </div>
         <div className={styles.footer_signature}>
-            <span>Copyright © {year} - Nuvann-Store | All rights reserved. © {pack?.version}</span>
+            <span>© {year} - Nuvann-Store | All rights reserved. © {pack?.version}</span>
+            <span>Country & Regionn: USA | Canada | Brazil | Chile | Haiti        </span>
         </div>
     </div>
   )
