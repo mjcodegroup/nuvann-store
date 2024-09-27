@@ -86,8 +86,8 @@ export default function CheckoutController() {
       zipCode: user?.address?.zipCode || '',
       country: user?.address?.country,
       state_or_department: user?.address?.state_or_department || '',
-      name: user?.name || '',
-      phoneNumber: user?.phone_number
+      name: user?.shipping_contact.name || '',
+      phoneNumber: user.shipping_contact.phoneNumber || ''
     });
   }, [user, reset]);
 
