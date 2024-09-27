@@ -22,21 +22,20 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   useEffect(() => {
-    // Define o valor de envio padrão ao carregar as informações
     const defaultInfo = shippingInfos?.find((info) => info.default_shipment);
     if (defaultInfo && !selectedId) {
       setSelectedId(defaultInfo.id);
-      onInfoSelect(defaultInfo); // Notifica o pai sobre a seleção padrão
+      onInfoSelect(defaultInfo);
     }
   }, [shippingInfos, onInfoSelect, selectedId]);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const id = event.target.value;
-    setSelectedId(id); // Atualiza o estado com o ID selecionado
+    setSelectedId(id);
 
     const selectedInfo = shippingInfos.find((info) => info.id === id);
     if (selectedInfo) {
-      onInfoSelect(selectedInfo); // Notifica o pai sobre a seleção
+      onInfoSelect(selectedInfo);
     }
   };
 
@@ -52,14 +51,17 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
                 id={`shipping-${info.id}`}
                 name="shipping"
                 value={info.id}
-                checked={selectedId === info.id} // Verifica se o ID selecionado é o atual
-                onChange={handleRadioChange} // Atualiza o valor selecionado
+                checked={selectedId === info.id}
+                onChange={handleRadioChange}
               />
               <div className={Styles.info_details}>
                 <div className={Styles.delivery}>{info?.delivery_deadline}</div>
-                <div className={Styles.price}>{t('details.price')}: {info?.price}</div>
+                <div className={Styles.price}> {`${info.currency} ${info?.price}`}</div>
               </div>
             </label>
+            <div className={Styles.coverage_footer}>
+              <span>{info?.coverage_area}</span>
+            </div>
           </div>
         ))}
       </div>

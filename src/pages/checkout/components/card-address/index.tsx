@@ -101,7 +101,7 @@ export default function CardAddress(props: CardAddressProps) {
             <CustomValidateInput
               label={t('checkout.state_department_province')}
               {...props.shipmentAddress('state_or_department', { required: 'Field is required' })}
-              error={props.shipmentformErrors.state_or_department?.message}
+              error={props.shipmentformErrors?.state_or_department?.message}
             />
 
             <CustomValidateInput
@@ -113,7 +113,7 @@ export default function CardAddress(props: CardAddressProps) {
             <CustomValidateInput
               label={t('checkout.neighborhood')}
               {...props.shipmentAddress('neighborhood')}
-              error={props.shipmentformErrors.neighborhood?.message}
+              error={props.shipmentformErrors?.neighborhood?.message}
             />
 
             <CustomValidateInput
