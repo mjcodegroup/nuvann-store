@@ -8,7 +8,8 @@ export function reducer(state: State, action: Action): State {
         case 'SET_ORDER_LOADER': {
             return { ...state, order_loader: action.value };
         }
-        default:
+        default: {
             return state;
+        }
     }
 }

@@ -10,6 +10,7 @@ import { I18nextProvider, getI18n } from "react-i18next";
 import { AuthProvider } from "@/hooks/useKeycloak";
 import { ProductsProvider } from "@/contexts/products";
 import { CartProvider } from "@/contexts/cart";
+import { OrdersProvider } from "@/contexts/orders";
 import { CategoriesProvider } from "@/contexts/categories";
 import ToastProvider from "@/contexts/toast";
 import { UserProvider } from "@/contexts/user";
@@ -33,7 +34,9 @@ export default function App({ Component, pageProps }: AppProps) {
                   <CategoriesProvider>
                     <CartProvider>
                       <CheckoutProvider>
+                        <OrdersProvider>
                         <Component {...pageProps}/>
+                        </OrdersProvider>
                       </CheckoutProvider>
                     </CartProvider>
                   </CategoriesProvider>
