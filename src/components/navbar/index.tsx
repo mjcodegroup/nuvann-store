@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
   }
 
   React.useEffect(() => {
-    if(Object.keys(userInfos).length === 0 && isAuthenticated) {
+    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
       getUserInfo();
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,7 +94,7 @@ export const Navbar: React.FC = () => {
           }}
         >
             <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
-            <CustomSelect options={formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
+            <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
         </ModalActions>
     </div>
   );

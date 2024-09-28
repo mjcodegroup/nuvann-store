@@ -9,7 +9,6 @@ export function useCountriesInfo() {
     countriesDispatch({ type: "SET_LOADING", value: true });
     
     const storedCountries = sessionStorage.getItem("countries");
-
     if (storedCountries) {
       countriesDispatch({ type: "SET_COUNTRIES", value: JSON.parse(storedCountries) });
       countriesDispatch({ type: "SET_LOADING", value: false });
