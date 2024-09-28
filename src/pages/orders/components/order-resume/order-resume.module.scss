@@ -1,25 +1,30 @@
 .card_resume {
-  height: 370px;
+  height: 100%;
   background-color: var(--background-white);
   box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
   border-radius: 7px;
-  padding: 8%;
-  margin-top: 5%;
+  padding: 5%;
   display: flex;
+  width: 48%;
   flex-direction: column;
   justify-content: space-between;
   position: sticky;
   top: 0;
+  .resume_title{
+    font-size: 20px;
+    margin: -20px 0;
+    padding: 0;
+  }
 }
 
 .resume_separated_info {
-  margin: 18px 0;
+  margin: 7px 0;
   display: flex;
   justify-content: space-between;
 }
 
 .resume_buttons {
-  margin-top: 10px;
+  margin-top: 0px;
   display: grid;
   gap: 16px;
 }
