@@ -4,11 +4,7 @@ import { useOrdersInfo } from '@/hooks/use-orders-info';
 import Orders from '../view';
 
 export default function OrdersController() {
-    const { orders, getOrders, isLoading } = useOrdersInfo();
-
-    useEffect(() => {
-        getOrders();
-    }, []);
+    const { orders, isLoading } = useOrdersInfo();
 
     return (
         <HomePageDefault>

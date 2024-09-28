@@ -20,7 +20,10 @@ export function useOrdersInfo() {
     }
 
     React.useEffect(() => {
-        getOrders();
+        if(!ordersState.orders.length){
+            getOrders();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return {

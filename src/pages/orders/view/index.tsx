@@ -6,6 +6,7 @@ import { useNavigation } from '@/hooks/useNavigation';
 import OrdersCardSkeleton from '../components/orders-card-skeleton';
 import OrdersResume from '../components/order-resume';
 import { Order } from '@/contexts/orders/types';
+import Image from 'next/image';
 
 
 
@@ -21,6 +22,12 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
     const handleOrderClick = (order: Order) => {
         setSelectedOrder(order);
     };
+
+    React.useEffect(() => {
+        if (orders.length > 0) {
+            setSelectedOrder(orders[0]);
+        }
+    }, [orders]);
 
     return (
         <>
@@ -53,7 +60,7 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                                     key={order.id}
                                     onClick={() => handleOrderClick(order)}
                                 >
-                                    <img src={order.imageUrl} alt="product" />
+                                    <Image  src={order.imageUrl} alt="product" />
                                     <div className={styles.CardstitleDate}>
                                         <h4>{order.status}</h4>
                                         <h5>Dat: <span>{order.date}</span></h5>
