@@ -60,7 +60,8 @@ export const AuthProvider = ({ children }: any) => {
     keycloak
       ?.init({
         onLoad: "check-sso",
-        flow: 'implicit',
+        flow: 'hybrid',
+        redirectUri: window.location.origin,
       })
       .then((res) => {
         if (res) {
