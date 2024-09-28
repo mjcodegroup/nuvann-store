@@ -48,7 +48,15 @@ const schema = z.object({
 });
 
 export default function CheckoutController() {
-  const { checkout, updateShippingInfoLoading, updateShippingInfo, openModalAddress, setOpenModalAddress } = useCheckoutInfo();
+  const {
+    checkout,
+    updateShippingInfoLoading,
+    updateShippingInfo,
+    openModalAddress,
+    setOpenModalAddress,
+    handlePlaceOrder,
+    placeOrderLoader
+  } = useCheckoutInfo();
   const {user} = useUserInfo();
   const {countries} = useCountriesInfo();
 
@@ -101,7 +109,9 @@ export default function CheckoutController() {
 
   return (
     <HomePageDefault>
-        <Checkout 
+        <Checkout
+          onPlaceOrder={handlePlaceOrder}
+          placeOrderLoading={placeOrderLoader}
           orderItems={checkout.items}
           userInfos={user}
           countryList={countries}

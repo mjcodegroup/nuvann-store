@@ -28,8 +28,9 @@ export function useCheckoutInfo() {
         try {
             await nuvannApi.patch('/checkout/shipping/change-info', data)
             successToast('Shipping info updated');
-            getUserInfo();
             setOpenModalAddress(false);
+            getUserInfo();
+            getCheckout();
         } catch (error: any) {
             console.log(error)
             errorToast(error.response.data.message);
@@ -37,6 +38,25 @@ export function useCheckoutInfo() {
         } finally {
             checkoutDispatch({ type: 'SET_UPDATE_SHIPPINGINFOS_LOADING', value: false });
         }
+    }
+
+    async function handlePlaceOrder(): Promise<void> {
+        checkoutDispatch({ type: 'PLACE_ORDER_LOADING', value: true });
+        try {
+            const response = await nuvannApi.post('/checkout/place-order', {
+                call_back_urls: {
+                    on_success: process.env.NEXT_PUBLIC_CHECKOUT_URL_ON_SUCCESS,
+                    on_cancel: process.env.NEXT_PUBLIC_CHECKOUT_URL_ON_CANCEL
+                }
+            });
+            successToast('Order placed successfully');
+            window.location.href = response.data.checkout_url;
+        } catch (error: any) {
+            errorToast(error.response.data.message);
+        } finally {
+            checkoutDispatch({ type: 'PLACE_ORDER_LOADING', value: false });
+        }
+
     }
 
     useEffect(() => {
@@ -51,6 +71,8 @@ export function useCheckoutInfo() {
         updateShippingInfoLoading: checkoutState.updateShippingInfosLoading,
         updateShippingInfo,
         openModalAddress,
-        setOpenModalAddress
+        setOpenModalAddress,
+        handlePlaceOrder,
+        placeOrderLoader: checkoutState.placeOrderLoading
     }
 }

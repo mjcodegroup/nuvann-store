@@ -9,6 +9,7 @@ import { NavListProps } from '../types';
 
 export default function NavList(props: NavListProps) {  
   const { t } = useTranslation('nav_content');
+  
   return (
     <nav className={Styles.navbar_list}>
         <ul>
@@ -25,13 +26,9 @@ export default function NavList(props: NavListProps) {
             <Link href="/promotions">
               {t("nav_content.promotion")}
             </Link>
-            {
-              props.isAuthenticated && (
-                <div onClick={props.onClickSellerMenu}>
-                  {t("nav_content.sell")}
-                </div>
-              )
-            }
+              <div onClick={props.onClickSellerMenu}>
+                {t("nav_content.sell")}
+              </div>
               <Link href="/category?category=man">
                 {t("nav_content.man")}
               </Link>

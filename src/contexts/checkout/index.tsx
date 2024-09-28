@@ -10,6 +10,7 @@ const initialState: State = {
     checkout: {} as Checkout,
     loading: false,
     updateShippingInfosLoading: false,
+    placeOrderLoading: false,
 };
 
 export function CheckoutProvider({ children }: { children: React.ReactNode }) {
