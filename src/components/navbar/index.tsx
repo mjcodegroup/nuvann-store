@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
         onCategorySelect={(e: any)=>console.log(e)}
         onClickSellerMenu={()=>handleClickToBecomeSeller()}
         isAuthenticated={isAuthenticated}
-        />
+      />
 
         <ModalActions
           title={t('home.term_and_contitions')}
@@ -86,15 +86,12 @@ export const Navbar: React.FC = () => {
           onClickBtnConfirm= {(): void =>{
             handleBecomeSeller({
               business_name: businessName,
-              country: {
-                code: selectedCountry.value,
-                name: selectedCountry.label
-              }
+              country: selectedCountry
             })
           }}
         >
-            <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
-            <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
+          <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
+          <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
         </ModalActions>
     </div>
   );

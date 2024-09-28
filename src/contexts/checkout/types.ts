@@ -6,6 +6,7 @@ export interface State {
     checkout: Checkout;
     loading: boolean;
     updateShippingInfosLoading: boolean;
+    placeOrderLoading: boolean;
 }
 
 export type Action =
@@ -19,6 +20,10 @@ export type Action =
     }
     | {
         type: 'SET_UPDATE_SHIPPINGINFOS_LOADING';
+        value: boolean;
+    }
+    | {
+        type: 'PLACE_ORDER_LOADING';
         value: boolean;
     };
 
@@ -67,4 +72,12 @@ export type ShippingInfoTypes = {
         name: string,
         phoneNumber: string
     }
+}
+
+
+export type PlaceOrderTypes = {
+    call_back_urls: {
+        on_success: string,
+        on_cancel: string
+    },
 }

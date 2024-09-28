@@ -28,7 +28,8 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
             <OrderResume
               disabled={!props.userInfos.address}
               data={props.orderResume}
-              OnCheckout={() => {}} loading={false}
+              OnCheckout={props.onPlaceOrder}
+              loading={props.placeOrderLoading}
             />
         </div>
     </div>
