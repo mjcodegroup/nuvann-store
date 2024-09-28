@@ -25,7 +25,7 @@ export interface User {
     id: string;
     name: string;
     email: string;
-    role: UserRoles;
+    roles: UserRoles;
     address?: Address;
     phone_number?: string;
     seller_infos: Partial<SellerInfos>;

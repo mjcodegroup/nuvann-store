@@ -61,6 +61,7 @@ export const AuthProvider = ({ children }: any) => {
       ?.init({
         onLoad: "check-sso",
         flow: 'hybrid',
+        redirectUri: window.location.origin,
       })
       .then((res) => {
         if (res) {
