@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import Styles from "./custom-select.module.scss";
 
 type Option = {
-  value: any;
-  label: string;
+  code: any;
+  name: string;
 };
 
 type SelectProps = {
@@ -34,7 +34,7 @@ const CustomSelect: React.FC<SelectProps> = ({ options, onSelect, title }) => {
         <p>{title} <span>*</span></p>
       <div className={Styles.select_header} onClick={toggleSelect}>
         <span className={Styles.selected_option}>
-          {selectedOption ? selectedOption.label : t("placeholders.custom_select_placeholder")}
+          {selectedOption ? selectedOption.name : t("placeholders.custom_select_placeholder")}
         </span>
         <BiChevronDown className={`${Styles.toggle_icon} ${isOpen ? Styles.rotated : ""}`} />
       </div>
@@ -42,11 +42,11 @@ const CustomSelect: React.FC<SelectProps> = ({ options, onSelect, title }) => {
         <ul className={Styles.options_list}>
           {options?.map((option) => (
             <li
-              key={option.value}
+              key={option.code}
               className={Styles.option}
               onClick={() => handleOptionSelect(option)}
             >
-              {option.label}
+              {option.name}
             </li>
           ))}
         </ul>

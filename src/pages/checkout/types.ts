@@ -15,6 +15,8 @@ export interface CheckoutProps {
     setValues: any;
     countryList: any;
     updateShippingInfoLoading: boolean;
+    onPlaceOrder: ()=> Promise<void>;
+    placeOrderLoading: boolean;
 }
 
 export interface CardAddressProps {
