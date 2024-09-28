@@ -29,6 +29,7 @@ export interface User {
     address?: Address;
     phone_number?: string;
     seller_infos: Partial<SellerInfos>;
+    shipping_contact: Partial<ShippingContact>;
 }
 
 export interface Address {
@@ -73,4 +74,9 @@ export interface PaymentAccount {
 export interface PostBecomeSellerRequest {
     country: Country;
     business_name: string;
+}
+
+export type ShippingContact = {
+    name: string;
+    phoneNumber: string;
 }

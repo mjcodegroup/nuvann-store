@@ -42,10 +42,10 @@ export default function CardProducts(props: CardProductsProps) {
                   </div>
                   <div>
                     <h5>{getDefaultShipment(item?.available_shipments)?.type}</h5>
-                    <span>{getDefaultShipment(item?.available_shipments)?.delivery_deadline}</span>
+                    <span>{getDefaultShipment(item?.available_shipments)?.delivery_deadline || 'This item cannot be shipped to your selected delivery location. Please choose a different delivery location.'}</span>
                   </div>
                   <div>
-                    <CustomButton variant='text' title='Change'>Change</CustomButton>
+                    <CustomButton variant='text' title='Change'>{t('checkout.btn_to_replace_address')}</CustomButton>
                   </div>
                   <div>
                     <h5>{item.shipping_amount}</h5>

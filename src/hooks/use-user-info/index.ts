@@ -4,9 +4,12 @@ import { nuvannApi } from "@/services/api";
 import { useEffect } from "react";
 import { useNavigation } from "../useNavigation";
 import { PostBecomeSellerRequest } from "@/contexts/user/types";
+import { useAuth } from "../useKeycloak";
 
 export function useUserInfo() {
     const {state,  dispatch: userDispatch } = useUser();
+  const { isAuthenticated} = useAuth();
+
     const {successToast, errorToast} = useToast();
     const {redirect} = useNavigation();
 
@@ -30,14 +33,9 @@ export function useUserInfo() {
         }
         userDispatch({ type: 'SET_LOADING', value: false });
     }
-
-    useEffect(() => {
-        if(state.user) return;
-        getUserInfo();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
     return {
         user: state.user,
+        isLoading: state.isLoading,
         getUserInfo,
         handleBecomeSeller
     }
