@@ -40,7 +40,7 @@ const CustomSelect: React.FC<SelectProps> = ({ options, onSelect, title }) => {
       </div>
       {isOpen && (
         <ul className={Styles.options_list}>
-          {options.map((option) => (
+          {options?.map((option) => (
             <li
               key={option.value}
               className={Styles.option}
