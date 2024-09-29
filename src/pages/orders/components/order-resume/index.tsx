@@ -146,7 +146,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
           textColor="#fff"
           onClick={props.OnCheckout}
         >
-          <Link href="#">{t('cart.checkout')}</Link>
+          <Link href="#">Achte ankò</Link>
         </CustomButton>
       </div>
     </div>
