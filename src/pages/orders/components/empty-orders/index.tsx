@@ -9,7 +9,7 @@ export default function EmptyOrders() {
     return (
         <div className={Styles.cart_empty}>
             <GiShoppingCart />
-            <p>Ou poko Ajoute anyen nan Panye an ...</p>
+            <h3>Ou poko achte anyen !!</h3>
             <CustomButton
                 variant="outlined"
                 onClick={() => redirect(RoutesUrls.HOME)}
