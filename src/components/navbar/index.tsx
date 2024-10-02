@@ -17,6 +17,9 @@ import { useUserInfo } from '@/hooks/use-user-info';
 import { useCountriesInfo } from '@/hooks/use-countries-info';
 import { formatCountriesArray } from '@/utils/format-countries-array';
 import { UserRoles } from '@/utils/enums/user.enum';
+import { useNavigation } from '@/hooks/useNavigation';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { Category } from '@/contexts/categories/types';
 
 
 interface selectedCountry {
@@ -39,6 +42,7 @@ export const Navbar: React.FC = () => {
   const { categoriesState} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
+  const { redirect } = useNavigation();
 
   const handleClickToBecomeSeller = () => {
     if(!isAuthenticated) {
@@ -56,6 +60,10 @@ export const Navbar: React.FC = () => {
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   } , [isAuthenticated]);
+
+  const handleRedirectToCategory = (category: Category) => {
+    redirect(`/categories?name=${category.name}` as RoutesUrls);
+  }
 
   return (
     <div className={Styles.navbar_container_principal}>
@@ -81,7 +89,7 @@ export const Navbar: React.FC = () => {
       <NavList
         width='100%'
         categories={categoriesState?.categories}
-        onCategorySelect={(e: any)=>console.log(e)}
+        onCategorySelect={handleRedirectToCategory}
         onClickSellerMenu={()=>handleClickToBecomeSeller()}
         isAuthenticated={isAuthenticated}
       />

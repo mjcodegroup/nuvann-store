@@ -19,9 +19,7 @@ export default function NavList(props: NavListProps) {
               categories={props.categories}
               contentWidth={props.width}
             >
-            <Link href="/#">
               {t("nav_content.category")}
-            </Link>
             </DropdownSimple>
             <Link href="/promotions">
               {t("nav_content.promotion")}
