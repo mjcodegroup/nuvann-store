@@ -8,10 +8,8 @@ import OrdersResume from '../components/order-resume';
 import { Order } from '@/contexts/orders/types';
 import Image from 'next/image';
 
-
-
 interface OrdersProps {
-    orders: any[];
+    orders: Order[];
     isLoading: boolean;
 }
 
@@ -56,15 +54,16 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                         <div className={styles.PurchaseScroll}>
                             {orders.map((order: Order) => (
                                 <div
-                                    className={styles.ActualCard}
+                                    className={`${styles.ActualCard} ${order.id === selectedOrder?.id ? styles.selected : ''}`}
                                     key={order.id}
                                     onClick={() => handleOrderClick(order)}
                                 >
-                                    <Image  src={order.imageUrl} alt="product" />
+                                    <Image src={order.product.images[0]?.url} alt="product" width={100} height={100} />
                                     <div className={styles.CardstitleDate}>
-                                        <h4>{order.status}</h4>
-                                        <h5>Dat: <span>{order.date}</span></h5>
+                                        <h4>{order.product.name}</h4>
+                                        <h5>Dat acha: <span>{order.order_item_status_logs.occurred_on}</span></h5>
                                         <h5>Estati: <span>{order.status}</span></h5>
+                                        <h5>Kantite: <span>{order.quantity}</span></h5>
                                     </div>
                                     <div className={styles.CardsButtons}>
                                         <button>Wè plis</button> <br />
@@ -74,24 +73,24 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                             ))}
                         </div>
                     </div>
-                    <div className={styles.OrderDetails}>
-                        {selectedOrder ? (
-                            <OrdersResume
-                                data={{
-                                    count: selectedOrder.items?.length || 0,
-                                    sub_total: selectedOrder.sub_total || 0,
-                                    shipping_cost: selectedOrder.shipping_cost || 0,
-                                    total: selectedOrder.total || 0,
-                                }}
-                                OnCheckout={() => {/* Implement checkout logic */ }}
-                                loading={isLoading}
-                            />
-                        ) : (
-                            <div className={styles.NoOrderSelected}>
-                                <h4>Select an order to view details</h4>
-                            </div>
-                        )}
-                    </div>
+
+                    {selectedOrder ? (
+                        <OrdersResume
+                            data={{
+                                count: selectedOrder.quantity || 0,
+                                sub_total: selectedOrder.sub_total || 0,
+                                shipping_cost: selectedOrder.shipping_cost || 0,
+                                total: selectedOrder.total_price || 0,
+                            }}
+                            order={selectedOrder}
+                            OnCheckout={() => {/* Implement checkout logic */ }}
+                            loading={isLoading}
+                        />
+                    ) : (
+                        <div className={styles.NoOrderSelected}>
+                            <h4>Select an order to view details</h4>
+                        </div>
+                    )}
                 </div>
             )}
         </>

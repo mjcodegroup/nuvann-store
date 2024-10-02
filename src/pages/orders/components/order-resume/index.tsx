@@ -5,6 +5,7 @@ import CustomButton from '@/components/custom-button';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
 import Title from '@/components/title';
+import { Order } from '@/contexts/orders/types';
 
 export interface OrderResumeData {
   count: number;
@@ -12,8 +13,10 @@ export interface OrderResumeData {
   shipping_cost: number;
   total: number;
 }
+
 export interface OrderResumeProps {
   data: OrderResumeData;
+  order: Order;
   OnCheckout: () => void;
   loading: boolean;
   disabled?: boolean;
@@ -21,58 +24,133 @@ export interface OrderResumeProps {
 
 const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
   const { t } = useTranslation('cart');
-  const { data } = props;
+  const { data, order } = props;
+
   return (
     <div className={styles.card_resume}>
       <Title title={t('cart.summary')} className={styles.resume_title} />
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>{t('cart.product')} ({data.count})</p>
+          <p>Pri total: ({data.count})</p>
           {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30} /> </p>
-          ) :
-            (
-              <h5>{data.sub_total}</h5>
-            )}
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5>{data.sub_total}</h5>
+          )}
         </div>
         <hr />
 
         <div className={styles.resume_separated_info}>
           <p>{t('cart.delivery')}</p>
           {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30} /> </p>
-          ) :
-            (
-              <h5>{data.shipping_cost}</h5>
-            )
-          }
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5>{data.shipping_cost}</h5>
+          )}
         </div>
         <hr />
-
         <div className={styles.resume_separated_info}>
-          <p>{t("cart.total")} </p>
+        <h4>Seller Information</h4>
           {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30} /> </p>
-          ) :
-            (
-              <h5>{data.total}</h5>
-            )
-          }
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
         </div>
         <hr />
+        <div className={styles.resume_separated_info}>
+        <p>Name: {order.seller.name}</p>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+        <p>Country: {order.seller.country.name}</p>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+        <h4>Shipping Address</h4>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+        <p>
+          Street: {order.shipping_address?.street}, {order.shipping_address?.number}
+        </p>
+        {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+        <p>City: {order.shipping_address?.city}</p>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+        <p>State: {order.shipping_address?.state_or_department}</p>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+        <p>Country: {order.shipping_address?.country.name}</p>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+        {order.shipping_tracking_data && (
+          <>
+            <h4>Shipping Tracking</h4>
+            <p>Company: {order.shipping_tracking_data.company_name}</p>
+            <p>Tracking ID: {order.shipping_tracking_data.tracking_id}</p>
+          </>
+        )}          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
       </div>
 
       <div className={styles.resume_buttons}>
-        <CustomButton disabled={props.loading || props.disabled} backgroundColor='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
-          <Link href="#">{t('cart.checkout')}</Link>
+        <CustomButton
+          disabled={props.loading || props.disabled}
+          backgroundColor="#00C02A"
+          textColor="#fff"
+          onClick={props.OnCheckout}
+        >
+          <Link href="#">Achte ankò</Link>
         </CustomButton>
-        {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>
-            Kontinye Achte
-        </CustomButton> */}
       </div>
     </div>
   );
-}
+};
 
 export default OrdersResume;
