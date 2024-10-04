@@ -10,7 +10,8 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
-  .resume_title{
+  
+  .resume_title {
     font-size: 20px;
     margin: -20px 0;
     padding: 0;
@@ -27,4 +28,23 @@
   margin-top: 0px;
   display: grid;
   gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .card_resume {
+    width: 100%;
+    position: static;
+    padding: 10px;
+    height: 100%;
+
+  }
+
+  .resume_separated_info {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .resume_buttons {
+    gap: 10px;
+  }
 }

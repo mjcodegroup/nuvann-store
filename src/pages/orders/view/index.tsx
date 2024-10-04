@@ -64,6 +64,7 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                                         <h5>Dat acha: <span>{order.order_item_status_logs.occurred_on}</span></h5>
                                         <h5>Estati: <span>{order.status}</span></h5>
                                         <h5>Kantite: <span>{order.quantity}</span></h5>
+                                        <h5>Delivred by: <span>{order.shipping_tracking_data?.company_name}</span></h5>
                                     </div>
                                     <div className={styles.CardsButtons}>
                                         <button>Wè plis</button> <br />
@@ -74,23 +75,25 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                         </div>
                     </div>
 
-                    {selectedOrder ? (
-                        <OrdersResume
-                            data={{
-                                count: selectedOrder.quantity || 0,
-                                sub_total: selectedOrder.sub_total || 0,
-                                shipping_cost: selectedOrder.shipping_cost || 0,
-                                total: selectedOrder.total_price || 0,
-                            }}
-                            order={selectedOrder}
-                            OnCheckout={() => {/* Implement checkout logic */ }}
-                            loading={isLoading}
-                        />
-                    ) : (
-                        <div className={styles.NoOrderSelected}>
-                            <h4>Select an order to view details</h4>
-                        </div>
-                    )}
+                    <div className={styles.OrdersResume}>
+                        {selectedOrder ? (
+                            <OrdersResume
+                                data={{
+                                    count: selectedOrder.quantity || 0,
+                                    sub_total: selectedOrder.sub_total || 0,
+                                    shipping_cost: selectedOrder.shipping_cost || 0,
+                                    total: selectedOrder.total_price || 0,
+                                }}
+                                order={selectedOrder}
+                                OnCheckout={() => {/* Implement checkout logic */ }}
+                                loading={isLoading}
+                            />
+                        ) : (
+                            <div className={styles.NoOrderSelected}>
+                                <h4>Select an order to view details</h4>
+                            </div>
+                        )}
+                    </div>
                 </div>
             )}
         </>

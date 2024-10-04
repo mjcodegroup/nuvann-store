@@ -1,12 +1,13 @@
 .AchasHolder,
 .AchasHolder2 {
-    width: 80%;
+    width: 100%;
     min-height: 650px;
     background-color: #F6F6F6;
     display: flex;
     padding: 2%;
     margin: 0 10% 20px 10%;
-    height: 80vh;
+    height: auto;
+    overflow: auto;
 }
 
 .ActualCard {
@@ -17,8 +18,7 @@
     justify-content: space-evenly;
     padding: 30px 14px;
     margin-bottom: 27px;
-  }
-  
+}
 
 .ActualCard.selected {
     background-color: #f6fff7;
@@ -30,14 +30,7 @@
 }
 
 .PurchaseCards {
-    width: 100%;
-}
-
-.OrderDetails {
-    width: 35%;
-    background-color: #fff;
-    padding: 15px;
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
+    width: 55%;
 }
 
 .NoOrderSelected {
@@ -48,49 +41,14 @@
 }
 
 .PurchaseScroll {
-    width: 100%;
+    // width: 100%;
     height: 650px;
     overflow: auto;
     padding: 15px;
 }
 
-.PurchaseScroll::-webkit-scrollbar {
-    width: 10px;
-}
-
-.PurchaseScroll::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.PurchaseScroll::-webkit-scrollbar-thumb {
-    background: #002583;
-}
-
-.PurchaseScroll::-webkit-scrollbar-thumb:hover {
-    background: #02004B;
-}
-
 .AchasHolder h3 {
     margin-left: 3%;
-}
-
-.ActualCard {
-    border-radius: 5px;
-    width: 95%;
-    height: 153px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 8px 1px #0000003a;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 30px 14px;
-    margin-bottom: 27px;
-}
-
-.ActualCard img {
-    width: 102px;
-    height: 92px;
-    border-radius: 5px;
-    object-fit: cover;
 }
 
 .CardstitleDate {
@@ -143,70 +101,6 @@
     background-color: #ffffff;
 }
 
-.purchaseMoreInfo {
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    padding-top: 76px;
-}
-
-.purchaseMoreInfo .ShowInfo {
-    width: 80%;
-    height: 390px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 2%;
-    box-shadow: 0px 0px 8px 1px #0000003a;
-}
-
-.ShowInfo img {
-    width: 131px;
-    height: 118px;
-    margin-bottom: 26px;
-}
-
-.ShowInfo .line {
-    margin-bottom: 17px;
-    border-bottom: 1px solid #E0E0E0;
-    width: 90%;
-}
-
-.ActualInfoshow {
-    width: 85%;
-    display: flex;
-    flex-direction: column;
-}
-
-.ShowInfodetails {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-}
-
-.ShowInfodetails h3 {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.ShowInfodetails h4 {
-    font-size: 13px;
-    font-weight: 500;
-    color: #1085B9;
-}
-
-.ShowInfo .Achtebtn {
-    font-size: 15px;
-    font-weight: 400;
-    width: 40%;
-    height: 27px;
-    border-radius: 3px;
-    margin-top: 8px;
-}
-
 .AchasHolder2 {
     display: flex;
     justify-content: center;
@@ -229,8 +123,79 @@
     margin-bottom: 40px;
 }
 
-.messageAnyen button {
-    width: 144px;
-    height: 27px;
-    border-radius: 3px;
+.OrdersResume {
+    width: 50%;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .AchasHolder {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+        overflow: auto;
+    }
+
+    .AchasHolder,
+    .AchasHolder2 {
+        width: 100%;
+        min-height: 650px;
+        background-color: #F6F6F6;
+        display: flex;
+        padding: 2%;
+        margin: 0 0% 20px 0%;
+        height: auto;
+        overflow: auto;
+    }
+
+
+    .PurchaseCards {
+        width: 100%;
+        margin-bottom: 20px;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .PurchaseScroll {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .ActualCard {
+        width: 100%;
+        height: 300px;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    .CardstitleDate {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .CardsButtons {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .CardsButtons button {
+        width: 45%;
+    }
+
+    .AchasHolder h3 {
+        text-align: center;
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    .OrdersResume {
+        width: 100%;
+        margin-top: 20px;
+    }
 }
