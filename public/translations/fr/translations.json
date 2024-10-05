@@ -90,6 +90,7 @@
     "neighborhood": "Quartier",
     "street_name": "Rue",
     "street_number": "Numéro",
-    "complement": "Complément"
+    "complement": "Complément",
+    "select_shipment_option_title": "Sélectionnez l'option d'expédition"
   }
 }
