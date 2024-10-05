@@ -71,3 +71,13 @@ export interface ProductDetails extends Product {
     sold_amount: number;
     available_countries: any;
 }
+
+export interface getProductsParams {
+    page?: number;
+    size?: number;
+    search?: string;
+    categoryId?: string;
+    in_promotion?: boolean;
+    new_products?: boolean;
+    seller_business_account_id?: number;
+}

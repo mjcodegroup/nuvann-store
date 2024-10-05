@@ -1,13 +1,23 @@
 import { useProducts } from "@/contexts/products";
+import { getProductsParams } from "@/contexts/products/types";
 import { nuvannApi } from "@/services/api";
 
 export function useProductsInfo() {
     const { state: productsState, dispatch: productsDispatch } = useProducts();
 
-    async function getProducts() {
+    async function getProducts(options?: getProductsParams) {
         productsDispatch({ type: 'SET_LOADING', value: true });
+        const params: getProductsParams = {
+            page: 1,
+            categoryId: options?.categoryId,
+            in_promotion: options?.in_promotion,
+            search: options?.search || undefined,
+            size: 10
+        }
         try {
-            const response = await nuvannApi.get('/products')
+            const response = await nuvannApi.get('/products', {
+                params
+            })
             productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
         } catch (error) {
             
@@ -22,6 +32,7 @@ export function useProductsInfo() {
     }
 
     return {
+        products: productsState.products,
         loading: productsState.isLoading,
         getProducts,
         getProductDetails
