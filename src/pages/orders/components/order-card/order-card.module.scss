@@ -1,15 +1,3 @@
-.AchasHolder,
-.AchasHolder2 {
-    width: 100%;
-    min-height: 650px;
-    background-color: #F6F6F6;
-    display: flex;
-    padding: 2%;
-    margin: 0 10% 20px 10%;
-    height: auto;
-    overflow: auto;
-}
-
 .ActualCard {
     border-radius: 5px;
     height: 153px;
@@ -22,33 +10,6 @@
 
 .ActualCard.selected {
     background-color: #f6fff7;
-}
-
-.AchasHolder {
-    display: flex;
-    justify-content: space-between;
-}
-
-.PurchaseCards {
-    width: 55%;
-}
-
-.NoOrderSelected {
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
-    color: #555;
-}
-
-.PurchaseScroll {
-    // width: 100%;
-    height: 650px;
-    overflow: auto;
-    padding: 15px;
-}
-
-.AchasHolder h3 {
-    margin-left: 3%;
 }
 
 .CardstitleDate {
@@ -101,87 +62,7 @@
     background-color: #ffffff;
 }
 
-.AchasHolder2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.messageAnyen {
-    width: 570px;
-    height: 214px;
-    background-color: #ffffffad;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-}
-
-.messageAnyen h3 {
-    font-size: 24px;
-    margin-bottom: 40px;
-}
-
-.OrdersResume {
-    width: 50%;
-    margin-top: 20px;
-}
-
-.ExpandedCard {
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ccc;
-    margin-top: 10px;
-}
-
-.LogItem {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #ffffff;
-}
-
-.LogItem strong {
-    color: #333;
-}
-
-
 @media (max-width: 768px) {
-    .AchasHolder {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        height: auto;
-        overflow: auto;
-    }
-
-    .AchasHolder,
-    .AchasHolder2 {
-        width: 100%;
-        min-height: 650px;
-        background-color: #F6F6F6;
-        display: flex;
-        padding: 2%;
-        margin: 0 0% 20px 0%;
-        height: auto;
-        overflow: auto;
-    }
-
-
-    .PurchaseCards {
-        width: 100%;
-        margin-bottom: 20px;
-        height: auto;
-        min-height: 400px;
-    }
-
-    .PurchaseScroll {
-        height: auto;
-        overflow-y: auto;
-    }
-
     .ActualCard {
         width: 100%;
         height: 300px;
@@ -205,16 +86,5 @@
 
     .CardsButtons button {
         width: 45%;
-    }
-
-    .AchasHolder h3 {
-        text-align: center;
-        width: 100%;
-        margin-left: 0%;
-    }
-
-    .OrdersResume {
-        width: 100%;
-        margin-top: 20px;
     }
 }
