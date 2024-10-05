@@ -128,6 +128,25 @@
     margin-top: 20px;
 }
 
+.ExpandedCard {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.LogItem {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.LogItem strong {
+    color: #333;
+}
+
 
 @media (max-width: 768px) {
     .AchasHolder {
