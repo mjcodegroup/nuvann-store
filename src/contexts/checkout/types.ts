@@ -81,3 +81,8 @@ export type PlaceOrderTypes = {
         on_cancel: string
     },
 }
+
+export type ShipmentInfosTypes = {
+    itemId: string;
+    shipmentId: string;
+}

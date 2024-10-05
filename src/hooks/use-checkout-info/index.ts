@@ -1,5 +1,5 @@
 import { useCheckout } from "@/contexts/checkout";
-import { ShippingInfoTypes } from "@/contexts/checkout/types";
+import { ShipmentInfosTypes, ShippingInfoTypes } from "@/contexts/checkout/types";
 import { useToast } from "@/contexts/toast";
 import { nuvannApi } from "@/services/api";
 import React, { useEffect } from "react";
@@ -10,6 +10,7 @@ export function useCheckoutInfo() {
     const{getUserInfo} = useUserInfo();
   const { successToast, errorToast } = useToast();
   const [openModalAddress, setOpenModalAddress] = React.useState(false);
+  const [openModalShipment, setOpenModalShipment] = React.useState(false);
 
     async function getCheckout() {
         checkoutDispatch({ type: 'SET_LOADING', value: true });
@@ -56,7 +57,22 @@ export function useCheckoutInfo() {
         } finally {
             checkoutDispatch({ type: 'PLACE_ORDER_LOADING', value: false });
         }
+    }
 
+    async function updateShipmentInfos(data: ShipmentInfosTypes) {
+        checkoutDispatch({ type: 'SET_UPDATE_SHIPPINGINFOS_LOADING', value: true });
+        try {
+            await nuvannApi.patch(`/checkout/items/${data.itemId}?shipmentId=${data.shipmentId}`, data)
+            successToast('Shipping info updated');
+            setOpenModalShipment(false);
+            getCheckout();
+        } catch (error: any) {
+            console.log(error)
+            errorToast(error.response.data.message);
+
+        } finally {
+            checkoutDispatch({ type: 'SET_UPDATE_SHIPPINGINFOS_LOADING', value: false });
+        }
     }
 
     useEffect(() => {
@@ -73,6 +89,9 @@ export function useCheckoutInfo() {
         openModalAddress,
         setOpenModalAddress,
         handlePlaceOrder,
-        placeOrderLoader: checkoutState.placeOrderLoading
+        placeOrderLoader: checkoutState.placeOrderLoading,
+        openModalShipment,
+        setOpenModalShipment,
+        updateShipmentInfos,
     }
 }
