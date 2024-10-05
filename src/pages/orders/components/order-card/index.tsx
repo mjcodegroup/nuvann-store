@@ -1,17 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Styles from './order-card.module.scss';
 import { Order } from '@/contexts/orders/types';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
 
 interface OrderCardProps {
     order: Order;
     selectedOrder: Order | null;
-    expandedOrderId: string | null;
     handleOrderClick: (order: Order) => void;
-    handleExpandToggle: (orderId: string) => void;
 }
 
-const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, expandedOrderId, handleOrderClick, handleExpandToggle }) => {
+const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrderClick }) => {
     return (
         <div key={order.id}>
             <div
@@ -27,12 +27,20 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, expandedOrd
                     <h5>Delivred by: <span>{order.shipping_tracking_data?.company_name}</span></h5>
                 </div>
                 <div className={Styles.CardsButtons}>
-                    <button onClick={(e) => { 
-                        e.stopPropagation(); 
-                        handleExpandToggle(order.id);
-                    }}>
-                        Wè plis {expandedOrderId === order.id ? '-' : '+'}
-                    </button> <br />
+                    <Link
+                        href={{
+                            pathname: RoutesUrls.ORDERS_DETAILS,
+                            query: { order: JSON.stringify(order) },
+                        }}
+                        passHref
+                    >
+                        <button onClick={(e) => {
+                            e.stopPropagation();
+                        }}>
+                            Wè plis
+                        </button>
+                    </Link>
+
                     <button className={Styles.Achtebtn}>Achte ankò</button>
                 </div>
             </div>
