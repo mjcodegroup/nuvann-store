@@ -1,14 +1,14 @@
 import { useToast } from "@/contexts/toast";
 import { useUser } from "@/contexts/user";
 import { nuvannApi } from "@/services/api";
-import { useEffect } from "react";
-import { useNavigation } from "../useNavigation";
+import React from "react";
 import { PostBecomeSellerRequest } from "@/contexts/user/types";
+import { useAuth } from "../useKeycloak";
 
 export function useUserInfo() {
     const {state,  dispatch: userDispatch } = useUser();
     const {successToast, errorToast} = useToast();
-    const {redirect} = useNavigation();
+  const [modalTerm, setModalTerm] = React.useState<boolean>(false);
 
     async function getUserInfo() {
         userDispatch({ type: 'SET_LOADING', value: true });
@@ -22,22 +22,20 @@ export function useUserInfo() {
         try {
             const response = await nuvannApi.patch('/users/becomeSeller', data)
             successToast(response.data?.message || 'Success');
-            if(response.data?.is_able_to_sell) {
-                window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
-            }
+            setModalTerm(false);
+            getUserInfo();
+            window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
         } catch (error: any) {
             errorToast( error.response.data.message);
         }
         userDispatch({ type: 'SET_LOADING', value: false });
     }
-
-    useEffect(() => {
-        getUserInfo();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
     return {
         user: state.user,
+        isLoading: state.isLoading,
         getUserInfo,
-        handleBecomeSeller
+        handleBecomeSeller,
+        modalTerm,
+        setModalTerm
     }
 }

@@ -5,17 +5,17 @@ const inter = Inter({ subsets: ['latin'] })
 
 import '../styles/globals.scss';
  
-import { I18nextProvider, getI18n } from "react-i18next";
+import { I18nextProvider } from "react-i18next";
 import { AuthProvider } from "@/hooks/useKeycloak";
 import { ProductsProvider } from "@/contexts/products";
 import { CartProvider } from "@/contexts/cart";
+import { OrdersProvider } from "@/contexts/orders";
 import { CategoriesProvider } from "@/contexts/categories";
 import ToastProvider from "@/contexts/toast";
 import { UserProvider } from "@/contexts/user";
 import { CheckoutProvider } from "@/contexts/checkout";
 import i18n from "../../i18n/i18n";
-import cookie from "@/utils/cookie";
-import { Suspense } from "react";
+import { CountriesProvider } from "@/contexts/countries";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -25,23 +25,27 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <AuthProvider >
         <I18nextProvider i18n={i18n}>
-          <UserProvider>
-          <ProductsProvider>
-            <ToastProvider>
-              <CategoriesProvider>
-                <CartProvider>
-                  <CheckoutProvider>
-                      <Component {...pageProps}/>
-                  </CheckoutProvider>
-                </CartProvider>
-              </CategoriesProvider>
-            </ToastProvider>
-          </ProductsProvider>
-          </UserProvider>
+          <CountriesProvider>
+            <AuthProvider >
+              <UserProvider>
+              <ProductsProvider>
+                <ToastProvider>
+                  <CategoriesProvider>
+                    <CartProvider>
+                      <CheckoutProvider>
+                        <OrdersProvider>
+                        <Component {...pageProps}/>
+                        </OrdersProvider>
+                      </CheckoutProvider>
+                    </CartProvider>
+                  </CategoriesProvider>
+                </ToastProvider>
+              </ProductsProvider>
+              </UserProvider>
+            </AuthProvider>
+          </CountriesProvider>
         </I18nextProvider>
-      </AuthProvider>
     </>
   )
   

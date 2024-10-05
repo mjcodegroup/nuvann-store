@@ -31,7 +31,7 @@ export default function HomeController() {
     }, []);
 
   return (
-    // <HomePageDefault>
+    <HomePageDefault>
       <Home
         loader={homeState.isLoading}
         heroImages={heroImagesMock}
@@ -40,6 +40,6 @@ export default function HomeController() {
         categories={categoriesMock} 
         onRedirectToProductDetails={handleRedirectToDetailsPage}
       />
-    // </HomePageDefault>
+    </HomePageDefault>
   )
 }

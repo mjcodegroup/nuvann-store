@@ -77,6 +77,7 @@ export default function Details(props: DetailsProps) {
 
         <InputQuantity
             total={productInfos?.available_amount}
+            availableText={t('details.available')}
             label={t('details.quantity')}
             onChange={onChangeQuantity} 
             value={qty}

@@ -39,6 +39,7 @@
 
   },
   "details": {
+    "available": "Disponible",
     "seller": "Vendedor",
     "country": "País",
     "sales": "Ventas",
@@ -76,7 +77,19 @@
     "delivery_address": "Dirección de entrega",
     "btn_to_replace_address": "Cambiar",
     "btn_add_address": "Agregar una nueva dirección",
-    "title_products_ordered": "Productos pedidos"
-
+    "title_products_ordered": "Productos pedidos",
+    "shipping_options": "Opciones de envío",
+    "new_address": "Nueva dirección",
+    "edit_address": "Editar dirección",
+    "countries": "Países",
+    "full_name": "Nombre completo",
+    "phone_number": "Número de teléfono",
+    "postal_code": "Código postal",
+    "state_department_province": "Estado/Departamento/Provincia",
+    "city": "Ciudad",
+    "neighborhood": "Barrio",
+    "street_name": "Nombre de la calle",
+    "street_number": "Número de calle",
+    "complement": "Complemento"
   }
 }

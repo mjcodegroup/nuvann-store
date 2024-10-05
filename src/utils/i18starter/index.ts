@@ -20,7 +20,13 @@ i18next
             useSuspense: false,
         },
         defaultNS: [
-            "home"
+            "home",
+            "nav_content",
+            "placeholders",
+            "buttons",
+            "details",
+            "cart",
+            "checkout",
         ],
     })
 

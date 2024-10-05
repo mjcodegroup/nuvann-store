@@ -15,15 +15,25 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        align-content: center;
-
+        
         ._infos {
-            margin: 4px 8px;
             color: gray;
+            display: flex;
+            gap: 0 4px;
+            align-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .first_line {
+                color: #222;
+                font-weight: 700;
+                margin-right: 16px;
+            }
         }
     }
 
     ._address_footer {
+        height: 100%;
         display: flex;
         justify-content: center;
     }

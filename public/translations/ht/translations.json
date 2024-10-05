@@ -40,6 +40,7 @@
     "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
   },
   "details": {
+    "available": "Disponib",
     "seller": "Vandè",
     "country": "Peyi",
     "sales": "Vant",
@@ -77,6 +78,19 @@
     "delivery_address": "Adrès livrezon",
     "btn_to_replace_address": "Chanje",
     "btn_add_address": "Ajoute yon nouvo adrès",
-    "title_products_ordered": "Kòmand"
+    "title_products_ordered": "Kòmand",
+    "shipping_options": "Opsyon livrezon",
+     "new_address": "Nouvo adrès",
+    "edit_address": "Edite adrès",
+    "countries": "Peyi",
+    "full_name": "Non konplè",
+    "phone_number": "Nimewo telefòn",
+    "postal_code": "Kòd postal",
+    "state_department_province": "Eta/Depatman/Pwovens",
+    "city": "Vil",
+    "neighborhood": "Katye",
+    "street_name": "Ri",
+    "street_number": "Nimewo",
+    "complement": "Konpleman"
   }
 }

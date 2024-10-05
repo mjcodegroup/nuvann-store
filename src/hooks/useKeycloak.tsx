@@ -46,7 +46,6 @@ export const AuthProvider = ({ children }: any) => {
       setCookie("user", JSON.stringify(user));
       setIsAuthenticated(true);
     } else {
-      console.log('entrei no login pelo getUserInfo')
       login();
     }
 
@@ -62,6 +61,7 @@ export const AuthProvider = ({ children }: any) => {
       ?.init({
         onLoad: "check-sso",
         flow: 'hybrid',
+        redirectUri: window.location.origin,
       })
       .then((res) => {
         if (res) {
