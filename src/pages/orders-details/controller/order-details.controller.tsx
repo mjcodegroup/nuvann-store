@@ -8,6 +8,8 @@ export default function OrdersController() {
     const { order } = router.query;
     const [parsedOrder, setParsedOrder] = useState(null);
 
+    console.log(order)
+
     useEffect(() => {
         if (order) {
             setParsedOrder(JSON.parse(order as string));

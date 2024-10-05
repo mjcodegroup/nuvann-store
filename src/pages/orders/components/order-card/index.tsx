@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Styles from './order-card.module.scss';
 import { Order } from '@/contexts/orders/types';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useNavigation } from '@/hooks/useNavigation';
+import { Button } from '@mui/material';
+import CustomButton from '@/components/custom-button';
 
 interface OrderCardProps {
     order: Order;
@@ -12,6 +15,7 @@ interface OrderCardProps {
 }
 
 const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrderClick }) => {
+    const { redirect } = useNavigation()
     return (
         <div key={order.id}>
             <div
@@ -27,20 +31,9 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
                     <h5>Delivred by: <span>{order.shipping_tracking_data?.company_name}</span></h5>
                 </div>
                 <div className={Styles.CardsButtons}>
-                    <Link
-                        href={{
-                            pathname: RoutesUrls.ORDERS_DETAILS,
-                            query: { order: JSON.stringify(order) },
-                        }}
-                        passHref
-                    >
-                        <button onClick={(e) => {
-                            e.stopPropagation();
-                        }}>
+                        <CustomButton onClick={ ()=> redirect(RoutesUrls.ORDERS_DETAILS + '?order='+ JSON.stringify(order) as RoutesUrls) }>
                             Wè plis
-                        </button>
-                    </Link>
-
+                        </CustomButton>
                     <button className={Styles.Achtebtn}>Achte ankò</button>
                 </div>
             </div>
