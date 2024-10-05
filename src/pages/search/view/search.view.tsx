@@ -68,9 +68,9 @@ export default function Search(props: SearchProps) {
              <div className={Styles.bottom}>
                <p className={Styles.daily_deal}>Likidasyon</p>
                <p>
-                 <i>de <span className={Styles.lastprice}> {prod.prices?.before?.formatted}</span></i>
+                 <i>de <span className={Styles.lastprice}> {prod.prices?.original_price?.formatted}</span></i>
                </p>
-               <p className={Styles.currentPrice}>{prod.prices?.current?.formatted} <span>{prod.prices?.current?.discountPercent} %</span></p>
+               <p className={Styles.currentPrice}>{prod.prices?.current_price?.formatted} <span>{prod.prices.current_price?.discount?.value} %</span></p>
                <p className={Styles.description}>
                {(prod.name && prod.name.length > 80) ? prod.name.substring(0, 80)+'...' : prod.name}
                </p>  
