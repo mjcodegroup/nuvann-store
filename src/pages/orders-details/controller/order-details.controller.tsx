@@ -1,26 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { HomePageDefault } from '@/components/home-page-default';
 import OrderDetails from '../view';
+import { useOrdersDetailsInfo } from '@/hooks/use-order-details-info';
 
-export default function OrdersController() {
+export default function OrderDetailsController() {
     const router = useRouter();
-    const { order } = router.query;
-    const [parsedOrder, setParsedOrder] = useState(null);
-
-    console.log(order)
-
-    useEffect(() => {
-        if (order) {
-            setParsedOrder(JSON.parse(order as string));
-        }
-    }, [order]);
+    const { orderId } = router.query;
+    console.log(orderId);
+    const { order, isLoading } = useOrdersDetailsInfo(orderId as string);
+    console.log(order);
     return (
         <HomePageDefault>
-            {parsedOrder ? (
-                <OrderDetails order={parsedOrder} isLoading={false} />
-            ) : (
-                <div>Loading order details...</div>
+            {(
+                <OrderDetails order={order} isLoading={isLoading} />
             )}
         </HomePageDefault>
     );

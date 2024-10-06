@@ -29,11 +29,13 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
                     <h5>Delivred by: <span>{order.shipping_tracking_data?.company_name}</span></h5>
                 </div>
                 <div className={Styles.CardsButtons}>
-                        <CustomButton onClick={ ()=> redirect(RoutesUrls.ORDERS_DETAILS + '?order='+ JSON.stringify(order) as RoutesUrls) }>
-                            Wè plis
-                        </CustomButton>
+                    <CustomButton
+                        onClick={() => redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${order.id}` as RoutesUrls)}>
+                        Wè plis
+                    </CustomButton>
                     <button className={Styles.Achtebtn}>Achte ankò</button>
                 </div>
+
             </div>
         </div>
     );
