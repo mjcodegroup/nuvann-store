@@ -32,6 +32,7 @@
     "react-i18next": "^14.1.0",
     "react-icons": "^5.2.1",
     "react-slick": "^0.30.2",
+    "react-step-progress-bar": "^1.0.3",
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "zod": "^3.23.8"

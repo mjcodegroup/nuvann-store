@@ -60,7 +60,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>Name: {order.seller.name}</p>
+        <p>Name: {order?.seller?.name}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -69,7 +69,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>Country: {order.seller.country.name}</p>
+        <p>Country: {order?.seller.country.name}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -88,7 +88,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <hr />
         <div className={styles.resume_separated_info}>
         <p>
-          Street: {order.shipping_address?.street}, {order.shipping_address?.number}
+          Street: {order?.shipping_address?.street}, {order?.shipping_address?.number}
         </p>
         {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
@@ -98,7 +98,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>City: {order.shipping_address?.city}</p>
+        <p>City: {order?.shipping_address?.city}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -107,7 +107,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>State: {order.shipping_address?.state_or_department}</p>
+        <p>State: {order?.shipping_address?.state_or_department}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -116,7 +116,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>Country: {order.shipping_address?.country.name}</p>
+        <p>Country: {order?.shipping_address?.country.name}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -125,11 +125,11 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        {order.shipping_tracking_data && (
+        {order?.shipping_tracking_data && (
           <>
             <h4>Shipping Tracking</h4>
-            <p>Company: {order.shipping_tracking_data.company_name}</p>
-            <p>Tracking ID: {order.shipping_tracking_data.tracking_id}</p>
+            <p>Company: {order?.shipping_tracking_data.company_name}</p>
+            <p>Tracking ID: {order?.shipping_tracking_data.tracking_id}</p>
           </>
         )}          {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>

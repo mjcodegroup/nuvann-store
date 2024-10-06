@@ -16,6 +16,7 @@ import ToastProvider from "@/contexts/toast";
 import { UserProvider } from "@/contexts/user";
 import { CheckoutProvider } from "@/contexts/checkout";
 import { CountriesProvider } from "@/contexts/countries";
+import { OrdersDetailsProvider } from "@/contexts/orders-details";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -35,7 +36,9 @@ export default function App({ Component, pageProps }: AppProps) {
                     <CartProvider>
                       <CheckoutProvider>
                         <OrdersProvider>
+                        <OrdersDetailsProvider>
                         <Component {...pageProps}/>
+                        </OrdersDetailsProvider>
                         </OrdersProvider>
                       </CheckoutProvider>
                     </CartProvider>
