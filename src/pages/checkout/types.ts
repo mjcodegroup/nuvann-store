@@ -17,6 +17,14 @@ export interface CheckoutProps {
     updateShippingInfoLoading: boolean;
     onPlaceOrder: ()=> Promise<void>;
     placeOrderLoading: boolean;
+    onChangeBtnChangeShipment: (item:any)=> void;
+    openModalShipment: boolean;
+    setOpenModalShipment: React.Dispatch<React.SetStateAction<boolean>>;
+    disableModalShipmentButton: boolean;
+    onConfirmModalShipment: any;
+    selectedShippingInfo: any;
+    onhangeShippmentInfos: (item:any)=> void;
+    currentShippingInfo: any;
 }
 
 export interface CardAddressProps {
@@ -34,4 +42,15 @@ export interface CardAddressProps {
 
 export interface CardProductsProps {
     items: CheckoutItem[];
+    onClickBtnChangeShipment: (item:any)=> void;        
+}
+
+export interface CardUpdateShipmentProps {
+    openModalShipment: boolean;
+    setOpenModalShipment: React.Dispatch<React.SetStateAction<boolean>>;
+    disableModalShipmentButton: boolean;
+    onConfirmModalShipment: any;
+    updateShippingInfoLoading: boolean;
+    item: CheckoutItem;
+    onhangeShippmentInfos: (item:any)=> void;
 }

@@ -55,10 +55,15 @@ export default function CheckoutController() {
     openModalAddress,
     setOpenModalAddress,
     handlePlaceOrder,
-    placeOrderLoader
+    placeOrderLoader,
+    openModalShipment,
+    setOpenModalShipment,
+    updateShipmentInfos
   } = useCheckoutInfo();
   const {user} = useUserInfo();
   const {countries} = useCountriesInfo();
+  const [currentShippingInfo, setCurrentShippingInfo] = React.useState<any>(null);
+  const [selectedShippingInfo, setSelectedShippingInfo] = React.useState<any>(null);
 
   const { register:shipmentAddress, setValue,  reset, handleSubmit, formState: { errors,isValid } } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -107,6 +112,18 @@ export default function CheckoutController() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   , [openModalAddress]);
 
+  const handleBtnChangeShipment = (item: any) => {
+    setCurrentShippingInfo(item);
+    setOpenModalShipment(true);
+  }
+
+  const handleUpdateShippingInfo = (data: any) => {
+    updateShipmentInfos({
+      itemId: currentShippingInfo.id,
+      shipmentId: selectedShippingInfo.id
+    });
+  }
+
   return (
     <HomePageDefault>
         <Checkout
@@ -129,6 +146,14 @@ export default function CheckoutController() {
           shipmentformErrors={errors}
           setValues={setValue}
           updateShippingInfoLoading={updateShippingInfoLoading}
+          onChangeBtnChangeShipment={handleBtnChangeShipment}
+          openModalShipment={openModalShipment}
+          setOpenModalShipment={setOpenModalShipment}
+          disableModalShipmentButton={false}
+          onConfirmModalShipment={handleUpdateShippingInfo}
+          selectedShippingInfo={selectedShippingInfo}
+          onhangeShippmentInfos={(item) => setSelectedShippingInfo(item)}
+          currentShippingInfo={currentShippingInfo}
           
         />
     </HomePageDefault>

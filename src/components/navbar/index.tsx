@@ -21,7 +21,6 @@ import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { Category } from '@/contexts/categories/types';
 
-
 interface selectedCountry {
   label: string;
   value: string;
@@ -65,6 +64,10 @@ export const Navbar: React.FC = () => {
     redirect(`/categories?name=${category.name}` as RoutesUrls);
   }
 
+  const handleSearch = (searchText: string) => {
+    redirect(`/search?search=${searchText}` as RoutesUrls)
+  }
+
   return (
     <div className={Styles.navbar_container_principal}>
       <div className={Styles.nav_header}>
@@ -74,7 +77,7 @@ export const Navbar: React.FC = () => {
         <div className={Styles.navbar_search}>
           <SearchBar
             placeholder={t('home.searchForAProduct')}
-            onSearch={() => console.log('searching')}
+            onSearch={handleSearch}
           />
         </div>
         <NavOptions
@@ -93,7 +96,6 @@ export const Navbar: React.FC = () => {
         onClickSellerMenu={()=>handleClickToBecomeSeller()}
         isAuthenticated={isAuthenticated}
       />
-
         <ModalActions
           title={t('home.term_and_contitions')}
           open ={modalTerm}

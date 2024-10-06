@@ -89,6 +89,7 @@
     "neighborhood": "Neighborhood",
     "street_name": "Street name",
     "street_number": "Street No.",
-    "complement": "Complement"
+    "complement": "Complement",
+    "select_shipment_option_title": "Select shipment option"
   }
 }
