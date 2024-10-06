@@ -13,7 +13,7 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
             <div className={Styles.rightSection}>
                 <div className={Styles.about}>
                     <ul className={Styles.StepProgress}>
-                        {order.order_item_status_logs.map((log, index) => (
+                        {order.order_item_status_logs?.map((log, index) => (
                             <li
                                 key={log.id}
                                 className={`${Styles.StepProgressItem} ${

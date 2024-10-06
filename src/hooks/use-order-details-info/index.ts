@@ -8,28 +8,9 @@ export function useOrdersDetailsInfo(orderId: string) {
     const { state: ordersState, dispatch: orderDetailsDispatch } = useOrderDetails();
 
     async function getOrder() {
-        console.log("SHHSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-        console.log("SHHSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-
-        console.log("SHHSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-
-        console.log("SHHSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-
-        console.log("SHHSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-
-        
         try {
             orderDetailsDispatch({ type: 'SET_ORDER_DETAILS_LOADER', value: true });
             const response = await nuvannApi.get(`/orders/purchases/items/${orderId}`);
-            console.log(response.data);
-            console.log(response.data);
-
-            console.log(response.data);
-
-            console.log(response.data);
-
-            console.log(response.data);
-
             orderDetailsDispatch({ type: 'SET_ORDER_DETAILS', value: response.data });
         } catch (error: any) {
             errorToast(error.response?.data.message || 'Failed to fetch orders');
@@ -47,6 +28,7 @@ export function useOrdersDetailsInfo(orderId: string) {
     return {
         ordersState,
         order: ordersState?.order,
+        getOrder,
         isLoading: ordersState?.order_details_loader,
     };
 }

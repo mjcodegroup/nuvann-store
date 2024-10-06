@@ -7,9 +7,7 @@ import { useOrdersDetailsInfo } from '@/hooks/use-order-details-info';
 export default function OrderDetailsController() {
     const router = useRouter();
     const { orderId } = router.query;
-    console.log(orderId);
     const { order, isLoading } = useOrdersDetailsInfo(orderId as string);
-    console.log(order);
     return (
         <HomePageDefault>
             {(
