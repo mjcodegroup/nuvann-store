@@ -1,11 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import Styles from './order-card.module.scss';
 import { Order } from '@/contexts/orders/types';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
-import { Button } from '@mui/material';
 import CustomButton from '@/components/custom-button';
 
 interface OrderCardProps {

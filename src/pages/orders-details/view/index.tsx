@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './orders-details.module.scss';
 import { Order } from '@/contexts/orders/types';
 import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
@@ -12,13 +12,8 @@ interface OrderDetailsProps {
 
 export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
     const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
-    const [expandedOrderId, setExpandedOrderId] = useState<string | null>(null);
 
-    const handleExpandToggle = (orderId: string) => {
-        setExpandedOrderId(expandedOrderId === orderId ? null : orderId);
-    };
-
-    React.useEffect(() => {
+    useEffect(() => {
         setSelectedOrder(order);
     }, [order]);
 
@@ -29,10 +24,10 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
             ) : (
                 <div className={styles.AchasHolder}>
                     <div className={styles.PurchaseCards}>
-                        <h3>Detail:</h3>
+                        <h3>Real time track:</h3>
                         <div className={styles.PurchaseScroll}>
                             <div key={order?.id}>
-                                {expandedOrderId === order?.id && <OrderSubCard order={order} />}
+                                <OrderSubCard order={order} />
                             </div>
                         </div>
                     </div>
