@@ -23,7 +23,6 @@ export function useOrdersInfo() {
         if(!ordersState.orders.length){
             getOrders();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return {

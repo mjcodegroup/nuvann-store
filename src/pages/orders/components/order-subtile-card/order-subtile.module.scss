@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    width: 100%;
+    flex: 1;
+}
+
+.about {
+    background-color: #eff1f0;
+    margin-bottom: 10px;
+    border-radius: 0.8%;
+    width: 100%;
+    padding: 10px;
+}
+
+.rightSection {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.StepProgress {
+    position: relative;
+    padding-left: 45px;
+    list-style: none;
+}
+
+.StepProgress::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 10px;
+    height: 100%;
+    border-left: 2px solid #CCC;
+}
+
+.StepProgressItem {
+    position: relative;
+    counter-increment: list;
+    padding-bottom: 20px;
+}
+
+.StepProgressItem.isDone::before {
+    border-left: 2px solid green;
+}
+
+.StepProgressItem.current::before {
+    border-left: 2px solid green;
+}
+
+.StepProgressItem::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: -37px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #CCC;
+    border-radius: 50%;
+    background-color: #FFF;
+}
+
+.StepProgressItem.isDone::after {
+    background-color: green;
+}
+
+.StepProgressItem.current::after {
+    background-color: white;
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .rightSection {
+        width: 100%;
+        overflow-y: visible;
+    }
+}
