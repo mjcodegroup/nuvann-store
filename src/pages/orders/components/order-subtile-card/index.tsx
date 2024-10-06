@@ -1,7 +1,6 @@
 import React from 'react';
 import Styles from './order-subtile.module.scss';
 import { Order } from '@/contexts/orders/types';
-import Image from 'next/image';
 
 interface OrderSubCardProps {
     order: Order;

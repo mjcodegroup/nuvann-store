@@ -1,13 +1,13 @@
 import { useOrderDetails } from '@/contexts/orders-details';
 import { useToast } from '@/contexts/toast';
 import { nuvannApi } from '@/services/api';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 export function useOrdersDetailsInfo(orderId: string) {
     const { errorToast } = useToast();
     const { state: ordersState, dispatch: orderDetailsDispatch } = useOrderDetails();
 
-    async function getOrder() {
+    async function getOrderDetails() {
         try {
             orderDetailsDispatch({ type: 'SET_ORDER_DETAILS_LOADER', value: true });
             const response = await nuvannApi.get(`/orders/purchases/items/${orderId}`);
@@ -20,15 +20,12 @@ export function useOrdersDetailsInfo(orderId: string) {
     }
 
     useEffect(() => {
-        if (orderId && !ordersState.order) {
-            getOrder();
-        }
-    }, [orderId]);
-
+            getOrderDetails();
+    }, []);
     return {
         ordersState,
-        order: ordersState?.order,
-        getOrder,
+        order: ordersState.order,
+        getOrderDetails,
         isLoading: ordersState?.order_details_loader,
     };
 }
