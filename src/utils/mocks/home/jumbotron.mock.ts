@@ -2,7 +2,7 @@ import { Category } from "@/contexts/categories/types";
 
 const categoriesMock: Category[] = [
   {
-    id: 1,
+    id: "1",
     name: "Laptòp",
     description: "desc",
     tags: ["tag1", "tag2"],
@@ -15,7 +15,7 @@ const categoriesMock: Category[] = [
 
   },
   {
-    id: 2,
+    id: "2",
     name: "Smatfòn",
     description: "desc",
     tags: ["tag1", "tag2"],
@@ -27,7 +27,7 @@ const categoriesMock: Category[] = [
     }
   },
   {
-    id: 3,
+    id: "3",
     name: "Tablèt",
     description: "desc",
     tags: ["tag1", "tag2"],
@@ -39,7 +39,7 @@ const categoriesMock: Category[] = [
     }
   },
   {
-    id: 4,
+    id: "4",
     name: "Kas bloutouf ",
     description: "desc",
     tags: ["tag1", "tag2"],
