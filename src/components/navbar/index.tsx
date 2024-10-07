@@ -65,7 +65,7 @@ export const Navbar: React.FC = () => {
   } , [isAuthenticated]);
 
   const handleRedirectToCategory = (category: Category) => {
-    redirect(`/categories?name=${category.name}` as RoutesUrls);
+    redirect(`/search?category_id=${category.id}` as RoutesUrls);
   }
 
   const handleSearch = (searchText: string) => {
