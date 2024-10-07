@@ -69,7 +69,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>Country: {order?.seller.country.name}</p>
+        <p>Country: {order?.seller?.country?.name}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (

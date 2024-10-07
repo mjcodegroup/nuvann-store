@@ -9,7 +9,7 @@ export function useProductsInfo() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         const params: getProductsParams = {
             page: 1,
-            categoryId: options?.categoryId,
+            category_id: options?.category_id,
             in_promotion: options?.in_promotion,
             search: options?.search || undefined,
             size: 10

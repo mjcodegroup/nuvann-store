@@ -20,6 +20,7 @@ import { UserRoles } from '@/utils/enums/user.enum';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { Category } from '@/contexts/categories/types';
+import { useRouter } from 'next/router';
 
 interface selectedCountry {
   label: string;
@@ -42,6 +43,9 @@ export const Navbar: React.FC = () => {
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();
+
+  const router = useRouter();
+  const { search } = router.query;
 
   const handleClickToBecomeSeller = () => {
     if(!isAuthenticated) {
@@ -76,6 +80,7 @@ export const Navbar: React.FC = () => {
         </Link>
         <div className={Styles.navbar_search}>
           <SearchBar
+            defaultValue={search as string}
             placeholder={t('home.searchForAProduct')}
             onSearch={handleSearch}
           />
