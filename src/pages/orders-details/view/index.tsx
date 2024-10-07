@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './orders-details.module.scss';
 import { Order } from '@/contexts/orders/types';
 import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
-import OrderSubCard from '../../orders/components/order-subtile-card';
-import OrdersResume from '../../orders/components/order-resume';
+import OrderSubCard from '../components/order-subtile-card';
+import OrdersResume from '../components/order-resume';
 
 interface OrderDetailsProps {
     order: Order;
@@ -30,7 +30,7 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
     return (
         <div className={styles.AchasHolder}>
             <div className={styles.PurchaseCards}>
-                <h3>Real time track:</h3>
+                <h3>Track your order:</h3>
                 <div className={styles.PurchaseScroll}>
                     <div key={order?.id}>
                         <OrderSubCard order={order} />
