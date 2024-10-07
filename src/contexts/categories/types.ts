@@ -16,7 +16,7 @@ export interface CategoriesContextProps {
 }
 
 export interface Category {
-    id: number;
+    id: string;
     name: string;
     description: string;
     tags: string[];
