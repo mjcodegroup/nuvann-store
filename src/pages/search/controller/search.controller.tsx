@@ -7,33 +7,38 @@ import { getProductsParams } from '@/contexts/products/types';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useCategoriesInfo } from '@/hooks/use-categories-info';
-import { Category } from '@/contexts/categories/types';
 
 export default function SearchController() {
     const router = useRouter();
     const { redirect } = useNavigation();
     const {getProducts, products, loading} = useProductsInfo();
     const {categoriesState} = useCategoriesInfo();
-    const { search, category_id } = router.query;
+    const { search, category_id, in_promotion } = router.query;
+    const [defaultCheckedPromotion, setDefaultCheckedPromotion] = React.useState<boolean>(Boolean(in_promotion));
+    const [categoryId, setCategoryID ] = React.useState<string>(category_id as string);
 
 
     React.useEffect(() => {
         const options = {
           search,
-          category_id
+          category_id,
+          in_promotion
         } as getProductsParams;
         getProducts(options);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [search, category_id])
+      }, [search, category_id, in_promotion])
 
       const handleRedirectToProductDetails = React.useCallback( (id: string | number) => {
         redirect(`/product/${id}` as RoutesUrls)
       }, [redirect])
 
-      const handleChangeCategory = React.useCallback( (category: Category) => {
-       redirect(`/search?search=${search}&category_id=${category.id}` as RoutesUrls)
+      const handleChangeFilter = React.useCallback( (categoryId: string, inPromotion: boolean) => {
+        setDefaultCheckedPromotion(inPromotion);
+        setCategoryID(categoryId);
+        redirect(`/search?search=${search || ''}&category_id=${categoryId}&in_promotion=${inPromotion}` as RoutesUrls)
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [])
+      }, [Boolean(in_promotion)])
+      
 
 
   return (
@@ -45,7 +50,8 @@ export default function SearchController() {
           productCount={products?.items?.length || 0}
           onRedirectToProductDetails={handleRedirectToProductDetails}
           categories={categoriesState.categories}
-          onSelectCategory={handleChangeCategory}
+          onChangeFilter={handleChangeFilter}
+          defaultCheckedPromotion={defaultCheckedPromotion}
         />
     </HomePageDefault>
   )

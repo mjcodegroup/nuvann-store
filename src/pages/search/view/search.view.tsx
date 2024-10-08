@@ -11,7 +11,8 @@ export default function Search(props: SearchProps) {
         resultCount={props.productCount}
         searchQuery={props.searchQuery}
         categories={props.categories}
-        onSelectCategory={props.onSelectCategory}
+        onChangeFilters={props.onChangeFilter}
+        defaultCheckedPromotion={props.defaultCheckedPromotion}
       />
       <ProductList  
         products={props.products}
