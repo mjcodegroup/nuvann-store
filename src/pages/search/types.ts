@@ -7,7 +7,8 @@ export interface SearchProps {
     productCount: number;
     onRedirectToProductDetails: (id: number | string) => void;
     categories: any;
-    onSelectCategory: (category: Category) => void;
+    onChangeFilter: (category_id: string, in_promotion: boolean) => void;
+    defaultCheckedPromotion?: boolean;
 }
 
 export interface ProductListProps {

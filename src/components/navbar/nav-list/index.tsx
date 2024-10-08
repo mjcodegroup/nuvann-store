@@ -21,18 +21,18 @@ export default function NavList(props: NavListProps) {
             >
               {t("nav_content.category")}
             </DropdownSimple>
-            <Link href="/promotions">
+            <Link href={`/search?in_promotion=${true}`}>
               {t("nav_content.promotion")}
             </Link>
               <div onClick={props.onClickSellerMenu}>
                 {t("nav_content.sell")}
               </div>
-              <Link href="/category?category=man">
+              {/* <Link href="/category?category=man">
                 {t("nav_content.man")}
               </Link>
             <Link href="/category?category=women">
               {t("nav_content.women")}
-            </Link>
+            </Link> */}
         </ul>
     </nav>
   )
