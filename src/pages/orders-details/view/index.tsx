@@ -19,6 +19,14 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
         }
     }, [order, isLoading]);
 
+    const formatAddress = (address: Order['shipping_address']) => {
+        const {
+            street, number, complement, neighborhood,
+            city, state_or_department, zipCode, country
+        } = address;
+        return `${street}, ${number}${complement ? `, ${complement}` : ''}, ${neighborhood}, ${city} - ${state_or_department}, ${zipCode}, ${country.name}`;
+    };
+
     if (isLoading) {
         return <OrdersCardSkeleton />;
     }
@@ -27,6 +35,11 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
         <div className={styles.AchasHolder}>
             <div className={styles.PurchaseCards}>
                 <h3>Track your order:</h3>
+                <div className={styles.concatenate}>
+                    <span>
+                        Destination: {order?.shipping_address ? formatAddress(order.shipping_address) : 'No address available'}
+                    </span>
+                </div>
                 <div className={styles.PurchaseScroll}>
                     <div key={order?.id}>
                         <OrderSubCard order={order} />
