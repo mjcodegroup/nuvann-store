@@ -4,8 +4,8 @@ import styles from './order-resume.module.scss';
 import CustomButton from '@/components/custom-button';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
-import Title from '@/components/title';
 import { Order } from '@/contexts/orders/types';
+import Title from '../title';
 
 export interface OrderResumeData {
   count: number;

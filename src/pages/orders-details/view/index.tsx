@@ -17,12 +17,8 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
         if (!isLoading) {
             setSelectedOrder(order);
         }
-    }, [order, isLoading]); // Add isLoading as a dependency
+    }, [order, isLoading]);
 
-    console.log('IN the view...');
-    console.log(order);
-
-    // Show skeleton when loading
     if (isLoading) {
         return <OrdersCardSkeleton />;
     }

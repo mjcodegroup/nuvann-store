@@ -6,13 +6,11 @@
   display: flex;
   width: 48%;
   flex-direction: column;
-  justify-content: space-between;
   position: sticky;
   top: 0;
   
   .resume_title {
     font-size: 20px;
-    margin: -20px 0;
     padding: 0;
   }
 }
