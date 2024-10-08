@@ -9,8 +9,8 @@ export function useProductsInfo() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         const params: getProductsParams = {
             page: 1,
-            category_id: options?.category_id,
-            in_promotion: options?.in_promotion,
+            category_id: options?.category_id || undefined,
+            in_promotion: options?.in_promotion || false,
             search: options?.search || undefined,
             size: 10
         }
@@ -20,6 +20,7 @@ export function useProductsInfo() {
             })
             productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
         } catch (error) {
+            productsDispatch({ type: 'SET_PRODUCTS', value: [] as any });
             
         } finally {
             productsDispatch({ type: 'SET_LOADING', value: false });

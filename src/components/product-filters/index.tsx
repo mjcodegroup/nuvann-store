@@ -2,17 +2,24 @@ import React from 'react'
 import Styles from './product-filter.module.scss';
 import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
+import { FormControlLabel, Switch } from '@mui/material';
 
 interface FilterProps {
     searchQuery: string;
     resultCount: number;
     categories: any;
-    onSelectCategory: (category: Category) => void;
+    onChangeFilters: (category_id: string, in_promotion: boolean) => void;
+    defaultCheckedPromotion?: boolean;
 }
 
 export default function ProductFilters(props: FilterProps) {
     const router = useRouter();
     const { category_id } = router.query;
+
+    const handleChangePromotion = (e: any) => {
+        props.onChangeFilters(category_id as string, e.target.checked)
+    }
+
   return (
     <div className={Styles.filter_container}>
         <div className = {Styles.__content}>
@@ -22,6 +29,10 @@ export default function ProductFilters(props: FilterProps) {
                 <p>{props.resultCount} resultado</p>
             </div>
 
+            <div>
+                <FormControlLabel control={<Switch defaultChecked={props.defaultCheckedPromotion} />} label="Daily deals" onChange={handleChangePromotion}/>
+            </div>
+
             <div className={Styles.category_list}>
                 <h4>Categorias</h4>
                 <ul>
@@ -29,7 +40,7 @@ export default function ProductFilters(props: FilterProps) {
                         props.categories?.map((category: Category) => (
                             <li 
                             key={category.id}
-                            onClick={()=>props.onSelectCategory(category)}
+                            onClick={()=>props.onChangeFilters(category.id,props.defaultCheckedPromotion as boolean)}
                             className={category_id === category.id ? Styles.selected_category : ''}
                             >
                                 {category.name}
