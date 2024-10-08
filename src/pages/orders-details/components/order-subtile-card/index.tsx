@@ -38,15 +38,3 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
 };
 
 export default OrderSubCard;
-
-
-
-
-
-
-
-// CREATED,
-// CONFIRMED,
-// CANCELED,
-// REFUNDED,
-// FAILED
