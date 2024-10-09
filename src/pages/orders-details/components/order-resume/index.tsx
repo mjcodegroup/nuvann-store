@@ -32,7 +32,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>Pri total: ({data.count})</p>
+          <p>Pri total: </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -77,53 +77,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
           )}
         </div>
         <hr />
-        <div className={styles.resume_separated_info}>
-        <h4>Shipping Address</h4>
-          {props.loading ? (
-            <p><Skeleton width={100} height={30} /> </p>
-          ) : (
-            <h5></h5>
-          )}
-        </div>
-        <hr />
-        <div className={styles.resume_separated_info}>
-        <p>
-          Street: {order?.shipping_address?.street}, {order?.shipping_address?.number}
-        </p>
-        {props.loading ? (
-            <p><Skeleton width={100} height={30} /> </p>
-          ) : (
-            <h5></h5>
-          )}
-        </div>
-        <hr />
-        <div className={styles.resume_separated_info}>
-        <p>City: {order?.shipping_address?.city}</p>
-          {props.loading ? (
-            <p><Skeleton width={100} height={30} /> </p>
-          ) : (
-            <h5></h5>
-          )}
-        </div>
-        <hr />
-        <div className={styles.resume_separated_info}>
-        <p>State: {order?.shipping_address?.state_or_department}</p>
-          {props.loading ? (
-            <p><Skeleton width={100} height={30} /> </p>
-          ) : (
-            <h5></h5>
-          )}
-        </div>
-        <hr />
-        <div className={styles.resume_separated_info}>
-        <p>Country: {order?.shipping_address?.country.name}</p>
-          {props.loading ? (
-            <p><Skeleton width={100} height={30} /> </p>
-          ) : (
-            <h5></h5>
-          )}
-        </div>
-        <hr />
+        
         <div className={styles.resume_separated_info}>
         {order?.shipping_tracking_data && (
           <>
