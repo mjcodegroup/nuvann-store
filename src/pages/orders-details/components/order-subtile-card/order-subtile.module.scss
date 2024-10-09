@@ -41,11 +41,11 @@
 }
 
 .StepProgressItem.isDone::before {
-    border-left: 2px solid green;
+    border-left: 2px solid white;
 }
 
 .StepProgressItem.current::before {
-    border-left: 2px solid green;
+    border-left: 2px solid white;
 }
 
 .StepProgressItem::after {
@@ -62,7 +62,7 @@
 }
 
 .StepProgressItem.isDone::after {
-    background-color: green;
+    background-color: white;
 }
 
 .StepProgressItem.current::after {
