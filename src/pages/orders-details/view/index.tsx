@@ -40,6 +40,11 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
                         Destination: {order?.shipping_address ? formatAddress(order.shipping_address) : 'No address available'}
                     </span>
                 </div>
+                {/* <div className={styles.concatenate}>
+                    <h4>
+                        Tracking ID: {order?.shipping_tracking_data?.tracking_id}
+                    </h4>
+                </div> */}
                 <div className={styles.PurchaseScroll}>
                     <div key={order?.id}>
                         <OrderSubCard order={order} />
