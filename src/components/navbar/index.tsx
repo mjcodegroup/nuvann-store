@@ -21,6 +21,7 @@ import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
+import getDeviceType from '@/utils/get-device-type';
 
 interface selectedCountry {
   label: string;
@@ -71,6 +72,8 @@ export const Navbar: React.FC = () => {
   const handleSearch = (searchText: string) => {
     redirect(`/search?search=${searchText}` as RoutesUrls)
   }
+
+  console.log(getDeviceType.isMobile())
 
   return (
     <div className={Styles.navbar_container_principal}>
