@@ -64,3 +64,15 @@
         }
     }
 }
+
+@media (max-width: 480px) {
+    .footer_principal_container{
+        padding: 0 24px;
+        .footer_signature{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 8px;
+        }
+    }
+}
