@@ -1,0 +1,106 @@
+.mobile_nav_container {
+    background-color: var(--background-yellow);
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    gap: 16px;
+    padding: 16px 12px;
+    .__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--blue-principal-000052);
+
+        a{
+            font-size: 18px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.drawer_container{
+    ._header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--background-yellow);
+        height: 110px;
+        padding: 0 16px;
+        
+        ._content{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            ._user {
+                display: flex;
+                align-items: center;
+                gap: 0 16px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            button {
+                width: 150px;
+                height: 45px;
+                border: none;
+                background-color: transparent;
+                // color: var(--background-white);
+                cursor: pointer;
+                font-family: Roboto;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 15.23px;
+                border-radius: 8px;
+
+                &:hover {
+                    border-left: 1px solid var(--blue-principal-000052);
+                    border-bottom: 1px solid var(--blue-principal-000052);
+                }
+
+            }
+        }
+
+        ._footer{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 8px;
+            color: #fff;
+        }
+
+    }
+
+    ._nav_list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 50vh;
+
+        ul {
+            margin: 12px;
+            height: 100%;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 32px;
+            margin-top: 64px;
+
+            font-family: Roboto;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 18px;
+            color: #000000;
+          
+        }
+
+        ._nav_list_footer{
+            border-top: 1px solid gray;
+        }
+    }
+}

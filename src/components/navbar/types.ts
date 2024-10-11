@@ -1,4 +1,5 @@
 import { Category } from "@/contexts/categories/types";
+import MobileNavbar from "./mobile-navbar";
 
 export interface NavOptionProps {
     user: any;
@@ -20,4 +21,8 @@ export interface NavListProps {
     onClickSellerMenu: () => void;
     width: string;
     isAuthenticated: boolean;
-  }
+}
+
+export interface MobileNavbarProps extends NavOptionProps, NavListProps, SearchBarProps {
+    onClickMenu: () => void;
+}

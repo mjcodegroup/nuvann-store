@@ -3,6 +3,7 @@ import { debounce } from 'lodash';
 import Styles from './search-bar.module.scss';
 import { useTranslation } from 'react-i18next';
 import { SearchBarProps } from '../types';
+import { IoMdSearch } from 'react-icons/io';
 
 interface ExtendedSearchBarProps extends SearchBarProps {
   defaultValue?: string;
@@ -44,7 +45,10 @@ const SearchBar: React.FC<ExtendedSearchBarProps> = ({ placeholder, onSearch, de
         value={query}
         onChange={handleInputChange}
       />
-      <button onClick={handleButtonClick}>{t('nav_content.search')}</button>
+      <button onClick={handleButtonClick}>
+        <span>{t('nav_content.search')}</span>
+        <span><IoMdSearch /></span>
+        </button>
     </div>
   );
 };

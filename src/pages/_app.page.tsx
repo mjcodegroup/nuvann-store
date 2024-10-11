@@ -17,6 +17,7 @@ import { UserProvider } from "@/contexts/user";
 import { CheckoutProvider } from "@/contexts/checkout";
 import { CountriesProvider } from "@/contexts/countries";
 import { OrdersDetailsProvider } from "@/contexts/orders-details";
+import { NoSsr } from "@mui/material";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
         <I18nextProvider i18n={getI18n()} defaultNS={'fr'}>
+          <NoSsr>
           <CountriesProvider>
             <AuthProvider >
               <UserProvider>
@@ -48,6 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
               </UserProvider>
             </AuthProvider>
           </CountriesProvider>
+          </NoSsr>
         </I18nextProvider>
     </>
   )
