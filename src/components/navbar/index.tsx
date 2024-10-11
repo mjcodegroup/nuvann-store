@@ -22,6 +22,7 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
 import getDeviceType from '@/utils/get-device-type';
+import MobileNavbar from './mobile-navbar';
 
 interface selectedCountry {
   label: string;
@@ -73,53 +74,76 @@ export const Navbar: React.FC = () => {
     redirect(`/search?search=${searchText}` as RoutesUrls)
   }
 
-  console.log(getDeviceType.isMobile())
-
   return (
-    <div className={Styles.navbar_container_principal}>
-      <div className={Styles.nav_header}>
-        <Link href="/">
-          <Image src={logo} alt="nuvann.com" />
-        </Link>
-        <div className={Styles.navbar_search}>
-          <SearchBar
-            defaultValue={search as string}
-            placeholder={t('home.searchForAProduct')}
-            onSearch={handleSearch}
-          />
-        </div>
-        <NavOptions
-          user={userInfos.name? userInfos : user}
+    <>
+
+    {
+      getDeviceType.isMobile() ?
+        <MobileNavbar
+          categories={categoriesState?.categories}
+          onCategorySelect={handleRedirectToCategory}
+          onClickSellerMenu={()=>handleClickToBecomeSeller()}
           isAuthenticated={isAuthenticated}
+          user={userInfos.name? userInfos : user}
           onSignIn={handleLogin}
           isLoading={loading}
           onLogout={logout}
           cartCount={cartState.cart?.count}
+          placeholder={t('home.searchForAProduct')}
+          onSearch={handleSearch}
+          onClickMenu={()=>{}}
+          width='100%'
+        /> 
+      :
+      (
+      <div className={Styles.navbar_container_principal}>
+        <div className={Styles.nav_header}>
+          <Link href="/">
+            <Image src={logo} alt="nuvann.com" />
+          </Link>
+          <div className={Styles.navbar_search}>
+            <SearchBar
+              defaultValue={search as string}
+              placeholder={t('home.searchForAProduct')}
+              onSearch={handleSearch}
+            />
+          </div>
+          <NavOptions
+            user={userInfos.name? userInfos : user}
+            isAuthenticated={isAuthenticated}
+            onSignIn={handleLogin}
+            isLoading={loading}
+            onLogout={logout}
+            cartCount={cartState.cart?.count}
+          />
+        </div>
+        <NavList
+          width='100%'
+          categories={categoriesState?.categories}
+          onCategorySelect={handleRedirectToCategory}
+          onClickSellerMenu={()=>handleClickToBecomeSeller()}
+          isAuthenticated={isAuthenticated}
         />
       </div>
-      <NavList
-        width='100%'
-        categories={categoriesState?.categories}
-        onCategorySelect={handleRedirectToCategory}
-        onClickSellerMenu={()=>handleClickToBecomeSeller()}
-        isAuthenticated={isAuthenticated}
-      />
-        <ModalActions
-          title={t('home.term_and_contitions')}
-          open ={modalTerm}
-          setOpen= {setModalTerm}
-          loading={userInfosLoader}
-          disable={!businessName || !selectedCountry.code}
-          onClickBtnConfirm= {(): void =>{
-            handleBecomeSeller({
-              business_name: businessName,
-              country: selectedCountry
-            })
-          }}
-        >
-          <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
-          <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
-        </ModalActions>
-    </div>
+      ) 
+
+    }
+    <ModalActions
+      title={t('home.term_and_contitions')}
+      open ={modalTerm}
+      setOpen= {setModalTerm}
+      loading={userInfosLoader}
+      disable={!businessName || !selectedCountry.code}
+      onClickBtnConfirm= {(): void =>{
+        handleBecomeSeller({
+          business_name: businessName,
+          country: selectedCountry
+        })
+      }}
+    >
+      <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
+      <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
+    </ModalActions>
+    </>
   );
 };

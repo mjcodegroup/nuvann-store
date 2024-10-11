@@ -9,12 +9,10 @@ interface PageDefaultProps {
 export const HomePageDefault: React.FC<PageDefaultProps> = ({ children }) =>{
   return (
     <div>
-        <h1><Navbar /></h1>
-
+        <Navbar />
         <div className={Styles.home_page_default_main_container}>
             {children}
         </div>
-
         <Footer />
     </div>
   )

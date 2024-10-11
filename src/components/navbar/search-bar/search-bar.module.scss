@@ -1,34 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
 .search_bar {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    height: 40px;
-    
-  
-    input[type="text"] {
-      flex-grow: 1;
-      border: none;
-      margin-left: 12px;
-      color: #8A8A8A;
-      font-family: Poppins;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 19.2px;
-      text-align: left;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  height: 40px;
 
+  input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    margin-left: 12px;
+    color: #8A8A8A;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-align: left;
 
-      &:focus{
-        outline: none;
+    &:focus {
+      outline: none;
     }
-}
-  
-button {
+  }
+
+  button {
     height: 100%;
-    width: 100px;
+    width: 100px; /* Tamanho padrão do botão */
     margin-left: 8px;
     border: none;
     background-color: var(--blue-principal-000052);
@@ -36,16 +34,46 @@ button {
     border-radius: 0 20px 20px 0;
     cursor: pointer;
 
-    //styleName: text;
     font-family: Poppins;
     font-size: 14px;
     font-weight: 400;
     line-height: 26.4px;
 
-      
-      &:hover {
-        background-color: var(--blue-principal-000052);
+    &:hover {
+      background-color: var(--blue-principal-000052);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .search_bar {
+    background-color: #fff;
+    border-radius: 4px;
+    height: 45px;
+
+    input[type="text"] {
+      font-size: 14px;
+      border-radius: 0 4px 4px 0;
+
+    }
+
+    button {
+      width: 40px; /* Reduz o tamanho do botão para comportar um ícone */
+      height: 100%;
+      padding: 0; /* Remove qualquer padding adicional */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 4px 4px 0;
+
+      span{
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        &:nth-of-type(1) {
+          display: none;
+        }
       }
     }
   }
-  
+}
