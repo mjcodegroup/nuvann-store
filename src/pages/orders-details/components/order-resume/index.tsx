@@ -32,7 +32,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>Pri total: </p>
+          <p>Pri total </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -40,7 +40,6 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
           )}
         </div>
         <hr />
-
         <div className={styles.resume_separated_info}>
           <p>{t('cart.delivery')}</p>
           {props.loading ? (

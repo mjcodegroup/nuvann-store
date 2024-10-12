@@ -1,23 +1,18 @@
-.AchasHolder,
-.AchasHolder2 {
-    width: 97%;
+.AchasHolder {
+    width: 100%;
     min-height: 650px;
     background-color: #F6F6F6;
     display: flex;
+    justify-content: space-between;
+    gap: 0 32px;
     padding: 2%;
-    margin: 0 10% 20px 10%;
     height: auto;
     overflow: auto;
 }
 
-.AchasHolder {
-    display: flex;
-    justify-content: space-between;
-}
-
 .PurchaseCards {
-    width: 55%;
-    h3{
+    width: 100%;
+    h3 {
         color: #000052;
     }
 }
@@ -40,38 +35,14 @@
     margin-bottom: 2%;
 }
 
-.AchasHolder {
-    .concatenate {
-        margin-left: 3%;
-        margin-left: 3%;
-    }
-}
-
-.AchasHolder2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.messageAnyen {
-    width: 570px;
-    height: 214px;
-    background-color: #ffffffad;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-}
-
-.messageAnyen h3 {
-    font-size: 24px;
-    margin-bottom: 40px;
+.AchasHolder .concatenate {
+    margin-left: 3%;
 }
 
 .OrdersResume {
-    width: 50%;
-    margin-top: 20px;
+    // width: 50%;
+    // margin-left: 20px;
+    // margin-top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -79,18 +50,6 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        height: auto;
-        overflow: auto;
-    }
-
-    .AchasHolder,
-    .AchasHolder2 {
-        width: 100%;
-        min-height: 650px;
-        background-color: #F6F6F6;
-        display: flex;
-        padding: 2%;
-        margin: 0 0% 20px 0%;
         height: auto;
         overflow: auto;
     }
@@ -110,11 +69,12 @@
     .AchasHolder h3 {
         text-align: center;
         width: 100%;
-        margin-left: 0%;
+        margin-left: 0;
     }
 
     .OrdersResume {
         width: 100%;
         margin-top: 20px;
+        margin-left: 0;
     }
 }
