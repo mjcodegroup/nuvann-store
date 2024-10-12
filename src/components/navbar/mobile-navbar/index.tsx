@@ -40,7 +40,7 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
             <div className={Styles._header}>
               <div className={Styles._content}>
                 {
-                  !props.isAuthenticated ? 
+                  props.isAuthenticated ? 
                     <div className={Styles._user}>
                       <Avatar
                         src={props?.user?.picture}

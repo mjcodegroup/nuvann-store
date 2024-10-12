@@ -31,7 +31,7 @@ const InputQuantity: React.FC<InputQuantityProps> = ({
 
   return (
     <section className={Styles.input_quantity_container}>
-      <span className={Styles._label}>{label}:</span>
+      <span className={Styles.label_}>{label}:</span>
       <form className={Styles.count_inlineflex}>
         <div
           className={`${Styles._qty_min} ${isDecrementDisabled ? Styles.disabled : ''}`}

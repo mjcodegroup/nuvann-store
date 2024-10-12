@@ -27,12 +27,16 @@ export default function ProductList(props: ProductListProps) {
                     <Image src={prod.images?.[1]?.url || ''} className={Styles.show_hover} alt="" width={100} height={100}/>
                 </div>
                 <div className={Styles.bottom}>
-                    {prod.prices.current_price?.discount.value ? (
+                    {prod.prices.current_price?.discount?.value ? (
                         <p className={Styles.daily_deal}>{t("home.today_deals")}</p>
                     ) : ''}
+                    {
+                    prod.prices.current_price?.discount?.value ? (
                     <p>
                         <i>de <span className={Styles.lastprice}> {prod.prices?.original_price?.formatted}</span></i>
                     </p>
+                    ) : ''
+                    }
                     <p className={Styles.current_price}>{prod.prices?.current_price?.formatted}
                     {prod.prices.current_price?.discount.value ? (
                         <span>{prod.prices.current_price?.discount?.value} %</span>
