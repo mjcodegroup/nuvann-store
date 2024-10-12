@@ -1,7 +1,6 @@
 .container {
     display: flex;
     width: 100%;
-    flex: 1;
 }
 
 .about {
@@ -21,6 +20,12 @@
     position: relative;
     padding-left: 45px;
     list-style: none;
+    strong{
+        color: #000052;
+    }
+    span{
+        margin-bottom: 10%;
+    }
 }
 
 .StepProgress::before {
@@ -37,7 +42,7 @@
 .StepProgressItem {
     position: relative;
     counter-increment: list;
-    padding-bottom: 20px;
+    padding-bottom: 10%;
 }
 
 .StepProgressItem.isDone::before {
@@ -62,7 +67,7 @@
 }
 
 .StepProgressItem.isDone::after {
-    background-color: white;
+    background-color: green;
 }
 
 .StepProgressItem.current::after {
