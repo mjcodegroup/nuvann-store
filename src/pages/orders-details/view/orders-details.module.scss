@@ -1,6 +1,6 @@
 .AchasHolder,
 .AchasHolder2 {
-    width: 100%;
+    width: 97%;
     min-height: 650px;
     background-color: #F6F6F6;
     display: flex;
@@ -17,6 +17,9 @@
 
 .PurchaseCards {
     width: 55%;
+    h3{
+        color: #000052;
+    }
 }
 
 .NoOrderSelected {

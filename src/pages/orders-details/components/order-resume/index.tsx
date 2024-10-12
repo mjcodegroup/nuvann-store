@@ -49,9 +49,10 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             <h5>{data.shipping_cost}</h5>
           )}
         </div>
-        <hr />
         <div className={styles.resume_separated_info}>
-        <h4>Seller Information</h4>
+        <Title title='Seller Information' className={styles.resume_title} />
+
+        <h4></h4>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -76,7 +77,6 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             <h5></h5>
           )}
         </div>
-        <hr />
         
         <div className={styles.resume_separated_info}>
         {order?.shipping_tracking_data && (
