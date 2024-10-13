@@ -29,7 +29,7 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
             ) : orders.length === 0 ? (
                 <div className={styles.AchasHolder2}>
                     <div className={styles.messageAnyen}>
-                        <h3>Ou poko achte anyen !!</h3>
+                        <h3>Ou poko achte anyen...</h3>
                         <CustomButton
                             variant="outlined"
                             onClick={() => redirect(RoutesUrls.HOME)}

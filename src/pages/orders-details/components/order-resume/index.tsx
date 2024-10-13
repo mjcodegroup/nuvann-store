@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
 import { Order } from '@/contexts/orders/types';
 import Title from '../title';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useNavigation } from '@/hooks/useNavigation';
 
 export interface OrderResumeData {
   count: number;
@@ -25,6 +27,7 @@ export interface OrderResumeProps {
 const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
   const { t } = useTranslation('cart');
   const { data, order } = props;
+  const { redirect } = useNavigation()
 
   return (
     <div className={styles.card_resume}>
@@ -97,9 +100,8 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
           disabled={props.loading || props.disabled}
           backgroundColor="#00C02A"
           textColor="#fff"
-          onClick={props.OnCheckout}
-        >
-          <Link href="#">Achte ankò</Link>
+          onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.id}` as RoutesUrls)}>
+            Achte ankò
         </CustomButton>
       </div>
     </div>
