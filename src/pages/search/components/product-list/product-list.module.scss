@@ -12,13 +12,13 @@
     ._content {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         grid-gap: 25px;
         padding: 20px 2% 5px 1%;
         justify-content: center;
 
         .card_product {
-            width: 100%;
+            width: 280px;
             height: 400px;
             background: #FFFFFF;
             border-radius: 5px;

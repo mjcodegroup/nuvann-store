@@ -12,15 +12,9 @@ import { SamplePrevArrow } from "./sample-prev-arrow";
 import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
 import { ProductSlideSkeleton } from "./product-slider-skeleton";
 import { useTranslation } from "react-i18next";
+import getDeviceType from "@/utils/get-device-type";
 
-const settingsMultiRows = {
-  className: "center",
-  infinite: true,
-  slidesToShow: 2,
-  speed: 500,
-  rows: 2,
-  slidesPerRow: 2
-};
+
 export default function ProductSlide(props: SliderProps) {
   const { t } = useTranslation("home");
   const [showArrows, setShowArrows] = useState(false);
@@ -29,6 +23,40 @@ export default function ProductSlide(props: SliderProps) {
   const sliderRef = useRef<any>(null);
 
   const isMobile = window.innerWidth < 768;
+  const settingsMultiRows = {
+    infinite: true,
+    slidesToShow: 2,
+    speed: 500,
+    rows: 2,
+    slidesPerRow:  getDeviceType.isMobile() ? 1 : 2,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1,
+  
+        }
+      }
+    ],
+  };
 
   const settings:any = {
     dots: false,
