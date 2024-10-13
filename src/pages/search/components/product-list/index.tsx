@@ -43,7 +43,7 @@ export default function ProductList(props: ProductListProps) {
                     ) : ''}
                     </p>
                     <p className={Styles.description}>
-                        {truncateStringWithEllipsis(prod.name, 80)}
+                        {truncateStringWithEllipsis(prod.name, 60)}
                     </p>  
                 </div>
             </div>

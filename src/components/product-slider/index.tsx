@@ -12,14 +12,23 @@ import { SamplePrevArrow } from "./sample-prev-arrow";
 import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
 import { ProductSlideSkeleton } from "./product-slider-skeleton";
 import { useTranslation } from "react-i18next";
-import { Product } from "@/contexts/products/types";
 
+const settingsMultiRows = {
+  className: "center",
+  infinite: true,
+  slidesToShow: 2,
+  speed: 500,
+  rows: 2,
+  slidesPerRow: 2
+};
 export default function ProductSlide(props: SliderProps) {
   const { t } = useTranslation("home");
   const [showArrows, setShowArrows] = useState(false);
   const [showNext, setShowNext] = useState(true);
   const [showPrev, setShowPrev] = useState(false);
   const sliderRef = useRef<any>(null);
+
+  const isMobile = window.innerWidth < 768;
 
   const settings:any = {
     dots: false,
@@ -67,6 +76,9 @@ export default function ProductSlide(props: SliderProps) {
     }
   };
 
+  const isMultiRows = props.multipleRows ?settingsMultiRows: settings;
+
+
   const handleMouseEnter = () => setShowArrows(true);
   const handleMouseLeave = () => setShowArrows(false);
 
@@ -79,7 +91,7 @@ export default function ProductSlide(props: SliderProps) {
       <Title title={props.title} />
       {!props.isLoading ? (
         props.products && props.products.length > 0 ? (
-          <Slider ref={sliderRef} {...settings} centerPadding="100">
+          <Slider ref={sliderRef} {...isMultiRows} centerPadding="100">
             {props.products?.map((product:any, index: any) => (
               <div className={Styles.card_home} key={product.id}>
                 {props.isnew && (
