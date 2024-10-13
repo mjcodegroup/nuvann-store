@@ -89,6 +89,11 @@
           font-weight: 400;
           padding-left: 5px;
         }
+
+        @media screen and (max-width: 768px) {
+          font-size: 18px;
+          
+        }
       }
     
       .product_img{
@@ -158,8 +163,12 @@
           font-size: 12px;
           font-weight: 600;
           line-height: 1.2;
-          padding: 4px 4px;
+          padding: 4px;
           text-transform: uppercase;
+
+          @media screen and (max-width: 768px) {
+            width: 80%;
+          }
         }
       }
     
@@ -238,4 +247,12 @@
             }
           }
         }
+
+  @media screen and (max-width: 768px) {
+    .card_home {
+      width: 100%;
+      padding-right: 0;
+    }
+    
+  }
       

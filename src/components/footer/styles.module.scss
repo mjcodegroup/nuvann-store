@@ -62,9 +62,13 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 780px) {
     .footer_principal_container{
         padding: 0 24px;
+
+    .footer_details {
+        flex-direction: column;
+    }
         .footer_signature{
             display: flex;
             justify-content: space-between;
