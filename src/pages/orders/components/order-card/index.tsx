@@ -5,6 +5,7 @@ import { Order } from '@/contexts/orders/types';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
 import CustomButton from '@/components/custom-button';
+import { formatDate } from '@/utils/date-convert';
 
 interface OrderCardProps {
     order: Order;
@@ -23,7 +24,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
                 <Image src={order.product.images[0]?.url} alt="product" width={100} height={100} />
                 <div className={Styles.CardstitleDate}>
                     <h4>{order.product.name}</h4>
-                    <h5>Dat acha: <span>{order.order_item_status_logs[0]?.occurred_on}</span></h5>
+                    <h5>Dat acha: <span>{formatDate(order.order_item_status_logs[0]?.occurred_on)}</span></h5>
                     <h5>Estati: <span>{order.status}</span></h5>
                     <h5>Kantite: <span>{order.quantity}</span></h5>
                     <h5>Delivred by: <span>{order.shipping_tracking_data?.company_name}</span></h5>
