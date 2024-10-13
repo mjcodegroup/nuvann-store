@@ -1,0 +1,46 @@
+.card_resume {
+  height: 52%;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  padding: 5%;
+  display: flex;
+  width: 100%;  
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  
+  .resume_title {
+    font-size: 20px;
+    padding: 0;
+  }
+}
+
+.resume_separated_info {
+  margin: 7px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.resume_buttons {
+  margin-top: 5%;
+  display: grid;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .card_resume {
+    width: 100%;
+    position: static;
+    padding: 10px;
+    height: 100%;
+  }
+
+  .resume_separated_info {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .resume_buttons {
+    gap: 10px;
+  }
+}

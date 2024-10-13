@@ -39,6 +39,7 @@
     "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
   },
   "details": {
+    "available": "Disponible",
     "seller": "Vendeur",
     "country": "Pays",
     "sales": "Ventes",
@@ -55,7 +56,8 @@
     "tags": "Étiquettes",
     "product_description": "Description du produit",
     "description": "Description",
-    "price": "Prix"
+    "price": "Prix",
+    "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
   },
   "cart": {
     "shopping_cart": "Panier",
@@ -63,12 +65,32 @@
     "quantity": "Quantité",
     "available": "Disponible",
     "price": "Prix",
-    "total": "Totale",
+    "total": "Total",
     "checkout": "Continuer",
     "summary": "Aperçu",
     "delivery": "Livraison",
     "description": "Description",
     "size": "Taille",
     "color": "Couleur"
+  },
+  "checkout": {
+    "delivery_address": "Adresse de livraison",
+    "btn_to_replace_address": "Changer",
+    "btn_add_address": "Ajouter une nouvelle adresse",
+    "title_products_ordered": "Produits commandés",
+    "shipping_options": "Options de livraison",
+    "new_address": "Nouvelle adresse",
+    "edit_address": "Modifier l'adresse",
+    "countries": "Pays",
+    "full_name": "Nom complet",
+    "phone_number": "Numéro de téléphone",
+    "postal_code": "Code postal",
+    "state_department_province": "État/Département/Province",
+    "city": "Ville",
+    "neighborhood": "Quartier",
+    "street_name": "Rue",
+    "street_number": "Numéro",
+    "complement": "Complément",
+    "select_shipment_option_title": "Sélectionnez l'option d'expédition"
   }
 }

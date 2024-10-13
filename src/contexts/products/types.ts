@@ -54,7 +54,7 @@ export type Prices ={
 export type Price ={
     raw: number;
     formatted: string;
-    discount?: Discount
+    discount: Discount
 }
 
 export type Discount = {
@@ -70,4 +70,14 @@ export interface ProductDetails extends Product {
     shipments: any;
     sold_amount: number;
     available_countries: any;
+}
+
+export interface getProductsParams {
+    page?: number;
+    size?: number;
+    search?: string;
+    category_id?: string;
+    in_promotion?: boolean;
+    new_products?: boolean;
+    seller_business_account_id?: number;
 }

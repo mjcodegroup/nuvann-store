@@ -4,3 +4,11 @@
     gap: 0px 22px;
     height: 100%;
 }
+
+@media (max-width: 480px) {
+    .pagging_section{
+        display: flex;
+        flex-direction: column;
+        gap: 0px 22px;
+    }
+}

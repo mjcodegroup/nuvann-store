@@ -21,7 +21,6 @@ export default function NavOptions(props: NavOptionProps) {
   const { t } = useTranslation('nav_content');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const {redirect} = useNavigation()
 
   if(props.isLoading) {
     return <NavOptionsSkeleton />
@@ -93,12 +92,14 @@ export default function NavOptions(props: NavOptionProps) {
                   </ListItemIcon>
                   {t('nav_content.my_profile')}
                 </MenuItem>
-                <MenuItem onClick={()=> null}>
-                  <ListItemIcon>
-                    <FcShipped fontSize="small" />
-                  </ListItemIcon>
-                  {t('nav_content.my_orders')}
-                </MenuItem>
+                <Link href={RoutesUrls.ORDERS}>
+                  <MenuItem onClick={()=> null}>
+                    <ListItemIcon>
+                      <FcShipped fontSize="small" />
+                    </ListItemIcon>
+                    {t('nav_content.my_orders')}
+                  </MenuItem>
+                </Link>
                 {/* <MenuItem onClick={handleClose}>
                   <ListItemIcon>
                     <FiSettings fontSize="small" />

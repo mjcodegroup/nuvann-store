@@ -7,6 +7,7 @@ export interface SliderProps {
     havePromo?:boolean;
     isLoading?: boolean;
     onRedirectToProductDetails:(id: string) => void;
+    multipleRows?: boolean;
   }
   
   

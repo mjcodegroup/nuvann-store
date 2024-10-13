@@ -9,6 +9,7 @@ import { NavListProps } from '../types';
 
 export default function NavList(props: NavListProps) {  
   const { t } = useTranslation('nav_content');
+  
   return (
     <nav className={Styles.navbar_list}>
         <ul>
@@ -18,22 +19,20 @@ export default function NavList(props: NavListProps) {
               categories={props.categories}
               contentWidth={props.width}
             >
-            <Link href="/#">
               {t("nav_content.category")}
-            </Link>
             </DropdownSimple>
-            <Link href="/promotions">
+            <Link href={`/search?in_promotion=${true}`}>
               {t("nav_content.promotion")}
             </Link>
-            <Link href="#" onClick={props.onClickSellerMenu}>
-              {t("nav_content.sell")}
-            </Link>
-              <Link href="/category?category=man">
+              <div onClick={props.onClickSellerMenu}>
+                {t("nav_content.sell")}
+              </div>
+              {/* <Link href="/category?category=man">
                 {t("nav_content.man")}
               </Link>
             <Link href="/category?category=women">
               {t("nav_content.women")}
-            </Link>
+            </Link> */}
         </ul>
     </nav>
   )

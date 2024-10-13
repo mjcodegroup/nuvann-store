@@ -10,9 +10,14 @@ import { I18nextProvider, getI18n } from "react-i18next";
 import { AuthProvider } from "@/hooks/useKeycloak";
 import { ProductsProvider } from "@/contexts/products";
 import { CartProvider } from "@/contexts/cart";
+import { OrdersProvider } from "@/contexts/orders";
 import { CategoriesProvider } from "@/contexts/categories";
 import ToastProvider from "@/contexts/toast";
 import { UserProvider } from "@/contexts/user";
+import { CheckoutProvider } from "@/contexts/checkout";
+import { CountriesProvider } from "@/contexts/countries";
+import { OrdersDetailsProvider } from "@/contexts/orders-details";
+import { NoSsr } from "@mui/material";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -22,21 +27,31 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <AuthProvider >
         <I18nextProvider i18n={getI18n()} defaultNS={'fr'}>
-          <UserProvider>
-          <ProductsProvider>
-            <ToastProvider>
-              <CategoriesProvider>
-                <CartProvider>
-                  <Component {...pageProps}/>
-                </CartProvider>
-              </CategoriesProvider>
-            </ToastProvider>
-          </ProductsProvider>
-          </UserProvider>
+          <NoSsr>
+          <CountriesProvider>
+            <AuthProvider >
+              <UserProvider>
+              <ProductsProvider>
+                <ToastProvider>
+                  <CategoriesProvider>
+                    <CartProvider>
+                      <CheckoutProvider>
+                        <OrdersProvider>
+                        <OrdersDetailsProvider>
+                        <Component {...pageProps}/>
+                        </OrdersDetailsProvider>
+                        </OrdersProvider>
+                      </CheckoutProvider>
+                    </CartProvider>
+                  </CategoriesProvider>
+                </ToastProvider>
+              </ProductsProvider>
+              </UserProvider>
+            </AuthProvider>
+          </CountriesProvider>
+          </NoSsr>
         </I18nextProvider>
-      </AuthProvider>
     </>
   )
   

@@ -40,6 +40,7 @@
     "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
   },
   "details": {
+    "available": "Disponib",
     "seller": "Vandè",
     "country": "Peyi",
     "sales": "Vant",
@@ -56,7 +57,8 @@
     "tags": "Etikèt",
     "product_description": "Deskripsyon pwodui",
     "description": "Deskripsyon",
-    "price": "Pri"
+    "price": "Pri",
+    "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
   },
   "cart": {
     "shopping_cart": "Panye",
@@ -71,5 +73,25 @@
     "description": "Deskripsyon",
     "size": "Gwosè",
     "color": "Koulè"
+  },
+  "checkout": {
+    "delivery_address": "Adrès livrezon",
+    "btn_to_replace_address": "Chanje",
+    "btn_add_address": "Ajoute yon nouvo adrès",
+    "title_products_ordered": "Kòmand",
+    "shipping_options": "Opsyon livrezon",
+     "new_address": "Nouvo adrès",
+    "edit_address": "Edite adrès",
+    "countries": "Peyi",
+    "full_name": "Non konplè",
+    "phone_number": "Nimewo telefòn",
+    "postal_code": "Kòd postal",
+    "state_department_province": "Eta/Depatman/Pwovens",
+    "city": "Vil",
+    "neighborhood": "Katye",
+    "street_name": "Ri",
+    "street_number": "Nimewo",
+    "complement": "Konpleman",
+    "select_shipment_option_title": "Chwazi opsyon livrezon"
   }
 }

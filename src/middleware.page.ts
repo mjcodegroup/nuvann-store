@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { getCookie, deleteCookie, setCookie } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 import Token from "@/utils/token";
 
 
@@ -28,28 +28,32 @@ export async function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-// async function verifySessionFromKeycloak(token: string) {
-//   return Token.decodeToken(token) ? true : false;
-// }
-
 async function verifySessionFromKeycloak(token: string) {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    return res.status === 200;
-  } catch (error) {
-    return false;
-  }
+  return Token.decodeToken(token) ? true : false;
 }
 
+// async function verifySessionFromKeycloak(token: string) {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_KEYCLOAK_URL}/realms/${process.env.NEXT_PUBLIC_KEYCLOAK_REALM}/protocol/openid-connect/userinfo`,
+//       {
+//         method: 'GET',
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       }
+//     );
+
+//     return res.status === 200;
+//   } catch (error) {
+//     return false;
+//   }
+// }
+
 export const config = {
-  matcher: ['/carts'],
+  matcher: [
+    '/carts',
+    '/checkout',
+    '/orders',
+],
 };

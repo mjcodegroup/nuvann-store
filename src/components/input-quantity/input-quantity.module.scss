@@ -1,5 +1,6 @@
 .input_quantity_container {
     margin: 16px 0;
+
     ._qty_min, ._qty_max {
         width: 24px;
         height: 24px;
@@ -33,11 +34,24 @@
         }
     }
     
-    ._label {
+    .label_ {
         color: rgb(117, 117, 117);
         width: 110px;
         text-transform: capitalize;
         flex-shrink: 0;
         align-items: center;
+        margin-right: 8px;
     }
+
+    ._label {
+        color: rgb(117, 117, 117);
+        margin-left: 8px;
+    }
+
+
+    .disabled {
+      cursor: not-allowed;
+      opacity: 0.1;
+    }
+      
 }
