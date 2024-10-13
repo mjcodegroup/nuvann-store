@@ -1,7 +1,7 @@
 import React from 'react'
 import Styles from './mobile-navbar.module.scss'
 import { MobileNavbarProps } from '../types'
-import { IoChevronDownSharp, IoMenu } from 'react-icons/io5'
+import { IoMenu } from 'react-icons/io5'
 import { Avatar, Badge } from '@mui/material'
 import { IoMdCart } from 'react-icons/io'
 import SearchBar from '../search-bar'

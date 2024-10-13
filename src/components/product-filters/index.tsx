@@ -29,9 +29,7 @@ export default function ProductFilters(props: FilterProps) {
                 <p>{props.resultCount} resultado</p>
             </div>
 
-            <div>
                 <FormControlLabel control={<Switch defaultChecked={props.defaultCheckedPromotion} />} label="Daily deals" onChange={handleChangePromotion}/>
-            </div>
 
             <div className={Styles.category_list}>
                 <h4>Categorias</h4>

@@ -5,13 +5,10 @@
     margin-top: 80px;
     padding: 0 80px;
 
-
     .footer_details {
         height: 92%;
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
-
         width: 100%;
         gap: 0px 25px;
         
@@ -45,9 +42,9 @@
         .footer_principal_cards {
             display: flex;
             justify-content: space-between;
+            flex-grow: wrap;
             gap: 16px 16px;
             align-items: center;
-            flex-wrap: wrap;
         }
     }
 
@@ -65,9 +62,13 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 780px) {
     .footer_principal_container{
         padding: 0 24px;
+
+    .footer_details {
+        flex-direction: column;
+    }
         .footer_signature{
             display: flex;
             justify-content: space-between;

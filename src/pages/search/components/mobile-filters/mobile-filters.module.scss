@@ -1,0 +1,19 @@
+.mobile_filter_container {
+    margin-top: 16px;
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        color: gray;
+    }
+}
+
+@media  (max-width: 768px) {
+    .mobile_filter_container {
+        display: flex;
+        flex-direction: column;
+        color: gray;
+
+    }
+    
+}

@@ -1,24 +1,24 @@
 .product_list_container {
     -ms-overflow-style: none;
     scrollbar-width: none;
-    height: 100%;
+    // height: 100%;
     overflow: hidden;  // height: 500px;
     width:100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 
     ._content {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         grid-gap: 25px;
         padding: 20px 2% 5px 1%;
         justify-content: center;
 
         .card_product {
-            width: 100%;
+            width: 280px;
             height: 400px;
             background: #FFFFFF;
             border-radius: 5px;
@@ -134,11 +134,79 @@
 
 }
 
-@media only screen and (max-width: 1125px)
-{
-  .card_product
-  {
-    width: 290px;
-    height: 424px;
+@media  (max-width: 450px){
+
+  .product_list_container {
+    width:100%;
+    ._content {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-gap: 25px;
+      padding: 20px 2% 5px 1%;
+      justify-content: center;
+
+      .card_product {
+        width: 100%;
+        height: 300px;
+        gap: 8px;
+
+        .current_price {
+          width: 100%;
+          font-size: 12px;
+          color: rgba(0,0,0,.8);
+
+          span {
+            color: #00a650;
+            font-size: 14px;
+            font-weight: 400;
+            margin-left: 8px; 
+          }
+        }
+
+        .product_img{
+          width: 100%;
+          height: 50%;
+          background: #E5E5E5;
+          position:relative;
+          
+          img{
+            height: 100%;
+            width:100%;
+            object-fit: cover;
+            border-radius:5px;
+          }
+          .show_hover {
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            opacity:0;
+            transition: 0.3s;
+          }  
+        }
+
+        .bottom{
+          width: 100%;
+          height: 70px;
+
+
+          .daily_deal {
+            background-color: #3483fa;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            color: #fff;
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 300;
+            line-height: 1.2;
+          }
+        }
+
+      }
+
+    }
+
   }
 }

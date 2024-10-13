@@ -42,7 +42,8 @@
         margin-top: 2%;
         padding: 15px 20px;
         background: #fafafa;
-
+        display: flex;
+        gap: 0 24px;
         small {
             font-size: 1rem;
             text-decoration: line-through;
@@ -59,15 +60,18 @@
           }
           span {
               margin-left: 20px;
-              font-size: .75rem;
+              font-size: 0.5rem;
               color: #fff;
               text-transform: uppercase;
               background: #00a650;
               border-radius: 2px;
               padding: 2px 4px;
               font-weight: 600;
-              line-height: 1;
+              line-height: 1px;
               white-space: nowrap;
+              display: flex;
+              align-items: center;
+              height: 15px;
           }
     }
 

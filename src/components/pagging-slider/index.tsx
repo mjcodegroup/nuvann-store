@@ -48,7 +48,7 @@ const PaggingSlides: React.FC<PaggingSliderProps> =({images}) =>{
     customPaging: function(i: any) {
       return (
         <a>
-          <Image src={images?.[i]?.url || ''} alt={images?.[i].alt || ''} width={100} height={100}/>
+          <Image src={images?.[i]?.url || ''} alt={images?.[i]?.alt || ''} width={100} height={100}/>
         </a>
       );
     },

@@ -16,6 +16,8 @@ export default function SearchController() {
     const { search, category_id, in_promotion } = router.query;
     const [defaultCheckedPromotion, setDefaultCheckedPromotion] = React.useState<boolean>(Boolean(in_promotion));
     const [categoryId, setCategoryID ] = React.useState<string>(category_id as string);
+    const [openMobileFilter, setOpenMobileFilter] = React.useState(false);
+
 
 
     React.useEffect(() => {
@@ -35,6 +37,7 @@ export default function SearchController() {
       const handleChangeFilter = React.useCallback( (categoryId: string, inPromotion: boolean) => {
         setDefaultCheckedPromotion(inPromotion);
         setCategoryID(categoryId);
+        setOpenMobileFilter(false);
         redirect(`/search?search=${search || ''}&category_id=${categoryId}&in_promotion=${inPromotion}` as RoutesUrls)
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [Boolean(in_promotion)])
@@ -43,7 +46,9 @@ export default function SearchController() {
 
   return (
     <HomePageDefault>
-        <Search 
+        <Search
+          setOpenMobileFilter={setOpenMobileFilter}
+          openMobileFilter={openMobileFilter}
           products={products}
           loading={loading}
           searchQuery={search as string}
