@@ -11,6 +11,7 @@
 
 .PurchaseCards {
     width: 65%;
+    margin-right: 5%;
     h3 {
         color: #000052;
     }
@@ -39,9 +40,8 @@
 }
 
 .OrdersResume {
-    width: 25%;
-    // margin-left: 20px;
-    // margin-top: 20px;
+    margin-right: 5%;
+    width: 30%;
 }
 
 @media (max-width: 768px) {
@@ -75,5 +75,6 @@
         width: 100%;
         margin-top: 20px;
         margin-left: 0;
+        margin-right: 0%;
     }
 }
