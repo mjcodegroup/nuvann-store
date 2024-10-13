@@ -45,7 +45,7 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
             ) : (
                 <div className={styles.AchasHolder}>
                     <div className={styles.PurchaseCards}>
-                        <h3>Pwodwi ou ahte deja</h3>
+                        <h3>Pwodwi ou achte deja</h3>
                         <div className={styles.PurchaseScroll}>
                             {orders.map((order: Order) => (
                                 <div key={order.id}>
