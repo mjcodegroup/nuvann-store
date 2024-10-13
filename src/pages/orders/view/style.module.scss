@@ -1,10 +1,10 @@
 .AchasHolder,
 .AchasHolder2 {
     width: 100%;
-    min-height: 650px;
-    background-color: #F6F6F6;
+    min-height: 390px;
+    background-color: #FFFFFF;
     display: flex;
-    padding: 0;
+    margin: 2% auto;
     height: auto;
     overflow: hidden;
 }
@@ -38,9 +38,6 @@
 }
 
 .messageAnyen {
-    width: 570px;
-    height: auto;
-    background-color: #ffffffad;
     display: flex;
     flex-direction: column;
     justify-content: center;
