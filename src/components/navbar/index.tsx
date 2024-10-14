@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
@@ -23,6 +23,7 @@ import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
 import getDeviceType from '@/utils/get-device-type';
 import MobileNavbar from './mobile-navbar';
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface selectedCountry {
   label: string;
@@ -30,7 +31,7 @@ interface selectedCountry {
 }
 export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
-  const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
+  const { getIdTokenClaims, user, isLoading: loading, logout, isAuthenticated, loginWithPopup: handleLogin } = useAuth0();
   const {countries} = useCountriesInfo();
   const {
     handleBecomeSeller,
@@ -73,6 +74,18 @@ export const Navbar: React.FC = () => {
   const handleSearch = (searchText: string) => {
     redirect(`/search?search=${searchText}` as RoutesUrls)
   }
+
+  const getToken = async () => {
+    const token = await getIdTokenClaims()
+    console.log("_________________________-", token?.__raw)
+    return token?.__raw
+  }
+
+  useEffect(() => {
+    getToken()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
 
   return (
     <>
