@@ -5,10 +5,13 @@ import { useCartInfo } from '@/hooks/use-cart-info';
 import { useCart } from '@/contexts/cart';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function CartController() {
+  const { isAuthenticated } = useAuth0();
+
   const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart } = useCartInfo({ isAuthenticated: false });
+  const { removeFromCart, updateCart } = useCartInfo({ isAuthenticated });
 
   const { redirect } = useNavigation();
 

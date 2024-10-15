@@ -7,8 +7,7 @@ import { red } from '@mui/material/colors';
 import React, { useEffect } from 'react'
 
 export default function LoginPage() {
-  const { loginWithRedirect, user, isLoading: loading, logout, isAuthenticated, loginWithPopup: handleLogin } = useAuth0();
-  const [fullLoading, setFullLoading] = React.useState<boolean>(true);
+  const { loginWithRedirect, isLoading: loading, isAuthenticated } = useAuth0();
   const { redirect } = useNavigation();
 
   useEffect(() => {

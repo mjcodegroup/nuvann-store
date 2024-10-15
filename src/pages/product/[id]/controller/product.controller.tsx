@@ -4,10 +4,10 @@ import Product from '../view/product.view'
 import { useParams } from 'next/navigation';
 import { useProducts } from '@/contexts/products';
 import { useProductsInfo } from '@/hooks/use-products-info';
-import { useAuth } from '@/hooks/useKeycloak';
 import { useCartInfo } from '@/hooks/use-cart-info';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 interface SizeandProductIE {
@@ -16,11 +16,12 @@ interface SizeandProductIE {
 }
 export default function ProductController() {
   const params = useParams<{ id: string; }>()
-  const { isAuthenticated} = useAuth();
   const { redirect } = useNavigation();
   const { state: productDetails } = useProducts();
   const { getProductDetails } = useProductsInfo();
-  const { addProductToCart, isLoading: cartLoader} = useCartInfo();
+  const { isAuthenticated } = useAuth0();
+
+  const { addProductToCart, isLoading: cartLoader} = useCartInfo({isAuthenticated});
   const [ selectedSize, setSelectedSize] = React.useState({} as SizeandProductIE);
   const [ selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
   const [ selectedColor, setSelectedColor] = React.useState({} as SizeandProductIE);
