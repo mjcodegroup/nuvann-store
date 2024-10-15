@@ -40,14 +40,14 @@ export interface Order {
   total_price: number;
   payment_method: string;
   shipping_address: ShippingAddress;
-  order_item_status_logs: OrderItemStatusLog;
+  order_item_status_logs: OrderItemStatusLog[];
   shipping_tracking_data: ShippingTrackingData;
 }
 
 export interface OrderProperties {
-  additionalProp1: OrderProperty;
-  additionalProp2: OrderProperty;
-  additionalProp3: OrderProperty;
+  additionalProp1: OrderProperty[];
+  additionalProp2: OrderProperty[];
+  additionalProp3: OrderProperty[];
 }
 
 export interface OrderProperty {

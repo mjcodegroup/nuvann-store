@@ -5,6 +5,7 @@ import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 import React from "react";
 import { useAuth } from "../useKeycloak";
+import { Cart } from "@/contexts/cart/types";
 
 export function useCartInfo() {
   const { successToast, errorToast } = useToast();
@@ -14,9 +15,14 @@ export function useCartInfo() {
   const { isAuthenticated } = useAuth();
 
   async function getCart() {
-    const response = await nuvannApi.get('/carts/items');
-    cartDispatch({ type: 'SET_CART', value: response.data });
-    return response.data;
+    try {
+      const response = await nuvannApi.get('/carts/items');
+      cartDispatch({ type: 'SET_CART', value: response.data });
+      
+    } catch (error) {
+      cartDispatch({ type: 'SET_CART', value: {} as Cart });
+      
+    }
   }
 
   async function removeFromCart(id: number) {

@@ -15,10 +15,12 @@
     }
 
     .specific_infos {
+        width: 100%;
         display: grid; 
-        grid-template-columns: 10% 70%; 
+        grid-template-columns: 1fr; 
         gap: 0px 10px;
         margin: 0 20px;
+        flex-wrap: wrap;
         .__subtitle{
             color: rgb(117, 117, 117);
             width: 110px;
@@ -32,7 +34,6 @@
             color: black;
             margin-left: 32px;
 
-            display: flex;
             .tag {
                 color: blue;
                 padding: 0 5px;
@@ -44,6 +45,12 @@
 
             ._origin {
                 color: rgb(35, 131, 35);
+            }
+
+            @media screen and (max-width: 480px) {
+                margin-left: 0;
+                width: 300px;
+                
             }
         }
     }

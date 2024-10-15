@@ -1,0 +1,79 @@
+.AchasHolder {
+    width: 100%;
+    min-height: 650px;
+    background-color: #F6F6F6;
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    height: auto;
+    overflow: auto;
+}
+
+.PurchaseCards {
+    width: 65%;
+    h3 {
+        color: #000052;
+    }
+}
+
+.NoOrderSelected {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.PurchaseScroll {
+    height: 650px;
+    overflow: auto;
+    padding: 15px;
+}
+
+.AchasHolder h3 {
+    margin-left: 3%;
+    margin-bottom: 2%;
+}
+
+.AchasHolder .concatenate {
+    margin-left: 3%;
+}
+
+.OrdersResume {
+    width: 25%;
+    // margin-left: 20px;
+    // margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .AchasHolder {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+        overflow: auto;
+    }
+
+    .PurchaseCards {
+        width: 100%;
+        margin-bottom: 20px;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .PurchaseScroll {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .AchasHolder h3 {
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .OrdersResume {
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+}

@@ -5,6 +5,7 @@ export enum RoutesUrls {
     CARTS = '/carts',
     ORDERS = '/orders',
     CHECKOUT = '/checkout',
+    ORDERS_DETAILS = '/orders-details',
 }
 
 export type RouteUrl = 
@@ -13,4 +14,5 @@ export type RouteUrl =
     | RoutesUrls.PRODUCT_DETAILS_PAGE
     | RoutesUrls.CARTS
     | RoutesUrls.ORDERS
-    | RoutesUrls.CHECKOUT;
+    | RoutesUrls.CHECKOUT
+    | RoutesUrls.ORDERS_DETAILS;

@@ -12,7 +12,8 @@ import { SamplePrevArrow } from "./sample-prev-arrow";
 import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
 import { ProductSlideSkeleton } from "./product-slider-skeleton";
 import { useTranslation } from "react-i18next";
-import { Product } from "@/contexts/products/types";
+import getDeviceType from "@/utils/get-device-type";
+
 
 export default function ProductSlide(props: SliderProps) {
   const { t } = useTranslation("home");
@@ -20,6 +21,41 @@ export default function ProductSlide(props: SliderProps) {
   const [showNext, setShowNext] = useState(true);
   const [showPrev, setShowPrev] = useState(false);
   const sliderRef = useRef<any>(null);
+
+  const settingsMultiRows = {
+    infinite: true,
+    slidesToShow: 2,
+    speed: 500,
+    rows: 2,
+    slidesPerRow:  getDeviceType.isMobile() ? 1 : 2,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
+          slidesPerRow: 1,
+  
+        }
+      }
+    ],
+  };
 
   const settings:any = {
     dots: false,
@@ -49,8 +85,10 @@ export default function ProductSlide(props: SliderProps) {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          dots: true
+
         }
       }
     ],
@@ -65,6 +103,9 @@ export default function ProductSlide(props: SliderProps) {
     }
   };
 
+  const isMultiRows = props.multipleRows ?settingsMultiRows: settings;
+
+
   const handleMouseEnter = () => setShowArrows(true);
   const handleMouseLeave = () => setShowArrows(false);
 
@@ -77,7 +118,7 @@ export default function ProductSlide(props: SliderProps) {
       <Title title={props.title} />
       {!props.isLoading ? (
         props.products && props.products.length > 0 ? (
-          <Slider ref={sliderRef} {...settings} centerPadding="100">
+          <Slider ref={sliderRef} {...isMultiRows} centerPadding="100">
             {props.products?.map((product:any, index: any) => (
               <div className={Styles.card_home} key={product.id}>
                 {props.isnew && (
@@ -85,8 +126,8 @@ export default function ProductSlide(props: SliderProps) {
                 )}
                 <div className={Styles.__card} onClick={() => props.onRedirectToProductDetails(product.id)}>
                   <div className={Styles.product_img}>
-                    <Image src={product.images[0]?.url} alt="" width={100} height={100} />
-                    <Image src={product.images[1]?.url} className={Styles.show_hover} alt="" width={100} height={100} />
+                    <Image src={product.images?.[0]?.url} alt="" width={100} height={100} />
+                    <Image src={product.images?.[1]?.url} className={Styles.show_hover} alt="" width={100} height={100} />
                   </div>
                   <div className={Styles.img_separator}></div>
                   <div className={Styles.bottom}>

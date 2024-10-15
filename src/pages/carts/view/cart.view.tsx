@@ -15,7 +15,7 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
   return (
     <div>
       {
-      data.count < 1 && !props.fullLoader ? (
+      !data?.items?.length && !props.fullLoader ? (
        <EmptyCart/>
       ) : (
       <div className={styles.cartWrapper}>

@@ -4,6 +4,7 @@ import Styles from "./checkout.module.scss"
 import OrderResume from '@/components/order-resume';
 import CardAddress from '../components/card-address';
 import CardProducts from '../components/card-products';
+import CardUpdateShipment from '../components/modal-update-shipment';
 
 export default function Checkout(props: Readonly<CheckoutProps>) {
   return (
@@ -21,7 +22,20 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
               shipmentformErrors={props.shipmentformErrors}
               setValues={props.setValues}
             />
-            <CardProducts items={props.orderItems}/>
+            <CardProducts
+             items={props.orderItems}
+             onClickBtnChangeShipment={props.onChangeBtnChangeShipment}
+             />
+
+             <CardUpdateShipment 
+              openModalShipment={props.openModalShipment}
+              setOpenModalShipment={props.setOpenModalShipment}
+              disableModalShipmentButton={props.disableModalShipmentButton}
+              onConfirmModalShipment={props.onConfirmModalShipment}
+              updateShippingInfoLoading={props.updateShippingInfoLoading}
+              item={props.currentShippingInfo}
+              onhangeShippmentInfos={props.onhangeShippmentInfos}
+            />
         </div>
 
         <div className={Styles.resume_container}>

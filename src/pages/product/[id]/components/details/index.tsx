@@ -41,14 +41,12 @@ export default function Details(props: DetailsProps) {
             </div>
 
             <div className={Styles.prices_class}>
-                <p>
                 <small>{productInfos?.prices?.original_price?.formatted}</small>
-                {productInfos?.prices?.current_price?.formatted}
+                <p>{productInfos?.prices?.current_price?.formatted}</p>
                 {
                   productInfos?.prices?.current?.discountPercent && 
                   <span>-{productInfos?.prices?.current?.discountPercent} %</span>
                 }
-                </p>
             </div>
         </section>
 

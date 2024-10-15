@@ -4,7 +4,7 @@ import cookie from "@/utils/cookie";
 import en from './locales/en.json';
 import fr from './locales/fr.json';
 import es from './locales/es.json';
-// import ht from './locales/ht.json';
+import ht from './locales/ht.json';
 
 const language = String(cookie.getCookie('NEXT_I18LANG'));
 i18n
@@ -25,6 +25,7 @@ i18n
             en,
             fr,
             es,
+            ht
         }
     })
 

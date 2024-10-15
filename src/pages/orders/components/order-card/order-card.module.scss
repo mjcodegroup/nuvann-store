@@ -1,0 +1,86 @@
+.ActualCard {
+    border-radius: 5px;
+    height: 153px;
+    box-shadow: 0px 0px 8px 1px #0000003a;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 14px;
+    margin-bottom: 27px;
+}
+
+.CardstitleDate {
+    width: 40%;
+}
+
+.CardstitleDate h4 {
+    color: #000052;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.CardstitleDate h5 {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.CardstitleDate h5 span {
+    color: #A3A3A3;
+}
+
+.CardsButtons {
+    width: 25%;
+    padding-top: 19px;
+}
+
+.CardsButtons button {
+    font-weight: 300;
+    border: none;
+    width: 100%;
+    height: 27px;
+    color: #ffffff;
+    background-color: #00AD1C;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.CardsButtons button:hover {
+    background-color: #09861e;
+}
+
+.CardsButtons .Achtebtn {
+    color: #0094FF;
+    background-color: #ffffff;
+    border: 1px solid #0094FF;
+}
+
+.CardsButtons .Achtebtn:hover {
+    background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .ActualCard {
+        width: 100%;
+        height: 300px;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    .CardstitleDate {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .CardsButtons {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .CardsButtons button {
+        width: 45%;
+    }
+}

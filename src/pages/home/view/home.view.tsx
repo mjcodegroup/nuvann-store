@@ -40,6 +40,15 @@ export default function Home(props: Readonly<HomeProps>) {
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <RandomCategories />
+    <ProductSlide
+      itemToShow={4} 
+      multipleRows
+      products={products.items}
+      title={t("home.month_clearance")}
+      havePromo
+      isLoading={props.loader}
+      onRedirectToProductDetails={props.onRedirectToProductDetails}
+    />
     {/* <ProductVarietes
       loader={false}
       data={products.items as any} 
