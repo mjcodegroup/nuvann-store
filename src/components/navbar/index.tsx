@@ -24,6 +24,7 @@ import { useRouter } from 'next/router';
 import getDeviceType from '@/utils/get-device-type';
 import MobileNavbar from './mobile-navbar';
 import { useAuth0 } from "@auth0/auth0-react";
+import sessionManager from '@/utils/session-manager';
 
 interface selectedCountry {
   label: string;
@@ -31,7 +32,7 @@ interface selectedCountry {
 }
 export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
-  const { getIdTokenClaims, user, isLoading: loading, logout, isAuthenticated, loginWithPopup: handleLogin } = useAuth0();
+  const {getAccessTokenSilently, user, isLoading: loading, logout, isAuthenticated, loginWithPopup: handleLogin } = useAuth0();
   const {countries} = useCountriesInfo();
   const {
     handleBecomeSeller,
@@ -41,7 +42,7 @@ export const Navbar: React.FC = () => {
     modalTerm,
     setModalTerm
   } = useUserInfo();
-  const { cartState} = useCartInfo();
+  const { cartState} = useCartInfo({isAuthenticated: isAuthenticated});
   const { categoriesState} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
@@ -63,7 +64,7 @@ export const Navbar: React.FC = () => {
   React.useEffect(() => {
     if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
       getUserInfo();
-  };
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   } , [isAuthenticated]);
 
@@ -74,18 +75,16 @@ export const Navbar: React.FC = () => {
   const handleSearch = (searchText: string) => {
     redirect(`/search?search=${searchText}` as RoutesUrls)
   }
-
-  const getToken = async () => {
-    const token = await getIdTokenClaims()
-    console.log("_________________________-", token?.__raw)
-    return token?.__raw
+  
+  const setSession = async() => {
+    const token = await getAccessTokenSilently();
+    sessionManager.setSession(token);
   }
 
-  useEffect(() => {
-    getToken()
+  React.useEffect(() => {
+    setSession();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
+  }, [isAuthenticated]);
 
   return (
     <>
