@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
@@ -7,7 +7,6 @@ import NavList from './nav-list';
 import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
-import { useAuth } from '@/hooks/useKeycloak';
 import { useCartInfo } from '@/hooks/use-cart-info';
 import { useCategoriesInfo } from '@/hooks/use-categories-info';
 import ModalActions from '../modal-actions';
@@ -96,7 +95,7 @@ export const Navbar: React.FC = () => {
           onCategorySelect={handleRedirectToCategory}
           onClickSellerMenu={()=>handleClickToBecomeSeller()}
           isAuthenticated={isAuthenticated}
-          user={userInfos.name? userInfos : user}
+          user={user}
           onSignIn={handleLogin}
           isLoading={loading}
           onLogout={logout}
@@ -121,7 +120,7 @@ export const Navbar: React.FC = () => {
             />
           </div>
           <NavOptions
-            user={userInfos.name? userInfos : user}
+            user={user}
             isAuthenticated={isAuthenticated}
             onSignIn={handleLogin}
             isLoading={loading}

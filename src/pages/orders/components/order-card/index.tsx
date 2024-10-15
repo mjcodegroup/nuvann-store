@@ -18,8 +18,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
     return (
         <div key={order.id}>
             <div
-                className={`${Styles.ActualCard} ${order.id === selectedOrder?.id ? Styles.selected : ''}`}
-                onClick={() => handleOrderClick(order)}
+                className={Styles.ActualCard}
             >
                 <Image src={order.product.images[0]?.url} alt="product" width={100} height={100} />
                 <div className={Styles.CardstitleDate}>
@@ -34,7 +33,11 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
                         onClick={() => redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${order.id}` as RoutesUrls)}>
                         Wè plis
                     </CustomButton>
-                    <button className={Styles.Achtebtn}>Achte ankò</button>
+                    <CustomButton
+                        backgroundColor='white' textColor='#000052'
+                        onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.id}` as RoutesUrls)}>
+                        Achte ankò
+                    </CustomButton>
                 </div>
 
             </div>

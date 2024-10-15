@@ -8,7 +8,7 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 
 export default function CartController() {
   const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart } = useCartInfo();
+  const { removeFromCart, updateCart } = useCartInfo({ isAuthenticated: false });
 
   const { redirect } = useNavigation();
 
