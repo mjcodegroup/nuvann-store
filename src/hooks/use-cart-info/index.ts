@@ -4,14 +4,12 @@ import { useNavigation } from "../useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 import React from "react";
-import { useAuth } from "../useKeycloak";
 
-export function useCartInfo() {
+export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
   const { successToast, errorToast } = useToast();
   const { redirect } = useNavigation();
 
   const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { isAuthenticated } = useAuth();
 
   async function getCart() {
     const response = await nuvannApi.get('/carts/items');

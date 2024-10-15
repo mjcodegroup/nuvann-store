@@ -27,12 +27,6 @@ export default function NavList(props: NavListProps) {
               <div onClick={props.onClickSellerMenu}>
                 {t("nav_content.sell")}
               </div>
-              {/* <Link href="/category?category=man">
-                {t("nav_content.man")}
-              </Link>
-            <Link href="/category?category=women">
-              {t("nav_content.women")}
-            </Link> */}
         </ul>
     </nav>
   )
