@@ -1,5 +1,7 @@
 export interface State {
     products: ProductsData;
+    newProducts: ProductsData;
+    promotionProducts: ProductsData;
     product: ProductDetails;
     isLoading: boolean;
 }
@@ -7,6 +9,14 @@ export interface State {
 export type Action =
     | {
         type: 'SET_PRODUCTS';
+        value: ProductsData;
+    }
+    | {
+        type: 'SET_NEW_PRODUCTS';
+        value: ProductsData;
+    }
+    | {
+        type: 'SET_PROMOTION_PRODUCTS';
         value: ProductsData;
     }
     | {

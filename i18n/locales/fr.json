@@ -35,6 +35,7 @@
       "month_clearance": "Liquidation du mois",
       "new": "Nouveau",
       "today_deals": "Offres du jour",
+      "best_sellers": "Meilleures ventes",
       "no_products_found": "Aucun produit trouvé",
       "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
     },
@@ -102,5 +103,15 @@
       "carts": "Panier",
       "orders": "Commandes",
       "logout": "Se déconnecter"
+    },
+    "search": {
+      "title": "Aucun produit ne correspond à votre recherche.",
+      "check_spelling": "Vérifiez l'orthographe",
+      "of_the_words": "des mots.",
+      "use": "Utilizez",
+      "more_generic": " des mots plus génériques",
+      "or_fewer_words": "ou moins de mots.",
+      "browse_categories": "Parcourez les catégories",
+      "to_find_product": "pour trouver un produit similaire."
     }
   }

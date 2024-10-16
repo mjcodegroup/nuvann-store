@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 interface PaggingSliderProps {
-  images: ImagesData[] | undefined;
+  images: ImagesData[];
 }
 
 interface ImagesData {
@@ -23,11 +23,6 @@ const PaggingSlides: React.FC<PaggingSliderProps> =({images}) =>{
   const [change, setChange] =useState(0);
   const counts: any = images?.length
 
-  const plusSlides =(n:number) => {
-    setSlideIndex(prev => prev + n);
-    slideShow(slideIndex + n)
-  }
-
   const slideRef: any = useRef();
 
   useEffect(() => {
@@ -37,12 +32,9 @@ const PaggingSlides: React.FC<PaggingSliderProps> =({images}) =>{
     const width = scrollWidth /chiledrenElementCount
     setWidth(width)
   }, [])
+
   
 
-  const slideShow = (n:number) => {
-    if(n> counts) {setSlideIndex(1)}
-    if(n< 1) {setSlideIndex(counts)}
-  }
 
   const settings = {
     customPaging: function(i: any) {
@@ -52,12 +44,13 @@ const PaggingSlides: React.FC<PaggingSliderProps> =({images}) =>{
         </a>
       );
     },
+    infinite: images && images.length > 1 ? true : false,
     dots: true,
     dotsClass: "slick-dots slick-thumb",
-    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    
   };
 
   return (
