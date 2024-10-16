@@ -5,6 +5,7 @@ import ProductFilters from '@/components/product-filters';
 import ProductList from '../components/product-list';
 import getDeviceType from '@/utils/get-device-type';
 import MobileFiters from '../components/mobile-filters';
+import NoProductFound from '../components/no-products-found';
 
 export default function Search(props: SearchProps) {
   return (
@@ -31,11 +32,16 @@ export default function Search(props: SearchProps) {
               searchQuery={props.searchQuery}
             />
           }
-        <ProductList  
-          products={props.products}
-          loading={props.loading}
-          onRedirectToProductDetails={props.onRedirectToProductDetails}
-        />
+          {
+            !props.productCount && !props.loading ?
+              <NoProductFound />
+            :
+            <ProductList  
+              products={props.products}
+              loading={props.loading}
+              onRedirectToProductDetails={props.onRedirectToProductDetails}
+            />
+          }
      </aside>
       </div>
   )

@@ -101,5 +101,15 @@
       "carts": "Cart",
       "orders": "Orders",
       "logout": "Logout"
+    },
+    "search": {
+      "title": "There are no products that match your search.",
+      "check_spelling": "Check the spelling",
+      "of_the_words": "of the words.",
+      "use": "Use",
+      "more_generic": "more generic",
+      "or_fewer_words": "or fewer words.",
+      "browse_categories": "Browse the categories",
+      "to_find_product": "to find a similar product."
     }
   }

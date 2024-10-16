@@ -103,5 +103,15 @@
       "carts": "Panye",
       "orders": "Kòmand",
       "logout": "Dekonekte"
+    },
+    "search": {
+      "title": "Pa gen pwodui ki koresponn ak rechèch ou an.",
+      "check_spelling": "Verifye òtograf",
+      "of_the_words": "mo yo.",
+      "use": "Sèvi",
+      "more_generic": "ak mo ki pi jenerik",
+      "or_fewer_words": "oubyen mwens mo.",
+      "browse_categories": "Chèche nan kategori yo",
+      "to_find_product": "pou ka jwenn yon pwodui similè."
     }
-  }
+}
