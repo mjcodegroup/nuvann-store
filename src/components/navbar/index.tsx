@@ -31,7 +31,14 @@ interface selectedCountry {
 }
 export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
-  const {getAccessTokenSilently, user, isLoading: loading, logout, isAuthenticated, loginWithPopup: handleLogin } = useAuth0();
+  const router = useRouter();
+  const { search, becomeseller } = router.query;
+  const {
+      getAccessTokenSilently,
+      user, isLoading: loading,
+      logout, isAuthenticated,
+      loginWithPopup: handleLogin
+  } = useAuth0();
   const {countries} = useCountriesInfo();
   const {
     handleBecomeSeller,
@@ -47,8 +54,6 @@ export const Navbar: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();
 
-  const router = useRouter();
-  const { search } = router.query;
 
   const handleClickToBecomeSeller = () => {
     if(!isAuthenticated) {
@@ -78,6 +83,22 @@ export const Navbar: React.FC = () => {
     setSession();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
+
+  React.useEffect(() => {
+    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
+      getUserInfo();
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  } , [isAuthenticated]);
+
+  console.log(typeof becomeseller)
+
+  // React.useEffect(() => {
+  //   if(becomeseller) {
+  //     setModalTerm(true);
+  //   }
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [becomeseller])
 
   
 
