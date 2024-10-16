@@ -60,13 +60,6 @@ export const Navbar: React.FC = () => {
     setModalTerm(true)
   }
 
-  React.useEffect(() => {
-    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
-      getUserInfo();
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  } , [isAuthenticated]);
-
   const handleRedirectToCategory = (category: Category) => {
     redirect(`/search?category_id=${category.id}` as RoutesUrls);
   }
@@ -85,6 +78,8 @@ export const Navbar: React.FC = () => {
     setSession();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
+
+  
 
   return (
     <>

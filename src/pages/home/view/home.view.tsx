@@ -11,10 +11,6 @@ import { useTranslation } from 'react-i18next';
 export default function Home(props: Readonly<HomeProps>) {
   const { t } = useTranslation("home");
   const {products } = props;
-
-  console.log(products.items)
-  console.log(props.new_products.items)
-  console.log(props.promo_products.items)
   return (
     <>
     <Hero

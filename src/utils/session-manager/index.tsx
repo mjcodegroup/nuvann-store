@@ -13,6 +13,7 @@ class SessionManager {
     isAuthenticated() {
         return !!this.getValidToken();
     }
+
 }
 
 
