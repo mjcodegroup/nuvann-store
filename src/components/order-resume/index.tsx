@@ -24,11 +24,11 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
   const { data } = props;
   return (
     <div className={styles.card_resume}>
-      <Title title={t('cart.summary')} className={styles.resume_title} />
+      <Title title={t('summary')} className={styles.resume_title} />
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>{t('cart.product')} ({data.count})</p>
+          <p>{t('product')} ({data.count})</p>
           {props.loading ? (
             <p><Skeleton typeof='..........' width={100} height={30}/> </p>
             ) :
@@ -39,7 +39,7 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <hr />
 
         <div className={styles.resume_separated_info}>
-          <p>{t('cart.delivery')}</p>
+          <p>{t('delivery')}</p>
           {props.loading ? (
             <p><Skeleton typeof='..........' width={100} height={30}/> </p>
             ) :
@@ -51,7 +51,7 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <hr />
 
         <div className={styles.resume_separated_info}>
-          <p>{t("cart.total")} </p>
+          <p>{t("total")} </p>
           {props.loading ? (
             <p><Skeleton typeof='..........' width={100} height={30}/> </p>
             ) :
@@ -65,7 +65,7 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
 
       <div className={styles.resume_buttons}>
         <CustomButton disabled={props.loading || props.disabled} backgroundColor ='#00C02A' textColor="#fff" onClick={props.OnCheckout}>
-          <Link href="#">{t('cart.checkout')}</Link>
+          <Link href="#">{t('checkout')}</Link>
         </CustomButton>
         {/* <CustomButton backgroundColor ='#001A5C' textColor="#fff" onClick={() => alert('Button clicked!')}>
             Kontinye Achte

@@ -21,7 +21,7 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
       <div className={styles.cartWrapper}>
         <div className={styles.cartCard}>
           <div className={styles.cardTitle}>
-            <h3>{t("cart.shopping_cart")}</h3>
+            <h3>{t("shopping_cart")}</h3>
           </div>
 
           {

@@ -14,11 +14,11 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
     return (
         <div className={Styles.full_desc_section}>
             <div className={Styles.__title}>
-                <h3 className={Styles.full_desc_title}>{t('details.specific_information')}</h3>
+                <h3 className={Styles.full_desc_title}>{t('specific_information')}</h3>
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.origin')}:</p>
+                    <p>{t('origin')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     <p>{pro_seller}</p>
@@ -26,7 +26,7 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.categories')}:</p>
+                    <p>{t('categories')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     {
@@ -39,7 +39,7 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
 
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.tags')}:</p>
+                    <p>{t('tags')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     {
@@ -52,11 +52,11 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
 
             <br /><br /> <br />
             <div className={Styles.__title}>
-                <h3 className={Styles.full_desc_title}>{t('details.product_description')}</h3>
+                <h3 className={Styles.full_desc_title}>{t('product_description')}</h3>
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.description')}:</p>
+                    <p>{t('description')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     <p>{description}</p>

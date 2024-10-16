@@ -13,7 +13,7 @@ export default function CardProducts(props: CardProductsProps) {
   
   return (
     <div className={Styles.products_wrapper}>
-        <h4>{t("checkout.title_products_ordered")}</h4> <br />
+        <h4>{t("title_products_ordered")}</h4> <br />
         {
           props.items?.map((item: CheckoutItem, index) => (
               <div className={Styles.products_row} key={item.id}>
@@ -38,7 +38,7 @@ export default function CardProducts(props: CardProductsProps) {
                   <div className={Styles.separator}></div>
                 <div className={Styles._row_footer}>
                   <div>
-                    <h5>{t('checkout.shipping_options')}:</h5>
+                    <h5>{t('shipping_options')}:</h5>
                   </div>
                   <div>
                     <h5>{getDefaultShipment(item?.available_shipments)?.type}</h5>
@@ -46,11 +46,11 @@ export default function CardProducts(props: CardProductsProps) {
                   </div>
                   <div>
                     <CustomButton
-                      title={t('checkout.btn_to_replace_address')}
+                      title={t('btn_to_replace_address')}
                       variant='text'
                       onClick={()=>props.onClickBtnChangeShipment(item)}
                     >
-                      {t('checkout.btn_to_replace_address')}
+                      {t('btn_to_replace_address')}
                     </CustomButton>
                   </div>
                   <div>
