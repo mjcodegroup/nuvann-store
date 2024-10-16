@@ -24,7 +24,7 @@ export default function Home(props: Readonly<HomeProps>) {
       data={props.categories}
     />
     <ProductSlide
-      title={t("home.newProducts")}
+      title={t("newProducts")}
       itemToShow={4}
       products={products.items} 
       havePromo={false}
@@ -35,7 +35,7 @@ export default function Home(props: Readonly<HomeProps>) {
     <ProductSlide
       itemToShow={4} 
       products={products.items}
-      title={t("home.month_clearance")}
+      title={t("month_clearance")}
       havePromo
       isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
@@ -45,7 +45,7 @@ export default function Home(props: Readonly<HomeProps>) {
       itemToShow={4} 
       multipleRows
       products={products.items}
-      title={t("home.month_clearance")}
+      title={t("month_clearance")}
       havePromo
       isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}

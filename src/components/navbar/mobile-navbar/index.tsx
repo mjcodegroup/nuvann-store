@@ -49,7 +49,7 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
                       <h4>{truncateStringWithEllipsis(props.user?.given_name || props.user?.name, 40)} </h4>
                     </div> 
                   :
-                  <button onClick={props.onSignIn}><FiUser color='#000052'/> <span>{t('nav_content.sign_in')}</span> | {t('nav_content.sign_up')}</button>
+                  <button onClick={props.onSignIn}><FiUser color='#000052'/> <span>{t('sign_in')}</span> | {t('sign_up')}</button>
                 }
               </div>
               <div className={Styles._footer}>
@@ -59,20 +59,20 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
 
             <div className={Styles._nav_list}>
             <ul>
-              <Link href="/">{t("nav_content.home")}</Link>
+              <Link href="/">{t("home")}</Link>
                 <DropdownSimple
                   onCategorySelect={(category: Category) => props.onCategorySelect(category)}
                   categories={props.categories}
                   contentWidth={props.width}
                 >
-                  {t("nav_content.category")}
+                  {t("category")}
                 </DropdownSimple>
                 
                 <Link href={`/search?in_promotion=${true}`}>
-                  {t("nav_content.promotion")}
+                  {t("promotion")}
                 </Link>
                 <div onClick={props.onClickSellerMenu}>
-                  {t("nav_content.sell")}
+                  {t("sell")}
                 </div>
             </ul>
 
@@ -83,7 +83,7 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
                     fullWidth
                   >
                     <FiLogOut fontSize="small" />
-                   {t('nav_content.logout')}
+                   {t('logout')}
                   </CustomButton>
                 </div>
             </div>

@@ -19,7 +19,7 @@ const SizeComponent: React.FC<Props> = ({ sizes, selectedSize, onSelectSize }) =
        textTransform: 'capitalize',
        flexShrink: '0',
        alignItems: 'center',
-      }}>{t('details.sizes')}: </p>
+      }}>{t('sizes')}: </p>
       :
       ''
     }

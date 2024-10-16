@@ -20,7 +20,7 @@ export default function Jumbotron(props: JumbotronProps) {
             props.jumbs?.map((jumb, index) =>
                 <div key={index} className={Styles.jumb_content}>
                     <Image src={jumb?.Icon} alt={jumb?.title} width={100} height={100} /> 
-                    <p className={Styles.jumb_title}>{t(`home.${jumb?.transCode}`)}</p>
+                    <p className={Styles.jumb_title}>{t(`${jumb?.transCode}`)}</p>
                 </div>
             )
         }

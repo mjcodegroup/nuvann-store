@@ -28,7 +28,7 @@ export default function ProductList(props: ProductListProps) {
                 </div>
                 <div className={Styles.bottom}>
                     {prod.prices.current_price?.discount?.value ? (
-                        <p className={Styles.daily_deal}>{t("home.today_deals")}</p>
+                        <p className={Styles.daily_deal}>{t("today_deals")}</p>
                     ) : ''}
                     {
                     prod.prices.current_price?.discount?.value ? (

@@ -15,7 +15,7 @@ const Categories: React.FC <CategoriesProps>  = ({data}) => {
   const { t } = useTranslation("home");
   return (
     <div className={Styles.category_container}>
-        <Title title={t("home.most_popular_categories")} centered/>
+        <Title title={t("most_popular_categories")} centered/>
         <div className={Styles.category_content}>
         {data?.slice(0,4).map((category:Category) => (
             <div className={Styles._card_container} key={category.id}>

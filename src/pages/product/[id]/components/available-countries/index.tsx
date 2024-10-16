@@ -12,7 +12,7 @@ const AvailableCountries: React.FC<TitleProps> =({countries}) =>{
     const {t} = useTranslation('details');
     return (
         <div className={Styles.available_content}>
-            <p>{t('details.available_countries')}:</p>
+            <p>{t('available_countries')}:</p>
                 {
                 countries?.map((ava: string, index:number)=> (
                     <span key={index}>{ava}</span>

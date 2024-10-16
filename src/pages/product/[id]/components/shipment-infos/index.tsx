@@ -41,7 +41,7 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect }) => {
 
   return (
     <div className={Styles.shipping}>
-      <h4>{t('details.delivery_information')}</h4>
+      <h4>{t('delivery_information')}</h4>
       <div className={Styles.shipping_list}>
         {shippingInfos?.map((info, index) => (
           <div key={info.id + index} className={Styles.shipping_info}>

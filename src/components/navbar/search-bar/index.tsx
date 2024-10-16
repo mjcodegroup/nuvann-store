@@ -46,7 +46,7 @@ const SearchBar: React.FC<ExtendedSearchBarProps> = ({ placeholder, onSearch, de
         onChange={handleInputChange}
       />
       <button onClick={handleButtonClick}>
-        <span className={Styles._text}>{t('nav_content.search')}</span>
+        <span className={Styles._text}>{t('search')}</span>
         <span className={Styles._icon}><IoMdSearch /></span>
       </button>
     </div>

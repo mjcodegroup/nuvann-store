@@ -122,7 +122,7 @@ export default function ProductSlide(props: SliderProps) {
             {props.products?.map((product:any, index: any) => (
               <div className={Styles.card_home} key={product.id}>
                 {props.isnew && (
-                  <div className={Styles.product_new_label}>{t("home.new")}</div>
+                  <div className={Styles.product_new_label}>{t("new")}</div>
                 )}
                 <div className={Styles.__card} onClick={() => props.onRedirectToProductDetails(product.id)}>
                   <div className={Styles.product_img}>
@@ -132,7 +132,7 @@ export default function ProductSlide(props: SliderProps) {
                   <div className={Styles.img_separator}></div>
                   <div className={Styles.bottom}>
                     {props.havePromo && (
-                      <p className={Styles.daily_deal}>{t("home.today_deals")}</p>
+                      <p className={Styles.daily_deal}>{t("today_deals")}</p>
                     )}
                     <p>
                       <i><span className={Styles.lastprice}>{product.prices.original_price?.formatted}</span></i>
@@ -150,7 +150,7 @@ export default function ProductSlide(props: SliderProps) {
           </Slider>
         ) : (
           <div style={{ textAlign: 'center', color: 'gray' }}>
-            {t("home.no_products_found")}
+            {t("no_products_found")}
           </div>
         )
       ) : (
