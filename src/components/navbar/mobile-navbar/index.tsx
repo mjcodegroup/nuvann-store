@@ -15,6 +15,8 @@ import LanguageSelector from '@/components/language-selector'
 import DropdownSimple from '@/components/dropdown-simple'
 import { Category } from '@/contexts/categories/types'
 import CustomButton from '@/components/custom-button'
+import { FcShipped } from 'react-icons/fc'
+import { FaUserAlt } from 'react-icons/fa'
 
 
 const MobileNavbar = (props: MobileNavbarProps)=> {
@@ -74,8 +76,21 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
                 <div onClick={props.onClickSellerMenu}>
                   {t("sell")}
                 </div>
+            {
+              props.isAuthenticated && (
+                <>
+                  <Link href={RoutesUrls.ORDERS}>
+                  <FcShipped /> {t("my_orders")}
+                  </Link>
+                  <Link href="#">
+                  <FaUserAlt size={"14"} color='#000052'/> {t("my_profile")}
+                  </Link>
+                </>
+              )
+            }
             </ul>
-
+            {
+              props.isAuthenticated && (
                 <div className={Styles._nav_list_footer}>
                   <CustomButton
                     onClick={props.onLogout}
@@ -86,6 +101,8 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
                    {t('logout')}
                   </CustomButton>
                 </div>
+              )
+            }
             </div>
         </div>
       </CustomDrawer>
