@@ -7,5 +7,7 @@ export interface HomeProps {
     jumbsData: any[];
     onRedirectToProductDetails: (id: string) => void;
     products: ProductsData;
+    new_products: ProductsData;
+    promo_products: ProductsData;
     categories: Category[];  
 }

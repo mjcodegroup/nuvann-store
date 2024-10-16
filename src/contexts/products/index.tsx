@@ -8,6 +8,8 @@ export const ProductsContext = createContext<ProductsContextProps>(
 
 const initialState: State = {
     products: {} as ProductsData,
+    newProducts: {} as ProductsData,
+    promotionProducts: {} as ProductsData,
     product: {} as ProductDetails,
     isLoading: false,
 };

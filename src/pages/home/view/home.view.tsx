@@ -11,6 +11,10 @@ import { useTranslation } from 'react-i18next';
 export default function Home(props: Readonly<HomeProps>) {
   const { t } = useTranslation("home");
   const {products } = props;
+
+  console.log(products.items)
+  console.log(props.new_products.items)
+  console.log(props.promo_products.items)
   return (
     <>
     <Hero
@@ -26,7 +30,7 @@ export default function Home(props: Readonly<HomeProps>) {
     <ProductSlide
       title={t("newProducts")}
       itemToShow={4}
-      products={products.items} 
+      products={props.new_products.items} 
       havePromo={false}
       isnew
       isLoading={props.loader}
@@ -34,7 +38,7 @@ export default function Home(props: Readonly<HomeProps>) {
     />
     <ProductSlide
       itemToShow={4} 
-      products={products.items}
+      products={props.promo_products.items}
       title={t("month_clearance")}
       havePromo
       isLoading={props.loader}
