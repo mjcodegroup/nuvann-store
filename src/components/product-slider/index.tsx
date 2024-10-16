@@ -131,14 +131,24 @@ export default function ProductSlide(props: SliderProps) {
                   </div>
                   <div className={Styles.img_separator}></div>
                   <div className={Styles.bottom}>
-                    {props.havePromo && (
+                    {(product.prices.current_price.discount.percent && props.havePromo) ? (
                       <p className={Styles.daily_deal}>{t("today_deals")}</p>
-                    )}
-                    <p>
-                      <i><span className={Styles.lastprice}>{product.prices.original_price?.formatted}</span></i>
-                    </p>
+                    ): ''}
+                    {
+                      (product.prices.current_price.discount.percent && props.havePromo) && product.prices.current_price.discount.percent ? (
+                        <p>
+                          <i>
+                            <span className={Styles.lastprice}>
+                              {product.prices.original_price?.formatted}
+                            </span>
+                          </i>
+                        </p>
+                      ) : ''
+                    }
                     <p className={Styles.currentPrice}>{product.prices.current_price.formatted}
-                      {product.prices.current_price.discountPercent && <span>{product.prices.current_price.discountPercent} % OFF</span>}
+                      {
+                        (product.prices.current_price.discount.percent && props.havePromo) && <span>{product.prices.current_price.discount.percent} % OFF</span>
+                      }
                     </p>
                     <h2>
                       {truncateStringWithEllipsis(product.name, 50)}
