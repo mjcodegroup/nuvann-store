@@ -22,7 +22,6 @@ export default function ProductSlide(props: SliderProps) {
   const [showPrev, setShowPrev] = useState(false);
   const sliderRef = useRef<any>(null);
 
-  const isMobile = window.innerWidth < 768;
   const settingsMultiRows = {
     infinite: true,
     slidesToShow: 2,

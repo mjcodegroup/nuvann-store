@@ -7,7 +7,6 @@ import NavList from './nav-list';
 import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
-import { useAuth } from '@/hooks/useKeycloak';
 import { useCartInfo } from '@/hooks/use-cart-info';
 import { useCategoriesInfo } from '@/hooks/use-categories-info';
 import ModalActions from '../modal-actions';
@@ -23,6 +22,8 @@ import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
 import getDeviceType from '@/utils/get-device-type';
 import MobileNavbar from './mobile-navbar';
+import { useAuth0 } from "@auth0/auth0-react";
+import sessionManager from '@/utils/session-manager';
 
 interface selectedCountry {
   label: string;
@@ -30,7 +31,7 @@ interface selectedCountry {
 }
 export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
-  const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
+  const {getAccessTokenSilently, user, isLoading: loading, logout, isAuthenticated, loginWithPopup: handleLogin } = useAuth0();
   const {countries} = useCountriesInfo();
   const {
     handleBecomeSeller,
@@ -40,7 +41,7 @@ export const Navbar: React.FC = () => {
     modalTerm,
     setModalTerm
   } = useUserInfo();
-  const { cartState} = useCartInfo();
+  const { cartState} = useCartInfo({isAuthenticated: isAuthenticated});
   const { categoriesState} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
@@ -62,7 +63,7 @@ export const Navbar: React.FC = () => {
   React.useEffect(() => {
     if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
       getUserInfo();
-  };
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   } , [isAuthenticated]);
 
@@ -73,6 +74,16 @@ export const Navbar: React.FC = () => {
   const handleSearch = (searchText: string) => {
     redirect(`/search?search=${searchText}` as RoutesUrls)
   }
+  
+  const setSession = async() => {
+    const token = await getAccessTokenSilently();
+    sessionManager.setSession(token);
+  }
+
+  React.useEffect(() => {
+    setSession();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   return (
     <>
@@ -84,7 +95,7 @@ export const Navbar: React.FC = () => {
           onCategorySelect={handleRedirectToCategory}
           onClickSellerMenu={()=>handleClickToBecomeSeller()}
           isAuthenticated={isAuthenticated}
-          user={userInfos.name? userInfos : user}
+          user={user}
           onSignIn={handleLogin}
           isLoading={loading}
           onLogout={logout}
@@ -109,7 +120,7 @@ export const Navbar: React.FC = () => {
             />
           </div>
           <NavOptions
-            user={userInfos.name? userInfos : user}
+            user={user}
             isAuthenticated={isAuthenticated}
             onSignIn={handleLogin}
             isLoading={loading}
