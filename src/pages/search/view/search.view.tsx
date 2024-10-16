@@ -32,16 +32,17 @@ export default function Search(props: SearchProps) {
               searchQuery={props.searchQuery}
             />
           }
-          {
-            !props.productCount && !props.loading ?
-              <NoProductFound />
-            :
-            <ProductList  
-              products={props.products}
-              loading={props.loading}
-              onRedirectToProductDetails={props.onRedirectToProductDetails}
-            />
-          }
+     {
+  !props.productCount && !props.loading ? (
+    <NoProductFound />
+  ): (
+    <ProductList  
+      products={props.products}
+      loading={props.loading}
+      onRedirectToProductDetails={props.onRedirectToProductDetails}
+    />
+  )
+}
      </aside>
       </div>
   )

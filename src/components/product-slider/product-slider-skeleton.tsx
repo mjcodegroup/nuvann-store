@@ -1,7 +1,7 @@
 import { Card, CardContent, CardMedia, Skeleton } from "@mui/material";
 import Styles from './product-slider.module.scss';
 
-export function ProductSlideSkeleton({itemToShow}: any) {
+export function ProductSlideSkeleton({itemToShow}: {itemToShow: number}) {
     return (
         <div className={Styles.skeleton_container}>
             {Array.from({ length: itemToShow }).map((_, index) => (
