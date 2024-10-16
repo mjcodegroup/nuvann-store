@@ -13,19 +13,19 @@ export default function NavList(props: NavListProps) {
   return (
     <nav className={Styles.navbar_list}>
         <ul>
-            <Link href="/">{t("nav_content.home")}</Link>
+            <Link href="/">{t("home")}</Link>
             <DropdownSimple
               onCategorySelect={(category: Category) => props.onCategorySelect(category)}
               categories={props.categories}
               contentWidth={props.width}
             >
-              {t("nav_content.category")}
+              {t("category")}
             </DropdownSimple>
             <Link href={`/search?in_promotion=${true}`}>
-              {t("nav_content.promotion")}
+              {t("promotion")}
             </Link>
               <div onClick={props.onClickSellerMenu}>
-                {t("nav_content.sell")}
+                {t("sell")}
               </div>
         </ul>
     </nav>

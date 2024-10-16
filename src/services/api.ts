@@ -16,7 +16,7 @@ const handleError = (error: any ) => {
         const {protocol, host } = window.location;
 
         console.log("Sua sessão expirou, por favor faça login novamente")
-        cookie.deleteCookie('@nuvann:valid-token');
+        // cookie.deleteCookie('@nuvann:valid-token');
         cookie.deleteCookie('user');
         // window.location.replace(`${protocol}//${host}/login`)
     }
@@ -40,6 +40,8 @@ nuvannApi.interceptors.request.use(
     async (config: any) => {
          const TOKEN = sessionManager.getValidToken();
          const selectedLanguage = getCookie('NEXT_I18LANG');
+
+         console.log("TOKEN___________", TOKEN)
 
         config.headers = {
             ...config.headers,

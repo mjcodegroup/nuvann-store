@@ -90,14 +90,14 @@ export default function NavOptions(props: NavOptionProps) {
                   <ListItemIcon>
                     <FaPerson fontSize="small" />
                   </ListItemIcon>
-                  {t('nav_content.my_profile')}
+                  {t('my_profile')}
                 </MenuItem>
                 <Link href={RoutesUrls.ORDERS}>
                   <MenuItem onClick={()=> null}>
                     <ListItemIcon>
                       <FcShipped fontSize="small" />
                     </ListItemIcon>
-                    {t('nav_content.my_orders')}
+                    {t('my_orders')}
                   </MenuItem>
                 </Link>
                 {/* <MenuItem onClick={handleClose}>
@@ -111,14 +111,14 @@ export default function NavOptions(props: NavOptionProps) {
                   <ListItemIcon>
                     <FiLogOut fontSize="small" />
                   </ListItemIcon>
-                  {t('nav_content.logout')}
+                  {t('logout')}
                 </MenuItem>
               </Menu>
     </>
     :
     <li>
       <Link href="#" onClick={props.onSignIn}>
-        <button><FiUser color='#000052'/> <span>{t('nav_content.sign_in')}</span> | {t('nav_content.sign_up')}</button>
+        <button><FiUser color='#000052'/> <span>{t('sign_in')}</span> | {t('sign_up')}</button>
       </Link>
     </li>
     }

@@ -1,0 +1,117 @@
+{
+    "nav_content": {
+      "home": "Inico",
+      "promotion": "Promoción",
+      "search": "Buscar",
+      "sell": "Vender",
+      "category": "Categoría",
+      "man": "hombre",
+      "women": "Mujer",
+      "sign_in": "Iniciar sesión",
+      "sign_up": "Registrarse",
+      "logout": "Cerrar sesión",
+      "my_orders": "Mis pedidos",
+      "my_profile": "Mi perfil"
+    },
+    "placeholders": {
+      "custom_select_placeholder": "Seleccione una opción"
+    },
+    "buttons": {
+      "confirm": "Confirmar",
+      "cancel": "Cancelar"
+    },
+    "home": {
+      "welcome": "Bienvenido a Nuvann Makertplace",
+      "term_and_contitions": "Términos y condiciones",
+      "business_name": "Nombre de la empresa",
+      "country": "País",
+      "searchForAProduct": "Buscar un producto",
+      "newProducts": "Nuevos productos",
+      "fast_delivery": "Entrega rápida",
+      "choose_how_to_pay": "Elija cómo pagar",
+      "pay_in_security": "Pague con seguridad",
+      "24h_support": "Soporte 24/24",
+      "most_popular_categories": "Categorías más populares",
+      "month_clearance": "Liquidación del mes",
+      "new": "Nuevo",
+      "today_deals": "Ofertas del día",
+      "best_sellers": "Los más vendidos",
+      "no_products_found": "No se encontraron productos"
+  
+    },
+    "details": {
+      "available": "Disponible",
+      "seller": "Vendedor",
+      "country": "País",
+      "sales": "Ventas",
+      "sizes": "Tallas",
+      "colors": "Colores",
+      "add_to_cart": "Añadir al carrito",
+      "buy_now": "Comprar ahora",
+      "delivery_information": "Información de entrega",
+      "available_countries": "Países disponibles",
+      "quantity": "Cantidad",
+      "specific_information": "Información específica",
+      "origin": "Origen",
+      "categories": "Categorías",
+      "tags": "Etiquetas",
+      "product_description": "Descripción del producto",
+      "description": "Descripción",
+      "price": "Precio",
+      "please_select_size_or_color": "Por favor seleccione una talla o color"
+    },
+    "cart": {
+      "shopping_cart": "Carro de la compra",
+      "product": "Productos",
+      "quantity": "Cantidad",
+      "available": "Disponible",
+      "price": "Precio",
+      "total": "Total",
+      "checkout": "Continuar",
+      "summary": "Resumen",
+      "delivery": "Entrega",
+      "description": "Descripción",
+      "size": "Talla",
+      "color": "Color"
+    },
+    "checkout": {
+      "delivery_address": "Dirección de entrega",
+      "btn_to_replace_address": "Cambiar",
+      "btn_add_address": "Agregar una nueva dirección",
+      "title_products_ordered": "Productos pedidos",
+      "shipping_options": "Opciones de envío",
+      "new_address": "Nueva dirección",
+      "edit_address": "Editar dirección",
+      "countries": "Países",
+      "full_name": "Nombre completo",
+      "phone_number": "Número de teléfono",
+      "postal_code": "Código postal",
+      "state_department_province": "Estado/Departamento/Provincia",
+      "city": "Ciudad",
+      "neighborhood": "Barrio",
+      "street_name": "Nombre de la calle",
+      "street_number": "Número de calle",
+      "complement": "Complemento",
+      "select_shipment_option_title": "Seleccione la opción de envío"
+    },
+    "footer": {
+      "contact_us": "Contáctenos",
+      "utils_Links": "Enlaces útiles",
+      "payment_Methods": "Métodos de pago",
+      "client_space": "Espacio del cliente",
+      "profile": "Perfil",
+      "carts": "Carrito",
+      "orders": "Pedidos",
+      "logout": "Cerrar sesión"
+    },
+    "search": {
+      "title": "Não há produtos que correspondam à sua pesquisa.",
+      "check_spelling": "Verifique a ortografia",
+      "of_the_words": "das palavras.",
+      "use": "Utilice",
+      "more_generic": "palabras más genéricas",
+      "or_fewer_words": "o menos palabras.",
+      "browse_categories": "Explore las categorías",
+      "to_find_product": "para encontrar un producto similar."
+    }
+  }

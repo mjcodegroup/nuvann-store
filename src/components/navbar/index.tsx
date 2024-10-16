@@ -31,7 +31,14 @@ interface selectedCountry {
 }
 export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
-  const {getAccessTokenSilently, user, isLoading: loading, logout, isAuthenticated, loginWithPopup: handleLogin } = useAuth0();
+  const router = useRouter();
+  const { search, becomeseller } = router.query;
+  const {
+      getAccessTokenSilently,
+      user, isLoading: loading,
+      logout, isAuthenticated,
+      loginWithPopup: handleLogin
+  } = useAuth0();
   const {countries} = useCountriesInfo();
   const {
     handleBecomeSeller,
@@ -47,8 +54,6 @@ export const Navbar: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();
 
-  const router = useRouter();
-  const { search } = router.query;
 
   const handleClickToBecomeSeller = () => {
     if(!isAuthenticated) {
@@ -59,13 +64,6 @@ export const Navbar: React.FC = () => {
     }
     setModalTerm(true)
   }
-
-  React.useEffect(() => {
-    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
-      getUserInfo();
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  } , [isAuthenticated]);
 
   const handleRedirectToCategory = (category: Category) => {
     redirect(`/search?category_id=${category.id}` as RoutesUrls);
@@ -81,9 +79,28 @@ export const Navbar: React.FC = () => {
   }
 
   React.useEffect(() => {
+    if(!isAuthenticated) return;
     setSession();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
+
+  React.useEffect(() => {
+    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
+      getUserInfo();
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  } , [isAuthenticated]);
+
+  console.log(typeof becomeseller)
+
+  // React.useEffect(() => {
+  //   if(becomeseller) {
+  //     setModalTerm(true);
+  //   }
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [becomeseller])
+
+  
 
   return (
     <>
@@ -100,7 +117,7 @@ export const Navbar: React.FC = () => {
           isLoading={loading}
           onLogout={logout}
           cartCount={cartState.cart?.count}
-          placeholder={t('home.searchForAProduct')}
+          placeholder={t('searchForAProduct')}
           onSearch={handleSearch}
           onClickMenu={()=>{}}
           width='100%'
@@ -115,7 +132,7 @@ export const Navbar: React.FC = () => {
           <div className={Styles.navbar_search}>
             <SearchBar
               defaultValue={search as string}
-              placeholder={t('home.searchForAProduct')}
+              placeholder={t('searchForAProduct')}
               onSearch={handleSearch}
             />
           </div>
@@ -140,7 +157,7 @@ export const Navbar: React.FC = () => {
 
     }
     <ModalActions
-      title={t('home.term_and_contitions')}
+      title={t('term_and_contitions')}
       open ={modalTerm}
       setOpen= {setModalTerm}
       loading={userInfosLoader}
@@ -152,8 +169,8 @@ export const Navbar: React.FC = () => {
         })
       }}
     >
-      <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
-      <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
+      <CustomInput label={t('business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
+      <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('country')} />
     </ModalActions>
     </>
   );

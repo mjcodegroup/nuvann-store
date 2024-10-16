@@ -8,7 +8,7 @@ export default function ModalUpdateShipment(props: CardUpdateShipmentProps) {
     const { t } = useTranslation("checkout");
   return (
     <ModalActions
-    title={t('checkout.select_shipment_option_title')}
+    title={t('select_shipment_option_title')}
     open ={props.openModalShipment}
     setOpen= {props.setOpenModalShipment}
     disable={props.disableModalShipmentButton}

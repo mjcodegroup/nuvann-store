@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ['latin'] })
 import '../styles/globals.scss';
  
 import "@/utils/i18starter/index";
-import { I18nextProvider, getI18n } from "react-i18next";
+import { I18nextProvider} from "react-i18next";
+import i18n from "../../i18n/i18n";
 import { ProductsProvider } from "@/contexts/products";
 import { CartProvider } from "@/contexts/cart";
 import { OrdersProvider } from "@/contexts/orders";
@@ -27,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-        <I18nextProvider i18n={getI18n()} defaultNS={'fr'}>
+        <I18nextProvider i18n={i18n}>
           <NoSsr>
           <CountriesProvider>
               <Auth0Provider

@@ -35,9 +35,9 @@ export default function Details(props: DetailsProps) {
         <section>
             <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
-                <p><span>{t('details.seller')}:</span> <small>{productInfos?.seller?.name}</small>  </p>
-                <p><span>{t('details.country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
-                <p><span>{t('details.sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
+                <p><span>{t('seller')}:</span> <small>{productInfos?.seller?.name}</small>  </p>
+                <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
+                <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
             </div>
 
             <div className={Styles.prices_class}>
@@ -63,7 +63,7 @@ export default function Details(props: DetailsProps) {
             </div>
             {
             onError ? 
-                <small className="detail_error_message">{t("details.please_select_size_or_color")}</small>
+                <small className="detail_error_message">{t("please_select_size_or_color")}</small>
             : ''
             }
         </section>
@@ -75,8 +75,8 @@ export default function Details(props: DetailsProps) {
 
         <InputQuantity
             total={productInfos?.available_amount}
-            availableText={t('details.available')}
-            label={t('details.quantity')}
+            availableText={t('available')}
+            label={t('quantity')}
             onChange={onChangeQuantity} 
             value={qty}
             increment={onIncrement}
@@ -92,7 +92,7 @@ export default function Details(props: DetailsProps) {
               variant='outlined'
               onClick={onAddToCart}
               >
-                {t('details.add_to_cart')}
+                {t('add_to_cart')}
             </CustomButton>
             <CustomButton
                 className={Styles.btn_purchase}
@@ -100,7 +100,7 @@ export default function Details(props: DetailsProps) {
                 textColor='#fff'
                 onClick={onPurchase}
             >
-                    {t('details.buy_now')}
+                    {t('buy_now')}
             </CustomButton>
         </section>
 

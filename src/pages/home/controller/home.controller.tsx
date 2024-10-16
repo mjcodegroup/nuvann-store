@@ -9,8 +9,8 @@ import { RouteUrl } from '@/utils/enums/routesUrl'
 import { useProductsInfo } from '@/hooks/use-products-info'
 
 export default function HomeController() {
+  const {getProducts, getNewProducts,getPromotionProducts} = useProductsInfo();
   const {state: homeState, dispatch: homeDispatch} = useProducts();
-  const {getProducts} = useProductsInfo();
   const {redirect} = useNavigation();
 
   const handleRedirectToDetailsPage = useCallback((productId: string) => {
@@ -19,7 +19,11 @@ export default function HomeController() {
 
   async function getHomeInformations() {
     try {
-        await getProducts();
+        await getProducts({
+          in_promotion: undefined,
+        });
+        await getNewProducts();
+        await getPromotionProducts();
       } catch (error) {
         console.log("algo deu errado")
       }
@@ -33,6 +37,8 @@ export default function HomeController() {
   return (
     <HomePageDefault>
       <Home
+        promo_products={homeState.promotionProducts}
+        new_products={homeState.newProducts}
         loader={homeState.isLoading}
         heroImages={heroImagesMock}
         jumbsData={jumDataMock}

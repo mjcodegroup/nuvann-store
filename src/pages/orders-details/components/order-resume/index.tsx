@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import styles from './order-resume.module.scss';
 import CustomButton from '@/components/custom-button';
 import { useTranslation } from 'react-i18next';
@@ -31,7 +30,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
 
   return (
     <div className={styles.card_resume}>
-      <Title title={t('cart.summary')} className={styles.resume_title} />
+      <Title title={t('summary')} className={styles.resume_title} />
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
@@ -44,7 +43,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-          <p>{t('cart.delivery')}</p>
+          <p>{t('delivery')}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (

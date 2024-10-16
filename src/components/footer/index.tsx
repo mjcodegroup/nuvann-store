@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use } from 'react'
 import { AiOutlineUser, AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';
 import {FaMapMarkerAlt, FaPhoneAlt, FaEnvelope} from 'react-icons/fa';
 import Image from 'next/image';
@@ -12,8 +12,11 @@ import visacheckout from '../../../public/assets/cards/visacheckout.svg'
 import amex from '../../../public/assets/cards/amex.svg'
 import boleto from '../../../public/assets/cards/boleto.svg'
 import pack from '../../.../../../package.json';
+import { useTranslation } from 'react-i18next';
+import { FcShipped } from 'react-icons/fc';
 
 export const Footer = () => {
+  const { t } = useTranslation('footer')
 
   const today = new Date();
   const year = today.getFullYear();
@@ -21,7 +24,7 @@ export const Footer = () => {
     <div className={styles.footer_principal_container}>
         <div className={styles.footer_details}>
           <div>
-            <h2>Kontakte nou</h2>
+            <h2>{t('contact_us')}</h2>
 
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
@@ -34,7 +37,7 @@ export const Footer = () => {
             <p><span> <FaEnvelope color='#000052'/> </span> nuvann@contact.com</p>
           </div>
           <div>
-            <h2>Rakousi Enfo</h2>
+            <h2>{t('utils_Links')}</h2>
 
             <p>Komanw kapab Vann </p>
             <p> Komanw ka fè yon reklamasyon </p>
@@ -43,7 +46,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h2>Metòd Pèman</h2>
+            <h2>{t('payment_Methods')}</h2>
             <div className={styles.footer_principal_cards}>
               <Image src={visaIcon} alt={visaIcon}/>
               <Image src={masterCard} alt={masterCard}/>
@@ -56,10 +59,11 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h2>Espas Kliyan</h2>
-            <p><span><AiOutlineUser/></span> Profil</p>
-            <p><span><AiOutlineShoppingCart/></span> Panye</p>
-            <p><span> <AiOutlineLogout /> </span> Dekonekte</p>
+            <h2>{t('client_space')}</h2>
+            <p><span><AiOutlineUser/></span> {t('profile')}</p>
+            <p><span><AiOutlineShoppingCart/></span> {t('carts')}</p>
+            <p><span> <FcShipped /> </span> {t('orders')}</p>
+            <p><span> <AiOutlineLogout /> </span> {t('logout')}</p>
           </div>
         </div>
         <div className={styles.footer_signature}>

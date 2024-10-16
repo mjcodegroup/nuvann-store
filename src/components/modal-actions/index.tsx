@@ -91,7 +91,7 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                                 onClickBtnCancel && onClickBtnCancel();
                             }}
                         >
-                            {textBtnCancel || t('buttons.cancel')}
+                            {textBtnCancel || t('cancel')}
                         </CustomButton>
 
                         <CustomButton
@@ -105,7 +105,7 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                             }}
                             isLoading={loading}
                         >
-                            {textBtnConfirm || t('buttons.confirm')}
+                            {textBtnConfirm || t('confirm')}
                         </CustomButton>
                     </div>
                 </div>

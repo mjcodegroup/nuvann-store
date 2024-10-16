@@ -31,18 +31,18 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
              { truncateStringWithEllipsis(item.product.name, 40)}
               </h3>
               <div className={styles.content_desc}>
-                <p>{t('cart.description')}:</p>
+                <p>{t('description')}:</p>
                 <span>{truncateStringWithEllipsis(item.product.description, 60) || 'No Description Available'}</span>
               </div>
               <div className={styles.content_desc}>
-                <p>{t('cart.price')}:</p>
+                <p>{t('price')}:</p>
                 <span>{item.price}</span>
               </div>
               {
                 item.product.properties?.map((property, index) => (
                   property?.key && property?.value && (
                     <div key={index} className={styles.content_desc}>
-                      <p>{property.key === "size" ? t('cart.size') : t('cart.color')}:</p>
+                      <p>{property.key === "size" ? t('size') : t('color')}:</p>
                       <span>{property.value}</span>
                     </div>
                   )
@@ -63,8 +63,8 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
               <InputQuantity
                 disabled={props.disableIncrementAndDecrementBtn}
                 value={item?.quantity}
-                label={t('cart.quantity')}
-                availableText={t('cart.available')}
+                label={t('quantity')}
+                availableText={t('available')}
                 decrement={() => props.onDecrementButton(item.id, index)} 
                 increment={() => props.onIncrementButton(item.id, index)}
               />
