@@ -25,7 +25,7 @@ export default function Home(props: Readonly<HomeProps>) {
     />
     <ProductSlide
       title={t("newProducts")}
-      itemToShow={4}
+      itemToShow={8}
       products={props.new_products.items} 
       havePromo={false}
       isnew
@@ -33,7 +33,7 @@ export default function Home(props: Readonly<HomeProps>) {
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <ProductSlide
-      itemToShow={4} 
+      itemToShow={6} 
       products={props.promo_products.items}
       title={t("month_clearance")}
       havePromo

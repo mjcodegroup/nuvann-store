@@ -27,13 +27,13 @@ export default function ProductSlide(props: SliderProps) {
     slidesToShow: 2,
     speed: 500,
     rows: 2,
-    slidesPerRow:  getDeviceType.isMobile() ? 1 : 2,
+    slidesPerRow:  getDeviceType.isMobile() ? 1 : props.itemToShow || 4,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          rows: 2,
+          slidesToShow: props.itemToShow || 2,
+          rows: 3,
           slidesPerRow: 1,
         }
       },
@@ -61,8 +61,8 @@ export default function ProductSlide(props: SliderProps) {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: props.itemToShow || 6,
+    slidesToScroll: 6,
     initialSlide: 0,
     responsive: [
       {
