@@ -114,5 +114,19 @@
       "or_fewer_words": "oubyen mwens mo.",
       "browse_categories": "Chèche nan kategori yo",
       "to_find_product": "pou ka jwenn yon pwodui similè."
+    },
+    "order": {
+      "products_already_purchased": "Pwodwi ou achte deja",
+      "buy_again": "Achte ankò",
+      "see_more": "Wè plis",
+      "order_detail": "Detay lòd la",
+      "destination": "Destinasyon",
+      "overview": "Apèsi",
+      "total_price": "Pri total",
+      "delivery": "Livrezon",
+      "seller_information": "Enfòmasyon sou vandè a",
+      "country": "Peyi",
+      "name": "Non",
+      "back_to_orders": "Tounen nan lòd yo"
     }
 }

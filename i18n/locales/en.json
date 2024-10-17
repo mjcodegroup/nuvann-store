@@ -112,5 +112,19 @@
       "or_fewer_words": "or fewer words.",
       "browse_categories": "Browse the categories",
       "to_find_product": "to find a similar product."
+    },
+    "order": {
+      "products_already_purchased": "Products you have already purchased",
+      "buy_again": "Buy again",
+      "see_more": "See more",
+      "order_detail": "Order detail",
+      "destination": "Destination",
+      "overview": "Overview",
+      "total_price": "Total price",
+      "delivery": "Delivery",
+      "seller_information": "Seller information",
+      "country": "Country",
+      "name": "Name",
+      "back_to_orders": "Back to orders"
     }
   }

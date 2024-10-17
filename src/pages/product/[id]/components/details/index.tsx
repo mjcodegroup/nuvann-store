@@ -44,13 +44,13 @@ export default function Details(props: DetailsProps) {
             <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
             <p>
-            <span>{t('seller')}:</span>
-            <small
-              style={{ cursor: 'pointer', color: '#007BFF', textDecoration: 'underline' }}
+            <span>{t('seller')}: </span>
+            <span
+            className={Styles.seller_name}
               onClick={redirectToSellerDetails}
             >
               {productInfos?.seller?.name}
-            </small>
+            </span>
           </p>                <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
                 <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
             </div>
