@@ -3,11 +3,7 @@ import cookie from "../cookie";
 class SessionManager {
     
     setSession(value: any) {
-       cookie.setCookie({
-              name: '@nuvann:session',
-              value,
-              days: 1
-         });
+       cookie.setCookie('@nuvann:valid-token', value, 1);
     }
 
     getValidToken() {
