@@ -151,7 +151,7 @@ export default function ProductSlide(props: SliderProps) {
                       }
                     </p>
                     <h2>
-                      {truncateStringWithEllipsis(product.name, 26)}
+                      {truncateStringWithEllipsis(product.name, 18)}
                     </h2>
                   </div>
                 </div>
