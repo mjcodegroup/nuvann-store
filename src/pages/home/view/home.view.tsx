@@ -25,7 +25,7 @@ export default function Home(props: Readonly<HomeProps>) {
     />
     <ProductSlide
       title={t("newProducts")}
-      itemToShow={8}
+      itemToShow={7}
       products={props.new_products.items} 
       havePromo={false}
       isnew
@@ -42,7 +42,7 @@ export default function Home(props: Readonly<HomeProps>) {
     />
     <RandomCategories />
     <ProductSlide
-      itemToShow={4} 
+      itemToShow={3} 
       multipleRows
       products={products.items}
       title={t("best_sellers")}
