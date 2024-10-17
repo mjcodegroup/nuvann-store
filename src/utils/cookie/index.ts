@@ -1,24 +1,26 @@
 class Cookie {
-     setCookie(
-        name: string, 
-        value: string, 
-        domain?: string 
+    setCookie(
+        options: {
+          name: string, 
+          value: string,
+          days?: number,
+          domain?: string
+        }
       ) {
-          let date = new Date();
-          date.setTime(date.getTime() + (30 * 60 * 1000));
-          let expires = "; expires=" + date.toUTCString();
+        const { name, value, days, domain } = options || {};
+        
+        let date = new Date();
+        date.setTime(date.getTime() + (days ? days * 24 * 60 * 60 * 1000 : 30 * 60 * 1000));
+        let expires = "; expires=" + date.toUTCString();
       
-          let cookieString = `${name}=${value || ""}${expires}; path=/; HttpOnly; Secure; SameSite=Strict`;
+        let cookieString = `${name}=${value || ""}${expires}; path=/; HttpOnly; Secure; SameSite=Strict`;
       
-          if (domain) {
-              cookieString += `; Domain=${domain}`;
-          }
+        if (domain) {
+          cookieString += `; Domain=${domain}`;
+        }
       
-          document.cookie = cookieString;
-    }
-      
-      
-      
+        document.cookie = cookieString;
+      }
 
     getCookie(name: string) {
         if (typeof window !== 'undefined') {
