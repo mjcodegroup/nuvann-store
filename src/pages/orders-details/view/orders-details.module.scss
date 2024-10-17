@@ -43,6 +43,23 @@
     margin-right: 5%;
     width: 30%;
 }
+.BackButton {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 20px;
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.BackButton:hover {
+    color: #0056b3;
+}
 
 @media (max-width: 768px) {
     .AchasHolder {
