@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'; // Add this import
+import { AiOutlineArrowLeft } from 'react-icons/ai'; // Import the back arrow icon
 import styles from './orders-details.module.scss';
 import { Order } from '@/contexts/orders/types';
 import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
@@ -12,6 +14,7 @@ interface OrderDetailsProps {
 
 export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
     const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+    const router = useRouter(); // Use router for navigation
 
     useEffect(() => {
         if (!isLoading) {
@@ -33,7 +36,10 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
 
     return (
         <div className={styles.AchasHolder}>
+            
+
             <div className={styles.PurchaseCards}>
+                
                 <h3>Order details:</h3>
                 <div className={styles.concatenate}>
                     <span>
@@ -46,7 +52,7 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
                     </div>
                 </div>
             </div>
-
+            
             <div className={styles.OrdersResume}>
                 {selectedOrder ? (
                     <OrdersResume
@@ -65,6 +71,10 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
                         <h4>Select an order to view details</h4>
                     </div>
                 )}
+                  <button className={styles.BackButton} onClick={() => router.back()}>
+                    <AiOutlineArrowLeft />
+                    Back to orders
+                </button>
             </div>
         </div>
     );

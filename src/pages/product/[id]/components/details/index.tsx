@@ -9,9 +9,13 @@ import CustomButton from '@/components/custom-button';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useTranslation } from 'react-i18next';
 import { DetailsProps } from '../../types';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useNavigation } from '@/hooks/useNavigation';
 
 export default function Details(props: DetailsProps) {
   const { t } = useTranslation('details');
+  const { redirect } = useNavigation()
+
   const {
     productInfos, 
     onError,
@@ -30,13 +34,24 @@ export default function Details(props: DetailsProps) {
     onPurchase
   } = props;
 
+  const redirectToSellerDetails = () => {
+    redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${props.productInfos.id}` as RoutesUrls);
+  };
+
   return (
     <div className={Styles.product_infos}>
         <section>
             <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
-                <p><span>{t('seller')}:</span> <small>{productInfos?.seller?.name}</small>  </p>
-                <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
+            <p>
+            <span>{t('seller')}:</span>
+            <small
+              style={{ cursor: 'pointer', color: '#007BFF', textDecoration: 'underline' }}
+              onClick={redirectToSellerDetails}
+            >
+              {productInfos?.seller?.name}
+            </small>
+          </p>                <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
                 <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
             </div>
 
