@@ -60,8 +60,8 @@ export const Navbar: React.FC = () => {
     if(!isAuthenticated) {
       return handleLogin();
     }
-    if(userInfos.roles.includes(UserRoles.SELLER)) {
-      cookie.setCookie({name: 'nuvann_store_referral', value: "true", domain: '.nuvann.com'});
+    if(userInfos?.roles?.includes(UserRoles.SELLER)) {
+      cookie.setCookie('nuvann_store_referral', 'true', 1);
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
     setModalTerm(true)
