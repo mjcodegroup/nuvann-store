@@ -30,13 +30,13 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
                 </div>
                 <div className={Styles.CardsButtons}>
                     <CustomButton
-                        onClick={() => redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${order.id}` as RoutesUrls)}>
-                        Wè plis
-                    </CustomButton>
-                    <CustomButton
                         backgroundColor='white' textColor='#000052'
                         onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.id}` as RoutesUrls)}>
                         Achte ankò
+                    </CustomButton>
+                    <CustomButton
+                        onClick={() => redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${order.id}` as RoutesUrls)}>
+                        Wè plis
                     </CustomButton>
                 </div>
 
