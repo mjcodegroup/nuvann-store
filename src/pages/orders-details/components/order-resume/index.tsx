@@ -62,7 +62,17 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>Name: {order?.seller?.name}</p>
+        <p>
+            Name:{' '}
+            <span
+              className={styles.seller_name}
+              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order.id}` as RoutesUrls)}
+
+              style={{ cursor: 'pointer', color: '#007BFF', textDecoration: 'underline' }}
+            >
+              {order?.seller?.name}
+            </span>
+          </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
