@@ -65,7 +65,12 @@ export default function CheckoutController() {
   const [currentShippingInfo, setCurrentShippingInfo] = React.useState<any>(null);
   const [selectedShippingInfo, setSelectedShippingInfo] = React.useState<any>(null);
 
-  const { register:shipmentAddress, setValue,  reset, handleSubmit, formState: { errors,isValid } } = useForm<FormValues>({
+  const { register:shipmentAddress,
+    setValue,
+    reset,
+    handleSubmit,
+    formState: { errors,isValid } 
+  } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onChange"
   });
