@@ -24,6 +24,7 @@ import getDeviceType from '@/utils/get-device-type';
 import MobileNavbar from './mobile-navbar';
 import { useAuth0 } from "@auth0/auth0-react";
 import sessionManager from '@/utils/session-manager';
+import cookie from '@/utils/cookie';
 
 interface selectedCountry {
   label: string;
@@ -59,7 +60,8 @@ export const Navbar: React.FC = () => {
     if(!isAuthenticated) {
       return handleLogin();
     }
-    if(userInfos.roles.includes(UserRoles.SELLER)) {
+    if(userInfos?.roles?.includes(UserRoles.SELLER)) {
+      cookie.setCookie('nuvann_store_referral', 'true', 1);
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
     setModalTerm(true)
@@ -93,12 +95,12 @@ export const Navbar: React.FC = () => {
 
   console.log(typeof becomeseller)
 
-  // React.useEffect(() => {
-  //   if(becomeseller) {
-  //     setModalTerm(true);
-  //   }
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [becomeseller])
+  React.useEffect(() => {
+    if(becomeseller) {
+      handleClickToBecomeSeller();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [becomeseller])
 
   
 
