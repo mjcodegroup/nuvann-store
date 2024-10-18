@@ -119,7 +119,7 @@
       "products_already_purchased": "Pwodwi ou achte deja",
       "buy_again": "Achte ankò",
       "see_more": "Wè plis",
-      "order_detail": "Detay lòd la",
+      "order_detail": "Detay acha a",
       "destination": "Destinasyon",
       "overview": "Apèsi",
       "total_price": "Pri total",
@@ -127,6 +127,6 @@
       "seller_information": "Enfòmasyon sou vandè a",
       "country": "Peyi",
       "name": "Non",
-      "back_to_orders": "Tounen nan lòd yo"
+      "back_to_orders": "Tounen nan acha yo"
     }
 }
