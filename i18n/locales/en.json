@@ -91,7 +91,11 @@
       "street_name": "Street name",
       "street_number": "Street No.",
       "complement": "Complement",
-      "select_shipment_option_title": "Select shipment option"
+      "select_shipment_option_title": "Select shipment option",
+      "price": "Price",
+      "amount": "Amount",
+      "_subtotal": "Subtotal",
+      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location."
     },
     "footer": {
       "contact_us": "Contact us",
