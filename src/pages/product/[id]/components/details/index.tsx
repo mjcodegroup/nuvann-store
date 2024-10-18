@@ -74,7 +74,7 @@ export default function Details(props: DetailsProps) {
                 <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={onSelectedSize} />
             </div>
             {
-              productInfos.shipments.length ?
+              productInfos?.shipments?.length ?
             <div className={`shipment_infos  ${onError && !selectedShippingInfo.id ? Styles.shake : ''}`}>
                 <ShipmentInfos shippingInfos={productInfos?.shipments} onInfoSelect={onSelectedShippingInfo} />
             </div> : ''

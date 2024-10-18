@@ -5,5 +5,5 @@ export function getDefaultShipment(items: Shipment[]) {
 }
 
 export function hasNoAvailableShipments(items: any) {
-  return items.some((item: any) => !item || item.available_shipments.length === 0);
+  return items?.some((item: any) => !item || item?.available_shipments?.length === 0);
 }
