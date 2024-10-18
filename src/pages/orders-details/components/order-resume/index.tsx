@@ -24,17 +24,17 @@ export interface OrderResumeProps {
 }
 
 const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
-  const { t } = useTranslation('cart');
+  const { t } = useTranslation('order');
   const { data, order } = props;
   const { redirect } = useNavigation()
 
   return (
     <div className={styles.card_resume}>
-      <Title title={t('summary')} className={styles.resume_title} />
+      <Title title={t('overview')} className={styles.resume_title} />
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>Pri total </p>
+          <p>{t('total_price')} </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -51,7 +51,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
           )}
         </div>
         <div className={styles.resume_separated_info}>
-          <Title title='Seller Information' className={styles.resume_title} />
+          <Title title={t('seller_information')} className={styles.resume_title} />
 
           <h4></h4>
           {props.loading ? (
@@ -63,7 +63,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <hr />
         <div className={styles.resume_separated_info}>
           <p>
-            Name:{' '}
+          {t('name')}:{' '}
             <span
               className={styles.seller_name}
               onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order.id}` as RoutesUrls)}
@@ -79,7 +79,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-          <p>Country: {order?.seller?.country?.name}</p>
+          <p>{t('country')}: {order?.seller?.country?.name}</p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -108,7 +108,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
           backgroundColor="#00C02A"
           textColor="#fff"
           onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.id}` as RoutesUrls)}>
-          Achte ankò
+          {t('buy_again')}
         </CustomButton>
       </div>
     </div>

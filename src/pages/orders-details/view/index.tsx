@@ -6,6 +6,7 @@ import { Order } from '@/contexts/orders/types';
 import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
 import OrderSubCard from '../components/order-subtile-card';
 import OrdersResume from '../components/order-resume';
+import { useTranslation } from 'react-i18next';
 
 interface OrderDetailsProps {
     order: Order;
@@ -15,6 +16,8 @@ interface OrderDetailsProps {
 export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
     const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
     const router = useRouter();
+    const { t } = useTranslation('order');
+
 
     useEffect(() => {
         if (!isLoading) {
@@ -38,15 +41,15 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
         <div className={styles.AchasHolder}>
             <div className={styles.PurchaseCards}>
                 <div className={styles.Header}>
-                    <h3>Order details:</h3>
+                    <h3>{t('order_detail')}:</h3>
                     <button className={styles.BackButton} onClick={() => router.back()}>
                         <AiOutlineArrowLeft />
-                        Back to orders
+                        {t('back_to_orders')}
                     </button>
                 </div>
                 <div className={styles.concatenate}>
                     <span>
-                        Destination: {order?.shipping_address ? formatAddress(order.shipping_address) : 'No address available'}
+                    {t('destination')}: {order?.shipping_address ? formatAddress(order.shipping_address) : 'No address available'}
                     </span>
                 </div>
                 <div className={styles.PurchaseScroll}>
