@@ -16,6 +16,12 @@
         color: var(--blue-principal-000052);
     }
 
+    .seller_name{
+      cursor: pointer; 
+      color: #007BFF;
+      text-decoration: none;
+    }
+
     .title_footer {
         display: flex;
         justify-content: space-around;

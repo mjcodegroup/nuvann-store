@@ -2,22 +2,24 @@ import React from 'react';
 import Styles from './order-subtile.module.scss';
 import { Order } from '@/contexts/orders/types';
 import { formatDate } from '@/utils/date-convert';
+import { useTranslation } from 'react-i18next';
 
 interface OrderSubCardProps {
     order: Order;
 }
 
 const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
+    const { t } = useTranslation('order');
 
     const allStatuses = ['AWAITING_PAYMENT', 'PAID', 'PROCESSING', 'SHIPPED', 'CANCELLED', 'DELIVERED'];
-    
+
     const descriptionStatus = [
-        'Waiting for payment confirmation', 
-        'Payment has been received', 
-        'The order is being prepared and processed', 
-        'The order has been shipped',
-        'The order was cancelled', 
-        'The order has been delivered'
+        t('waiting_for_payment_confirmation'),
+        t('payment_received'),
+        t('order_being_prepared'),
+        t('order_shipped'),
+        t('order_cancelled'),
+        t('order_delivered'),
     ];
 
     let showNextStatuses = true;

@@ -118,5 +118,31 @@
       "or_fewer_words": "oubyen mwens mo.",
       "browse_categories": "Chèche nan kategori yo",
       "to_find_product": "pou ka jwenn yon pwodui similè."
+    },
+    "order": {
+      "products_already_purchased": "Pwodwi ou achte deja",
+      "buy_again": "Achte ankò",
+      "see_more": "Wè plis",
+      "order_detail": "Detay acha a",
+      "destination": "Destinasyon",
+      "overview": "Apèsi",
+      "total_price": "Pri total",
+      "delivery": "Livrezon",
+      "seller_information": "Enfòmasyon sou vandè a",
+      "country": "Peyi",
+      "name": "Non",
+      "back_to_orders": "Tounen nan acha yo",
+      "waiting_for_payment_confirmation": "Nap tann konfimasyon pèman",
+      "payment_received": "Nou resevwa pèman",
+      "order_being_prepared": "Acha ap prepare e trete",
+      "order_shipped": "Acha a anbake",
+      "order_cancelled": "Acha a te anile",
+      "order_delivered": "Lòd a delivre",
+      "no_purchases_yet": "Ou poko achte anyen",
+      "buy": "Achte",
+      "purchase_date": "Dat acha",
+      "status": "Estati",
+      "quantity": "Kantite",
+      "delivered_by": "Delivre pa"
     }
 }
