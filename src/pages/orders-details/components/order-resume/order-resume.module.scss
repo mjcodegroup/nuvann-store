@@ -4,7 +4,7 @@
   border-radius: 7px;
   padding: 5%;
   display: flex;
-  width: 100%;  
+  width: 100%;
   flex-direction: column;
   position: sticky;
   top: 0;
@@ -19,6 +19,13 @@
   margin: 7px 0;
   display: flex;
   justify-content: space-between;
+
+
+  .seller_name {
+    cursor: pointer;
+    color: #007BFF;
+    text-decoration: none;
+  }
 }
 
 .resume_buttons {

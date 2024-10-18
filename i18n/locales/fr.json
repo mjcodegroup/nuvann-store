@@ -117,5 +117,31 @@
       "or_fewer_words": "ou moins de mots.",
       "browse_categories": "Parcourez les catégories",
       "to_find_product": "pour trouver un produit similaire."
+    },
+    "order": {
+      "products_already_purchased": "Produits que vous avez déjà achetés",
+      "buy_again": "Acheter à nouveau",
+      "see_more": "Voir plus",
+      "order_detail": "Détail de la commande",
+      "destination": "Destination",
+      "overview": "Aperçu",
+      "total_price": "Prix total",
+      "delivery": "Livraison",
+      "seller_information": "Informations sur le vendeur",
+      "country": "Pays",
+      "name": "Nom",
+      "back_to_orders": "Retour aux commandes",
+      "waiting_for_payment_confirmation": "En attente de la confirmation du paiement",
+      "payment_received": "Le paiement a été reçu",
+      "order_being_prepared": "La commande est en préparation et en cours de traitement",
+      "order_shipped": "La commande a été expédiée",
+      "order_cancelled": "La commande a été annulée",
+      "order_delivered": "La commande a été livrée",
+      "no_purchases_yet": "Vous n'avez encore rien acheté",
+      "buy": "Acheter",
+      "purchase_date": "Date d'achat",
+      "status": "Statut",
+      "quantity": "Quantité",
+      "delivered_by": "Livré par"
     }
   }
