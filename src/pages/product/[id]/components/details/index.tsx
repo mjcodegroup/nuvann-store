@@ -40,7 +40,8 @@ export default function Details(props: DetailsProps) {
 
   return (
     <div className={Styles.product_infos}>
-        <section>
+      <div>
+      <section>
             <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
             <p>
@@ -72,10 +73,13 @@ export default function Details(props: DetailsProps) {
             <div className={`sizes_container  ${onError && !selectedSize.value ? Styles.shake : ''}`}>
                 <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={onSelectedSize} />
             </div>
-
+            {
+              productInfos?.shipments?.length ?
             <div className={`shipment_infos  ${onError && !selectedShippingInfo.id ? Styles.shake : ''}`}>
                 <ShipmentInfos shippingInfos={productInfos?.shipments} onInfoSelect={onSelectedShippingInfo} />
-            </div>
+            </div> : ''
+            }
+
             {
             onError ? 
                 <small className="detail_error_message">{t("please_select_size_or_color")}</small>
@@ -97,6 +101,7 @@ export default function Details(props: DetailsProps) {
             increment={onIncrement}
             decrement={onDecrement}
         />
+      </div>
 
         <section className={Styles.detail_infos_footer}>
             <CustomButton

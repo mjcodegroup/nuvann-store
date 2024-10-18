@@ -92,7 +92,11 @@
       "street_name": "Rue",
       "street_number": "Numéro",
       "complement": "Complément",
-      "select_shipment_option_title": "Sélectionnez l'option d'expédition"
+      "select_shipment_option_title": "Sélectionnez l'option d'expédition",
+      "price": "Prix",
+      "amount": "Quantité",
+      "_subtotal": "Sous-total",
+      "shipment_not_available_text": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée. Veuillez choisir une adresse de livraison différente."
     },
     "footer": {
       "contact_us": "Contactez-nous",

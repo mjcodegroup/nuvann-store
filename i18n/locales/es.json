@@ -92,7 +92,12 @@
       "street_name": "Nombre de la calle",
       "street_number": "Número de calle",
       "complement": "Complemento",
-      "select_shipment_option_title": "Seleccione la opción de envío"
+      "select_shipment_option_title": "Seleccione la opción de envío",
+      "price": "Precio",
+      "amount": "Cantidad",
+      "_subtotal": "Subtotal",
+      "shipment_not_available_text": "Este artículo no se puede enviar a la ubicación de entrega seleccionada. Elija una ubicación de entrega diferente."
+
     },
     "footer": {
       "contact_us": "Contáctenos",
