@@ -131,6 +131,18 @@
       "seller_information": "Enfòmasyon sou vandè a",
       "country": "Peyi",
       "name": "Non",
-      "back_to_orders": "Tounen nan acha yo"
+      "back_to_orders": "Tounen nan acha yo",
+      "waiting_for_payment_confirmation": "Nap tann konfimasyon pèman",
+      "payment_received": "Nou resevwa pèman",
+      "order_being_prepared": "Acha ap prepare e trete",
+      "order_shipped": "Acha a anbake",
+      "order_cancelled": "Acha a te anile",
+      "order_delivered": "Lòd a delivre",
+      "no_purchases_yet": "Ou poko achte anyen",
+      "buy": "Achte",
+      "purchase_date": "Dat acha",
+      "status": "Estati",
+      "quantity": "Kantite",
+      "delivered_by": "Delivre pa"
     }
 }

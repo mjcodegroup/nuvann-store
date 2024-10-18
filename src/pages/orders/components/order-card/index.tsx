@@ -6,6 +6,7 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
 import CustomButton from '@/components/custom-button';
 import { formatDate } from '@/utils/date-convert';
+import { useTranslation } from 'react-i18next';
 
 interface OrderCardProps {
     order: Order;
@@ -15,6 +16,8 @@ interface OrderCardProps {
 
 const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrderClick }) => {
     const { redirect } = useNavigation()
+    const { t } = useTranslation('order');
+
     return (
         <div key={order.id}>
             <div
@@ -23,20 +26,20 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
                 <Image src={order.product.images[0]?.url} alt="product" width={100} height={100} />
                 <div className={Styles.CardstitleDate}>
                     <h4>{order.product.name}</h4>
-                    <h5>Dat acha: <span>{formatDate(order.order_item_status_logs[0]?.occurred_on)}</span></h5>
-                    <h5>Estati: <span>{order.status}</span></h5>
-                    <h5>Kantite: <span>{order.quantity}</span></h5>
-                    <h5>Delivred by: <span>{order.shipping_tracking_data?.company_name}</span></h5>
+                    <h5>{t('purchase_date')}: <span>{formatDate(order.order_item_status_logs[0]?.occurred_on)}</span></h5>
+                    <h5>{t('status')}: <span>{order.status}</span></h5>
+                    <h5>{t('quantity')}: <span>{order.quantity}</span></h5>
+                    <h5>{t('delivered_by')}: <span>{order.shipping_tracking_data?.company_name}</span></h5>
                 </div>
                 <div className={Styles.CardsButtons}>
                     <CustomButton
                         backgroundColor='white' textColor='#000052'
                         onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.id}` as RoutesUrls)}>
-                        Achte ankò
+                        {t('buy_again')}
                     </CustomButton>
                     <CustomButton
                         onClick={() => redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${order.id}` as RoutesUrls)}>
-                        Wè plis
+                        {t('see_more')}
                     </CustomButton>
                 </div>
 

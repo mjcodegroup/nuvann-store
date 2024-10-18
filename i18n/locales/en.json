@@ -129,6 +129,18 @@
       "seller_information": "Seller information",
       "country": "Country",
       "name": "Name",
-      "back_to_orders": "Back to orders"
+      "back_to_orders": "Back to orders",
+      "waiting_for_payment_confirmation": "Waiting for payment confirmation",
+      "payment_received": "Payment has been received",
+      "order_being_prepared": "The order is being prepared and processed",
+      "order_shipped": "The order has been shipped",
+      "order_cancelled": "The order was cancelled",
+      "order_delivered": "The order has been delivered",
+      "no_purchases_yet": "You haven't purchased anything yet",
+      "buy": "Buy",
+      "purchase_date": "Purchase date",
+      "status": "Status",
+      "quantity": "Quantity",
+      "delivered_by": "Delivered by"
     }
   }
