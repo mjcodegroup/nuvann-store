@@ -93,7 +93,11 @@
       "street_name": "Ri",
       "street_number": "Nimewo",
       "complement": "Konpleman",
-      "select_shipment_option_title": "Chwazi opsyon livrezon"
+      "select_shipment_option_title": "Chwazi opsyon livrezon",
+      "price": "Pri",
+      "amount": "Kantite",
+      "_subtotal": "Total",
+      "shipment_not_available_text": "Atik sa a pa ka anbake nan opsyon livrezon ou chwazi a. Tanpri chwazi yon lòt opsypn livrezon"
     },
     "footer": {
       "contact_us": "Kontakte nou",

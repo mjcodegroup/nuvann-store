@@ -93,8 +93,6 @@ export const Navbar: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   } , [isAuthenticated]);
 
-  console.log(typeof becomeseller)
-
   React.useEffect(() => {
     if(becomeseller) {
       handleClickToBecomeSeller();
