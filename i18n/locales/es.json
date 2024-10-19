@@ -58,7 +58,9 @@
       "product_description": "Descripción del producto",
       "description": "Descripción",
       "price": "Precio",
-      "please_select_size_or_color": "Por favor seleccione una talla o color"
+      "please_select_size_or_color": "Por favor seleccione una talla o color",
+       "see_more": "Ver más opciones de envío",
+      "see_less": "Ver menos opciones de envío"
     },
     "cart": {
       "shopping_cart": "Carro de la compra",
