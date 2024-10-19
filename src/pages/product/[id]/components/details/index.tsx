@@ -44,15 +44,16 @@ export default function Details(props: DetailsProps) {
       <section>
             <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
-            <p>
-            <span>{t('seller')}: </span>
-            <span
-            className={Styles.seller_name}
-              onClick={redirectToSellerDetails}
-            >
-              {productInfos?.seller?.name}
-            </span>
-          </p>                <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
+                <p>
+                  <span>{t('seller')}: </span>
+                  <span
+                  className={Styles.seller_name}
+                    onClick={redirectToSellerDetails}
+                  >
+                    {productInfos?.seller?.name}
+                  </span>
+                </p>
+                <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
                 <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
             </div>
 
@@ -73,19 +74,19 @@ export default function Details(props: DetailsProps) {
             <div className={`sizes_container  ${onError && !selectedSize.value ? Styles.shake : ''}`}>
                 <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={onSelectedSize} />
             </div>
-            {
-              productInfos?.shipments?.length ?
-            <div className={`shipment_infos  ${onError && !selectedShippingInfo.id ? Styles.shake : ''}`}>
-                <ShipmentInfos shippingInfos={productInfos?.shipments} onInfoSelect={onSelectedShippingInfo} />
-            </div> : ''
-            }
 
             {
-            onError ? 
-                <small className="detail_error_message">{t("please_select_size_or_color")}</small>
-            : ''
+              onError ? 
+              <small className="detail_error_message">{t("please_select_size_or_color")}</small>
+              : ''
             }
         </section>
+            {
+              productInfos?.shipments?.length ?
+            <div className={Styles.shipment_infos}>
+                <ShipmentInfos no_default_selected shippingInfos={productInfos?.shipments} onInfoSelect={onSelectedShippingInfo} />
+            </div> : ''
+            }
         <section>
             <div className={Styles.avalaible_countries}>
                 <AvailableCountries countries={productInfos?.available_countries} />

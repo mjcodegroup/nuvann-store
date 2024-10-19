@@ -24,11 +24,10 @@
 
     .title_footer {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-top: 16px;
 
         p {
-            
             small {
                 font-size: .875rem;
                 color: #767676;
@@ -46,11 +45,12 @@
 
     .prices_class {
         margin-top: 2%;
-        padding: 15px 20px;
+        padding: 15px 4px;
         background: #fafafa;
         display: flex;
         gap: 0 24px;
         align-items: center;
+        
         small {
             font-size: 1rem;
             text-decoration: line-through;
@@ -62,23 +62,21 @@
             font-weight: 500;
             color: var(--blue-principal-000052);
             margin:0 5% 0 0;
-
-
           }
           span {
-              margin-left: 20px;
-              font-size: 0.5rem;
-              color: #fff;
-              text-transform: uppercase;
-              background: #00a650;
-              border-radius: 2px;
-              padding: 2px 4px;
-              font-weight: 600;
-              line-height: 1px;
-              white-space: nowrap;
-              display: flex;
-              align-items: center;
-              height: 15px;
+            margin-left: 20px;
+            font-size: 0.5rem;
+            color: #fff;
+            text-transform: uppercase;
+            background: #00a650;
+            border-radius: 2px;
+            padding: 2px 4px;
+            font-weight: 600;
+            line-height: 1px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            height: 15px;
           }
     }
 

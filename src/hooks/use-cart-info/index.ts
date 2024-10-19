@@ -83,5 +83,5 @@ export interface CreateProductData {
     }
   ],
   product_id: string;
-  shipment_id: string | undefined;
+  shipment_id?: string | undefined;
 }

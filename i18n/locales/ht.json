@@ -59,7 +59,9 @@
       "product_description": "Deskripsyon pwodui",
       "description": "Deskripsyon",
       "price": "Pri",
-      "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
+      "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè",
+      "see_more": "Wè plis opsyon livrezon",
+      "see_less": "Wè mwens opsyon livrezon"
     },
     "cart": {
       "shopping_cart": "Panye",

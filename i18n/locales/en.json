@@ -57,7 +57,10 @@
       "sales": "Sales",
       "sizes": "Sizes",
       "specific_information": "Specific information",
-      "tags": "Tags"
+      "tags": "Tags",
+      "see_more": "See more shipping options",
+      "see_less": "See less shipment options"
+
     },
     "cart": {
       "shopping_cart": "Shopping cart",
