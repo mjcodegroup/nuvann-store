@@ -1,15 +1,15 @@
 import React, { createContext, useMemo } from 'react';
-import { User } from '@auth0/auth0-react';
 import { reducer } from './seller-details-reducer';
 import { SellersDetailsContextProps, State } from './types';
+import { ProductsData } from '../products/types';
 
 export const SellersDetailsContext = createContext<SellersDetailsContextProps>(
     {} as SellersDetailsContextProps
 );
 
 const initialState: State = {
-    seller: {} as User,
-    seller_details_loader: false,
+    products: {} as ProductsData,
+    seller_products_loader: false,
     update_Seller_loader: false,
 };
 
