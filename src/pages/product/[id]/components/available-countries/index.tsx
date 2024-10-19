@@ -12,6 +12,8 @@ const AvailableCountries: React.FC<TitleProps> =({countries}) =>{
     return (
         <div className={Styles.available_content}>
             <p>
+            {t('available_countries')} : 
+            </p>
                 {
                     countries?.length > 1 &&
                      
@@ -21,7 +23,6 @@ const AvailableCountries: React.FC<TitleProps> =({countries}) =>{
                         ))
                     )
                 }
-            </p>
         </div>
     )
 }

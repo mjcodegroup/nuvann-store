@@ -20,8 +20,23 @@ import { OrdersDetailsProvider } from "@/contexts/orders-details";
 import { NoSsr } from "@mui/material";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { SellerDetailsProvider } from "@/contexts/seller-details";
+import useBeforeLeave from "@/hooks/use-befor-leave";
+import { useNavigation } from "@/hooks/useNavigation";
+import { RoutesUrls } from "@/utils/enums/routesUrl";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const {redirect} = useNavigation();
+
+  useBeforeLeave((url) => {
+    if(url !== RoutesUrls.Login) {
+      localStorage.setItem("lastUrl", url);
+    }
+  });
+
+  function onRedirectCallback(appState: any) {
+    const getRedirectUrl = localStorage.getItem("lastUrl");
+    redirect(window.location.origin + getRedirectUrl as RoutesUrls)
+  }
   return (
     <>
       <style jsx global>{`
@@ -39,6 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 audience: process.env.NEXT_PUBLIC_AUTH0_AUDIENCE,
                 redirect_uri: typeof window !== "undefined" ? window.location.origin : '',
               }}
+              onRedirectCallback={onRedirectCallback}
             >
               <UserProvider>
                 <ProductsProvider>
