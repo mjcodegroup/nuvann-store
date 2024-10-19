@@ -3,7 +3,7 @@ import styles from './seller-details.module.scss';
 import { MdPerson } from 'react-icons/md';
 import SellerCardSkeleton from '../components/seller-card-skeleton';
 import ProductCard from '../components/product';
-import { Product, ProductsData } from '@/contexts/products/types';
+import { ProductsData } from '@/contexts/products/types';
 
 interface SellerDetailsProps {
     isLoading: boolean;
