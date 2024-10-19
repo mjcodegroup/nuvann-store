@@ -40,9 +40,6 @@ nuvannApi.interceptors.request.use(
     async (config: any) => {
          const TOKEN = sessionManager.getValidToken();
          const selectedLanguage = getCookie('NEXT_I18LANG');
-
-         console.log("TOKEN___________", TOKEN)
-
         config.headers = {
             ...config.headers,
             Authorization: TOKEN ? `Bearer ${TOKEN}`: '',
