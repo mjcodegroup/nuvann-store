@@ -1,17 +1,17 @@
-import { User } from "@auth0/auth0-react";
+import { ProductsData } from "../products/types";
 
 export interface State {
-    seller: User;
-    seller_details_loader: boolean;
+    products: ProductsData;
+    seller_products_loader: boolean;
     update_Seller_loader: boolean;
 }
 
 export type Action = 
     | {
-         type: 'SET_SELLER_DETAILS'; value: User;
+         type: 'SET_SELLER_PRODUCTS'; value: ProductsData;
     }
     | {
-         type: 'SET_SELLER_DETAILS_LOADER'; value: boolean;
+         type: 'SET_SELLER_PRODUCTS_LOADER'; value: boolean;
     };
 
 export interface SellersDetailsContextProps {

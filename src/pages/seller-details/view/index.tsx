@@ -1,16 +1,18 @@
 import React from 'react';
 import styles from './seller-details.module.scss';
-import { User } from '@auth0/auth0-react';
-import Image from 'next/image';
-import { MdPerson } from 'react-icons/md'; // Import person icon
+import { MdPerson } from 'react-icons/md';
 import SellerCardSkeleton from '../components/seller-card-skeleton';
+import ProductCard from '../components/product';
+import { ProductsData } from '@/contexts/products/types';
 
 interface SellerDetailsProps {
-    seller: User;
     isLoading: boolean;
+    products: ProductsData;
+    onRedirectToProductDetails: (id: string) => void;
 }
 
-export default function SellerDetails({ seller, isLoading }: SellerDetailsProps) {
+export default function SellerDetails({ isLoading, products, onRedirectToProductDetails }: SellerDetailsProps) {
+    console.log(products.items);
     if (isLoading) {
         return <SellerCardSkeleton />;
     }
@@ -18,7 +20,7 @@ export default function SellerDetails({ seller, isLoading }: SellerDetailsProps)
     return (
         <div className={styles.sellerContainer}>
             <div className={styles.sellerCard}>
-                {seller?.picture ? (
+                {/* {seller?.picture ? (
                     <Image
                         src={seller.picture}
                         alt={`${seller.name}'s profile`}
@@ -26,29 +28,40 @@ export default function SellerDetails({ seller, isLoading }: SellerDetailsProps)
                         width={100}
                         height={100}
                     />
-                ) : (
-                    <MdPerson className={styles.sellerIcon} size={100} />
-                )}
-                <h3>{seller.name}</h3>
-                <p className={styles.sellerEmail}>📧 {seller.email}</p>
-                <button className={styles.contactSellerButton}>Contact Seller</button>
-            </div>
-            <div className={styles.sellerStats}>
-                <h4>Seller Ratings</h4>
-                <div className={styles.statsBox}>
+                ) :  */}
+                <MdPerson className={styles.sellerIcon} size={100} />
+                <h3>Seller name</h3>
+
+
+                <div className={styles.sellerStats}>
                     <div>
-                        <h5>🌟 4.8/5</h5>
-                        <p>Average Rating</p>
+                        <h5>Seller Since</h5>
+                        <p>2024</p>
                     </div>
                     <div>
-                        <h5>500</h5>
-                        <p>Reviews</p>
+                        <h5>Total Products</h5>
+                        <p>120</p>
                     </div>
                     <div>
-                        <h5>1000+</h5>
-                        <p>Products Sold</p>
+                        <h5>Location+</h5>
+                        <p>Brazil</p>
                     </div>
                 </div>
+            </div>
+
+            <div className={styles.productList}>
+                <h4>Products</h4>
+                <ul>
+                    {Array.isArray(products.items) && products.items.length > 0 ? (
+                        products.items.map((product) => (
+                            <li key={product.id}>
+                                <ProductCard product={product} onRedirectToProductDetails={onRedirectToProductDetails} />
+                            </li>
+                        ))
+                    ) : (
+                        <p>No products available</p>
+                    )}
+                </ul>
             </div>
         </div>
     );

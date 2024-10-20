@@ -8,14 +8,22 @@ import { useSellerDetailsInfo } from '@/hooks/use-seller-details-info';
 export default function SellerDetailsController() {
     const router = useRouter();
     const { orderId } = router.query;
-    const { order, isLoading } = useSellerDetailsInfo(orderId as string);
+    const { products, isLoading } = useSellerDetailsInfo(orderId as string);
+
+    const handleRedirectToProductDetails = (id: string) => {
+        router.push(`/products/${id}`);
+    };
 
     return (
         <HomePageDefault>
             {isLoading ? (
                 <SellerCardSkeleton />
             ) : (
-                <SellerDetails seller={order} isLoading={isLoading} />
+                <SellerDetails 
+                    isLoading={isLoading} 
+                    products={products}
+                    onRedirectToProductDetails={handleRedirectToProductDetails} 
+                />
             )}
         </HomePageDefault>
     );
