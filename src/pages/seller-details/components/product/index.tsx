@@ -29,12 +29,13 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
             {(product.description && product.description.length > 15) ? product.description.substring(0, 15) + '...' : product.description}
           </p>
           <p className={Styles.categories}>
-            {product.categories.slice(0, 3).map((category: any, index: number) => (
+            {product.categories?.slice(0, 3).map((category: any, index: number) => (
               <span key={index}>
                 {(category.name.length > 6) ? category.name.substring(0, 6) + '...' : category.name}
                 {index < 2 && ', '}
               </span>
             ))}
+
           </p>
         </div>
       </div>
