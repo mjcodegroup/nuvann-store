@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './seller-details.module.scss';
-import { MdPerson } from 'react-icons/md';
+import { MdDateRange, MdLocationOn, MdPerson, MdShoppingCart } from 'react-icons/md';
 import SellerCardSkeleton from '../components/seller-card-skeleton';
 import ProductCard from '../components/product';
 import { ProductsData } from '@/contexts/products/types';
+
 
 interface SellerDetailsProps {
     isLoading: boolean;
@@ -31,20 +32,18 @@ export default function SellerDetails({ isLoading, products, onRedirectToProduct
                 ) :  */}
                 <MdPerson className={styles.sellerIcon} size={100} />
                 <h3>Seller name</h3>
-
-
                 <div className={styles.sellerStats}>
                     <div>
                         <h5>Seller Since</h5>
-                        <p>2024</p>
+                        <p><MdDateRange className={styles.icon} />2024</p>
                     </div>
                     <div>
                         <h5>Total Products</h5>
-                        <p>120</p>
+                        <p><MdShoppingCart className={styles.icon} />{products.total_items}</p>
                     </div>
                     <div>
                         <h5>Location+</h5>
-                        <p>Brazil</p>
+                        <p><MdLocationOn className={styles.icon} />Brazil</p>
                     </div>
                 </div>
             </div>
