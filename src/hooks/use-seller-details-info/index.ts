@@ -19,7 +19,6 @@ export function useSellerDetailsInfo(orderId: string) {
             sellerDetailsDispatch({ type: 'SET_SELLER_PRODUCTS', value: response.data });
         } catch (error) {
             errorToast('Failed to fetch seller details');
-            // sellerDetailsDispatch({ type: 'SET_SELLER_PRODUCTS', value: {} });
         } finally {
             sellerDetailsDispatch({ type: 'SET_SELLER_PRODUCTS_LOADER', value: false });
         }

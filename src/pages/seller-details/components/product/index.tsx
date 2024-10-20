@@ -1,6 +1,9 @@
 import React from 'react';
 import Styles from './product-card.module.scss';
 import Image from 'next/image';
+import { FaTag } from 'react-icons/fa';
+import { MdShoppingCart } from 'react-icons/md';
+
 
 interface ProductCardProps {
   product: any;
@@ -19,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
           <Image src={product.images[1]?.url} className={Styles.show_hover} alt="" width={100} height={100} />
         </div>
         <div>
-          <p className={Styles.description}>
+          <p className={Styles.textName}>
             {(product.name && product.name.length > 15) ? product.name.substring(0, 15) + '...' : product.name}
           </p>
           <p className={Styles.description}>
@@ -36,8 +39,12 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
         </div>
       </div>
       <div className={Styles.bottom}>
-        <p className={Styles.currentPrice}>{product.prices.current_price.formatted} </p>
-        <p className={Styles.currentPrice}>{product.available_amount} </p>
+        <p className={Styles.currentPrice}>
+          <FaTag className={Styles.icon} /> {product.prices.current_price.formatted}
+        </p>
+        <p className={Styles.currentPrice}>
+          <MdShoppingCart className={Styles.icon} /> {product.available_amount}
+        </p>
       </div>
     </div>
   );
