@@ -58,7 +58,9 @@
       "product_description": "Description du produit",
       "description": "Description",
       "price": "Prix",
-      "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
+      "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur",
+      "see_more": "Voir plus d'options d'expédition",
+      "see_less": "Voir moins d'options d'expédition"
     },
     "cart": {
       "shopping_cart": "Panier",
