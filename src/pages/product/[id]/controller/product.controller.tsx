@@ -100,9 +100,19 @@ const handleAddProductToCart = async() => {
   };
 
   useEffect(() => {
-    if (params?.id) getProductDetails(params?.id);
+    if (params?.id) getProductDetails({
+      id: params.id,
+      color: selectedColor?.value || undefined,
+      size: selectedSize?.value || undefined,
+      
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params?.id])
+  }, [params?.id, selectedColor, selectedSize])
+
+  useEffect(() => {
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedColor, selectedSize])
 
   return (
     <HomePageDefault>

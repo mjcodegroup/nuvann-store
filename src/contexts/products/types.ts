@@ -91,3 +91,8 @@ export interface getProductsParams {
     new_products?: boolean;
     seller_business_account_id?: number;
 }
+
+export interface ProductDetailsParams {
+    id: string;
+    [key: string ]: string | undefined
+}

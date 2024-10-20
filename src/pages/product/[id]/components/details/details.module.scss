@@ -82,12 +82,19 @@
 
     .detail_infos_footer {
         display: flex;
-
         margin: 2% 2% 0 0;
+        @media screen and (max-width: 1280px) {
+            flex-direction: column;
+            gap: 16px;
+        }
         
         button {
-            margin-right: 20px;
-            height: 45px;
+          margin-right: 20px;
+          height: 45px;
+
+          @media screen and (max-width: 10900px) {
+            gap: 16px;
+          }
         }
 
         .btn_cart {
@@ -151,7 +158,7 @@
     animation: shake 0.5s;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 720px) {
   .product_infos {
 
     .title_footer {
@@ -212,9 +219,6 @@
       flex-direction: column;
       justify-content: center;
       gap: 16px;
-
-
-      
       button {
           // margin-right: 20px;
           height: 45px;

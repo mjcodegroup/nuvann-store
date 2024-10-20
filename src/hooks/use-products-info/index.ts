@@ -1,5 +1,5 @@
 import { useProducts } from "@/contexts/products";
-import { getProductsParams } from "@/contexts/products/types";
+import { getProductsParams, Product, ProductDetailsParams } from "@/contexts/products/types";
 import { nuvannApi } from "@/services/api";
 
 export function useProductsInfo() {
@@ -61,8 +61,8 @@ export function useProductsInfo() {
         }
     }
 
-    async function getProductDetails(id: string) {
-        const response = await nuvannApi.get(`/products/${id}`)
+    async function getProductDetails(params: ProductDetailsParams) {
+        const response = await nuvannApi.get(`/products/${params.id}?color=${params.color}&size=${params.size}`, )
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
     }
 
