@@ -107,7 +107,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
           disabled={props.loading || props.disabled}
           backgroundColor="#00C02A"
           textColor="#fff"
-          onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.id}` as RoutesUrls)}>
+          onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.product.id}` as RoutesUrls)}>
           {t('buy_again')}
         </CustomButton>
       </div>
