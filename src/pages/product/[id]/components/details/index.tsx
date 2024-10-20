@@ -20,7 +20,6 @@ export default function Details(props: DetailsProps) {
     productInfos, 
     onError,
     onSelectedShippingInfo,
-    selectedShippingInfo,
     onSelectedSize,
     selectedSize,
     onSelectedColor,
