@@ -1,13 +1,13 @@
 import { useSellerDetails } from '@/contexts/seller-details';
 import { useToast } from '@/contexts/toast';
 import { nuvannApi } from '@/services/api';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
 export function useSellerDetailsInfo(orderId: string) {
     const { errorToast } = useToast();
     const { state: sellerState, dispatch: sellerDetailsDispatch } = useSellerDetails();
 
-    async function getSellerProds() {
+    const getSellerProds = useCallback(async () => {
         sellerDetailsDispatch({ type: 'SET_SELLER_PRODUCTS_LOADER', value: true });
         try {
             const response = await nuvannApi.get('/products', {
@@ -22,13 +22,13 @@ export function useSellerDetailsInfo(orderId: string) {
         } finally {
             sellerDetailsDispatch({ type: 'SET_SELLER_PRODUCTS_LOADER', value: false });
         }
-    }
+    }, [errorToast, sellerDetailsDispatch]);
 
     useEffect(() => {
         if (orderId) {
             getSellerProds();
         }
-    }, [orderId]);
+    }, [orderId, getSellerProds]);
 
     return {
         products: sellerState?.products,
