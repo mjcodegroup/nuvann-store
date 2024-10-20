@@ -31,24 +31,20 @@ export default function SellerDetails({ isLoading, products, onRedirectToProduct
                 ) :  */}
                 <MdPerson className={styles.sellerIcon} size={100} />
                 <h3>Seller name</h3>
-                <p className={styles.sellerEmail}>📧 selleremail@gmail.com</p>
-                <button className={styles.contactSellerButton}>Contact Seller</button>
+
 
                 <div className={styles.sellerStats}>
-                    <h4>Seller Ratings</h4>
-                    <div className={styles.statsBox}>
-                        <div>
-                            <h5>🌟 4.8/5</h5>
-                            <p>Average Rating</p>
-                        </div>
-                        <div>
-                            <h5>500</h5>
-                            <p>Reviews</p>
-                        </div>
-                        <div>
-                            <h5>1000+</h5>
-                            <p>Products Sold</p>
-                        </div>
+                    <div>
+                        <h5>Seller Since</h5>
+                        <p>2024</p>
+                    </div>
+                    <div>
+                        <h5>Total Products</h5>
+                        <p>120</p>
+                    </div>
+                    <div>
+                        <h5>Location+</h5>
+                        <p>Brazil</p>
                     </div>
                 </div>
             </div>

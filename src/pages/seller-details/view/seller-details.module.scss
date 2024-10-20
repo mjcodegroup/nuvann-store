@@ -1,5 +1,5 @@
 $seller-bg-color: #f0f4f8;
-$seller-primary-color: #0056b3;
+$seller-primary-color: #000000;
 $seller-secondary-color: #FFC107;
 
 .sellerContainer {
@@ -70,7 +70,19 @@ $seller-secondary-color: #FFC107;
 
     .sellerStats {
         width: 100%;
+        height: 50%;
         margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        p{
+            color: #0400BB;
+        }
+    }
+
+    .sellerIcon{
+        color: #d6cece;
     }
 }
 

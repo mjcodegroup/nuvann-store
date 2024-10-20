@@ -15,8 +15,8 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
 
       <div className={Styles.top_of_card}>
         <div className={Styles.product_img}>
-          <Image src={product.images[0].url} alt="" width={100} height={100} />
-          <Image src={product.images[1].url} className={Styles.show_hover} alt="" width={100} height={100} />
+          <Image src={product.images[0]?.url} alt="" width={100} height={100} />
+          <Image src={product.images[1]?.url} className={Styles.show_hover} alt="" width={100} height={100} />
         </div>
         <div>
           <p className={Styles.description}>
@@ -24,6 +24,14 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
           </p>
           <p className={Styles.description}>
             {(product.description && product.description.length > 15) ? product.description.substring(0, 15) + '...' : product.description}
+          </p>
+          <p className={Styles.categories}>
+            {product.categories.slice(0, 3).map((category: any, index: number) => (
+              <span key={index}>
+                {(category.name.length > 6) ? category.name.substring(0, 6) + '...' : category.name}
+                {index < 2 && ', '}
+              </span>
+            ))}
           </p>
         </div>
       </div>

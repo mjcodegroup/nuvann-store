@@ -33,7 +33,6 @@ export interface ProductsContextProps {
     dispatch: React.Dispatch<Action>;
 }
 
-
 export interface ProductsData {
     items: Product[];
     current_page: number;
@@ -42,29 +41,31 @@ export interface ProductsData {
 }
 
 export interface Product {
-    id: number;
+    id: string;
     name: string;
     description: string;
     images?: ImageMedia[];
     prices: Prices;
     available_amount: number;
+    categories: Category[];
 }
 
 export type ImageMedia = {
-    id?: number;
+    id?: string;
     title?: string;
     url?: string;
     alt?: string;
 }
 
-export type Prices ={
+export type Prices = {
     current_price?: Price;
     original_price?: Price;
 }
-export type Price ={
+
+export type Price = {
     raw: number;
     formatted: string;
-    discount: Discount
+    discount: Discount;
 }
 
 export type Discount = {
@@ -72,9 +73,16 @@ export type Discount = {
     value: number;
 }
 
+export interface Category {
+    id: string;
+    name: string;
+    description: string;
+    tags: string[];
+    image: ImageMedia;
+}
+
 // Details
 export interface ProductDetails extends Product {
-    category: any;
     seller: any;
     properties: any;
     shipments: any;
