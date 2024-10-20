@@ -27,7 +27,6 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
           </p>
         </div>
       </div>
-      {/*  */}
       <div className={Styles.bottom}>
         <p className={Styles.currentPrice}>{product.prices.current_price.formatted} </p>
         <p className={Styles.currentPrice}>{product.available_amount} </p>

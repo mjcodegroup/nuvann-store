@@ -54,7 +54,7 @@ export default function SellerDetails({ isLoading, products, onRedirectToProduct
             </div>
 
             <div className={styles.productList}>
-                <h4>Seller's Products</h4>
+                <h4>Products</h4>
                 <ul>
                     {Array.isArray(products.items) && products.items.length > 0 ? (
                         products.items.map((product) => (
