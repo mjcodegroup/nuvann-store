@@ -4,7 +4,7 @@ export interface OrderItem {
   description: string;
   images: OrderItemImage[];
   price: number;
-  properties: OrderItemProperty;
+  properties: OrderItemProperty[];
   available_amount: number;
 }
 
@@ -18,9 +18,7 @@ export interface OrderItemImage {
 export interface OrderItemProperty {
   key: string;
   value: string;
-  quantity: number;
 }
-
 
 export interface Order {
   id: string;
@@ -53,12 +51,14 @@ export interface OrderProperties {
 export interface OrderProperty {
   key: string;
   value: string;
-  quantity: number;
+  quantity?: number;
 }
 
 export interface Seller {
   name: string;
   country: Country;
+  business_account_id: string;
+  created_at: string;
 }
 
 export interface Country {
@@ -78,8 +78,7 @@ export interface ShippingAddress {
 }
 
 export interface OrderItemStatusLog {
-  id: string;
-  deletedAt: string;
+  id?: string;
   description: string;
   occurred_on: string;
   order_item_status: string;
@@ -91,22 +90,21 @@ export interface ShippingTrackingData {
   tracking_id: string;
 }
 
-  
 export interface State {
-    orders: Order[];
-    order_loader: boolean;
-    update_order_loader: boolean;
+  orders: Order[];
+  order_loader: boolean;
+  update_order_loader: boolean;
 }
 
 export type Action = 
-    | {
-         type: 'SET_ORDERS'; value: Order[];
-    }
-    | {
-         type: 'SET_ORDER_LOADER'; value: boolean;
-    };
+  | {
+      type: 'SET_ORDERS'; value: Order[];
+  }
+  | {
+      type: 'SET_ORDER_LOADER'; value: boolean;
+  };
 
 export interface OrdersContextProps {
-    state: State;
-    dispatch: React.Dispatch<Action>;
+  state: State;
+  dispatch: React.Dispatch<Action>;
 }
