@@ -13,3 +13,8 @@ export function formatDate(receivedDate: string): string {
 
     return date.toLocaleString('en-US', options);
 }
+
+export function getYearFromDate(receivedDate: string): string {
+    const date = new Date(receivedDate);
+    return date.getFullYear().toString(); // Convert the year to string before returning
+}

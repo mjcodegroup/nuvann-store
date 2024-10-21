@@ -4,16 +4,19 @@ import { MdDateRange, MdLocationOn, MdPerson, MdShoppingCart } from 'react-icons
 import SellerCardSkeleton from '../components/seller-card-skeleton';
 import ProductCard from '../components/product';
 import { ProductsData } from '@/contexts/products/types';
-
+import { getYearFromDate } from '@/utils/date-convert';
 
 interface SellerDetailsProps {
     isLoading: boolean;
     products: ProductsData;
     onRedirectToProductDetails: (id: string) => void;
+    sellerName: string;
+    sellerCountry: string;
+    createdAt: string;
 }
 
-export default function SellerDetails({ isLoading, products, onRedirectToProductDetails }: SellerDetailsProps) {
-    console.log(products.items);
+export default function SellerDetails({ isLoading, products, onRedirectToProductDetails, sellerName, sellerCountry, createdAt}: SellerDetailsProps) {
+    console.log( sellerName, sellerCountry, createdAt);
     if (isLoading) {
         return <SellerCardSkeleton />;
     }
@@ -21,29 +24,20 @@ export default function SellerDetails({ isLoading, products, onRedirectToProduct
     return (
         <div className={styles.sellerContainer}>
             <div className={styles.sellerCard}>
-                {/* {seller?.picture ? (
-                    <Image
-                        src={seller.picture}
-                        alt={`${seller.name}'s profile`}
-                        className={styles.sellerImage}
-                        width={100}
-                        height={100}
-                    />
-                ) :  */}
                 <MdPerson className={styles.sellerIcon} size={100} />
-                <h3>Seller name</h3>
+                <h3>{sellerName}</h3>
                 <div className={styles.sellerStats}>
                     <div>
                         <h5>Seller Since</h5>
-                        <p><MdDateRange className={styles.icon} />2024</p>
+                        <p><MdDateRange className={styles.icon}/>{getYearFromDate(createdAt)}</p> {/* Display the created date */}
                     </div>
                     <div>
                         <h5>Total Products</h5>
                         <p><MdShoppingCart className={styles.icon} />{products.total_items}</p>
                     </div>
                     <div>
-                        <h5>Location+</h5>
-                        <p><MdLocationOn className={styles.icon} />Brazil</p>
+                        <h5>Location</h5>
+                        <p><MdLocationOn className={styles.icon}/>{sellerCountry}</p>
                     </div>
                 </div>
             </div>

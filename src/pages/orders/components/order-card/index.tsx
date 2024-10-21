@@ -14,7 +14,7 @@ interface OrderCardProps {
     handleOrderClick: (order: Order) => void;
 }
 
-const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrderClick }) => {
+const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     const { redirect } = useNavigation()
     const { t } = useTranslation('order');
 
@@ -33,13 +33,13 @@ const OrderCard: React.FC<OrderCardProps> = ({ order, selectedOrder, handleOrder
                 </div>
                 <div className={Styles.CardsButtons}>
                     <CustomButton
+                        children={t('buy_again')}
                         backgroundColor='white' textColor='#000052'
                         onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.product.id}` as RoutesUrls)}>
-                        {t('buy_again')}
                     </CustomButton>
                     <CustomButton
+                        children={t('see_more')}
                         onClick={() => redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${order.id}` as RoutesUrls)}>
-                        {t('see_more')}
                     </CustomButton>
                 </div>
 
