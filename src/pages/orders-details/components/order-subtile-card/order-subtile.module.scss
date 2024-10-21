@@ -17,10 +17,12 @@
     position: relative;
     padding-left: 45px;
     list-style: none;
-    strong{
+
+    strong {
         color: #000052;
     }
-    span{
+
+    span {
         margin-bottom: 10%;
     }
 }
@@ -68,7 +70,23 @@
 }
 
 .StepProgressItem.current::after {
-    background-color: white;
+    animation: grow 1s infinite;
+    background-color: green;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 255, 0, 0);
+    }
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 255, 0, 0);
+    }
 }
 
 @media only screen and (max-width: 500px) {

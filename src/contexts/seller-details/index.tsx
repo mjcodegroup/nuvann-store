@@ -1,7 +1,8 @@
 import React, { createContext, useMemo } from 'react';
 import { reducer } from './seller-details-reducer';
-import { SellersDetailsContextProps, State } from './types';
+import { SellerInfo, SellersDetailsContextProps, State } from './types';
 import { ProductsData } from '../products/types';
+import { Seller } from '../orders/types';
 
 export const SellersDetailsContext = createContext<SellersDetailsContextProps>(
     {} as SellersDetailsContextProps
@@ -11,6 +12,7 @@ const initialState: State = {
     products: {} as ProductsData,
     seller_products_loader: false,
     update_Seller_loader: false,
+    seller_info: {}as SellerInfo
 };
 
 export function SellerDetailsProvider({ children }: { children: React.ReactNode }) {

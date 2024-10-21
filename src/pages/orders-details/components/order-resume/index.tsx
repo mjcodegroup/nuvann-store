@@ -26,7 +26,8 @@ export interface OrderResumeProps {
 const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
   const { t } = useTranslation('order');
   const { data, order } = props;
-  const { redirect } = useNavigation()
+  const { redirect } = useNavigation();
+
 
   return (
     <div className={styles.card_resume}>
@@ -63,10 +64,10 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         <hr />
         <div className={styles.resume_separated_info}>
           <p>
-          {t('name')}:{' '}
+            {t('name')}:{' '}
             <span
               className={styles.seller_name}
-              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order.id}` as RoutesUrls)}
+              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order.seller.business_account_id}&name=${encodeURIComponent(order.seller.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RoutesUrls)}
             >
               {order?.seller?.name}
             </span>
@@ -94,7 +95,8 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
               <p>Company: {order?.shipping_tracking_data.company_name}</p>
               <p>Tracking ID: {order?.shipping_tracking_data.tracking_id}</p>
             </>
-          )}          {props.loading ? (
+          )}
+          {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
             <h5></h5>

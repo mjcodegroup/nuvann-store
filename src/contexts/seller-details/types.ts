@@ -1,10 +1,18 @@
 import { ProductsData } from "../products/types";
 
+export interface SellerInfo {
+    name: string;
+    country: string;
+    created_at: string; // or Date if you want
+}
+
 export interface State {
     products: ProductsData;
+    seller_info: SellerInfo | null; // New property for seller info
     seller_products_loader: boolean;
     update_Seller_loader: boolean;
 }
+
 
 export type Action = 
     | {

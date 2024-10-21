@@ -23,6 +23,10 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
     ];
 
     let showNextStatuses = true;
+    const lastKnownStatus = allStatuses.reduce((acc, status) => {
+        const statusLog = order.order_item_status_logs?.find(log => log.order_item_status === status);
+        return statusLog ? status : acc;
+    }, '');
 
     return (
         <div className={Styles.container}>
@@ -42,12 +46,13 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                             if (!showNextStatuses && status !== 'CANCELLED') {
                                 return null; 
                             }
+
                             return (
                                 <li
                                     key={status}
                                     className={`${Styles.StepProgressItem} ${
                                         statusLog ? Styles.isDone : ''
-                                    }`}
+                                    } ${status === lastKnownStatus ? Styles.current : ''}`}
                                 >
                                     <strong>{descriptionStatus[index]}</strong>
                                     {statusLog && (
