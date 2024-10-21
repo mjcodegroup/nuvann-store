@@ -67,7 +67,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             {t('name')}:{' '}
             <span
               className={styles.seller_name}
-              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?sellerId=${order.seller.business_account_id}&name=${encodeURIComponent(order.seller.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RoutesUrls)}
+              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order.seller.business_account_id}&name=${encodeURIComponent(order.seller.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RoutesUrls)}
             >
               {order?.seller?.name}
             </span>
