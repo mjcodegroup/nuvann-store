@@ -25,6 +25,7 @@ import MobileNavbar from './mobile-navbar';
 import { useAuth0 } from "@auth0/auth0-react";
 import sessionManager from '@/utils/session-manager';
 import cookie from '@/utils/cookie';
+import { generateRandomString } from '@/utils/generate-random-string';
 
 interface selectedCountry {
   label: string;
@@ -60,8 +61,8 @@ export const Navbar: React.FC = () => {
     if(!isAuthenticated) {
       return handleLogin();
     }
+    cookie.setCookie({name: 'nuvann_store_referral', days: 1, value: generateRandomString(24), domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
     if(userInfos?.roles?.includes(UserRoles.SELLER)) {
-      cookie.setCookie('nuvann_store_referral', 'true', 1);
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
     setModalTerm(true)
@@ -77,7 +78,9 @@ export const Navbar: React.FC = () => {
   
   const setSession = async() => {
     const token = await getAccessTokenSilently();
-    sessionManager.setSession(token);
+    if(token){
+      sessionManager.setSession(token);
+    }
   }
 
   React.useEffect(() => {

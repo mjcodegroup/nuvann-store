@@ -13,7 +13,7 @@ export default function LanguageSelector() {
         const lang = event.target.value
         i18n.changeLanguage(lang)
         setLng(lang)
-        Cookie.setCookie("NEXT_I18LANG", lang, 180)
+        Cookie.setCookie({name: "NEXT_I18LANG", value: lang, days: 180, domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''})
         window.location.reload()
     }
 
