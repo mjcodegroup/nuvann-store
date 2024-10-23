@@ -3,11 +3,11 @@ import cookie from "../cookie";
 
 class SessionManager { 
     setSession(value: any) {
-       cookie.setCookie('@nuvann:valid-token', value, 1);
+       cookie.setCookie({name:'nuvann-valid-token', value, days: 1, domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
     }
 
     getValidToken() {
-        return cookie.getCookie('@nuvann:valid-token');
+        return cookie.getCookie('nuvann-valid-token');
     }
     
     isAuthenticated() {
@@ -24,9 +24,8 @@ class SessionManager {
     }
 
     saveCurrentPathToStorage = (path: string) => {
-
         if (typeof window !== 'undefined') {
-            cookie.setCookie('returnTo', path, 1);
+            cookie.setCookie({name: 'returnTo', value: path, days: 1, domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || '' });
             localStorage.setItem('returnTo', path);
         }
       };
