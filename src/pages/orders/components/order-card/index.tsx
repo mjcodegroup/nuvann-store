@@ -15,14 +15,12 @@ interface OrderCardProps {
 }
 
 const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
-    const { redirect } = useNavigation()
+    const { redirect } = useNavigation();
     const { t } = useTranslation('order');
 
     return (
         <div key={order.id}>
-            <div
-                className={Styles.ActualCard}
-            >
+            <div className={Styles.ActualCard}>
                 <Image src={order.product.images[0]?.url} alt="product" width={100} height={100} />
                 <div className={Styles.CardstitleDate}>
                     <h4>{order.product.name}</h4>
@@ -33,16 +31,16 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                 </div>
                 <div className={Styles.CardsButtons}>
                     <CustomButton
-                        children={t('buy_again')}
-                        backgroundColor='white' textColor='#000052'
+                        backgroundColor="white"
+                        textColor="#000052"
                         onClick={() => redirect(`${RoutesUrls.PRODUCT_DETAILS_PAGE}/${order.product.id}` as RoutesUrls)}>
+                        {t('buy_again')}
                     </CustomButton>
                     <CustomButton
-                        children={t('see_more')}
                         onClick={() => redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${order.id}` as RoutesUrls)}>
+                        {t('see_more')}
                     </CustomButton>
                 </div>
-
             </div>
         </div>
     );
