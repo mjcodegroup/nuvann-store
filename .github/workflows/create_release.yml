@@ -1,0 +1,56 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Get version from package.json
+        id: version
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
+
+      - name: Set up Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Generate new tag
+        id: new_tag
+        run: |
+          new_tag="v${{ env.version }}"
+          echo "::set-output name=new_tag::$new_tag"
+
+      - name: Create new tag
+        run: |
+          git tag ${{ steps.new_tag.outputs.new_tag }}
+          git push origin ${{ steps.new_tag.outputs.new_tag }}
+
+      - name: Generate Changelog
+        id: changelog
+        run: |
+          git log --pretty=format:"- %s" $(git describe --tags --abbrev=0)..HEAD > CHANGELOG.md
+          cat CHANGELOG.md
+        shell: bash
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.new_tag.outputs.new_tag }}
+          release_name: "Release ${{ steps.new_tag.outputs.new_tag }}"
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
