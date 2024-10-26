@@ -52,8 +52,7 @@ const schema = z.object({
 
 export default function CheckoutController() {
   const router = useRouter();
-  const { orderId } = router.query;
-  const { redirect } = useNavigation();
+  const { orderid } = router.query;
   const {
     checkout,
     updateShippingInfoLoading,
@@ -65,7 +64,7 @@ export default function CheckoutController() {
     openModalShipment,
     setOpenModalShipment,
     updateShipmentInfos
-  } = useCheckoutInfo(orderId as string);
+  } = useCheckoutInfo(orderid as string);
   const {user} = useUserInfo();
   const {countries} = useCountriesInfo();
   const [currentShippingInfo, setCurrentShippingInfo] = React.useState<any>(null);
@@ -146,7 +145,7 @@ export default function CheckoutController() {
   return (
     <HomePageDefault>
         <Checkout
-          onPlaceOrder={()=>handlePlaceOrder(orderId as string)}
+          onPlaceOrder={()=>handlePlaceOrder(orderid as string)}
           placeOrderLoading={placeOrderLoader}
           orderItems={checkout.items}
           userInfos={user}

@@ -80,7 +80,7 @@ export function useCheckoutInfo(orderId?: string) {
     useEffect(() => {
         getCheckout();
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
+      }, [orderId]);
 
     return {
         checkout: checkoutState.checkout,
