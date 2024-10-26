@@ -67,7 +67,18 @@ export function useProductsInfo() {
     }
 
     async function getProductDetails(params: ProductDetailsParams) {
-        const response = await nuvannApi.get(`/products/${params.id}?color=${params.color}&size=${params.size}`, )
+        let queryParams = '';
+
+        if (params.size) {
+          queryParams += `&size=${params.size}`;
+        }
+        
+        if (params.color) {
+          queryParams += `&color=${params.color}`;
+        }
+        
+        const queryString = queryParams ? '?' + queryParams.slice(1) : '';
+        const response = await nuvannApi.get(`/products/${params.id}${queryString}`);
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
     }
 
