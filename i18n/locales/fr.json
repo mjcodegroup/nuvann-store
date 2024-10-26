@@ -60,7 +60,8 @@
       "price": "Prix",
       "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur",
       "see_more": "Voir plus d'options d'expédition",
-      "see_less": "Voir moins d'options d'expédition"
+      "see_less": "Voir moins d'options d'expédition",
+      "unavailable": "Indisponible"
     },
     "cart": {
       "shopping_cart": "Panier",

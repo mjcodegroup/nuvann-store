@@ -59,7 +59,8 @@
       "specific_information": "Specific information",
       "tags": "Tags",
       "see_more": "See more shipping options",
-      "see_less": "See less shipment options"
+      "see_less": "See less shipment options",
+      "unavailable": "Unavailable"
 
     },
     "cart": {
