@@ -30,6 +30,7 @@ export default function Product(props: Readonly<ProductProps>) {
             onPurchase={props.onPurchase}
             product={props.product}
             onSelectedShippingInfo={props.onSelectedShippingInfo}
+            onPurchaseLoading={props.onPurchaseLoading}
           />
         </div>
       </div>

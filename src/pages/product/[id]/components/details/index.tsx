@@ -115,6 +115,7 @@ export default function Details(props: DetailsProps) {
                 {t('add_to_cart')}
             </CustomButton>
             <CustomButton
+                isLoading={props.onPurchaseLoading}
                 className={Styles.btn_purchase}
                 backgroundColor="#00B127"
                 textColor='#fff'

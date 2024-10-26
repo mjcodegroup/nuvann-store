@@ -1,9 +1,14 @@
 import { useProducts } from "@/contexts/products";
-import { getProductsParams, Product, ProductDetailsParams } from "@/contexts/products/types";
+import { getProductsParams, PostQuickPurchaseType, ProductDetailsParams } from "@/contexts/products/types";
 import { nuvannApi } from "@/services/api";
+import { useNavigation } from "../useNavigation";
+import { RoutesUrls } from "@/utils/enums/routesUrl";
+import { useToast } from "@/contexts/toast";
 
 export function useProductsInfo() {
     const { state: productsState, dispatch: productsDispatch } = useProducts();
+    const { redirect } = useNavigation();
+  const { successToast, errorToast } = useToast();
 
     async function getProducts(options?: getProductsParams) {
         productsDispatch({ type: 'SET_LOADING', value: true });
@@ -66,12 +71,26 @@ export function useProductsInfo() {
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
     }
 
+    async function handleQuickPurchase(productId: string, data: PostQuickPurchaseType) {
+        productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: true });
+        try {
+            const response = await nuvannApi.post(`/products/${productId}/quick-purchase`, data)
+            redirect(RoutesUrls.CHECKOUT + `?=order-id=${response.data.order_id}` as RoutesUrls)
+        } catch (error: any) {
+            errorToast(error.response.data.message);
+        } finally {
+            productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: false });
+        }
+    }
+
     return {
         products: productsState.products,
         loading: productsState.isLoading,
         getProducts,
         getProductDetails,
         getNewProducts,
-        getPromotionProducts
+        getPromotionProducts,
+        handleQuickPurchase,
+        quickPurchaseLoader: productsState.quickPurchaseLoader
     }
 }
