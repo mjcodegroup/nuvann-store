@@ -4,6 +4,7 @@ export interface State {
     promotionProducts: ProductsData;
     product: ProductDetails;
     isLoading: boolean;
+    quickPurchaseLoader: boolean;
 }
 
 export type Action =
@@ -26,7 +27,11 @@ export type Action =
     | {
         type: 'SET_LOADING';
         value: boolean;
-    };
+    }
+    | {
+        type: 'SET_QUICK_PURCHASE_LOADER';
+        value: boolean;
+    }
 
 export interface ProductsContextProps {
     state: State;
@@ -102,5 +107,14 @@ export interface getProductsParams {
 
 export interface ProductDetailsParams {
     id: string;
+    [key: string ]: string | undefined
+}
+
+export interface PostQuickPurchaseType {
+    quantity: number;
+    properties?: Properties[] | undefined;
+}
+
+type Properties = {
     [key: string ]: string | undefined
 }

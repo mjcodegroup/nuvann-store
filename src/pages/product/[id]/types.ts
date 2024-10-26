@@ -18,6 +18,7 @@ export interface ProductProps {
     onDecrement: () => void;
     onAddToCart: () => void;
     onPurchase: () => void;
+    onPurchaseLoading: boolean;
 }
 
 export interface MoreDetailsProps {
@@ -43,6 +44,7 @@ export interface DetailsProps {
     onDecrement: () => void;
     onAddToCart: () => void;
     onPurchase: () => void;
+    onPurchaseLoading: boolean;
 }
 
 
@@ -62,4 +64,5 @@ export interface ContainerInfosProps {
     onDecrement: () => void;
     onAddToCart: () => void;
     onPurchase: () => void;
+    onPurchaseLoading: boolean;
 }

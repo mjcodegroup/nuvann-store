@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HomePageDefault } from '@/components/home-page-default'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Checkout from '../view/checkout.view'
@@ -7,6 +7,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useUserInfo } from '@/hooks/use-user-info';
 import { z } from 'zod';
 import { useCountriesInfo } from '@/hooks/use-countries-info';
+import { useRouter } from 'next/router';
+import { useNavigation } from '@/hooks/useNavigation';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
 
 type FormValues = {
     street: string,
@@ -48,6 +51,9 @@ const schema = z.object({
 });
 
 export default function CheckoutController() {
+  const router = useRouter();
+  const { orderId } = router.query;
+  const { redirect } = useNavigation();
   const {
     checkout,
     updateShippingInfoLoading,
@@ -59,7 +65,7 @@ export default function CheckoutController() {
     openModalShipment,
     setOpenModalShipment,
     updateShipmentInfos
-  } = useCheckoutInfo();
+  } = useCheckoutInfo(orderId as string);
   const {user} = useUserInfo();
   const {countries} = useCountriesInfo();
   const [currentShippingInfo, setCurrentShippingInfo] = React.useState<any>(null);
@@ -129,10 +135,18 @@ export default function CheckoutController() {
     });
   }
 
+  useEffect(() => {
+    if (checkout.count <= 0) {
+      redirect(RoutesUrls.HOME);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkout.count]);
+
+
   return (
     <HomePageDefault>
         <Checkout
-          onPlaceOrder={handlePlaceOrder}
+          onPlaceOrder={()=>handlePlaceOrder(orderId as string)}
           placeOrderLoading={placeOrderLoader}
           orderItems={checkout.items}
           userInfos={user}

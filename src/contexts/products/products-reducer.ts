@@ -17,6 +17,9 @@ export function reducer(state: State, action: Action): State {
         case 'SET_LOADING': {
             return { ...state, isLoading: action.value };
         }
+        case 'SET_QUICK_PURCHASE_LOADER': {
+            return { ...state, quickPurchaseLoader: action.value };
+        }
         default: {
             return state;
         }

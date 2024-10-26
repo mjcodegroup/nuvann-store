@@ -25,6 +25,7 @@ export default function ContainerInfos(props: ContainerInfosProps) {
           onPurchase={props.onPurchase}
           onSelectedShippingInfo={props.onSelectedShippingInfo} 
           productInfos={props.product}
+          onPurchaseLoading={props.onPurchaseLoading}
         />
       </div>
     </div>
