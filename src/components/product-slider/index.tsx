@@ -1,18 +1,17 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Styles from './product-slider.module.scss';
-
-import Title from "../title";
 import SampleNextArrow from "./sample-next-arrow";
 import { SliderProps } from "./types";
 import { SamplePrevArrow } from "./sample-prev-arrow";
 import { truncateStringWithEllipsis } from "@/utils/truncate-string-with-ellipsis";
 import { ProductSlideSkeleton } from "./product-slider-skeleton";
-import { useTranslation } from "react-i18next";
 import getDeviceType from "@/utils/get-device-type";
+import Title from "../title";
 
 
 export default function ProductSlide(props: SliderProps) {
@@ -23,11 +22,11 @@ export default function ProductSlide(props: SliderProps) {
   const sliderRef = useRef<any>(null);
 
   const settingsMultiRows = {
-    infinite: true,
+    infinite: false,
     slidesToShow: 2,
     speed: 500,
     rows: 2,
-    slidesPerRow:  getDeviceType.isMobile() ? 1 : props.itemToShow || 4,
+    slidesPerRow:  getDeviceType.isMobile() ? 1 : props.itemToShow || 1,
     responsive: [
       {
         breakpoint: 1024,
@@ -104,7 +103,6 @@ export default function ProductSlide(props: SliderProps) {
   };
 
   const isMultiRows = props.multipleRows ?settingsMultiRows: settings;
-
 
   const handleMouseEnter = () => setShowArrows(true);
   const handleMouseLeave = () => setShowArrows(false);
