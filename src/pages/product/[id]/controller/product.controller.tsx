@@ -5,8 +5,6 @@ import { useParams } from 'next/navigation';
 import { useProducts } from '@/contexts/products';
 import { useProductsInfo } from '@/hooks/use-products-info';
 import { useCartInfo } from '@/hooks/use-cart-info';
-import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -16,7 +14,6 @@ interface SizeandProductIE {
 }
 export default function ProductController() {
   const params = useParams<{ id: string; }>()
-  const { redirect } = useNavigation();
   const { state: productDetails } = useProducts();
   const {
     getProductDetails,
