@@ -51,7 +51,7 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                                 <li
                                     key={status}
                                     className={`${Styles.StepProgressItem} ${
-                                        statusLog ? Styles.isDone : ''
+                                        statusLog ? Styles.isActive : Styles.isInactive
                                     } ${status === lastKnownStatus ? Styles.current : ''}`}
                                 >
                                     <strong>{descriptionStatus[index]}</strong>

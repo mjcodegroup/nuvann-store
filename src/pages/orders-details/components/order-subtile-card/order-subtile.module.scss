@@ -65,6 +65,24 @@
     background-color: #FFF;
 }
 
+.StepProgressItem.isActive::after {
+    background-color: green;
+    border-color: white;
+}
+
+.StepProgressItem.isInactive::after {
+    background-color: grey;
+    border-color: grey;
+}
+
+.StepProgressItem.isActive strong {
+    color: #000052;
+}
+
+.StepProgressItem.isInactive strong {
+    color: grey;
+}
+
 .StepProgressItem.isDone::after {
     background-color: green;
 }
