@@ -86,7 +86,7 @@ export function useProductsInfo() {
         productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: true });
         try {
             const response = await nuvannApi.post(`/products/${productId}/quick-purchase`, data)
-            redirect(RoutesUrls.CHECKOUT + `?=order-id=${response.data.order_id}` as RoutesUrls)
+            redirect(RoutesUrls.CHECKOUT + `?orderid=${response.data.order_id}` as RoutesUrls)
         } catch (error: any) {
             errorToast(error.response.data.message);
         } finally {
