@@ -3,12 +3,19 @@ import { useRouter } from 'next/router';
 import { HomePageDefault } from '@/components/home-page-default';
 import OrderDetails from '../view';
 import { useOrdersDetailsInfo } from '@/hooks/use-order-details-info';
-import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton'; // Import the skeleton
+import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
+import { useEffect } from 'react';
 
 export default function OrderDetailsController() {
     const router = useRouter();
     const { orderId } = router.query;
-    const { order, isLoading } = useOrdersDetailsInfo(orderId as string);
+    const { order, isLoading, getOrderDetails } = useOrdersDetailsInfo();
+
+    useEffect(() => {
+        if(orderId){
+            getOrderDetails(orderId as string);
+        }
+    }, [orderId]);
 
     return (
         <HomePageDefault>

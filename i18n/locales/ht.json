@@ -146,6 +146,7 @@
       "purchase_date": "Dat acha",
       "status": "Estati",
       "quantity": "Kantite",
-      "delivered_by": "Delivre pa"
+      "delivered_by": "Delivre pa",
+      "sub_total": "Sou total"
     }
 }

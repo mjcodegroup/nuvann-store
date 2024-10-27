@@ -1,13 +1,12 @@
 import { useOrderDetails } from '@/contexts/orders-details';
 import { useToast } from '@/contexts/toast';
 import { nuvannApi } from '@/services/api';
-import { useEffect } from 'react';
 
-export function useOrdersDetailsInfo(orderId: string) {
+export function useOrdersDetailsInfo() {
     const { errorToast } = useToast();
     const { state: ordersState, dispatch: orderDetailsDispatch } = useOrderDetails();
 
-    async function getOrderDetails() {
+    async function getOrderDetails(orderId: string) {
         try {
             orderDetailsDispatch({ type: 'SET_ORDER_DETAILS_LOADER', value: true });
             const response = await nuvannApi.get(`/orders/purchases/items/${orderId}`);
@@ -19,10 +18,7 @@ export function useOrdersDetailsInfo(orderId: string) {
         }
     }
 
-    useEffect(() => {
-        getOrderDetails();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    
     return {
         ordersState,
         order: ordersState.order,
