@@ -146,6 +146,7 @@
       "purchase_date": "Fecha de compra",
       "status": "Estado",
       "quantity": "Cantidad",
-      "delivered_by": "Entregado por"
+      "delivered_by": "Entregado por",
+      "sub_total": "Subtotal"
     }
   }

@@ -145,6 +145,7 @@
       "purchase_date": "Purchase date",
       "status": "Status",
       "quantity": "Quantity",
-      "delivered_by": "Delivered by"
+      "delivered_by": "Delivered by",
+      "sub_total": "Subtotal"
     }
   }

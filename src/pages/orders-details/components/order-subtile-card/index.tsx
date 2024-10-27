@@ -44,21 +44,26 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                                 }
                             }
                             if (!showNextStatuses && status !== 'CANCELLED') {
-                                return null; 
+                                return null;
                             }
 
                             return (
                                 <li
                                     key={status}
                                     className={`${Styles.StepProgressItem} ${
-                                        statusLog ? Styles.isDone : ''
-                                    } ${status === lastKnownStatus ? Styles.current : ''}`}
+                                        statusLog ? Styles.isActive : Styles.isInactive
+                                    } ${status === lastKnownStatus ? Styles.current : ''} ${
+                                        status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' ? Styles.isCancelled : ''
+                                    }`}
                                 >
                                     <strong>{descriptionStatus[index]}</strong>
                                     {statusLog && (
                                         <div>
                                             <span>{formatDate(statusLog.occurred_on)}</span>
                                         </div>
+                                    )}
+                                    {status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' && (
+                                        <span className={Styles.cancelledIcon}></span>
                                     )}
                                 </li>
                             );
