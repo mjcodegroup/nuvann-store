@@ -27,7 +27,6 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                     <h5>{t('purchase_date')}: <span>{formatDate(order.order_item_status_logs[0]?.occurred_on)}</span></h5>
                     <h5>{t('status')}: <span>{order.status}</span></h5>
                     <h5>{t('quantity')}: <span>{order.quantity}</span></h5>
-                    <h5>{t('delivered_by')}: <span>{order.shipping_tracking_data?.company_name}</span></h5>
                 </div>
                 <div className={Styles.CardsButtons}>
                     <CustomButton

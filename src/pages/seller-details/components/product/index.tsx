@@ -1,8 +1,9 @@
 import React from 'react';
 import Styles from './product-card.module.scss';
 import Image from 'next/image';
-import { FaTag } from 'react-icons/fa';
-import { MdShoppingCart } from 'react-icons/md';
+import { HiOutlineArchiveBox } from 'react-icons/hi2';
+import { BsTag } from 'react-icons/bs';
+
 
 
 interface ProductCardProps {
@@ -32,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
             {product.categories?.slice(0, 3).map((category: any, index: number) => (
               <span key={index}>
                 {(category.name.length > 6) ? category.name.substring(0, 6) + '...' : category.name}
-                {index < 2 && ', '}
+                {index < 2 && ' '}
               </span>
             ))}
 
@@ -41,10 +42,10 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
       </div>
       <div className={Styles.bottom}>
         <p className={Styles.currentPrice}>
-          <FaTag className={Styles.icon} /> {product.prices.current_price.formatted}
+          <BsTag size={15} className={Styles.icon} /> {product.prices.current_price.formatted}
         </p>
         <p className={Styles.currentPrice}>
-          <MdShoppingCart className={Styles.icon} /> {product.available_amount}
+          <HiOutlineArchiveBox className={Styles.icon} /> {product.available_amount}
         </p>
       </div>
     </div>
