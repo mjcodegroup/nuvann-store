@@ -56,7 +56,9 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                                         status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' ? Styles.isCancelled : ''
                                     }`}
                                 >
-                                    <strong>{descriptionStatus[index]}</strong>
+                                    <strong style={{
+                                                color: status === lastKnownStatus ? 'green': ''
+                                            }}>{descriptionStatus[index]}</strong>
                                     {statusLog && (
                                         <div>
                                             <span>{formatDate(statusLog.occurred_on)}</span>

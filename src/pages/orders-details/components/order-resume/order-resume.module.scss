@@ -7,6 +7,7 @@
   width: 100%;
   flex-direction: column;
   position: sticky;
+  background-color: #FFFFFFFF;
   top: 0;
   
   .resume_title {
@@ -19,7 +20,6 @@
   margin: 7px 0;
   display: flex;
   justify-content: space-between;
-
 
   .seller_name {
     cursor: pointer;
