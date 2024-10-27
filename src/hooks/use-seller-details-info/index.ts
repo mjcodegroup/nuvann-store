@@ -3,7 +3,7 @@ import { useToast } from '@/contexts/toast';
 import { nuvannApi } from '@/services/api';
 import { useEffect, useCallback } from 'react';
 
-export function useSellerDetailsInfo(orderId: string) {
+export function useSellerDetailsInfo(sellerId: string) {
     const { errorToast } = useToast();
     const { state: sellerState, dispatch: sellerDetailsDispatch } = useSellerDetails();
 
@@ -12,7 +12,7 @@ export function useSellerDetailsInfo(orderId: string) {
         try {
             const response = await nuvannApi.get('/products', {
                 params: {
-                    in_promotion: true,
+                    sellerId: true,
                     size: 20
                 }
             });
@@ -25,10 +25,10 @@ export function useSellerDetailsInfo(orderId: string) {
     }, [errorToast, sellerDetailsDispatch]);
 
     useEffect(() => {
-        if (orderId) {
+        if (sellerId) {
             getSellerProds();
         }
-    }, [orderId, getSellerProds]);
+    }, [sellerId, getSellerProds]);
 
     return {
         products: sellerState?.products,

@@ -92,6 +92,23 @@
     background-color: green;
 }
 
+.StepProgressItem.isCancelled::after {
+    background-color: red;
+    border-color: red;
+    animation: none;
+    content: 'X';
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.StepProgressItem.isCancelled {
+    animation: none;
+}
+
 @keyframes grow {
     0% {
         transform: scale(1);

@@ -32,7 +32,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
   return (
     <div className={styles.card_resume}>
       <Title title={t('overview')} className={styles.resume_title} />
-      <div className={styles.content}>6+
+      <div className={styles.content}>
         <div className={styles.resume_separated_info}>
           <p>{t('sub_total')} </p>
           {props.loading ? (
