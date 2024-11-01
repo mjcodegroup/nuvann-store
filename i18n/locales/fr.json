@@ -40,7 +40,7 @@
       "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
     },
     "details": {
-      "available": "Disponible",
+      "available_s": "Disponible(s)",
       "seller": "Vendeur",
       "country": "Pays",
       "sales": "Ventes",
@@ -61,7 +61,8 @@
       "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur",
       "see_more": "Voir plus d'options d'expédition",
       "see_less": "Voir moins d'options d'expédition",
-      "unavailable": "Indisponible"
+      "unavailable": "Indisponible",
+      "unit_s": "unité(s)"
     },
     "cart": {
       "shopping_cart": "Panier",
