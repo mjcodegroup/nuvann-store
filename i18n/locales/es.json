@@ -40,7 +40,7 @@
   
     },
     "details": {
-      "available": "Disponible",
+      "available_s": "Disponible",
       "seller": "Vendedor",
       "country": "País",
       "sales": "Ventas",
@@ -61,7 +61,8 @@
       "please_select_size_or_color": "Por favor seleccione una talla o color",
        "see_more": "Ver más opciones de envío",
       "see_less": "Ver menos opciones de envío",
-      "unavailable": "No disponible"
+      "unavailable": "No disponible",
+      "unit_s": "unidad(es)"
     },
     "cart": {
       "shopping_cart": "Carro de la compra",

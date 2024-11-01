@@ -36,6 +36,8 @@ export default function Details(props: DetailsProps) {
   const redirectToSellerDetails = () => {
     redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${props.productInfos.id}&name=${encodeURIComponent(props.productInfos.seller.name)}&country=${encodeURIComponent(props.productInfos.seller.country.name)}&createdAt=${encodeURIComponent(props.productInfos.seller.created_at)}` as RoutesUrls)
   };
+
+  console.log('productInfos', productInfos?.prices)
   return (
     <div className={Styles.product_infos}>
       <div>
@@ -52,11 +54,14 @@ export default function Details(props: DetailsProps) {
                   </span>
                 </p>
                 <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
-                <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
+                <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount}  {productInfos.sold_amount ? t('unit_s') : ''}</small></p>
             </div>
 
             <div className={Styles.prices_class}>
-                <small>{productInfos?.prices?.original_price?.formatted}</small>
+                {productInfos.prices?.current_price?.discount?.value ? (
+                  <small>{productInfos?.prices?.original_price?.formatted}</small>
+                ) : ''}
+              
                 <p>{productInfos?.prices?.current_price?.formatted}</p>
                 {
                   productInfos?.prices?.current?.discountPercent && 
@@ -93,7 +98,7 @@ export default function Details(props: DetailsProps) {
 
         <InputQuantity
           total={productInfos?.available_amount}
-          availableText={t('available')}
+          availableText={t('available_s')}
           label={t('quantity')}
           onChange={onChangeQuantity} 
           value={qty}

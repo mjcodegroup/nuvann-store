@@ -41,7 +41,7 @@
     "details": {
       "add_to_cart": "Add to cart",
       "available_countries": "Available countries",
-      "available": "Available",
+      "available_s": "Available(s)",
       "buy_now": "Buy now",
       "categories": "Categories",
       "country": "Country",
@@ -60,8 +60,8 @@
       "tags": "Tags",
       "see_more": "See more shipping options",
       "see_less": "See less shipment options",
-      "unavailable": "Unavailable"
-
+      "unavailable": "Unavailable",
+      "unit_s": "unit(s)"
     },
     "cart": {
       "shopping_cart": "Shopping cart",

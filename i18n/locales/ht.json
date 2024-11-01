@@ -41,7 +41,7 @@
       "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
     },
     "details": {
-      "available": "Disponib",
+      "available_s": "Disponib",
       "seller": "Vandè",
       "country": "Peyi",
       "sales": "Vant",
@@ -62,7 +62,8 @@
       "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè",
       "see_more": "Wè plis opsyon livrezon",
       "see_less": "Wè mwens opsyon livrezon",
-      "unavailable": "Pa disponib"
+      "unavailable": "Pa disponib",
+      "unit_s": "inite"
     },
     "cart": {
       "shopping_cart": "Panye",
