@@ -37,7 +37,6 @@ export default function Details(props: DetailsProps) {
     redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${props.productInfos.id}&name=${encodeURIComponent(props.productInfos.seller.name)}&country=${encodeURIComponent(props.productInfos.seller.country.name)}&createdAt=${encodeURIComponent(props.productInfos.seller.created_at)}` as RoutesUrls)
   };
 
-  console.log('productInfos', productInfos?.prices)
   return (
     <div className={Styles.product_infos}>
       <div>

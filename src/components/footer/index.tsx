@@ -50,7 +50,6 @@ export const Footer = () => {
               <Image src={boleto} alt={boleto}/>
             </div>
           </div>
-
           <div>
             <h2>{t('client_space')}</h2>
             <Link href="/carts"><p><span><AiOutlineShoppingCart/></span> {t('carts')}</p></Link>
