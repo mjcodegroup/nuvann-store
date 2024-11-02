@@ -6,7 +6,7 @@ import MoreDetails from '../components/more-details';
 
 export default function Product(props: Readonly<ProductProps>) {
   if(props.fullLoading){
-    return <h1>Loading</h1>
+    return <h1>Loading....................................</h1>
   }
   
 
