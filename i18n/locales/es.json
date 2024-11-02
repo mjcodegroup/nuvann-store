@@ -111,7 +111,11 @@
       "profile": "Perfil",
       "carts": "Carrito",
       "orders": "Pedidos",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "how_to_sell": "Cómo vender",
+      "faq": "FAQ",
+      "about_us_text": "Somos una empresa que se dedica a la venta de productos de calidad a precios asequibles. Nuestro objetivo es satisfacer las necesidades de nuestros clientes y garantizar su satisfacción.",
+      "country_region": "País y región"
     },
     "search": {
       "title": "Não há produtos que correspondam à sua pesquisa.",
@@ -121,7 +125,10 @@
       "more_generic": "palabras más genéricas",
       "or_fewer_words": "o menos palabras.",
       "browse_categories": "Explore las categorías",
-      "to_find_product": "para encontrar un producto similar."
+      "to_find_product": "para encontrar un producto similar.",
+      "result_s": "resultado(s)",
+      "daily_deals": "Ofertas",
+      "categories": "Categorías"
     },
     "order": {
       "products_already_purchased": "Productos que ya has comprado",

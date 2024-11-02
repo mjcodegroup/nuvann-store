@@ -3,6 +3,7 @@ import Styles from './product-filter.module.scss';
 import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
 import { FormControlLabel, Switch } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 interface FilterProps {
     searchQuery: string;
@@ -13,6 +14,7 @@ interface FilterProps {
 }
 
 export default function ProductFilters(props: FilterProps) {
+    const { t } = useTranslation("search");
     const router = useRouter();
     const { category_id } = router.query;
 
@@ -26,13 +28,13 @@ export default function ProductFilters(props: FilterProps) {
 
             <div className={Styles._filtered_header}>
                 <h3>{props.searchQuery}</h3>
-                <p>{props.resultCount} resultado</p>
+                <p>{props.resultCount} {t('result_s')}</p>
             </div>
 
-                <FormControlLabel control={<Switch defaultChecked={props.defaultCheckedPromotion} />} label="Daily deals" onChange={handleChangePromotion}/>
+                <FormControlLabel control={<Switch defaultChecked={props.defaultCheckedPromotion} />} label={t('daily_deals')} onChange={handleChangePromotion}/>
 
             <div className={Styles.category_list}>
-                <h4>Categorias</h4>
+                <h4>{t('categories')}</h4>
                 <ul>
                     {
                         props.categories?.map((category: Category) => (
@@ -46,25 +48,7 @@ export default function ProductFilters(props: FilterProps) {
                         ))
                     }
                 </ul>
-            </div>
-
-            {/* <h1>Filtre</h1>
-            <hr /> */}
-
-            {/* <div className={Styles.tout}>
-                <p>Tout</p>
-            </div>
-            <div className={Styles.mwens_che}> 
-                <p>Mwens chè</p>
-            </div>
-            <div className={Styles.plis_vann}>
-                <p>Plis vann</p>
-            </div>
-
-            <h3>Kategori</h3>
-            <hr /> */}
-
-          
+            </div>      
         </div>
   </div>
   )

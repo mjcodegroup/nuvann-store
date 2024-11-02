@@ -22,7 +22,7 @@ const Categories: React.FC <CategoriesProps>  = ({data}) => {
               <div className={Styles._card}>
                 <Image src={category.image.url || ''} alt={category.image.alt || ''} width={70} height={70} />
               </div>
-                <h3>{category.name}</h3>
+                {/* <h3>{category.name}</h3> */}
             </div>
           ))}
         </div>

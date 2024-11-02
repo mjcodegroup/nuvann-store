@@ -111,7 +111,11 @@
       "profile": "Profil",
       "carts": "Panye",
       "orders": "Kòmand",
-      "logout": "Dekonekte"
+      "logout": "Dekonekte",
+      "how_to_sell": "Kijan pou vann",
+      "faq": "FAQ",
+      "about_us_text": "Nuvann MarketPlace se yon plas kote ou ka achte ak vann pwodui yo. Ou ka jwenn tout kalite pwodui nan Nuvann MarketPlace. Ou ka achte pwodui yo ak yon pri ki pi ba pase nan lòt sit entènèt yo. Ou ka vann pwodui yo tou. Ou ka kreye yon boutik sou Nuvann MarketPlace epi vann pwodui yo. Ou ka fè lajan ak Nuvann MarketPlace. Ou ka achte pwodui yo ak yon pri ki pi ba pase nan lòt sit entènèt yo. Ou ka vann pwodui yo tou. Ou ka kreye yon boutik sou Nuvann MarketPlace epi vann pwodui yo. Ou ka fè lajan ak Nuvann MarketPlace.",
+      "country_region": "Peyi ak rejyon"
     },
     "search": {
       "title": "Pa gen pwodui ki koresponn ak rechèch ou an.",
@@ -121,7 +125,10 @@
       "more_generic": "ak mo ki pi jenerik",
       "or_fewer_words": "oubyen mwens mo.",
       "browse_categories": "Chèche nan kategori yo",
-      "to_find_product": "pou ka jwenn yon pwodui similè."
+      "to_find_product": "pou ka jwenn yon pwodui similè.",
+      "result_s": "rezilta",
+      "daily_deals": "Òf",
+      "categories": "Kategori"
     },
     "order": {
       "products_already_purchased": "Pwodwi ou achte deja",
