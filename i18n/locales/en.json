@@ -155,5 +155,11 @@
       "quantity": "Quantity",
       "delivered_by": "Delivered by",
       "sub_total": "Subtotal"
+    },
+    "seller_page": {
+      "products": "Products",
+      "total_products": "Total products",
+      "location": "Location",
+      "seller_since": "Seller Since"
     }
   }
