@@ -61,7 +61,7 @@ export default function ProductSlide(props: SliderProps) {
     infinite: false,
     speed: 500,
     slidesToShow: props.itemToShow || 6,
-    slidesToScroll: 6,
+    slidesToScroll: props.products?.length < 6 ? props.products?.length : 6,
     initialSlide: 0,
     responsive: [
       {

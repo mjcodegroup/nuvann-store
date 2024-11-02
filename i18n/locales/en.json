@@ -109,7 +109,11 @@
       "profile": "Profile",
       "carts": "Cart",
       "orders": "Orders",
-      "logout": "Logout"
+      "logout": "Logout",
+      "how_to_sell": "How to sell",
+      "faq": "FAQ",
+      "about_us_text": "We take your product to your main community -- We bring your local product to help satisfy the longing.",
+      "country_region": "Country & Region"
     },
     "search": {
       "title": "There are no products that match your search.",
@@ -119,7 +123,11 @@
       "more_generic": "more generic",
       "or_fewer_words": "or fewer words.",
       "browse_categories": "Browse the categories",
-      "to_find_product": "to find a similar product."
+      "to_find_product": "to find a similar product.",
+      "result_s": " result (s)",
+      "daily_deals": "Daily deals",
+      "categories": "Categories"
+      
     },
     "order": {
       "products_already_purchased": "Products you have already purchased",

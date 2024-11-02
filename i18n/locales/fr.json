@@ -110,7 +110,11 @@
       "profile": "Profil",
       "carts": "Panier",
       "orders": "Commandes",
-      "logout": "Se déconnecter"
+      "logout": "Se déconnecter",
+      "how_to_sell": "Comment vendre",
+      "faq": "FAQ",
+      "about_us_text": "Nuvann est une plateforme de commerce électronique qui permet aux vendeurs de vendre leurs produits en ligne. Nous offrons une variété de produits de différentes catégories. Nous sommes là pour vous aider à trouver ce que vous cherchez.",
+      "country_region": "Pays & Région"
     },
     "search": {
       "title": "Aucun produit ne correspond à votre recherche.",
@@ -120,7 +124,10 @@
       "more_generic": " des mots plus génériques",
       "or_fewer_words": "ou moins de mots.",
       "browse_categories": "Parcourez les catégories",
-      "to_find_product": "pour trouver un produit similaire."
+      "to_find_product": "pour trouver un produit similaire.",
+      "result_s": "résultat(s)",
+      "daily_deals": "Promotions",
+      "categories": "Catégories"
     },
     "order": {
       "products_already_purchased": "Produits que vous avez déjà achetés",

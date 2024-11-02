@@ -100,12 +100,6 @@ export default function NavOptions(props: NavOptionProps) {
                     {t('my_orders')}
                   </MenuItem>
                 </Link>
-                {/* <MenuItem onClick={handleClose}>
-                  <ListItemIcon>
-                    <FiSettings fontSize="small" />
-                  </ListItemIcon>
-                  Settings
-                </MenuItem> */}
                 <Divider />
                 <MenuItem onClick={props.onLogout}>
                   <ListItemIcon>
