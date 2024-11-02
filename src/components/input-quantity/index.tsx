@@ -61,7 +61,9 @@ const InputQuantity: React.FC<InputQuantityProps> = ({
           {total} {total > 0 ? availableText: ''}
         </span>
       ) : (
-        <span style={{color: 'red'}}> {t("unavailable")}</span>
+        <span style={{color: 'red'}}> 
+          {total && t("unavailable")}
+        </span>
       )}
     </section>
   );
