@@ -156,5 +156,11 @@
       "quantity": "Cantidad",
       "delivered_by": "Entregado por",
       "sub_total": "Subtotal"
+    },
+    "seller_page": {
+      "products": "Productos",
+      "total_products": "Productos totales",
+      "location": "Ubicación",
+      "seller_since": "Vendedor desde"
     }
   }

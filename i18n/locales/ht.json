@@ -156,5 +156,11 @@
       "quantity": "Kantite",
       "delivered_by": "Delivre pa",
       "sub_total": "Sou total"
+    },
+    "seller_page": {
+      "products": "Pwodwi",
+      "total_products": "Total pwodwi",
+      "location": "Lokal",
+      "seller_since": "Vandè"
     }
 }
