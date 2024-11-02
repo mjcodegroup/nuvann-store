@@ -7,6 +7,7 @@ import { CheckoutItem } from '@/contexts/checkout/types';
 import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsis';
 import CustomButton from '@/components/custom-button';
 import { getDefaultShipment } from '@/utils/get-default-shipment';
+import { formatUnderscoreToSpacesUpperCase } from '@/utils/formatter/format-underscore-to-spaces-upper-case';
 
 export default function CardProducts(props: CardProductsProps) {
   const { t } = useTranslation("checkout");
@@ -42,7 +43,7 @@ export default function CardProducts(props: CardProductsProps) {
                     <h5>{t('shipping_options')}:</h5>
                   </div>
                   <div>
-                    <h5>{getDefaultShipment(item?.available_shipments)?.type}</h5>
+                    <h5>{formatUnderscoreToSpacesUpperCase(getDefaultShipment(item?.available_shipments)?.type as string)}</h5>
                     <span>{getDefaultShipment(item?.available_shipments)?.delivery_deadline || t('shipment_not_available_text')}</span>
                   </div>
                   {
@@ -56,9 +57,10 @@ export default function CardProducts(props: CardProductsProps) {
                           {t('btn_to_replace_address')}
                         </CustomButton>
                       </div>
-                    <div>
-                      <h5>{item.shipping_amount}</h5>
-                    </div>
+                      
+                      <div>
+                        <h5>{item.shipping_amount}</h5>
+                      </div>
                     </>
                     )
                   }

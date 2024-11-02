@@ -68,7 +68,7 @@
       "shopping_cart": "Panier",
       "product": "Produit",
       "quantity": "Quantité",
-      "available": "Disponible",
+      "available_s": "Disponible(s)",
       "price": "Prix",
       "total": "Total",
       "checkout": "Continuer",
