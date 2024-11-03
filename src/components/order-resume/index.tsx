@@ -38,21 +38,24 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             )}
         </div>
         <hr />
-
-        <div className={styles.resume_separated_info}>
-          <p>{t('delivery')}</p>
-          {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
-            ) :
-            (
-              <h5>{data.shipping_cost}</h5>
+        {
+          props.hideShippingCost ? null : (
+              <>
+          <div className={styles.resume_separated_info}>
+            <p>{t('delivery')}</p>
+            {props.loading ? (
+              <p><Skeleton typeof='..........' width={100} height={30}/> </p>
+              ) :
+              (
+                <h5>{data.shipping_cost}</h5>
+              )
+            }
+          </div>
+          <hr />
+          </>
             )
           }
-        </div>
-        <hr />
-          {
-            props.hideShippingCost ? null : (
-              <>
+     
               <div className={styles.resume_separated_info}>
                 <p>{t('total')}</p>
                 {props.loading ? (
@@ -64,9 +67,7 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
               }
               </div>
               <hr />
-              </>
-            )
-          }
+           
       </div>
 
       <div className={styles.resume_buttons}>
