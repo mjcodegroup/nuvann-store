@@ -38,14 +38,13 @@ nuvannApi.interceptors.response.use(handleResponse, handleError);
 
 nuvannApi.interceptors.request.use(
     async (config: any) => {
-         const TOKEN = sessionManager.getValidToken();
+         const TOKEN = await sessionManager.getValidToken();
          const selectedLanguage = getCookie('NEXT_I18LANG');
         config.headers = {
             ...config.headers,
             Authorization: TOKEN ? `Bearer ${TOKEN}`: '',
             'Accept-Language' : selectedLanguage || process.env.NEXT_I18LANG
         };
-
         return config;
     },
     (error:any) => {
