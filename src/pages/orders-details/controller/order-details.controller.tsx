@@ -15,6 +15,7 @@ export default function OrderDetailsController() {
         if(orderId){
             getOrderDetails(orderId as string);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [orderId]);
 
     return (
