@@ -60,7 +60,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                 <Image src={order.product.images[0]?.url} alt="product" width={100} height={100} />
                 <div className={Styles.CardstitleDate}>
                     <h4>{order.product.name}</h4>
-                    <h5>{t('purchase_date')}: <span>{formatDate(order.order_item_status_logs[0]?.occurred_on)}</span></h5>
+                    <h5>{t('purchase_date')}: <span>{formatDate(order.order_item_status_logs[0]?.occurred_on, t('date_format'))}</span></h5>
                     <h5>{t('status')}: <span>{statusDescription}</span></h5>
                     <h5>{t('quantity')}: <span>{order.quantity}</span></h5>
                 </div>
