@@ -1,8 +1,6 @@
-import { useTranslation } from "react-i18next";
 
-export function formatDate(receivedDate: string): string {
+export function formatDate(receivedDate: string, language: string): string {
     const date = new Date(receivedDate);
-    const { t } = useTranslation('language');
 
 
     const options: Intl.DateTimeFormatOptions = {
@@ -15,7 +13,7 @@ export function formatDate(receivedDate: string): string {
         hour12: true
     };
 
-    return date.toLocaleString(t('date_format'), options);
+    return date.toLocaleString(language, options);
 }
 
 export function getYearFromDate(receivedDate: string): string {
