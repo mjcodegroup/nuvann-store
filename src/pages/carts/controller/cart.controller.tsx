@@ -6,12 +6,13 @@ import { useCart } from '@/contexts/cart';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Backdrop } from '@mui/material';
 
 export default function CartController() {
   const { isAuthenticated } = useAuth0();
 
   const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart } = useCartInfo({ isAuthenticated });
+  const { removeFromCart, updateCart, isLoading } = useCartInfo({ isAuthenticated });
 
   const { redirect } = useNavigation();
 
@@ -46,16 +47,24 @@ export default function CartController() {
     }
   }
   return (
-    <HomePageDefault>
-      <Cart
-      fullLoader={cartState.cart_loader}
-        onCheckout={handleCheckout}
-        data={cartState.cart}
-        removeFromCart={removeFromCart}
-        onDecrementButton={handleDecrementButton}
-        onIncrementButton={handleIncrementButton}
-        disableIncrementAndDecrementBtn={cartState.cart_loader}
-      />
-    </HomePageDefault>
+      isLoading ? (
+        <Backdrop open={isLoading}>
+          <div>Loading...</div>
+        </Backdrop>
+      ) :
+      (
+        <HomePageDefault>
+          <Cart
+          fullLoader={cartState.cart_loader}
+            onCheckout={handleCheckout}
+            data={cartState.cart}
+            removeFromCart={removeFromCart}
+            onDecrementButton={handleDecrementButton}
+            onIncrementButton={handleIncrementButton}
+            disableIncrementAndDecrementBtn={cartState.cart_loader}
+          />
+        </HomePageDefault>
+
+      )
   );
 }

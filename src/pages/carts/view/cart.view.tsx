@@ -47,6 +47,7 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
               shipping_cost: data.shipping_cost,
               total: data.total,
             }}
+            hideShippingCost
             OnCheckout={props.onCheckout}
             loading={props.disableIncrementAndDecrementBtn || props.fullLoader}
           />

@@ -67,7 +67,7 @@
       "shopping_cart": "Shopping cart",
       "product": "Product",
       "quantity": "Quantity",
-      "available": "Available",
+      "available_s": "Available(s)",
       "price": "Price",
       "total": "Total",
       "checkout": "Checkout",
