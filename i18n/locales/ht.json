@@ -155,7 +155,8 @@
       "status": "Estati",
       "quantity": "Kantite",
       "delivered_by": "Delivre pa",
-      "sub_total": "Sou total"
+      "sub_total": "Sou total",
+      "date_format": "en-US"
     },
     "seller_page": {
       "products": "Pwodwi",
