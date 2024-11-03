@@ -161,5 +161,8 @@
       "total_products": "Total des produits",
       "location": "Localisation",
       "seller_since": "Vendeur depuis"
+    },
+    "language": {
+      "date_format": "fr-FR"
     }
   }
