@@ -161,5 +161,8 @@
       "total_products": "Total products",
       "location": "Location",
       "seller_since": "Seller Since"
+    },
+    "language": {
+      "date_format": "en-US"
     }
   }

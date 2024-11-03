@@ -120,15 +120,15 @@ $seller-secondary-color: #FFC107;
         }
 
         @media (max-width: 768px) {
-            grid-template-columns: repeat(2, 1fr); // Ensures 2 columns on tablets or smaller screens
+            grid-template-columns: repeat(2, 1fr);
         }
 
         @media (max-width: 480px) {
-            grid-template-columns: 1fr; // Switches to 1 column on smaller devices like phones
+            grid-template-columns: 1fr;
         }
 
         li {
-            width: 100%; // Ensures the item fits the column width
+            width: 100%;
             height: auto;
             background-color: #f9f9f9;
             border-radius: 8px;

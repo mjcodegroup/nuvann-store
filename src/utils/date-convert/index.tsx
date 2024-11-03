@@ -1,5 +1,9 @@
+import { useTranslation } from "react-i18next";
+
 export function formatDate(receivedDate: string): string {
     const date = new Date(receivedDate);
+    const { t } = useTranslation('language');
+
 
     const options: Intl.DateTimeFormatOptions = {
         year: 'numeric',
@@ -11,10 +15,10 @@ export function formatDate(receivedDate: string): string {
         hour12: true
     };
 
-    return date.toLocaleString('en-US', options);
+    return date.toLocaleString(t('date_format'), options);
 }
 
 export function getYearFromDate(receivedDate: string): string {
     const date = new Date(receivedDate);
-    return date.getFullYear().toString(); // Convert the year to string before returning
+    return date.getFullYear().toString();
 }
