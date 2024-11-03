@@ -10,6 +10,7 @@ interface OrderSubCardProps {
 
 const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
     const { t } = useTranslation('order');
+    
 
     const allStatuses = ['AWAITING_PAYMENT', 'PAID', 'PROCESSING', 'SHIPPED', 'CANCELLED', 'DELIVERED'];
 
@@ -61,7 +62,7 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                                             }}>{descriptionStatus[index]}</strong>
                                     {statusLog && (
                                         <div>
-                                            <span>{formatDate(statusLog.occurred_on)}</span>
+                                            <span>{formatDate(statusLog.occurred_on, t('date_format'))}</span>
                                         </div>
                                     )}
                                     {status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' && (
