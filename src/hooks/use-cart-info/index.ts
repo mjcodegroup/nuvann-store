@@ -12,7 +12,6 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
   const { state: cartState, dispatch: cartDispatch } = useCart();
 
   async function getCart() {
-    cartDispatch({ type: 'SET_CART_LOADER', value: true });
     try {
       const response = await nuvannApi.get('/carts/items');
       cartDispatch({ type: 'SET_CART', value: response.data });
@@ -42,8 +41,6 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
       await getCart();
     } catch (error: any) {
       console.error('Error updating item:', error.response?.data.message);
-    }
-    finally {
       cartDispatch({ type: 'SET_CART_LOADER', value: false });
     }
   }
@@ -57,8 +54,6 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
       redirect(RoutesUrls.CARTS);
     } catch (error: any) {
       errorToast(error.response.data.message);
-
-    } finally {
       cartDispatch({ type: 'SET_CART_LOADER', value: false });
     }
   }
