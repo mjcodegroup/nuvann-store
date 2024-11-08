@@ -47,15 +47,9 @@ export default function CartController() {
     }
   }
   return (
-      isLoading ? (
-        <Backdrop open={isLoading}>
-          <div>Loading...</div>
-        </Backdrop>
-      ) :
-      (
         <HomePageDefault>
           <Cart
-          fullLoader={cartState.cart_loader}
+            fullLoader={cartState.cart_loader}
             onCheckout={handleCheckout}
             data={cartState.cart}
             removeFromCart={removeFromCart}
@@ -64,7 +58,5 @@ export default function CartController() {
             disableIncrementAndDecrementBtn={cartState.cart_loader}
           />
         </HomePageDefault>
-
-      )
   );
 }

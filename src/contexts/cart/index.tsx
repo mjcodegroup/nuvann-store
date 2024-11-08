@@ -8,7 +8,7 @@ export const CartContext = createContext<CartContextProps>(
 
 const initialState: State = {
     cart: {} as Cart,
-    cart_loader: false,
+    cart_loader: true,
     update_cart_loader: false,
 };
 
