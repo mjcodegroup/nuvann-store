@@ -3,12 +3,12 @@ import { ProductsData } from "../products/types";
 export interface SellerInfo {
     name: string;
     country: string;
-    created_at: string; // or Date if you want
+    created_at: string;
 }
 
 export interface State {
     products: ProductsData;
-    seller_info: SellerInfo | null; // New property for seller info
+    seller_info: SellerInfo | null; 
     seller_products_loader: boolean;
     update_Seller_loader: boolean;
 }

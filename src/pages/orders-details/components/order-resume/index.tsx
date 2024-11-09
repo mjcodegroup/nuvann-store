@@ -33,21 +33,21 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
     quickPurchaseLoader
   } = useProductsInfo();
 
-  const onQuickPurchase = async()=> {
+  const onQuickPurchase = async () => {
     const colorValue = order?.properties?.additionalProp1?.[0]?.value;
     const sizeValue = order?.properties?.additionalProp2?.[0]?.value;
     const propertyArray = [];
     if (colorValue) {
-        propertyArray.push({ color: colorValue });
+      propertyArray.push({ color: colorValue });
     }
     if (sizeValue) {
-        propertyArray.push({ size: sizeValue });
+      propertyArray.push({ size: sizeValue });
     }
     handleQuickPurchase(order.product.id, {
-        quantity: order?.quantity,
-        properties: propertyArray ??  undefined
+      quantity: order?.quantity,
+      properties: propertyArray ?? undefined
     })
-}
+  }
 
 
   return (
@@ -56,7 +56,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>{t('sub_total')} </p>
+          <p>{t('sub_total')}: </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -65,7 +65,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-          <p>{t('delivery')}</p>
+          <p>{t('delivery')}: </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -74,7 +74,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-          <p>{t('total_price')} </p>
+          <p>{t('total_price')}:  </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -83,7 +83,6 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <div className={styles.resume_separated_info}>
           <Title title={t('seller_information')} className={styles.resume_title} />
-
           <h4></h4>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
@@ -99,41 +98,55 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
               className={styles.seller_name}
               onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order.seller.business_account_id}&name=${encodeURIComponent(order.seller.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RoutesUrls)}
             >
-              {order?.seller?.name}
             </span>
           </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
-            <h5></h5>
+            <h5>{order?.seller?.name}</h5>
           )}
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-          <p>{t('country')}: {order?.seller?.country?.name}</p>
+          <p>{t('country')}: </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
-            <h5></h5>
+            <h5>{order?.seller?.country?.name}</h5>
           )}
         </div>
-
-        <div className={styles.resume_separated_info}>
-          {order?.shipping_tracking_data && (
-            <>
-              <h4>Shipping Tracking</h4>
-              <p>Company: {order?.shipping_tracking_data.company_name}</p>
-              <p>Tracking ID: {order?.shipping_tracking_data.tracking_id}</p>
-            </>
-          )}
-          {props.loading ? (
-            <p><Skeleton width={100} height={30} /> </p>
-          ) : (
-            <h5></h5>
-          )}
-        </div>
+        {order?.shipping_tracking_data && (
+          <>
+            <div>
+              <Title title={t('shipping_title')} className={styles.resume_title} />
+              <h4></h4>
+              {props.loading ? (
+                <p><Skeleton width={100} height={30} /></p>
+              ) : (
+                <h5></h5>
+              )}
+            </div>
+            <hr />
+            <div className={styles.resume_separated_info}>
+              <p>{t('company')}: </p>
+              {props.loading ? (
+                <p><Skeleton width={100} height={30} /></p>
+              ) : (
+                <h5>{order.shipping_tracking_data.company_name}</h5>
+              )}
+            </div>
+            <hr />
+            <div className={styles.resume_separated_info}>
+              <p>{t('tracking_id')}: </p>
+              {props.loading ? (
+                <p><Skeleton width={100} height={30} /></p>
+              ) : (
+                <h5>{order.shipping_tracking_data.tracking_id}</h5>
+              )}
+            </div>
+          </>
+        )}
       </div>
-
       <div className={styles.resume_buttons}>
         <CustomButton
           disabled={props.loading || props.disabled}
