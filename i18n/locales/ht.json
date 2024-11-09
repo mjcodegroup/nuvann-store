@@ -156,7 +156,10 @@
       "quantity": "Kantite",
       "delivered_by": "Delivre pa",
       "sub_total": "Sou total",
-      "date_format": "fr-FR"
+      "date_format": "fr-FR",
+      "shipping_title": "Swivi livrezon",
+      "company": "Konpayi",
+      "tracking_id": "ID pou swiv"
     },
     "seller_page": {
       "products": "Pwodwi",

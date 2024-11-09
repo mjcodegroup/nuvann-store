@@ -155,7 +155,10 @@
       "quantity": "Quantity",
       "delivered_by": "Delivered by",
       "sub_total": "Subtotal",
-      "date_format": "en-US"
+      "date_format": "en-US",
+      "shipping_title": "Shipping Tracking",
+      "company": "Company",
+      "tracking_id": "Tracking ID"
     },
     "seller_page": {
       "products": "Products",

@@ -2,92 +2,92 @@
     background: #FFFFFF;
     width: 25%;
     height: 100%;
-    min-height: 100vw;
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
 
-    .__content{
+    .__content {
         display: flex;
         flex-direction: column;
         gap: 16px 0;
-        margin:25px 0 0 20px;
+        margin: 25px 0 0 20px;
 
-      ._filtered_header {
-        h3 {
-            color: #333;
-            display: block;
-            font-size: 26px;
-            font-weight: 600;
-            line-height: 30px;
-            padding-right: 16px;
-            position: relative;
-            word-wrap: break-word;
-            z-index: 1;
-            text-transform: capitalize;
-            margin-bottom: 4px;
+        ._filtered_header {
+            h3 {
+                color: #333;
+                display: block;
+                font-size: 26px;
+                font-weight: 600;
+                line-height: 30px;
+                padding-right: 16px;
+                position: relative;
+                word-wrap: break-word;
+                z-index: 1;
+                text-transform: capitalize;
+                margin-bottom: 4px;
+            }
+
+            p {
+                bottom: 2px;
+                color: #5c5959;
+                font-size: 14px;
+                font-weight: 300;
+                position: relative;
+                width: max-content;
+            }
         }
 
-        p{
-            bottom: 2px;
-            color: #5c5959;
-            font-size: 14px;
-            font-weight: 300;
-            position: relative;
-            width: max-content;
-        }
-      }
+        .category_list {
+            h4 {
+                color: #333;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.25;
+                margin-bottom: 10px;
+            }
 
-      .category_list {
-        
-        h4 {
-            color: #333;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.25;
-            margin-bottom: 10px;
-        }
+            ul {
+                list-style: none;
 
-        ul{
-            list-style: none;
-            li{
-                line-height: 2.5rem;
-                cursor: pointer ;
-                color: grey;
+                li {
+                    line-height: 2.5rem;
+                    cursor: pointer;
+                    color: grey;
 
-                &:hover{
-                    color: rgb(88, 88, 88);
+                    &:hover {
+                        color: rgb(88, 88, 88);
+                    }
+                }
+
+                .selected_category {
+                    color: var(--blue-principal-000052);
                 }
             }
-
-            .selected_category {
-                color: var( --blue-principal-000052);
-            }
-        }
-      }
-
-      h2{
-          font-style: normal;
-          font-weight: bold;
-          font-size: 24px;
-          line-height: 28px;
-          color: #000000;
-          margin-bottom: 30px;
         }
 
-        h1{
-          font-style: normal;
-          font-weight: normal;
-          font-size: 18px;
-          line-height: 21px;
-          /* identical to box height */
-          color: #000000;
+        h2 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+            color: #000000;
+            margin-bottom: 30px;
         }
-      
-        h3{
-          font-style: normal;
-          font-weight: normal;
-          font-size: 18px;
-          line-height: 21px;
-          /* identical to box height */
-          color: #000000;
+
+        h1 {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 21px;
+            color: #000000;
+        }
+
+        h3 {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 21px;
+            color: #000000;
         }
     }
 }
@@ -95,5 +95,6 @@
 @media (max-width: 768px) {
     .filter_container {
         width: 100%;
+        position: static;
     }
 }

@@ -156,7 +156,10 @@
       "quantity": "Cantidad",
       "delivered_by": "Entregado por",
       "sub_total": "Subtotal",
-      "date_format": "es-ES"
+      "date_format": "es-ES",
+      "shipping_title": "Seguimiento de envío",
+      "company": "Empresa",
+      "tracking_id": "ID de seguimiento"
     },
     "seller_page": {
       "products": "Productos",
