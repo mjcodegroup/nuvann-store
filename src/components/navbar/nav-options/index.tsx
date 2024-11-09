@@ -123,13 +123,6 @@ export default function NavOptions(props: NavOptionProps) {
       </Link>
     </li>
     <li>
-      <Link href={RoutesUrls.ORDERS}>
-        <Badge color="error" badgeContent={props.cartCount}>
-          <Image src={cartIcon} alt="cartIcon" />
-        </Badge>
-      </Link>
-    </li>
-    <li>
     <LanguageSelector/>
     </li>
   </ul>
