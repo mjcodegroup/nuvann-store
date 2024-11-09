@@ -13,5 +13,5 @@ export async function middleware(req: any) {
 }
 
 export const config = {
-  matcher: ['/carts', '/orders', '/profile', '/checkout', '/orders-details'],
+  matcher: ['/profile','/carts', '/orders', '/checkout', '/orders-details'],
 };

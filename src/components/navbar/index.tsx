@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
     modalTerm,
     setModalTerm
   } = useUserInfo();
-  const { cartState} = useCartInfo({isAuthenticated: isAuthenticated});
+  const { cartState} = useCartInfo();
   const { categoriesState} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
