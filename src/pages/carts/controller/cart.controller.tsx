@@ -8,10 +8,8 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function CartController() {
-  const { isAuthenticated } = useAuth0();
-
   const { dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart, cartState } = useCartInfo({ isAuthenticated });
+  const { removeFromCart, updateCart, cartState } = useCartInfo();
 
   const { redirect } = useNavigation();
 
