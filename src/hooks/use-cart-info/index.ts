@@ -60,8 +60,9 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
   }
 
   React.useEffect(() => {
-    if(cartState.cart.items?.length || !isAuthenticated) return;
-    getCart();
+    if(isAuthenticated) {
+      getCart();
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
