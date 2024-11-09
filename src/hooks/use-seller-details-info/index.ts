@@ -12,7 +12,7 @@ export function useSellerDetailsInfo(sellerId: string) {
         try {
             const response = await nuvannApi.get('/products', {
                 params: {
-                    sellerId: true,
+                    seller_business_account_id: sellerId,
                     size: 20
                 }
             });
