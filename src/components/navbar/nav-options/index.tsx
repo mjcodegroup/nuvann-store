@@ -9,11 +9,10 @@ import { NavOptionProps } from '../types';
 import NavOptionsSkeleton from './nav-options-skeleton';
 import Styles from "./nav-options.module.scss";
 import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsis';
-import React, { use } from 'react';
+import React from 'react';
 import { FaPerson } from 'react-icons/fa6';
 import { FcShipped } from "react-icons/fc";
 import { IoChevronDownSharp } from "react-icons/io5";
-import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useTranslation } from 'react-i18next';
 
@@ -93,7 +92,7 @@ export default function NavOptions(props: NavOptionProps) {
                   {t('my_profile')}
                 </MenuItem>
                 <Link href={RoutesUrls.ORDERS}>
-                  <MenuItem onClick={()=> null}>
+                  <MenuItem>
                     <ListItemIcon>
                       <FcShipped fontSize="small" />
                     </ListItemIcon>

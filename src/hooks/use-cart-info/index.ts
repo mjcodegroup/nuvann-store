@@ -5,7 +5,7 @@ import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 import React from "react";
 
-export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
+export function useCartInfo() {
   const { successToast, errorToast } = useToast();
   const { redirect } = useNavigation();
 
@@ -60,11 +60,9 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
   }
 
   React.useEffect(() => {
-    if(isAuthenticated) {
       getCart();
-    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
+  }, []);
 
   return {
     cartState,
