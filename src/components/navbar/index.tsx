@@ -58,7 +58,6 @@ export const Navbar: React.FC = () => {
 
 
   const handleClickToBecomeSeller = () => {
-
     if(!isAuthenticated) {
       return handleLogin();
     }
@@ -91,7 +90,6 @@ export const Navbar: React.FC = () => {
   }, [isAuthenticated]);
 
   React.useEffect(() => {
-
     if(isAuthenticated) {
       getUserInfo();
     };
@@ -103,9 +101,7 @@ export const Navbar: React.FC = () => {
       handleClickToBecomeSeller();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [becomeseller])
-
-  
+  }, [becomeseller]);
 
   return (
     <>
