@@ -11,8 +11,8 @@ import { Backdrop } from '@mui/material';
 export default function CartController() {
   const { isAuthenticated } = useAuth0();
 
-  const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart, isLoading } = useCartInfo({ isAuthenticated });
+  const { dispatch: cartDispatch } = useCart();
+  const { removeFromCart, updateCart, cartState } = useCartInfo({ isAuthenticated });
 
   const { redirect } = useNavigation();
 

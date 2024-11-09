@@ -59,7 +59,6 @@ export const Navbar: React.FC = () => {
 
   const handleClickToBecomeSeller = () => {
 
-    console.log(isAuthenticated)
     if(!isAuthenticated) {
       return handleLogin();
     }
@@ -67,8 +66,6 @@ export const Navbar: React.FC = () => {
     if(userInfos?.roles?.includes(UserRoles.SELLER)) {
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
-
-    console.log('click', userInfos)
     setModalTerm(true)
   }
 
@@ -94,11 +91,12 @@ export const Navbar: React.FC = () => {
   }, [isAuthenticated]);
 
   React.useEffect(() => {
-    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
+
+    if(isAuthenticated) {
       getUserInfo();
-  };
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  } , [isAuthenticated, userInfos]);
+  } , [isAuthenticated]);
 
   React.useEffect(() => {
     if(becomeseller) {
