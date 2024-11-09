@@ -7,6 +7,7 @@ import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
 import OrderSubCard from '../components/order-subtile-card';
 import OrdersResume from '../components/order-resume';
 import { useTranslation } from 'react-i18next';
+import getDeviceType from '@/utils/get-device-type';
 
 interface OrderDetailsProps {
     order: Order;
@@ -17,7 +18,6 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
     const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
     const router = useRouter();
     const { t } = useTranslation('order');
-
 
     useEffect(() => {
         if (!isLoading) {
@@ -44,12 +44,12 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
                     <h3>{t('order_detail')}:</h3>
                     <button className={styles.BackButton} onClick={() => router.back()}>
                         <AiOutlineArrowLeft />
-                        {t('back_to_orders')}
+                        {!getDeviceType.isMobile() ? t('back_to_orders') : ""}
                     </button>
                 </div>
                 <div className={styles.concatenate}>
                     <span>
-                    {t('destination')}: {order?.shipping_address ? formatAddress(order.shipping_address) : 'No address available'}
+                        {t('destination')}: {order?.shipping_address ? formatAddress(order.shipping_address) : 'No address available'}
                     </span>
                 </div>
                 <div className={styles.PurchaseScroll}>
@@ -58,7 +58,7 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
                     </div>
                 </div>
             </div>
-    
+
             <div className={styles.OrdersResume}>
                 {selectedOrder ? (
                     <OrdersResume
@@ -79,5 +79,5 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
                 )}
             </div>
         </div>
-    );    
+    );
 }

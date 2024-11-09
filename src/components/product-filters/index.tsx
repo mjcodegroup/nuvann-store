@@ -30,9 +30,7 @@ export default function ProductFilters(props: FilterProps) {
                 <h3>{props.searchQuery}</h3>
                 <p>{props.resultCount} {t('result_s')}</p>
             </div>
-
                 <FormControlLabel control={<Switch defaultChecked={props.defaultCheckedPromotion} />} label={t('daily_deals')} onChange={handleChangePromotion}/>
-
             <div className={Styles.category_list}>
                 <h4>{t('categories')}</h4>
                 <ul>
