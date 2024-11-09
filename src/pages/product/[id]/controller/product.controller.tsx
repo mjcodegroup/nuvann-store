@@ -22,7 +22,7 @@ export default function ProductController() {
   } = useProductsInfo();
   const { isAuthenticated, loginWithPopup } = useAuth0();
 
-  const { addProductToCart, isLoading: cartLoader} = useCartInfo({isAuthenticated});
+  const { addProductToCart, isRequesting } = useCartInfo();
   const [ selectedSize, setSelectedSize] = React.useState({} as SizeandProductIE);
   // const [ selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
   const [ selectedColor, setSelectedColor] = React.useState({} as SizeandProductIE);
@@ -153,7 +153,7 @@ const handleAddProductToCart = async() => {
         sectedSize={selectedSize}
         onError={handleError}
         qty={qty}
-        isLoading={cartLoader}
+        addToCartLoader={isRequesting}
         selectedSize={selectedSize}
         onSelectedColor={handleSelectColor}
         selectedColor={selectedColor}

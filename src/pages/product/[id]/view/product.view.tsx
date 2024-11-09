@@ -15,7 +15,7 @@ export default function Product(props: Readonly<ProductProps>) {
       <div className={Styles.__container}>
         <div className={Styles.__container_infos}>
           <ContainerInfos
-            isLoading={props.isLoading}
+            addToCartLoader={props.addToCartLoader}
             onError={props.onError}
             qty={props.qty}
             onSelectedColor={props.onSelectedColor}

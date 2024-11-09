@@ -29,7 +29,7 @@ export default function Details(props: DetailsProps) {
     onIncrement,
     onDecrement,
     onAddToCart,
-    isLoading,
+    addToCartLoader: isLoading,
     onPurchase
   } = props;
 

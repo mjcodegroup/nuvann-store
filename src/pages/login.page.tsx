@@ -3,7 +3,6 @@ import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Backdrop, BackdropRoot, CircularProgress } from '@mui/material';
-import { red } from '@mui/material/colors';
 import React, { useEffect } from 'react'
 
 export default function LoginPage() {

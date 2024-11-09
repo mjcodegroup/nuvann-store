@@ -6,13 +6,10 @@ import { useCart } from '@/contexts/cart';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Backdrop } from '@mui/material';
 
 export default function CartController() {
-  const { isAuthenticated } = useAuth0();
-
-  const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart, isLoading } = useCartInfo({ isAuthenticated });
+  const { dispatch: cartDispatch } = useCart();
+  const { removeFromCart, updateCart, cartState } = useCartInfo();
 
   const { redirect } = useNavigation();
 
