@@ -8,7 +8,7 @@ export interface ProductProps {
     sectedSize: any;
     onError: boolean;
     qty: number;
-    isLoading: boolean;
+    addToCartLoader: boolean;
     selectedShippingInfo: any;
     selectedSize: any;
     onSelectedColor: (color: any) => void;
@@ -32,7 +32,7 @@ export interface DetailsProps {
     productInfos: any;
     onError: boolean;
     qty: number;
-    isLoading: boolean;
+    addToCartLoader: boolean;
     onSelectedShippingInfo: (selectedShippingInfo: any) => void;
     selectedShippingInfo: any;
     onSelectedSize: (size: any) => void;
@@ -53,7 +53,7 @@ export interface ContainerInfosProps {
     onSelectedShippingInfo: (selectedShippingInfo: any) => void;
     onError: boolean;
     qty: number;
-    isLoading: boolean;
+    addToCartLoader: boolean;
     selectedShippingInfo: any;
     onSelectedSize: (size: any) => void;
     selectedSize: any;

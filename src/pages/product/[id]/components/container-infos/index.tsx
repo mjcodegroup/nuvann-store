@@ -10,7 +10,7 @@ export default function ContainerInfos(props: ContainerInfosProps) {
       <PaggingSlides images={props.product?.images} />
       <div>
         <Details
-          isLoading={props.isLoading}
+          addToCartLoader={props.addToCartLoader}
           onError={props.onError}
           qty={props.qty}
           onSelectedColor={props.onSelectedColor}

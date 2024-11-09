@@ -46,15 +46,16 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
   }
 
   async function addProductToCart(data: CreateProductData) {
-    cartDispatch({ type: 'SET_CART_LOADER', value: true });
+    cartDispatch({ type: 'SET_CART_LOADER_REQUEST', value: true });
     try {
       const response = await nuvannApi.post('/carts/items', data);
       successToast(response.data.message || 'Product added to cart');
       getCart();
+      cartDispatch({ type: 'SET_CART_LOADER_REQUEST', value: false });
       redirect(RoutesUrls.CARTS);
     } catch (error: any) {
       errorToast(error.response.data.message);
-      cartDispatch({ type: 'SET_CART_LOADER', value: false });
+      cartDispatch({ type: 'SET_CART_LOADER_REQUEST', value: false });
     }
   }
 
@@ -71,6 +72,7 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
     updateCart,
     addProductToCart,
     isLoading: cartState.cart_loader,
+    isRequesting: cartState.cart_loader_request
   };
 }
 
