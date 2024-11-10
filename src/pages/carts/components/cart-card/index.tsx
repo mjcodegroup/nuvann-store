@@ -32,11 +32,13 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
               </h3>
               <div className={styles.content_desc}>
                 <p>{t('description')}:</p>
-                <span>{truncateStringWithEllipsis(item.product.description, 60) || 'No Description Available'}</span>
+                <span>{truncateStringWithEllipsis(item.product.description, 40)}</span>
               </div>
               <div className={styles.content_desc}>
                 <p>{t('price')}:</p>
-                <span>{item.price}</span>
+                  <span>{item.sub_total?.raw !== item.product?.price && (<small className={styles.line_through}> {`${item?.currency}  ${item.price}`} </small>)}
+                      <small className={styles.revert_line_through}> {` ${item.currency} ${item?.unit_price_with_discount}`}</small>
+                </span>
               </div>
               {
                 item.product.properties?.map((property, index) => (
@@ -78,9 +80,6 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 (
                   <p>
                     {item.sub_total?.formatted}
-                    {item.sub_total?.raw !== item.product?.price && (
-                      <span> {item?.product?.price}</span>
-                    )}
                   </p>
                 )
               }

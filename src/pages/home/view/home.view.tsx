@@ -42,7 +42,7 @@ export default function Home(props: Readonly<HomeProps>) {
     />
     <RandomCategories />
     <ProductSlide
-      itemToShow={3} 
+      itemToShow={4} 
       multipleRows
       products={products.items}
       title={t("best_sellers")}

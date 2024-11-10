@@ -21,7 +21,7 @@
             color: #000052;
             margin:12px 0 15px 0;
             
-            font-size: .75rem;
+            font-size: .82rem;
             font-weight: 700;
             margin-top: 2.5rem;
 
@@ -34,7 +34,7 @@
             
             font-style: normal;
             font-weight: 400;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 14px;
             color: rgba(0, 0, 0, .65);
             
@@ -42,7 +42,7 @@
         .footer_principal_cards {
             display: flex;
             justify-content: space-between;
-            flex-grow: wrap;
+            flex-wrap: wrap;
             gap: 16px 16px;
             align-items: center;
         }
@@ -57,7 +57,7 @@
         span {
             color: #707070;
             font-weight: 300;
-            font-size: 12px;
+            font-size: 14px;
         }
     }
 }
@@ -65,6 +65,7 @@
 @media (max-width: 780px) {
     .footer_principal_container{
         padding: 0 24px;
+        text-align: center;
 
     .footer_details {
         flex-direction: column;
