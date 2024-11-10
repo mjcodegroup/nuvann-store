@@ -158,7 +158,8 @@
       "date_format": "fr-FR",
       "shipping_title": "Suivi d'expédition",
       "company": "Entreprise",
-      "tracking_id": "Identifiant de suivi"
+      "tracking_id": "Identifiant de suivi",
+      "confirmation_code": "Code de confirmation"
     },
     "seller_page": {
       "products": "Produits",

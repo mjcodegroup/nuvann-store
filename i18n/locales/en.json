@@ -158,7 +158,8 @@
       "date_format": "en-US",
       "shipping_title": "Shipping Tracking",
       "company": "Company",
-      "tracking_id": "Tracking ID"
+      "tracking_id": "Tracking ID",
+      "confirmation_code": "Confirmation code"
     },
     "seller_page": {
       "products": "Products",
