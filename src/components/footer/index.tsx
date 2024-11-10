@@ -26,7 +26,7 @@ export const Footer = () => {
     <div className={styles.footer_principal_container}>
         <div className={styles.footer_details}>
           <div style={{
-            width:  getDeviceType.isMobile() ? '100%': '27%',
+            width:  getDeviceType.isMobile() ? '100%': '30%',
           }}>
             <h2>NUVANN</h2>
             <p>{t('about_us_text')}</p>
@@ -38,7 +38,9 @@ export const Footer = () => {
             <Link href="https://faqs.nuvann.com/en/home" target='_blank'><p>Nuvann</p></Link>
           </div>
 
-          <div>
+          <div style={{
+            width:  getDeviceType.isMobile() ? '100%': '30%',
+          }}>
             <h2>{t('payment_Methods')}</h2>
             <div className={styles.footer_principal_cards}>
               <Image src={visaIcon} alt={visaIcon}/>
