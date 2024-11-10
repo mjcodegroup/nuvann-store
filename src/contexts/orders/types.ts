@@ -1,3 +1,29 @@
+export interface Order {
+  id: string;
+  product: OrderItem;
+  quantity: number;
+  currency: string;
+  status: string;
+  properties: OrderProperties;
+  seller: Seller;
+  unit_price: number;
+  sub_total: number;
+  tax_amount: number;
+  shipping_cost: number;
+  unit_discount_amount: number;
+  total_discount_amount: number;
+  unit_price_with_discount: number;
+  total_price: number;
+  payment_method: string;
+  shipping_address: ShippingAddress;
+  order_item_status_logs: OrderItemStatusLog[];
+  shipping_tracking_data: ShippingTrackingData;
+  shipment_description: string;
+  created_at: string;
+  public_id: string;
+  delivery_code: string;
+}
+
 export interface OrderItem {
   id: string;
   name: string;
@@ -20,28 +46,6 @@ export interface OrderItemProperty {
   value: string;
 }
 
-export interface Order {
-  id: string;
-  product: OrderItem;
-  quantity: number;
-  currency: string;
-  status: string;
-  properties: OrderProperties;
-  seller: Seller;
-  unit_price: number;
-  sub_total: number;
-  tax_amount: number;
-  shipping_cost: number;
-  unit_discount_amount: number;
-  total_discount_amount: number;
-  unit_price_with_discount: number;
-  total_price: number;
-  payment_method: string;
-  shipping_address: ShippingAddress;
-  order_item_status_logs: OrderItemStatusLog[];
-  shipping_tracking_data: ShippingTrackingData;
-}
-
 export interface OrderProperties {
   additionalProp1: OrderProperty[];
   additionalProp2: OrderProperty[];
@@ -51,7 +55,6 @@ export interface OrderProperties {
 export interface OrderProperty {
   key: string;
   value: string;
-  quantity?: number;
 }
 
 export interface Seller {
@@ -96,12 +99,14 @@ export interface State {
   update_order_loader: boolean;
 }
 
-export type Action = 
+export type Action =
   | {
-      type: 'SET_ORDERS'; value: Order[];
+      type: 'SET_ORDERS';
+      value: Order[];
   }
   | {
-      type: 'SET_ORDER_LOADER'; value: boolean;
+      type: 'SET_ORDER_LOADER';
+      value: boolean;
   };
 
 export interface OrdersContextProps {
