@@ -52,6 +52,12 @@ export type CartItem = {
     product: cartProduct;
     shipment: Shipment
     sub_total: Price;
+    tax_amount: number;
+    total_discount_amount: number;
+    total_price: number;
+    unit_discount_amount: number;
+    unit_price_with_discount: number;
+    currency: string;
 }
 
 export type cartProduct = {
