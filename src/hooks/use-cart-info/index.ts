@@ -4,12 +4,15 @@ import { useNavigation } from "../useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 import React from "react";
+import { useUserInfo } from "../use-user-info";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export function useCartInfo() {
   const { successToast, errorToast } = useToast();
   const { redirect } = useNavigation();
 
   const { state: cartState, dispatch: cartDispatch } = useCart();
+  const { isAuthenticated } = useAuth0();
 
   async function getCart() {
     try {
@@ -60,9 +63,11 @@ export function useCartInfo() {
   }
 
   React.useEffect(() => {
+    if(isAuthenticated && !cartState.cart.count) {
       getCart();
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isAuthenticated]);
 
   return {
     cartState,
