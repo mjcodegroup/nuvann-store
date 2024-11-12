@@ -90,7 +90,7 @@ export const Navbar: React.FC = () => {
   }, [isAuthenticated]);
 
   React.useEffect(() => {
-    if(isAuthenticated) {
+    if(isAuthenticated && !userInfos.name) {
       getUserInfo();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps

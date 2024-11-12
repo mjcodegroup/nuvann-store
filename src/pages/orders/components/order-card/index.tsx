@@ -59,10 +59,13 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
             <div className={Styles.ActualCard}>
                 <Image src={order.product.images[0]?.url} alt="product" width={100} height={100} />
                 <div className={Styles.CardstitleDate}>
-                    <h4>{order.product.name}</h4>
+                    <div className={Styles.title}>
+                        <h4>{order.product.name} </h4><span>ID: {order.public_id}</span>
+                    </div>
                     <h5>{t('purchase_date')}: <span>{formatDate(order.order_item_status_logs[0]?.occurred_on, t('date_format'))}</span></h5>
                     <h5>{t('status')}: <span>{statusDescription}</span></h5>
                     <h5>{t('quantity')}: <span>{order.quantity}</span></h5>
+                    { order.delivery_code ? <h5>{t('confirmation_code')}: <span>{order?.delivery_code}</span></h5> :  ""  }
                 </div>
                 <div className={Styles.CardsButtons}>
                     <CustomButton

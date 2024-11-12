@@ -1,9 +1,12 @@
-import { NextResponse } from "next/server";
 import cookie from "../cookie";
 
 class SessionManager { 
     setSession(value: any) {
        cookie.setCookie({name:'nuvann-valid-token', value, days: 1, domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
+    }
+
+    clearSession() {
+        cookie.deleteCookie('nuvann-valid-token');
     }
 
     getValidToken() {
@@ -12,15 +15,6 @@ class SessionManager {
     
     isAuthenticated() {
         return !!this.getValidToken();
-    }
-
-    redirectToLogin(req:any) {
-        // const {protocol, host } = window.location;
-        // cookie.deleteCookie('user');
-        return
-        // const loginUrl = new URL('/login', req.url);
-        // return NextResponse.redirect(loginUrl);
-        // window.location.replace(`${protocol}//${host}/login`)
     }
 
     saveCurrentPathToStorage = (path: string) => {
