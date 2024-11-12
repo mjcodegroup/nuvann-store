@@ -10,6 +10,7 @@ import { useCountriesInfo } from '@/hooks/use-countries-info';
 import { useRouter } from 'next/router';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { ShippingInfoTypes } from '@/contexts/checkout/types';
 
 type FormValues = {
     street: string,
@@ -81,7 +82,8 @@ export default function CheckoutController() {
   });
 
   const handleConfirmModalAddress:SubmitHandler<FormValues> = (data: any) => {
-    updateShippingInfo({
+
+    const shippingInfo: ShippingInfoTypes = {
       shipping_address: {
         city: data.city,
         complement: data.complement,
@@ -96,7 +98,11 @@ export default function CheckoutController() {
         name: data.name,
         phoneNumber: data.phoneNumber
       }
-    });
+    };
+    if (orderid) {
+      shippingInfo.order_id = String(orderid);
+    }
+    updateShippingInfo(shippingInfo);
   }
 
   React.useEffect(() => {

@@ -1,10 +1,10 @@
 
-import slide1 from '../../../../public/assets/hero/slide1.svg'
-import slide2 from '../../../../public/assets/hero/slide2.svg'
+import slide1 from '../../../../public/assets/hero/banner1.jpg'
+import slide2 from '../../../../public/assets/hero/banner2.jpg'
 
 const heroImagesMock = [
-    slide1,
     slide2,
+    slide1,
     slide1,
     slide2,
     slide1,
