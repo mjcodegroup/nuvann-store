@@ -103,6 +103,11 @@ export const Navbar: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [becomeseller]);
 
+  const onLogout = () => {
+    logout();
+    sessionManager.clearSession();
+  }
+
   return (
     <>
 
@@ -116,7 +121,7 @@ export const Navbar: React.FC = () => {
           user={user}
           onSignIn={handleLogin}
           isLoading={loading}
-          onLogout={logout}
+          onLogout={onLogout}
           cartCount={cartState.cart?.count}
           placeholder={t('searchForAProduct')}
           onSearch={handleSearch}
@@ -142,7 +147,7 @@ export const Navbar: React.FC = () => {
             isAuthenticated={isAuthenticated}
             onSignIn={handleLogin}
             isLoading={loading}
-            onLogout={logout}
+            onLogout={onLogout}
             cartCount={cartState.cart?.count}
           />
         </div>
