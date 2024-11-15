@@ -6,6 +6,7 @@ import { useNavigation } from '@/hooks/useNavigation';
 import OrdersCardSkeleton from '../components/orders-card-skeleton';
 import { Order } from '@/contexts/orders/types';
 import OrderCard from '../components/order-card';
+import { useTranslation } from 'react-i18next';
 
 interface OrdersProps {
     orders: Order[];
@@ -14,6 +15,8 @@ interface OrdersProps {
 
 export default function Orders({ orders, isLoading }: OrdersProps) {
     const { redirect } = useNavigation();
+    const { t } = useTranslation('order');
+
     const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
 
     React.useEffect(() => {
@@ -29,7 +32,7 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
             ) : orders.length === 0 ? (
                 <div className={styles.AchasHolder2}>
                     <div className={styles.messageAnyen}>
-                        <h3>Ou poko achte anyen !!</h3>
+                        <h3>{t('no_purchases_yet')}...</h3>
                         <CustomButton
                             variant="outlined"
                             onClick={() => redirect(RoutesUrls.HOME)}
@@ -37,15 +40,15 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                             textColor="#ffff"
                             width={200}
                             height={35}
-                        >
-                            Achte
+                        >   
+                            {t('buy')}
                         </CustomButton>
                     </div>
                 </div>
             ) : (
                 <div className={styles.AchasHolder}>
                     <div className={styles.PurchaseCards}>
-                        <h3>Pwodwi ou achte deja</h3>
+                        <h3>{t('products_already_purchased')}</h3>
                         <div className={styles.PurchaseScroll}>
                             {orders.map((order: Order) => (
                                 <div key={order.id}>

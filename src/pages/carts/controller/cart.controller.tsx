@@ -5,10 +5,11 @@ import { useCartInfo } from '@/hooks/use-cart-info';
 import { useCart } from '@/contexts/cart';
 import { useNavigation } from '@/hooks/useNavigation';
 import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function CartController() {
-  const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart } = useCartInfo();
+  const { dispatch: cartDispatch } = useCart();
+  const { removeFromCart, updateCart, cartState } = useCartInfo();
 
   const { redirect } = useNavigation();
 
@@ -43,16 +44,16 @@ export default function CartController() {
     }
   }
   return (
-    <HomePageDefault>
-      <Cart
-      fullLoader={cartState.cart_loader}
-        onCheckout={handleCheckout}
-        data={cartState.cart}
-        removeFromCart={removeFromCart}
-        onDecrementButton={handleDecrementButton}
-        onIncrementButton={handleIncrementButton}
-        disableIncrementAndDecrementBtn={cartState.cart_loader}
-      />
-    </HomePageDefault>
+        <HomePageDefault>
+          <Cart
+            fullLoader={cartState.cart_loader}
+            onCheckout={handleCheckout}
+            data={cartState.cart}
+            removeFromCart={removeFromCart}
+            onDecrementButton={handleDecrementButton}
+            onIncrementButton={handleIncrementButton}
+            disableIncrementAndDecrementBtn={cartState.cart_loader}
+          />
+        </HomePageDefault>
   );
 }

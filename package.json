@@ -1,6 +1,6 @@
 {
   "name": "nuvann-store",
-  "version": "0.1.39",
+  "version": "0.1.99",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,6 +12,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@hookform/resolvers": "^3.9.0",

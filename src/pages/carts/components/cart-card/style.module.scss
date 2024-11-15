@@ -45,7 +45,7 @@
 
         p {
           font-style: normal;
-          font-weight: 500; 
+          font-weight: 700; 
           font-size: 13px;
           line-height: 15px;
           color: #000000;
@@ -56,8 +56,17 @@
           font-weight: 500;
           font-size: 12px;
           line-height: 14px;
-          color: #3f3b3b;
+          color: #5e5757;
           padding-left: 5px;
+          
+        }
+        .line_through {
+          text-decoration: line-through;
+          margin-right: 4px;
+        }
+        .revert_line_through {
+          text-decoration: none;
+          color: #000000;
         }
 
         .vendor_name {
@@ -111,7 +120,7 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 720px) {
   .cart_card_container {
     width: 100%;
     padding: 10px;

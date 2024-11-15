@@ -7,55 +7,64 @@ import { CheckoutItem } from '@/contexts/checkout/types';
 import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsis';
 import CustomButton from '@/components/custom-button';
 import { getDefaultShipment } from '@/utils/get-default-shipment';
+import { formatUnderscoreToSpacesUpperCase } from '@/utils/formatter/format-underscore-to-spaces-upper-case';
 
 export default function CardProducts(props: CardProductsProps) {
   const { t } = useTranslation("checkout");
-  
+
   return (
     <div className={Styles.products_wrapper}>
-        <h4>{t("checkout.title_products_ordered")}</h4> <br />
+        <h4>{t("title_products_ordered")}</h4> <br />
         {
           props.items?.map((item: CheckoutItem, index) => (
               <div className={Styles.products_row} key={item.id}>
                 <div className={Styles.row}>
                   <div className={Styles._image}>
                     <Image src={item.product.images[0]?.url || ''} alt={item.product.images[0].alt|| ''} width={50} height={50} />
-                    {truncateStringWithEllipsis(item.product.name, 15)}
+                    {truncateStringWithEllipsis(item.product.name, 28)}
                   </div>
                   <div className={Styles.row_content}>
-                    <p>Price</p>
+                    <p>{t('price')}</p>
                     <span>{item.product.price}</span>
                   </div>
                   <div className={Styles.row_content}>
-                    <p>Amount</p>
+                    <p>{t('amount')}</p>
                     <span>{item.quantity}</span>
                   </div>
                   <div className={Styles.row_content}>
-                    <p>Item Subtotal</p>
+                    <p>{t('_subtotal')}</p>
+
                     <span>{item.sub_total.formatted}</span>
                   </div>
                 </div>
                   <div className={Styles.separator}></div>
                 <div className={Styles._row_footer}>
                   <div>
-                    <h5>{t('checkout.shipping_options')}:</h5>
+                    <h5>{t('shipping_options')}:</h5>
                   </div>
                   <div>
-                    <h5>{getDefaultShipment(item?.available_shipments)?.type}</h5>
-                    <span>{getDefaultShipment(item?.available_shipments)?.delivery_deadline || 'This item cannot be shipped to your selected delivery location. Please choose a different delivery location.'}</span>
+                    <h5>{formatUnderscoreToSpacesUpperCase(getDefaultShipment(item?.available_shipments)?.type as string)}</h5>
+                    <span>{getDefaultShipment(item?.available_shipments)?.delivery_deadline || t('shipment_not_available_text')}</span>
                   </div>
-                  <div>
-                    <CustomButton
-                      title={t('checkout.btn_to_replace_address')}
-                      variant='text'
-                      onClick={()=>props.onClickBtnChangeShipment(item)}
-                    >
-                      {t('checkout.btn_to_replace_address')}
-                    </CustomButton>
-                  </div>
-                  <div>
-                    <h5>{item.shipping_amount}</h5>
-                  </div>
+                  {
+                   getDefaultShipment(item?.available_shipments)?.delivery_deadline && (
+                    <>
+                      <div>
+                        <CustomButton
+                          variant='text'
+                          onClick={()=>props.onClickBtnChangeShipment(item)}
+                        >
+                          {t('btn_to_replace_address')}
+                        </CustomButton>
+                      </div>
+                      
+                      <div>
+                        <h5>{item.shipping_amount}</h5>
+                      </div>
+                    </>
+                    )
+                  }
+                
                 </div>
               </div>
           ))}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use } from 'react'
 import { AiOutlineUser, AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';
 import {FaMapMarkerAlt, FaPhoneAlt, FaEnvelope} from 'react-icons/fa';
 import Image from 'next/image';
@@ -12,38 +12,36 @@ import visacheckout from '../../../public/assets/cards/visacheckout.svg'
 import amex from '../../../public/assets/cards/amex.svg'
 import boleto from '../../../public/assets/cards/boleto.svg'
 import pack from '../../.../../../package.json';
+import { useTranslation } from 'react-i18next';
+import { FcShipped } from 'react-icons/fc';
+import Link from 'next/link';
+import getDeviceType from '@/utils/get-device-type';
 
 export const Footer = () => {
+  const { t } = useTranslation('footer')
 
   const today = new Date();
   const year = today.getFullYear();
   return (
     <div className={styles.footer_principal_container}>
         <div className={styles.footer_details}>
-          <div>
-            <h2>Kontakte nou</h2>
-
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br />
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br />
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p> <br />
-
-            <p><span> <FaMapMarkerAlt color='#000052'/> </span>Rua Inambu 540, Efapi-Chapeco, SC </p>
-            <p><span> <FaPhoneAlt color='#000052'/> </span>+55-0000000000</p>
-            <p><span> <FaEnvelope color='#000052'/> </span> nuvann@contact.com</p>
+          <div style={{
+            width:  getDeviceType.isMobile() ? '100%': '30%',
+          }}>
+            <h2>NUVANN</h2>
+            <p>{t('about_us_text')}</p>
           </div>
           <div>
-            <h2>Rakousi Enfo</h2>
-
-            <p>Komanw kapab Vann </p>
-            <p> Komanw ka fè yon reklamasyon </p>
-            <p> Komanw ka pab Vann </p>
-            <p> Komanw ka fè yon reklamasyon  </p>
+            <h2>{t('utils_Links')}</h2>
+            <Link href="https://faqs.nuvann.com/en/home" target='_blank'><p>{t('how_to_sell')}</p></Link>
+            <Link href="https://faqs.nuvann.com/en/home" target='_blank'><p>{t('faq')}</p></Link>
+            <Link href="https://faqs.nuvann.com/en/home" target='_blank'><p>Nuvann</p></Link>
           </div>
 
-          <div>
-            <h2>Metòd Pèman</h2>
+          <div style={{
+            width:  getDeviceType.isMobile() ? '100%': '30%',
+          }}>
+            <h2>{t('payment_Methods')}</h2>
             <div className={styles.footer_principal_cards}>
               <Image src={visaIcon} alt={visaIcon}/>
               <Image src={masterCard} alt={masterCard}/>
@@ -54,17 +52,15 @@ export const Footer = () => {
               <Image src={boleto} alt={boleto}/>
             </div>
           </div>
-
           <div>
-            <h2>Espas Kliyan</h2>
-            <p><span><AiOutlineUser/></span> Profil</p>
-            <p><span><AiOutlineShoppingCart/></span> Panye</p>
-            <p><span> <AiOutlineLogout /> </span> Dekonekte</p>
+            <h2>{t('client_space')}</h2>
+            <Link href="/carts"><p><span><AiOutlineShoppingCart/></span> {t('carts')}</p></Link>
+            <Link href="/orders"><p><span> <FcShipped /> </span> {t('orders')}</p></Link>
           </div>
         </div>
         <div className={styles.footer_signature}>
             <span>© {year} - Nuvann-Store | All rights reserved. © {pack?.version}</span>
-            <span>Country & Regionn: USA | Canada | Brazil | Chile | Haiti        </span>
+            <span>{t('country_region')}: {process.env.NEXT_PUBLIC_COUNTRY_REGION}</span>
         </div>
     </div>
   )

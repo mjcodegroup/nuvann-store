@@ -16,7 +16,7 @@ export default function CardAddress(props: CardAddressProps) {
 
   return (
     <div className={Styles.address_wrapper}>
-        <h4><RiMapPin2Line /> {t("checkout.delivery_address")}</h4>
+        <h4><RiMapPin2Line /> {t("delivery_address")}</h4>
         <div className={Styles._content}>
           {
             user.address && (
@@ -40,7 +40,7 @@ export default function CardAddress(props: CardAddressProps) {
                   variant='text'
                   onClick={()=>props.setOpenModalAddress(true)}
                   >
-                    {t("checkout.btn_to_replace_address")}
+                    {t("btn_to_replace_address")}
                   </CustomButton>
 
                 ) : (
@@ -48,7 +48,7 @@ export default function CardAddress(props: CardAddressProps) {
                   startIcon={<IoMdAdd />}
                   onClick={()=>props.setOpenModalAddress(true)}
                   >
-                    {t("checkout.btn_add_address")}
+                    {t("btn_add_address")}
                   </CustomButton>
                 )
               
@@ -57,7 +57,7 @@ export default function CardAddress(props: CardAddressProps) {
         </div>
 
         <ModalActions
-          title={t(user.address ?'checkout.edit_address':'checkout.new_address')}
+          title={t(user.address ?'edit_address':'new_address')}
           open ={props.openModalAddress}
           setOpen= {props.setOpenModalAddress}
           disable={props.disableModalAddressButton}
@@ -68,7 +68,7 @@ export default function CardAddress(props: CardAddressProps) {
           <CustomValidateSelect
           defaultValue={{ code: user?.address?.country?.code, name: user?.address?.country?.name as string }}
            options={formatCountriesArray(props.countryList)}
-           title={t('checkout.countries')}
+           title={t('countries')}
            onSelect={(value) => props.setValues('country', value)}
            name="country"
            error={props.shipmentformErrors?.country?.code?.message || props.shipmentformErrors?.country?.name?.message}
@@ -77,14 +77,14 @@ export default function CardAddress(props: CardAddressProps) {
           <CustomValidateInput
             required
             type="text"
-            label={t('checkout.full_name')}  
+            label={t('full_name')}  
             {...props.shipmentAddress('name')}
             error={props.shipmentformErrors.name?.message}
           />
 
             <CustomValidateInput
               required
-              label={t('checkout.phone_number')}
+              label={t('phone_number')}
               {...props.shipmentAddress('phoneNumber')}
               error={props.shipmentformErrors.phoneNumber?.message}
             />
@@ -92,32 +92,32 @@ export default function CardAddress(props: CardAddressProps) {
           <div style={{width: '60%'}}>
             <CustomValidateInput
               required
-              label={t('checkout.postal_code')}
+              label={t('postal_code')}
               {...props.shipmentAddress('zipCode')}
               error={props.shipmentformErrors.zipCode?.message}
             />
             </div>
 
             <CustomValidateInput
-              label={t('checkout.state_department_province')}
+              label={t('state_department_province')}
               {...props.shipmentAddress('state_or_department', { required: 'Field is required' })}
               error={props.shipmentformErrors?.state_or_department?.message}
             />
 
             <CustomValidateInput
-              label={t('checkout.city')}
+              label={t('city')}
               {...props.shipmentAddress('city', { required: 'city is required' })}
               error={props.shipmentformErrors.city?.message}
             />
 
             <CustomValidateInput
-              label={t('checkout.neighborhood')}
+              label={t('neighborhood')}
               {...props.shipmentAddress('neighborhood')}
               error={props.shipmentformErrors?.neighborhood?.message}
             />
 
             <CustomValidateInput
-              label={t('checkout.street_name')}
+              label={t('street_name')}
               {...props.shipmentAddress('street')}
               error={props.shipmentformErrors.street?.message}
             />
@@ -126,13 +126,13 @@ export default function CardAddress(props: CardAddressProps) {
             }}>
               <CustomValidateInput
                 width="50%"
-                  label={t('checkout.street_number')}
+                  label={t('street_number')}
                   {...props.shipmentAddress('number')}
                   error={props.shipmentformErrors.number?.message}
                 />
             </div>
             <CustomValidateInput
-            label={t('checkout.complement')}
+            label={t('complement')}
             {...props.shipmentAddress('complement')}
             error={props.shipmentformErrors.complement?.message}
             />

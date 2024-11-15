@@ -1,78 +1,63 @@
-import React, { useEffect, useRef, useState } from 'react'
-import {GrLinkNext} from 'react-icons/gr'
+import React, { useEffect, useRef, useState } from 'react';
 import Styles from './pagging-slider.module.scss';
 import Image from 'next/image';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 interface PaggingSliderProps {
-  images: ImagesData[] | undefined;
+  images: ImagesData[];
 }
 
 interface ImagesData {
-    id: string;
-    title: string;
-    url: string;
-    alt: string;
+  id: string;
+  title: string;
+  url: string;
+  alt: string;
 }
 
-const PaggingSlides: React.FC<PaggingSliderProps> =({images}) =>{
-  const [slideIndex, setSlideIndex] =useState<number>(1);
-  const [width, setWidth] =useState(0);
-  const [start, setStart] =useState(0);
-  const [change, setChange] =useState(0);
-  const counts: any = images?.length
-
-  const plusSlides =(n:number) => {
-    setSlideIndex(prev => prev + n);
-    slideShow(slideIndex + n)
-  }
-
+const PaggingSlides: React.FC<PaggingSliderProps> = ({ images }) => {
+  const [slideIndex, setSlideIndex] = useState<number>(1);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const slideRef: any = useRef();
 
   useEffect(() => {
-    if(!slideRef.current) return;
-    const scrollWidth = slideRef.current.scrollWidth
-    const chiledrenElementCount = slideRef.current.childrenElementCount
-    const width = scrollWidth /chiledrenElementCount
-    setWidth(width)
-  }, [])
-  
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
 
-  const slideShow = (n:number) => {
-    if(n> counts) {setSlideIndex(1)}
-    if(n< 1) {setSlideIndex(counts)}
-  }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const settings = {
-    customPaging: function(i: any) {
+    customPaging: function (i: any) {
       return (
         <a>
-          <Image src={images?.[i]?.url || ''} alt={images?.[i]?.alt || ''} width={100} height={100}/>
+          <Image src={images?.[i]?.url || ''} alt={images?.[i]?.alt || ''} width={100} height={100} />
         </a>
       );
     },
+    infinite: images && images.length > 1 ? true : false,
     dots: true,
     dotsClass: "slick-dots slick-thumb",
-    infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow:  1,
     slidesToScroll: 1,
   };
 
   return (
     <div className={Styles.slider_container}>
       <Slider {...settings}>
-        {
-          images?.map((image, index) => (
-            <div key={index} className={Styles._slider}>
-              <Image src={image.url} alt={image.alt} width={100} height={100}/>
-            </div>
-          ))
-        }
+        {images?.map((image, index) => (
+          <div key={index} className={Styles._slider}>
+            <Image src={image.url} alt={image.alt} width={100} height={100} />
+          </div>
+        ))}
       </Slider>
     </div>
-  )
-}
+  );
+};
 
 export default PaggingSlides;

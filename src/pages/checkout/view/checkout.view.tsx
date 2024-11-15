@@ -5,6 +5,7 @@ import OrderResume from '@/components/order-resume';
 import CardAddress from '../components/card-address';
 import CardProducts from '../components/card-products';
 import CardUpdateShipment from '../components/modal-update-shipment';
+import { hasNoAvailableShipments } from '@/utils/get-default-shipment';
 
 export default function Checkout(props: Readonly<CheckoutProps>) {
   return (
@@ -40,7 +41,7 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
 
         <div className={Styles.resume_container}>
             <OrderResume
-              disabled={!props.userInfos.address}
+              disabled={!props.userInfos.address || hasNoAvailableShipments(props.orderItems)}
               data={props.orderResume}
               OnCheckout={props.onPlaceOrder}
               loading={props.placeOrderLoading}

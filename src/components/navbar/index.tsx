@@ -7,7 +7,6 @@ import NavList from './nav-list';
 import NavOptions from './nav-options';
 import Styles from './navbar.module.scss';
 import SearchBar from './search-bar';
-import { useAuth } from '@/hooks/useKeycloak';
 import { useCartInfo } from '@/hooks/use-cart-info';
 import { useCategoriesInfo } from '@/hooks/use-categories-info';
 import ModalActions from '../modal-actions';
@@ -23,6 +22,10 @@ import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
 import getDeviceType from '@/utils/get-device-type';
 import MobileNavbar from './mobile-navbar';
+import { useAuth0 } from "@auth0/auth0-react";
+import sessionManager from '@/utils/session-manager';
+import cookie from '@/utils/cookie';
+import { generateRandomString } from '@/utils/generate-random-string';
 
 interface selectedCountry {
   label: string;
@@ -30,7 +33,14 @@ interface selectedCountry {
 }
 export const Navbar: React.FC = () => {
   const { t } = useTranslation("home");
-  const { isAuthenticated, user, logout, handleLogin, loading} = useAuth();
+  const router = useRouter();
+  const { search, becomeseller } = router.query;
+  const {
+      getAccessTokenSilently,
+      user, isLoading: loading,
+      logout, isAuthenticated,
+      loginWithPopup: handleLogin
+  } = useAuth0();
   const {countries} = useCountriesInfo();
   const {
     handleBecomeSeller,
@@ -46,25 +56,17 @@ export const Navbar: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();
 
-  const router = useRouter();
-  const { search } = router.query;
 
   const handleClickToBecomeSeller = () => {
     if(!isAuthenticated) {
       return handleLogin();
     }
-    if(userInfos.roles.includes(UserRoles.SELLER)) {
+    cookie.setCookie({name: 'nuvann_store_referral', days: 1, value: generateRandomString(24), domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
+    if(userInfos?.roles?.includes(UserRoles.SELLER)) {
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
     setModalTerm(true)
   }
-
-  React.useEffect(() => {
-    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
-      getUserInfo();
-  };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  } , [isAuthenticated]);
 
   const handleRedirectToCategory = (category: Category) => {
     redirect(`/search?category_id=${category.id}` as RoutesUrls);
@@ -72,6 +74,38 @@ export const Navbar: React.FC = () => {
 
   const handleSearch = (searchText: string) => {
     redirect(`/search?search=${searchText}` as RoutesUrls)
+  }
+  
+  const setSession = async() => {
+    const token = await getAccessTokenSilently();
+    if(token){
+      sessionManager.setSession(token);
+    }
+  }
+
+  React.useEffect(() => {
+    if(!isAuthenticated) return;
+    setSession();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
+
+  React.useEffect(() => {
+    if(isAuthenticated && !userInfos.name) {
+      getUserInfo();
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  } , [isAuthenticated]);
+
+  React.useEffect(() => {
+    if(becomeseller) {
+      handleClickToBecomeSeller();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [becomeseller]);
+
+  const onLogout = () => {
+    logout();
+    sessionManager.clearSession();
   }
 
   return (
@@ -84,12 +118,12 @@ export const Navbar: React.FC = () => {
           onCategorySelect={handleRedirectToCategory}
           onClickSellerMenu={()=>handleClickToBecomeSeller()}
           isAuthenticated={isAuthenticated}
-          user={userInfos.name? userInfos : user}
+          user={user}
           onSignIn={handleLogin}
           isLoading={loading}
-          onLogout={logout}
+          onLogout={onLogout}
           cartCount={cartState.cart?.count}
-          placeholder={t('home.searchForAProduct')}
+          placeholder={t('searchForAProduct')}
           onSearch={handleSearch}
           onClickMenu={()=>{}}
           width='100%'
@@ -104,16 +138,16 @@ export const Navbar: React.FC = () => {
           <div className={Styles.navbar_search}>
             <SearchBar
               defaultValue={search as string}
-              placeholder={t('home.searchForAProduct')}
+              placeholder={t('searchForAProduct')}
               onSearch={handleSearch}
             />
           </div>
           <NavOptions
-            user={userInfos.name? userInfos : user}
+            user={user}
             isAuthenticated={isAuthenticated}
             onSignIn={handleLogin}
             isLoading={loading}
-            onLogout={logout}
+            onLogout={onLogout}
             cartCount={cartState.cart?.count}
           />
         </div>
@@ -129,7 +163,7 @@ export const Navbar: React.FC = () => {
 
     }
     <ModalActions
-      title={t('home.term_and_contitions')}
+      title={t('term_and_contitions')}
       open ={modalTerm}
       setOpen= {setModalTerm}
       loading={userInfosLoader}
@@ -141,8 +175,8 @@ export const Navbar: React.FC = () => {
         })
       }}
     >
-      <CustomInput label={t('home.business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
-      <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('home.country')} />
+      <CustomInput label={t('business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
+      <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('country')} />
     </ModalActions>
     </>
   );

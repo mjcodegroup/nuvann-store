@@ -53,7 +53,7 @@ const CustomValidateSelect: React.FC<SelectProps> = ({
       <p>{title} <span>*</span></p>
       <div className={Styles.select_header} onClick={toggleSelect}>
         <span className={Styles.selected_option}>
-          {selectedOption ? selectedOption.name : t("placeholders.custom_select_placeholder")}
+          {selectedOption ? selectedOption.name : t("custom_select_placeholder")}
         </span>
         <BiChevronDown className={`${Styles.toggle_icon} ${isOpen ? Styles.rotated : ""}`} />
       </div>

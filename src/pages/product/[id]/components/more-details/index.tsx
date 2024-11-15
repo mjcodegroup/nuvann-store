@@ -3,6 +3,7 @@ import Styles from "./more-details.module.scss";
 import { Category } from "@/contexts/categories/types";
 import { MoreDetailsProps } from "../../types";
 import { useTranslation } from "react-i18next";
+import { formatHashtags } from "@/utils/formatter/format-hashtags.util";
 
 
 const MoreDetails: React.FC<MoreDetailsProps> =({
@@ -14,11 +15,11 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
     return (
         <div className={Styles.full_desc_section}>
             <div className={Styles.__title}>
-                <h3 className={Styles.full_desc_title}>{t('details.specific_information')}</h3>
+                <h3 className={Styles.full_desc_title}>{t('specific_information')}</h3>
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.origin')}:</p>
+                    <p>{t('origin')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     <p>{pro_seller}</p>
@@ -26,12 +27,12 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.categories')}:</p>
+                    <p>{t('categories')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     {
                         pro_categories?.map((category: Category, index:number) =>(
-                            <p key={index} className={Styles.tag}> {category.name} </p>
+                            <span key={index} className={Styles.tag}> {category.name} </span>
                         ))
                     }
                 </div>
@@ -39,12 +40,12 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
 
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.tags')}:</p>
+                    <p>{t('tags')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     {
                         pro_categories ?.map((tag: Category, index:number) =>(
-                            <p key={index} className={Styles.tag}> #{tag.tags} </p>
+                            <span key={index} className={Styles.tag}> {formatHashtags(tag.tags)} </span>
                         ))
                     }
                 </div>
@@ -52,11 +53,11 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
 
             <br /><br /> <br />
             <div className={Styles.__title}>
-                <h3 className={Styles.full_desc_title}>{t('details.product_description')}</h3>
+                <h3 className={Styles.full_desc_title}>{t('product_description')}</h3>
             </div>
             <div className={Styles.specific_infos}>
                 <div className={Styles.__subtitle}>
-                    <p>{t('details.description')}:</p>
+                    <p>{t('description')}:</p>
                 </div>
                 <div className={Styles.__desc}>
                     <p>{description}</p>

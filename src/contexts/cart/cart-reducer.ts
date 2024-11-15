@@ -14,6 +14,9 @@ export function reducer(state: State, action: Action): State {
         case 'SET_CART_LOADER': {
             return { ...state, cart_loader: action.value };
         }
+        case 'SET_CART_LOADER_REQUEST': {
+            return { ...state, cart_loader_request: action.value };
+        }
         default: {
             return state;
         }

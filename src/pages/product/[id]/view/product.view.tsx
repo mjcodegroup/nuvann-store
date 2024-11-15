@@ -6,7 +6,7 @@ import MoreDetails from '../components/more-details';
 
 export default function Product(props: Readonly<ProductProps>) {
   if(props.fullLoading){
-    return <h1>Loading</h1>
+    return <h1>Loading....................................</h1>
   }
   
 
@@ -15,7 +15,7 @@ export default function Product(props: Readonly<ProductProps>) {
       <div className={Styles.__container}>
         <div className={Styles.__container_infos}>
           <ContainerInfos
-            isLoading={props.isLoading}
+            addToCartLoader={props.addToCartLoader}
             onError={props.onError}
             qty={props.qty}
             onSelectedColor={props.onSelectedColor}
@@ -30,6 +30,7 @@ export default function Product(props: Readonly<ProductProps>) {
             onPurchase={props.onPurchase}
             product={props.product}
             onSelectedShippingInfo={props.onSelectedShippingInfo}
+            onPurchaseLoading={props.onPurchaseLoading}
           />
         </div>
       </div>

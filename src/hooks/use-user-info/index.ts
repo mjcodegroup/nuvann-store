@@ -3,7 +3,6 @@ import { useUser } from "@/contexts/user";
 import { nuvannApi } from "@/services/api";
 import React from "react";
 import { PostBecomeSellerRequest } from "@/contexts/user/types";
-import { useAuth } from "../useKeycloak";
 
 export function useUserInfo() {
     const {state,  dispatch: userDispatch } = useUser();

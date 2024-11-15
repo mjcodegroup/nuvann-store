@@ -4,6 +4,7 @@ import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import CustomButton from '../custom-button';
 import Styles from './modal-actions.module.scss';
 import { useTranslation } from 'react-i18next';
+import getDeviceType from '@/utils/get-device-type';
 
 interface CustomModalProps {
     title: string; 
@@ -31,7 +32,7 @@ export const ModalActions: React.FC<CustomModalProps> = ({
     widthBtnCancel = '150px',
     onClickBtnConfirm,
     onClickBtnCancel,
-    size = 600,
+    size =  getDeviceType.isMobile() ? 400 : 500,
     loading = false,
     children,
     disable = false,
@@ -91,7 +92,7 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                                 onClickBtnCancel && onClickBtnCancel();
                             }}
                         >
-                            {textBtnCancel || t('buttons.cancel')}
+                            {textBtnCancel || t('cancel')}
                         </CustomButton>
 
                         <CustomButton
@@ -105,7 +106,7 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                             }}
                             isLoading={loading}
                         >
-                            {textBtnConfirm || t('buttons.confirm')}
+                            {textBtnConfirm || t('confirm')}
                         </CustomButton>
                     </div>
                 </div>

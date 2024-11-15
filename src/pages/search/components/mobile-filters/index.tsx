@@ -4,14 +4,16 @@ import Styles from './mobile-filters.module.scss';
 import { MobileFiltersProps } from '../../types';
 import CustomDrawer from '@/components/custom-drawer';
 import ProductFilters from '@/components/product-filters';
+import { useTranslation } from 'react-i18next';
 
 export default function MobileFiters(props: MobileFiltersProps) {
+  const { t } = useTranslation("search");
   return (
     <section className={Styles.mobile_filter_container}>
         <div className={Styles.header}>
             <div className={Styles._count}>
                 <h3>{props.searchQuery}</h3>
-                <p>{props.resultCount} resultado</p>
+                <p>{props.resultCount} {t('result_s')}</p>
             </div>
             <BsFilterRight size={25} onClick={()=> props.setOpenMobileFilter(true)}/>
         </div>

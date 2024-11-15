@@ -58,20 +58,21 @@ export interface CheckoutItem {
 
 export type ShippingInfoTypes = {
 
-    shipping_address: {
-        street: string,
-        number: string,
-        complement: string,
-        neighborhood: string,
-        city: string,
-        zipCode: string,
+    shipping_address?: {
+        street?: string,
+        number?: string,
+        complement?: string,
+        neighborhood?: string,
+        city?: string,
+        zipCode?: string,
         country: Country,
-        state_or_department: string
+        state_or_department: string;
       },
-    shipping_contact: {
-        name: string,
-        phoneNumber: string
-    }
+    shipping_contact?: {
+        name?: string;
+        phoneNumber?: string;
+    },
+    order_id?: string;
 }
 
 

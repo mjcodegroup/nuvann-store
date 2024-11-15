@@ -1,27 +1,3 @@
-export interface OrderItem {
-  id: string;
-  name: string;
-  description: string;
-  images: OrderItemImage[];
-  price: number;
-  properties: OrderItemProperty;
-  available_amount: number;
-}
-
-export interface OrderItemImage {
-  id: string;
-  title: string;
-  url: string;
-  alt: string;
-}
-
-export interface OrderItemProperty {
-  key: string;
-  value: string;
-  quantity: number;
-}
-
-
 export interface Order {
   id: string;
   product: OrderItem;
@@ -42,6 +18,32 @@ export interface Order {
   shipping_address: ShippingAddress;
   order_item_status_logs: OrderItemStatusLog[];
   shipping_tracking_data: ShippingTrackingData;
+  shipment_description: string;
+  created_at: string;
+  public_id: string;
+  delivery_code: string;
+}
+
+export interface OrderItem {
+  id: string;
+  name: string;
+  description: string;
+  images: OrderItemImage[];
+  price: number;
+  properties: OrderItemProperty[];
+  available_amount: number;
+}
+
+export interface OrderItemImage {
+  id: string;
+  title: string;
+  url: string;
+  alt: string;
+}
+
+export interface OrderItemProperty {
+  key: string;
+  value: string;
 }
 
 export interface OrderProperties {
@@ -53,12 +55,13 @@ export interface OrderProperties {
 export interface OrderProperty {
   key: string;
   value: string;
-  quantity: number;
 }
 
 export interface Seller {
   name: string;
   country: Country;
+  business_account_id: string;
+  created_at: string;
 }
 
 export interface Country {
@@ -78,8 +81,7 @@ export interface ShippingAddress {
 }
 
 export interface OrderItemStatusLog {
-  id: string;
-  deletedAt: string;
+  id?: string;
   description: string;
   occurred_on: string;
   order_item_status: string;
@@ -91,22 +93,23 @@ export interface ShippingTrackingData {
   tracking_id: string;
 }
 
-  
 export interface State {
-    orders: Order[];
-    order_loader: boolean;
-    update_order_loader: boolean;
+  orders: Order[];
+  order_loader: boolean;
+  update_order_loader: boolean;
 }
 
-export type Action = 
-    | {
-         type: 'SET_ORDERS'; value: Order[];
-    }
-    | {
-         type: 'SET_ORDER_LOADER'; value: boolean;
-    };
+export type Action =
+  | {
+      type: 'SET_ORDERS';
+      value: Order[];
+  }
+  | {
+      type: 'SET_ORDER_LOADER';
+      value: boolean;
+  };
 
 export interface OrdersContextProps {
-    state: State;
-    dispatch: React.Dispatch<Action>;
+  state: State;
+  dispatch: React.Dispatch<Action>;
 }

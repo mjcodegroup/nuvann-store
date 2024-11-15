@@ -5,6 +5,7 @@ import { Product } from '@/contexts/products/types';
 import { ProductListProps } from '../../types';
 import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsis';
 import { useTranslation } from 'react-i18next';
+import { ProductSlideSkeleton } from '@/components/product-slider/product-slider-skeleton';
 
 export default function ProductList(props: ProductListProps) {
     const { t } = useTranslation("home");
@@ -13,11 +14,11 @@ export default function ProductList(props: ProductListProps) {
     <div className={Styles.product_list_container}>
     <div className={Styles._content}>
       {props.loading ?
-          <>
-        {/* <CustomSkeleton variant="rectangular" width="100%" height={40} animation="wave" /> */}
-        {/* <CustomSkeleton variant="rectangular" width="100%" height={40} animation="wave" /> */}
-        {/* <CustomSkeleton variant="rectangular" width="100%" height={40} animation="wave" /> */}
-          </>
+      (
+        <div className={Styles.card_product}>
+          <ProductSlideSkeleton itemToShow={4} />
+        </div>
+      )
       :
       <>
         {props.products?.items?.map((prod:Product, index:number) => (
@@ -28,7 +29,7 @@ export default function ProductList(props: ProductListProps) {
                 </div>
                 <div className={Styles.bottom}>
                     {prod.prices.current_price?.discount?.value ? (
-                        <p className={Styles.daily_deal}>{t("home.today_deals")}</p>
+                        <p className={Styles.daily_deal}>{t("today_deals")}</p>
                     ) : ''}
                     {
                     prod.prices.current_price?.discount?.value ? (

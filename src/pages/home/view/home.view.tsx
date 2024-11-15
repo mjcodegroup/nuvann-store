@@ -24,18 +24,18 @@ export default function Home(props: Readonly<HomeProps>) {
       data={props.categories}
     />
     <ProductSlide
-      title={t("home.newProducts")}
-      itemToShow={4}
-      products={products.items} 
+      title={t("newProducts")}
+      itemToShow={7}
+      products={props.new_products.items} 
       havePromo={false}
       isnew
       isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
     <ProductSlide
-      itemToShow={4} 
-      products={products.items}
-      title={t("home.month_clearance")}
+      itemToShow={6} 
+      products={props.promo_products.items}
+      title={t("month_clearance")}
       havePromo
       isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
@@ -45,17 +45,10 @@ export default function Home(props: Readonly<HomeProps>) {
       itemToShow={4} 
       multipleRows
       products={products.items}
-      title={t("home.month_clearance")}
-      havePromo
+      title={t("best_sellers")}
       isLoading={props.loader}
       onRedirectToProductDetails={props.onRedirectToProductDetails}
     />
-    {/* <ProductVarietes
-      loader={false}
-      data={products.items as any} 
-      getmore={()=>{}}
-      onRedirectToProductDetails={props.onRedirectToProductDetails}
-    /> */}
     </>
   )
 }

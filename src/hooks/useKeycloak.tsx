@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }: any) => {
     
     if (user) {
       setUser(user);
-      setCookie("user", JSON.stringify(user));
+      setCookie( "user", JSON.stringify(user));
       setIsAuthenticated(true);
     } else {
       login();

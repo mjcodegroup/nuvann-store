@@ -15,14 +15,14 @@ const Categories: React.FC <CategoriesProps>  = ({data}) => {
   const { t } = useTranslation("home");
   return (
     <div className={Styles.category_container}>
-        <Title title={t("home.most_popular_categories")} centered/>
+        <Title title={t("most_popular_categories")} centered/>
         <div className={Styles.category_content}>
         {data?.slice(0,4).map((category:Category) => (
             <div className={Styles._card_container} key={category.id}>
               <div className={Styles._card}>
                 <Image src={category.image.url || ''} alt={category.image.alt || ''} width={70} height={70} />
               </div>
-                <h3>{category.name}</h3>
+                {/* <h3>{category.name}</h3> */}
             </div>
           ))}
         </div>

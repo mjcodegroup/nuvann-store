@@ -1,11 +1,13 @@
 import React from 'react';
-import Link from 'next/link';
 import styles from './order-resume.module.scss';
 import CustomButton from '@/components/custom-button';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
 import { Order } from '@/contexts/orders/types';
 import Title from '../title';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useNavigation } from '@/hooks/useNavigation';
+import { useProductsInfo } from '@/hooks/use-products-info';
 
 export interface OrderResumeData {
   count: number;
@@ -23,35 +25,65 @@ export interface OrderResumeProps {
 }
 
 const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
-  const { t } = useTranslation('cart');
+  const { t } = useTranslation('order');
   const { data, order } = props;
+  const { redirect } = useNavigation();
+  const {
+    handleQuickPurchase,
+    quickPurchaseLoader
+  } = useProductsInfo();
+
+  const onQuickPurchase = async () => {
+    const colorValue = order?.properties?.additionalProp1?.[0]?.value;
+    const sizeValue = order?.properties?.additionalProp2?.[0]?.value;
+    const propertyArray = [];
+    if (colorValue) {
+      propertyArray.push({ color: colorValue });
+    }
+    if (sizeValue) {
+      propertyArray.push({ size: sizeValue });
+    }
+    handleQuickPurchase(order.product.id, {
+      quantity: order?.quantity,
+      properties: propertyArray ?? undefined
+    })
+  }
+
 
   return (
     <div className={styles.card_resume}>
-      <Title title={t('cart.summary')} className={styles.resume_title} />
+      <Title title={t('overview')} className={styles.resume_title} />
 
       <div className={styles.content}>
         <div className={styles.resume_separated_info}>
-          <p>Pri total </p>
+          <p>{t('sub_total')}: </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
-            <h5>{data.sub_total}</h5>
+            <h5>{data.sub_total} {order.currency}</h5>
           )}
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-          <p>{t('cart.delivery')}</p>
+          <p>{t('delivery')}: </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
-            <h5>{data.shipping_cost}</h5>
+            <h5>{data.shipping_cost} {order.currency}</h5>
+          )}
+        </div>
+        <hr />
+        <div className={styles.resume_separated_info}>
+          <p>{t('total_price')}:  </p>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5>{data.total} {order.currency}</h5>
           )}
         </div>
         <div className={styles.resume_separated_info}>
-        <Title title='Seller Information' className={styles.resume_title} />
-
-        <h4></h4>
+          <Title title={t('seller_information')} className={styles.resume_title} />
+          <h4></h4>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
@@ -60,46 +92,68 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>Name: {order?.seller?.name}</p>
+          <p>
+            {t('name')}:{' '}
+            <span
+              className={styles.seller_name}
+              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order.seller.business_account_id}&name=${encodeURIComponent(order.seller.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RoutesUrls)}
+            >
+            </span>
+          </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
-            <h5></h5>
+            <h5>{order?.seller?.name}</h5>
           )}
         </div>
         <hr />
         <div className={styles.resume_separated_info}>
-        <p>Country: {order?.seller?.country?.name}</p>
+          <p>{t('country')}: </p>
           {props.loading ? (
             <p><Skeleton width={100} height={30} /> </p>
           ) : (
-            <h5></h5>
+            <h5>{order?.seller?.country?.name}</h5>
           )}
         </div>
-        
-        <div className={styles.resume_separated_info}>
         {order?.shipping_tracking_data && (
           <>
-            <h4>Shipping Tracking</h4>
-            <p>Company: {order?.shipping_tracking_data.company_name}</p>
-            <p>Tracking ID: {order?.shipping_tracking_data.tracking_id}</p>
+            <div>
+              <Title title={t('shipping_title')} className={styles.resume_title} />
+              <h4></h4>
+              {props.loading ? (
+                <p><Skeleton width={100} height={30} /></p>
+              ) : (
+                <h5></h5>
+              )}
+            </div>
+            <hr />
+            <div className={styles.resume_separated_info}>
+              <p>{t('company')}: </p>
+              {props.loading ? (
+                <p><Skeleton width={100} height={30} /></p>
+              ) : (
+                <h5>{order.shipping_tracking_data.company_name}</h5>
+              )}
+            </div>
+            <hr />
+            <div className={styles.resume_separated_info}>
+              <p>{t('tracking_id')}: </p>
+              {props.loading ? (
+                <p><Skeleton width={100} height={30} /></p>
+              ) : (
+                <h5>{order.shipping_tracking_data.tracking_id}</h5>
+              )}
+            </div>
           </>
-        )}          {props.loading ? (
-            <p><Skeleton width={100} height={30} /> </p>
-          ) : (
-            <h5></h5>
-          )}
-        </div>
+        )}
       </div>
-
       <div className={styles.resume_buttons}>
         <CustomButton
           disabled={props.loading || props.disabled}
           backgroundColor="#00C02A"
           textColor="#fff"
-          onClick={props.OnCheckout}
-        >
-          <Link href="#">Achte ankò</Link>
+          onClick={onQuickPurchase}>
+          {t('buy_again')}
         </CustomButton>
       </div>
     </div>
