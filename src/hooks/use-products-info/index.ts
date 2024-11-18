@@ -1,6 +1,6 @@
 import { useProducts } from "@/contexts/products";
 import { getProductsParams, PostQuickPurchaseType, ProductDetailsParams } from "@/contexts/products/types";
-import { nuvannApi } from "@/services/api";
+import { nuvannApi, nuvannPublicApi } from "@/services/api";
 import { useNavigation } from "../useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
@@ -20,7 +20,7 @@ export function useProductsInfo() {
             size: 20
         }
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params
             })
             productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
@@ -35,7 +35,7 @@ export function useProductsInfo() {
     async function getNewProducts() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params: {
                     new_product: true,
                     size: 20
@@ -52,7 +52,7 @@ export function useProductsInfo() {
     async function getPromotionProducts() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params: {
                     in_promotion: true,
                     size: 20
@@ -78,7 +78,7 @@ export function useProductsInfo() {
         }
         
         const queryString = queryParams ? '?' + queryParams.slice(1) : '';
-        const response = await nuvannApi.get(`/products/${params.id}${queryString}`);
+        const response = await nuvannPublicApi.get(`/products/${params.id}${queryString}`);
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
     }
 

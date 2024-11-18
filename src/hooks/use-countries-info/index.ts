@@ -1,5 +1,5 @@
 import { useCountries } from "@/contexts/countries";
-import { nuvannApi } from "@/services/api";
+import { nuvannApi, nuvannPublicApi } from "@/services/api";
 import { useEffect } from "react";
 
 export function useCountriesInfo() {
@@ -16,7 +16,7 @@ export function useCountriesInfo() {
     }
 
     try {
-      const response = await nuvannApi.get("/countries");
+      const response = await nuvannPublicApi.get("/countries");
       countriesDispatch({ type: "SET_COUNTRIES", value: response.data });
 
       sessionStorage.setItem("countries", JSON.stringify(response.data));

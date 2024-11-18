@@ -1,5 +1,5 @@
 import { useCategories } from "@/contexts/categories";
-import { nuvannApi } from "@/services/api";
+import { nuvannPublicApi } from "@/services/api";
 import React from "react";
 
 
@@ -7,7 +7,7 @@ export function useCategoriesInfo() {
     const { state: categoriesState, dispatch: categoriesDispatch } = useCategories();
 
     async function getCategories() {
-        const response = await nuvannApi.get('/categories')
+        const response = await nuvannPublicApi.get('/categories')
         categoriesDispatch({ type: 'SET_CATEGORIES', value: response.data });
     }
 
