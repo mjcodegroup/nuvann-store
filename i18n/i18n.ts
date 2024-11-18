@@ -11,7 +11,7 @@ i18n
     .use(initReactI18next)
     .init({
         lng: language,
-        fallbackLng: "fr",
+        fallbackLng: "ht",
         defaultNS: [
             "home",
             "nav_content",

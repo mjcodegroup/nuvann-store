@@ -1,6 +1,6 @@
 import { useSellerDetails } from '@/contexts/seller-details';
 import { useToast } from '@/contexts/toast';
-import { nuvannApi } from '@/services/api';
+import { nuvannApi, nuvannPublicApi } from '@/services/api';
 import { useEffect, useCallback } from 'react';
 
 export function useSellerDetailsInfo(sellerId: string) {
@@ -10,7 +10,7 @@ export function useSellerDetailsInfo(sellerId: string) {
     const getSellerProducts = useCallback(async () => {
         sellerDetailsDispatch({ type: 'SET_SELLER_PRODUCTS_LOADER', value: true });
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params: {
                     seller_business_account_id: sellerId,
                     size: 20
