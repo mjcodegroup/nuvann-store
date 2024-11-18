@@ -7,6 +7,7 @@ export const UserContext = createContext<UserContextProps>({} as UserContextProp
 const initialState: State = {
   user: {} as User,
   isLoading: false,
+  token: null,
 };
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
