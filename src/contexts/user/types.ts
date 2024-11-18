@@ -4,6 +4,7 @@ import { Country } from "../countries/types";
 export interface State {
     user: User;
     isLoading: boolean;
+    token: string | null;
 }
 
 export type Action =
@@ -14,6 +15,10 @@ export type Action =
     | {
         type: 'SET_LOADING';
         value: boolean;
+    }
+    | {
+        type: 'SET_TOKEN';
+        value: string | null;
     };
 
 export interface UserContextProps {

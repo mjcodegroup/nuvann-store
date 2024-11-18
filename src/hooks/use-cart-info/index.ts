@@ -10,6 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export function useCartInfo() {
   const { successToast, errorToast } = useToast();
   const { redirect } = useNavigation();
+  const { token } = useUserInfo();
 
   const { state: cartState, dispatch: cartDispatch } = useCart();
   const { isAuthenticated } = useAuth0();
@@ -63,11 +64,13 @@ export function useCartInfo() {
   }
 
   React.useEffect(() => {
-    if(isAuthenticated && !cartState.cart.count) {
+
+    console.log(token);
+    if(isAuthenticated && !cartState.cart.count && token) {
       getCart();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
+  }, [isAuthenticated, token]);
 
   return {
     cartState,

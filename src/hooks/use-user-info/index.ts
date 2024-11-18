@@ -35,6 +35,7 @@ export function useUserInfo() {
         getUserInfo,
         handleBecomeSeller,
         modalTerm,
-        setModalTerm
+        setModalTerm,
+        token: state.token,
     }
 }
