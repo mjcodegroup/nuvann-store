@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
       getAccessTokenSilently,
       user, isLoading: loading,
       logout, isAuthenticated,
-      loginWithPopup: handleLogin
+      loginWithRedirect: handleLogin,
   } = useAuth0();
   const {countries} = useCountriesInfo();
   const { categoriesState} = useCategoriesInfo();
