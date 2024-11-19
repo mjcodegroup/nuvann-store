@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 export async function middleware(req: any) {
 
   const res = NextResponse.next();
-  const token = req.cookies.get('auth0.BvVWpwUjzMrzvRhM7qpWZQ8XHO79OKiL.is.authenticated');
+  const token = req.cookies.get('nuvann-valid-token');
 
-  if (!token) {
+  if (!token?.value) {
     const loginUrl = new URL('/login', req.url);
     return NextResponse.redirect(loginUrl);
   }
