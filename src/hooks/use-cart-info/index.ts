@@ -64,8 +64,6 @@ export function useCartInfo() {
   }
 
   React.useEffect(() => {
-
-    console.log(token);
     if(isAuthenticated && !cartState.cart.count && token) {
       getCart();
     }
