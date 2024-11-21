@@ -54,6 +54,7 @@ export interface CheckoutItem {
     shipment: Shipment;
     discount_amount: number;
     price_with_applied_discount: number;
+    currency: string;
 }
 
 export type ShippingInfoTypes = {

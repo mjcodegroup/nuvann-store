@@ -8,6 +8,7 @@ import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsi
 import CustomButton from '@/components/custom-button';
 import { getDefaultShipment } from '@/utils/get-default-shipment';
 import { formatUnderscoreToSpacesUpperCase } from '@/utils/formatter/format-underscore-to-spaces-upper-case';
+import { formatMoney } from '@/utils/formatter/format-money.util';
 
 export default function CardProducts(props: CardProductsProps) {
   const { t } = useTranslation("checkout");
@@ -25,7 +26,7 @@ export default function CardProducts(props: CardProductsProps) {
                   </div>
                   <div className={Styles.row_content}>
                     <p>{t('price')}</p>
-                    <span>{item.product.price}</span>
+                    <span>{formatMoney(item.product.price, item.currency)}</span>
                   </div>
                   <div className={Styles.row_content}>
                     <p>{t('amount')}</p>
@@ -34,7 +35,7 @@ export default function CardProducts(props: CardProductsProps) {
                   <div className={Styles.row_content}>
                     <p>{t('_subtotal')}</p>
 
-                    <span>{item.sub_total.formatted}</span>
+                    <span>{formatMoney(Number(item.sub_total.raw), item.currency)}</span>
                   </div>
                 </div>
                   <div className={Styles.separator}></div>

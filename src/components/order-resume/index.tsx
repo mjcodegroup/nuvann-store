@@ -8,9 +8,10 @@ import { Skeleton } from '@mui/material';
 
 export interface OrderResumeData {
   count: number;
-  sub_total: number;
-  shipping_cost: number;
-  total: number;
+  sub_total: number | string;
+  shipping_cost: number | string;
+  total: number | string;
+  currency?: string;
 }
 export interface OrderResumeProps {
     data: OrderResumeData;

@@ -6,6 +6,7 @@ import CardAddress from '../components/card-address';
 import CardProducts from '../components/card-products';
 import CardUpdateShipment from '../components/modal-update-shipment';
 import { hasNoAvailableShipments } from '@/utils/get-default-shipment';
+import { formatMoney } from '@/utils/formatter/format-money.util';
 
 export default function Checkout(props: Readonly<CheckoutProps>) {
   return (
@@ -40,12 +41,21 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
         </div>
 
         <div className={Styles.resume_container}>
-            <OrderResume
-              disabled={!props.userInfos.address || hasNoAvailableShipments(props.orderItems)}
-              data={props.orderResume}
-              OnCheckout={props.onPlaceOrder}
-              loading={props.placeOrderLoading}
-            />
+          {
+            (props.orderResume.total && !props.placeOrderLoading) && (
+              <OrderResume
+                disabled={!props.userInfos.address || hasNoAvailableShipments(props.orderItems)}
+                data={{
+                  count: props.orderResume.count,
+                  sub_total: formatMoney(Number(props.orderResume?.sub_total), String(props.orderResume?.currency)),
+                  shipping_cost: formatMoney(Number(props.orderResume?.shipping_cost), String(props.orderResume?.currency)),
+                  total: formatMoney(Number(props.orderResume?.total), String(props.orderResume?.currency)),
+                }}
+                OnCheckout={props.onPlaceOrder}
+                loading={props.placeOrderLoading}
+              />
+            )
+          }
         </div>
     </div>
   )
