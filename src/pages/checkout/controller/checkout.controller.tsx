@@ -160,7 +160,8 @@ export default function CheckoutController() {
             count: checkout.count,
             sub_total: checkout.sub_total,
             shipping_cost: checkout.shipping_cost,
-            total: checkout.total
+            total: checkout.total,
+            currency: checkout.currency
           }}
           shipmentAddress={shipmentAddress}
           openModalAddress={openModalAddress}
