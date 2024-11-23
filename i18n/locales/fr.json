@@ -1,4 +1,7 @@
 {
+  "common": {
+    "free_text": "Gratuit"
+  },
     "nav_content": {
       "home": "Accueil",
       "promotion": "Promotion",

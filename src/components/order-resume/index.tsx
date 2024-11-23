@@ -9,7 +9,7 @@ import { Skeleton } from '@mui/material';
 export interface OrderResumeData {
   count: number;
   sub_total: number | string;
-  shipping_cost: number | string;
+  shipping_cost: number | string | any;
   total: number | string;
   currency?: string;
 }

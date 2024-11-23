@@ -9,6 +9,8 @@ import CustomButton from '@/components/custom-button';
 import { getDefaultShipment } from '@/utils/get-default-shipment';
 import { formatUnderscoreToSpacesUpperCase } from '@/utils/formatter/format-underscore-to-spaces-upper-case';
 import { formatMoney } from '@/utils/formatter/format-money.util';
+import FreeShippingText from '@/components/free-shipping-text';
+import { formatPrice } from '@/utils/formatter/format-price.util';
 
 export default function CardProducts(props: CardProductsProps) {
   const { t } = useTranslation("checkout");
@@ -60,7 +62,7 @@ export default function CardProducts(props: CardProductsProps) {
                       </div>
                       
                       <div>
-                        <h5>{item.shipping_amount}</h5>
+                        <h5><FreeShippingText text={formatPrice(item.shipping_amount, item.currency)}/> </h5>
                       </div>
                     </>
                     )
