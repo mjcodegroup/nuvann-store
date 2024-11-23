@@ -103,7 +103,8 @@
       "price": "Prix",
       "amount": "Quantité",
       "_subtotal": "Sous-total",
-      "shipment_not_available_text": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée. Veuillez choisir une adresse de livraison différente."
+      "shipment_not_available_text": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée. Veuillez choisir une adresse de livraison différente.",
+      "ocicial_store": "Boutique officielle"
     },
     "footer": {
       "contact_us": "Contactez-nous",

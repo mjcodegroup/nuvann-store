@@ -102,7 +102,8 @@
       "price": "Price",
       "amount": "Amount",
       "_subtotal": "Subtotal",
-      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location."
+      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location.",
+      "ocicial_store": "Official store"
     },
     "footer": {
       "contact_us": "Contact us",

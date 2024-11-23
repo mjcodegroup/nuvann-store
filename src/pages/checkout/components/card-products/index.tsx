@@ -20,7 +20,10 @@ export default function CardProducts(props: CardProductsProps) {
         <h4>{t("title_products_ordered")}</h4> <br />
         {
           props.business_items?.map((business: BusinessItems, index: any) => (
-              <div className={Styles.products_row} key={business.business.id}>
+            <div className={Styles.products_row} key={business.business.id}>
+              <div className={Styles.business_section_title}>
+                <h3>{t('ocicial_store')}</h3><small>{business?.business?.name}</small>
+              </div>
                 <div>
                   {
                     business.items?.map((item: any, index:number) => (
