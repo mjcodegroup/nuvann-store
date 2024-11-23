@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface FreeShippingTextProps {
-    text: string
+    text: string | number
 }
 
 export default function FreeShippingText(props: FreeShippingTextProps) {

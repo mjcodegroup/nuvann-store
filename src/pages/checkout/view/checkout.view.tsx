@@ -27,9 +27,10 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
               setValues={props.setValues}
             />
             <CardProducts
-             items={props.orderItems}
-             onClickBtnChangeShipment={props.onChangeBtnChangeShipment}
-             />
+              business_items={props.business_items}
+              onClickBtnChangeShipment={props.onChangeBtnChangeShipment}
+              currency={props.orderResume.currency as string}
+            />
 
              <CardUpdateShipment 
               openModalShipment={props.openModalShipment}
@@ -46,7 +47,7 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
           {
             (props.orderResume.total && !props.placeOrderLoading) && (
               <OrderResume
-                disabled={!props.userInfos.address || hasNoAvailableShipments(props.orderItems)}
+                disabled={!props.userInfos.address || hasNoAvailableShipments(props.business_items)}
                 data={{
                   count: props.orderResume.count,
                   sub_total: formatMoney(Number(props.orderResume?.sub_total), String(props.orderResume?.currency)),

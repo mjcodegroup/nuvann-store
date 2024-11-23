@@ -64,7 +64,7 @@ export function useCheckoutInfo(orderId?: string) {
     async function updateShipmentInfos(data: ShipmentInfosTypes) {
         checkoutDispatch({ type: 'SET_UPDATE_SHIPPINGINFOS_LOADING', value: true });
         try {
-            await nuvannApi.patch(`/checkout/items/${data.itemId}?shipmentId=${data.shipmentId}`, data)
+            await nuvannApi.patch(`/checkout/orders/${data.orderId}/business/${data.businessId}/shipments/${data.shipmentId}`)
             successToast('Shipping info updated');
             setOpenModalShipment(false);
             getCheckout();
