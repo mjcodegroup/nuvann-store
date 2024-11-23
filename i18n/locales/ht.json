@@ -104,7 +104,8 @@
       "price": "Pri",
       "amount": "Kantite",
       "_subtotal": "Total",
-      "shipment_not_available_text": "Atik sa a pa ka anbake nan opsyon livrezon ou chwazi a. Tanpri chwazi yon lòt opsypn livrezon"
+      "shipment_not_available_text": "Atik sa a pa ka anbake nan opsyon livrezon ou chwazi a. Tanpri chwazi yon lòt opsypn livrezon",
+      "ocicial_store": "Magazen ofisyèl"
     },
     "footer": {
       "contact_us": "Kontakte nou",
