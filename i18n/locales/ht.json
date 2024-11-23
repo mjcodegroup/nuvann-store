@@ -1,4 +1,7 @@
 {
+  "common": {
+    "free_text": "Gratis"
+  },
     "nav_content": {
       "home": "Akèy",
       "promotion": "Promosyon",

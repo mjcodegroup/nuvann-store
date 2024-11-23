@@ -2,7 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 import Styles from './shipment-infos.module.scss';
 import { useTranslation } from 'react-i18next';
 import CustomButton from '@/components/custom-button';
-import { formatMoney } from '@/utils/formatter/format-money.util';
+import { formatPrice } from '@/utils/formatter/format-price.util';
+import FreeShippingText from '@/components/free-shipping-text';
 
 interface ShippingInfo {
   id: string;
@@ -47,8 +48,6 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect, no_defa
     setShowAll((prev) => !prev);
   };
 
-  console.log("_____________________", shippingInfos)
-
   return (
     <div className={Styles.shipping}>
       <h4>{t('delivery_information')}</h4>
@@ -73,7 +72,9 @@ const ShipmentInfos: FC<ShippingProps> = ({ shippingInfos, onInfoSelect, no_defa
                 }
                 <div className={Styles.info_details}>
                   <div className={Styles.delivery}>{info?.delivery_deadline}</div>
-                  <div className={Styles.price}>{formatMoney(info?.price, info?.currency)}</div>
+                  <div className={Styles.price}>
+                    <FreeShippingText text={formatPrice(info?.price, info?.currency)}/>
+                  </div>
                 </div>
               </label>
               <div className={Styles.coverage_footer}>
