@@ -32,10 +32,10 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     ];
 
     const onQuickPurchase = async (orderItem: OrderItem) => {
-        const colorProperty = orderItem?.product?.properties?.find(
+        const colorProperty = orderItem?.properties?.find(
             (prop) => prop.additionalProp1?.length > 0
         );
-        const sizeProperty = orderItem?.product?.properties?.find(
+        const sizeProperty = orderItem?.properties?.find(
             (prop) => prop.additionalProp2?.length > 0
         );
         const colorValue = colorProperty?.additionalProp1?.[0]?.value;

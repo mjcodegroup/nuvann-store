@@ -28,6 +28,7 @@ export interface OrderItem {
   created_at: string;
   public_id?: string;
   tax_amount: number;
+  properties: OrderProperty[];
   shipping_cost?: number;
   payment_method?: string;
   shipping_tracking_data?: ShippingTrackingData;
@@ -64,13 +65,13 @@ export interface ProductImage {
   alt: string;
 }
 
-export interface ProductProperty {
-  additionalProp1: OrderProperty[];
-  additionalProp2: OrderProperty[];
-  additionalProp3: OrderProperty[];
+export interface OrderProperty {
+  additionalProp1: ProductProperty[];
+  additionalProp2: ProductProperty[];
+  additionalProp3: ProductProperty[];
 }
 
-export interface OrderProperty {
+export interface ProductProperty {
   key: string;
   value: string;
 }
