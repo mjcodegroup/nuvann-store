@@ -123,6 +123,34 @@
 }
 
 @media (max-width: 768px) {
+    .card {
+        border-radius: 5px;
+        box-shadow: 0px 0px 8px 1px #0000003a;
+        margin-bottom: 27px;
+        background-color: hsl(0, 0%, 100%);
+    
+        .business_section_title {
+            padding-top: 2%;
+            text-align: center;
+            flex-direction: column;
+            strong{
+                color: var(--blue-principal-000052);
+            }
+    
+            .businessName {
+                h3 {
+                    border-radius: 0px;
+                    background-color: var(--blue-principal-000052);
+                    color: #ffff;   
+                    font-size: 12px;
+                    margin: 0;
+                    width: 124px;
+                }
+            }
+            
+        }
+    }
+    
     .ActualCard {
         width: 100%;
         min-height: 300px;
