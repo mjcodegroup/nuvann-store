@@ -134,9 +134,13 @@ export default function CheckoutController() {
   }
 
   const handleUpdateShippingInfo = (data: any) => {
+    const orderId = checkout.order_id ;
+    const businessId = currentShippingInfo.business.id;
+    const shipmentId=  selectedShippingInfo.id
     updateShipmentInfos({
-      itemId: currentShippingInfo.id,
-      shipmentId: selectedShippingInfo.id
+      orderId,
+      businessId,
+      shipmentId
     });
   }
 
@@ -146,14 +150,14 @@ export default function CheckoutController() {
   //   }
   // // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [checkout.count]);
-
+  
 
   return (
     <HomePageDefault>
         <Checkout
           onPlaceOrder={()=>handlePlaceOrder(orderid as string)}
           placeOrderLoading={placeOrderLoader}
-          orderItems={checkout.items}
+          business_items={checkout.business_items}
           userInfos={user}
           countryList={countries}
           orderResume={{

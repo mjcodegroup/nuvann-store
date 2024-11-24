@@ -1,4 +1,7 @@
 {
+  "common": {
+    "free_text": "Gratuit"
+  },
     "nav_content": {
       "home": "Accueil",
       "promotion": "Promotion",
@@ -100,7 +103,8 @@
       "price": "Prix",
       "amount": "Quantité",
       "_subtotal": "Sous-total",
-      "shipment_not_available_text": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée. Veuillez choisir une adresse de livraison différente."
+      "shipment_not_available_text": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée. Veuillez choisir une adresse de livraison différente.",
+      "ocicial_store": "Boutique officielle"
     },
     "footer": {
       "contact_us": "Contactez-nous",
@@ -114,7 +118,8 @@
       "how_to_sell": "Comment vendre",
       "faq": "FAQ",
       "about_us_text": "Nuvann est une plateforme de commerce électronique qui permet aux vendeurs de vendre leurs produits en ligne. Nous offrons une variété de produits de différentes catégories. Nous sommes là pour vous aider à trouver ce que vous cherchez.",
-      "country_region": "Pays & Région"
+      "country_region": "Pays & Région",
+      "terms_and_conditions": "Termes et Conditions"
     },
     "search": {
       "title": "Aucun produit ne correspond à votre recherche.",

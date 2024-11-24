@@ -1,4 +1,7 @@
 {
+  "common": {
+    "free_text": "Free"
+  },
     "nav_content": {
         "home": "Home",
         "promotion": "Promotion",
@@ -99,7 +102,8 @@
       "price": "Price",
       "amount": "Amount",
       "_subtotal": "Subtotal",
-      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location."
+      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location.",
+      "ocicial_store": "Official store"
     },
     "footer": {
       "contact_us": "Contact us",
@@ -113,7 +117,8 @@
       "how_to_sell": "How to sell",
       "faq": "FAQ",
       "about_us_text": "We take your product to your main community -- We bring your local product to help satisfy the longing.",
-      "country_region": "Country & Region"
+      "country_region": "Country & Region",
+      "terms_and_conditions": "Terms and Conditions"
     },
     "search": {
       "title": "There are no products that match your search.",

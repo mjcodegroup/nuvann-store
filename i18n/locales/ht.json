@@ -1,4 +1,7 @@
 {
+  "common": {
+    "free_text": "Gratis"
+  },
     "nav_content": {
       "home": "Akèy",
       "promotion": "Promosyon",
@@ -101,7 +104,8 @@
       "price": "Pri",
       "amount": "Kantite",
       "_subtotal": "Total",
-      "shipment_not_available_text": "Atik sa a pa ka anbake nan opsyon livrezon ou chwazi a. Tanpri chwazi yon lòt opsypn livrezon"
+      "shipment_not_available_text": "Atik sa a pa ka anbake nan opsyon livrezon ou chwazi a. Tanpri chwazi yon lòt opsypn livrezon",
+      "ocicial_store": "Magazen ofisyèl"
     },
     "footer": {
       "contact_us": "Kontakte nou",
@@ -115,7 +119,8 @@
       "how_to_sell": "Kijan pou vann",
       "faq": "FAQ",
       "about_us_text": "Nuvann MarketPlace se yon plas kote ou ka achte ak vann pwodui yo. Ou ka jwenn tout kalite pwodui nan Nuvann MarketPlace. Ou ka achte pwodui yo ak yon pri ki pi ba pase nan lòt sit entènèt yo. Ou ka vann pwodui yo tou. Ou ka kreye yon boutik sou Nuvann MarketPlace epi vann pwodui yo. Ou ka fè lajan ak Nuvann MarketPlace. Ou ka achte pwodui yo ak yon pri ki pi ba pase nan lòt sit entènèt yo. Ou ka vann pwodui yo tou. Ou ka kreye yon boutik sou Nuvann MarketPlace epi vann pwodui yo. Ou ka fè lajan ak Nuvann MarketPlace.",
-      "country_region": "Peyi ak rejyon"
+      "country_region": "Peyi ak rejyon",
+      "terms_and_conditions": "Tèm ak Kondisyon"
     },
     "search": {
       "title": "Pa gen pwodui ki koresponn ak rechèch ou an.",

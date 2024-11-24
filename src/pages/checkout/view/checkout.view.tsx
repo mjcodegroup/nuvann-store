@@ -7,6 +7,8 @@ import CardProducts from '../components/card-products';
 import CardUpdateShipment from '../components/modal-update-shipment';
 import { hasNoAvailableShipments } from '@/utils/get-default-shipment';
 import { formatMoney } from '@/utils/formatter/format-money.util';
+import FreeShippingText from '@/components/free-shipping-text';
+import { formatPrice } from '@/utils/formatter/format-price.util';
 
 export default function Checkout(props: Readonly<CheckoutProps>) {
   return (
@@ -25,9 +27,10 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
               setValues={props.setValues}
             />
             <CardProducts
-             items={props.orderItems}
-             onClickBtnChangeShipment={props.onChangeBtnChangeShipment}
-             />
+              business_items={props.business_items}
+              onClickBtnChangeShipment={props.onChangeBtnChangeShipment}
+              currency={props.orderResume.currency as string}
+            />
 
              <CardUpdateShipment 
               openModalShipment={props.openModalShipment}
@@ -44,11 +47,11 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
           {
             (props.orderResume.total && !props.placeOrderLoading) && (
               <OrderResume
-                disabled={!props.userInfos.address || hasNoAvailableShipments(props.orderItems)}
+                disabled={!props.userInfos.address || hasNoAvailableShipments(props.business_items)}
                 data={{
                   count: props.orderResume.count,
                   sub_total: formatMoney(Number(props.orderResume?.sub_total), String(props.orderResume?.currency)),
-                  shipping_cost: formatMoney(Number(props.orderResume?.shipping_cost), String(props.orderResume?.currency)),
+                  shipping_cost: <FreeShippingText text={formatPrice(Number(props.orderResume?.shipping_cost), String(props.orderResume?.currency))}/>,
                   total: formatMoney(Number(props.orderResume?.total), String(props.orderResume?.currency)),
                 }}
                 OnCheckout={props.onPlaceOrder}

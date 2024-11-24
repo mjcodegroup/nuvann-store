@@ -33,9 +33,10 @@ export const Footer = () => {
           </div>
           <div>
             <h2>{t('utils_Links')}</h2>
-            <Link href="https://faqs.nuvann.com/en/vendre" target='_blank'><p>{t('how_to_sell')}</p></Link>
-            <Link href="https://faqs.nuvann.com/en/home" target='_blank'><p>{t('faq')}</p></Link>
             <Link href="https://faqs.nuvann.com/en/demarrage-rapid" target='_blank'><p>Nuvann</p></Link>
+            <Link href="https://faqs.nuvann.com/en/home" target='_blank'><p>{t('faq')}</p></Link>
+            <Link href="https://faqs.nuvann.com/en/vendre" target='_blank'><p>{t('how_to_sell')}</p></Link>
+            <Link href="https://faqs.nuvann.com/en/termes-et-conditions" target='_blank'><p>{t('terms_and_conditions')}</p></Link>
           </div>
 
           <div style={{
