@@ -22,7 +22,7 @@ export interface OrderItem {
   unit_discount_amount: number;
   unit_price_with_discount: number;
   total_price: number;
-  seller?: Seller;
+  seller: Seller;
   shipping_address?: ShippingAddress;
   order_item_status_logs: OrderItemStatusLog[];
   created_at: string;

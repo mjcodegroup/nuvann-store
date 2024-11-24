@@ -31,28 +31,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
   const { redirect } = useNavigation();
   const { handleQuickPurchase, quickPurchaseLoader } = useProductsInfo();
 
-  const onQuickPurchase = async (orderItem: OrderItem) => {
-    const colorProperty = orderItem?.product?.properties?.find(
-      (prop) => prop.additionalProp1?.length > 0
-    );
-    const sizeProperty = orderItem?.product?.properties?.find(
-      (prop) => prop.additionalProp2?.length > 0
-    );
-    const colorValue = colorProperty?.additionalProp1?.[0]?.value;
-    const sizeValue = sizeProperty?.additionalProp2?.[0]?.value;
-    const propertyArray = [];
-    if (colorValue) {
-      propertyArray.push({ color: colorValue });
-    }
-    if (sizeValue) {
-      propertyArray.push({ size: sizeValue });
-    }
-    await handleQuickPurchase(orderItem.id, {
-      quantity: orderItem?.quantity,
-      properties: propertyArray.length > 0 ? propertyArray : undefined,
-    });
-  };
-  
+
   return (
     <div className={styles.card_resume}>
       <Title title={t('overview')} className={styles.resume_title} />
@@ -84,21 +63,23 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             <h5>{formatMoney(data.total, order.currency)}</h5>
           )}
         </div>
+        <div className={styles.resume_separated_info}>
+          <Title title={t('seller_information')} className={styles.resume_title} />
+          <h4></h4>
+          {props.loading ? (
+            <p><Skeleton width={100} height={30} /> </p>
+          ) : (
+            <h5></h5>
+          )}
+        </div>
         <hr />
         <div className={styles.resume_separated_info}>
           <p>
-            {t('seller')}:{' '}
+            {t('name')}:{' '}
             <span
               className={styles.seller_name}
-              onClick={() =>
-                redirect(
-                  `${RoutesUrls.SELLER_DETAILS}?sellerName=${encodeURIComponent(
-                    order?.seller?.name || ''
-                  )}&country=${encodeURIComponent(
-                    order?.seller?.country?.name || ''
-                  )}&createdAt=${encodeURIComponent(order?.created_at || '')}` as RoutesUrls
-                )
-              }
+              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order?.seller?.business_account_id}&name=${encodeURIComponent(order?.seller?.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RoutesUrls)}
+
             >
               {order?.seller?.name}
             </span>
@@ -113,7 +94,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             <h5>{order?.seller?.country?.name}</h5>
           )}
         </div>
-        {order?.shipping_address && (
+        {order?.shipping_tracking_data && (
           <>
             <Title title={t('shipping_title')} className={styles.resume_title} />
             <hr />
