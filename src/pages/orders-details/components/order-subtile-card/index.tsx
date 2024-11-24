@@ -47,15 +47,13 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                             return (
                                 <li
                                     key={status}
-                                    className={`${Styles.StepProgressItem} ${
-                                        statusLog ? Styles.isActive : Styles.isInactive
-                                    } ${status === lastKnownStatus ? Styles.current : ''} ${
-                                        status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' ? Styles.isCancelled : ''
-                                    }`}
+                                    className={`${Styles.StepProgressItem} ${statusLog ? Styles.isActive : Styles.isInactive
+                                        } ${status === lastKnownStatus ? Styles.current : ''} ${status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' ? Styles.isCancelled : ''
+                                        }`}
                                 >
                                     <strong style={{
-                                                color: status === lastKnownStatus ? 'green': ''
-                                            }}>{descriptionStatus[index]}</strong>
+                                        color: status === lastKnownStatus ? 'green' : ''
+                                    }}>{descriptionStatus[index]}</strong>
                                     {statusLog && (
                                         <div>
                                             <span>{formatDate(statusLog.occurred_on, t('date_format'))}</span>

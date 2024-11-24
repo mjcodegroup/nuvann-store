@@ -63,8 +63,8 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                 </div>
                 <div>
                     <strong>{t('shipping_price')}: {formatMoney(order.subtotal, order.selected_shipment?.currency)}</strong>
-                </div> 
-           </div>
+                </div>
+            </div>
             {order.items.map((item) => (
                 <div className={Styles.ActualCard} key={item.id}>
                     <Image

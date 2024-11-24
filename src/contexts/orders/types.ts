@@ -119,13 +119,13 @@ export interface State {
 
 export type Action =
   | {
-      type: 'SET_ORDERS';
-      value: Order[];
-    }
+    type: 'SET_ORDERS';
+    value: Order[];
+  }
   | {
-      type: 'SET_ORDER_LOADER';
-      value: boolean;
-    };
+    type: 'SET_ORDER_LOADER';
+    value: boolean;
+  };
 
 export interface OrdersContextProps {
   state: State;

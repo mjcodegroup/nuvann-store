@@ -14,7 +14,7 @@
         padding-left: 2%;
         padding: auto 0;
 
-        strong{
+        strong {
             color: var(--blue-principal-000052);
         }
 
@@ -22,16 +22,17 @@
             display: flex;
             align-items: center;
             gap: 5px;
+
             h3 {
                 border-radius: 0px;
                 background-color: var(--blue-principal-000052);
-                color: #ffff;   
+                color: #ffff;
                 font-size: 12px;
                 margin: 0;
                 width: 124px;
             }
         }
-        
+
     }
 }
 
@@ -45,7 +46,7 @@
     padding: 10px 0px;
     margin-bottom: 5px;
 
-    img{
+    img {
         width: 102px;
         height: 92px;
         border-radius: 5px;
@@ -55,17 +56,17 @@
 .CardstitleDate {
     width: 55%;
 
-    h5{
+    h5 {
         padding-bottom: 1%;
         margin-top: 1%;
     }
 
-    .title{
+    .title {
         display: flex;
         gap: 0 8px;
         align-items: center;
 
-        span{
+        span {
             font-size: 12px;
             color: #A3A3A3
         }
@@ -128,29 +129,30 @@
         box-shadow: 0px 0px 8px 1px #0000003a;
         margin-bottom: 27px;
         background-color: hsl(0, 0%, 100%);
-    
+
         .business_section_title {
             padding-top: 2%;
             text-align: center;
             flex-direction: column;
-            strong{
+
+            strong {
                 color: var(--blue-principal-000052);
             }
-    
+
             .businessName {
                 h3 {
                     border-radius: 0px;
                     background-color: var(--blue-principal-000052);
-                    color: #ffff;   
+                    color: #ffff;
                     font-size: 12px;
                     margin: 0;
                     width: 124px;
                 }
             }
-            
+
         }
     }
-    
+
     .ActualCard {
         width: 100%;
         min-height: 300px;
@@ -164,8 +166,8 @@
         width: 100%;
         text-align: center;
         margin-top: 10px;
-        
-        .title{
+
+        .title {
             flex-direction: column;
         }
     }
