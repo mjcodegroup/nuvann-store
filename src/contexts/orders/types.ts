@@ -2,7 +2,7 @@ export interface Order {
   id: string;
   business: Business;
   items: OrderItem[];
-  sub_total: number;
+  subtotal: number;
   selected_shipment?: SelectedShipment;
 }
 

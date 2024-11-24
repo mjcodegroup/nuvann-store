@@ -166,7 +166,8 @@
       "company": "Empresa",
       "tracking_id": "ID de seguimiento",
       "confirmation_code": "Código de confirmación",
-      "oficial_store": "Tienda oficial"
+      "oficial_store": "Tienda oficial",
+      "shipping_price": "Precio de envío"
     },
     "seller_page": {
       "products": "Productos",

@@ -8,6 +8,7 @@ import CustomButton from '@/components/custom-button';
 import { formatDate } from '@/utils/date-convert';
 import { useTranslation } from 'react-i18next';
 import { useProductsInfo } from '@/hooks/use-products-info';
+import { formatMoney } from '@/utils/formatter/format-money.util';
 
 interface OrderCardProps {
     order: Order;
@@ -61,13 +62,13 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                     <h3>{t('oficial_store')}:</h3><small>{order?.business?.name}</small>
                 </div>
                 <div>
-                    <strong>Shipping price: $US 250</strong>
+                    <strong>{t('shipping_price')}: {formatMoney(order.subtotal, order.selected_shipment?.currency)}</strong>
                 </div> 
            </div>
             {order.items.map((item) => (
                 <div className={Styles.ActualCard} key={item.id}>
                     <Image
-                        src={order.items[0].product.images[0]?.url || '/placeholder.png'}
+                        src={item.product.images[0]?.url || '/placeholder.png'}
                         alt="product"
                         width={100}
                         height={100}
