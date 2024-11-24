@@ -32,24 +32,10 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     ];
 
     const onQuickPurchase = async (orderItem: OrderItem) => {
-        const colorProperty = orderItem?.properties?.find(
-            (prop) => prop.additionalProp1?.length > 0
-        );
-        const sizeProperty = orderItem?.properties?.find(
-            (prop) => prop.additionalProp2?.length > 0
-        );
-        const colorValue = colorProperty?.additionalProp1?.[0]?.value;
-        const sizeValue = sizeProperty?.additionalProp2?.[0]?.value;
         const propertyArray = [];
-        if (colorValue) {
-            propertyArray.push({ color: colorValue });
-        }
-        if (sizeValue) {
-            propertyArray.push({ size: sizeValue });
-        }
         await handleQuickPurchase(orderItem.product.id, {
             quantity: orderItem?.quantity,
-            properties: propertyArray.length > 0 ? propertyArray : undefined,
+            properties: [],
         });
     };
     const statusIndex = allStatuses.indexOf(order.items[0].status);
