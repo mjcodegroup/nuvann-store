@@ -40,7 +40,7 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                             textColor="#ffff"
                             width={200}
                             height={35}
-                        >   
+                        >
                             {t('buy')}
                         </CustomButton>
                     </div>
@@ -54,7 +54,6 @@ export default function Orders({ orders, isLoading }: OrdersProps) {
                                 <div key={order.id}>
                                     <OrderCard
                                         order={order}
-                                        selectedOrder={selectedOrder}
                                         handleOrderClick={() => setSelectedOrder(order)}
                                     />
                                 </div>

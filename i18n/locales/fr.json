@@ -164,7 +164,8 @@
       "shipping_title": "Suivi d'expédition",
       "company": "Entreprise",
       "tracking_id": "Identifiant de suivi",
-      "confirmation_code": "Code de confirmation"
+      "confirmation_code": "Code de confirmation",
+      "oficial_store": "Boutique officielle"
     },
     "seller_page": {
       "products": "Produits",

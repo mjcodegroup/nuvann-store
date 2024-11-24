@@ -1,52 +1,70 @@
 export interface Order {
   id: string;
-  product: OrderItem;
-  quantity: number;
-  currency: string;
-  status: string;
-  properties: OrderProperties;
-  seller: Seller;
-  unit_price: number;
+  business: Business;
+  items: OrderItem[];
   sub_total: number;
-  tax_amount: number;
-  shipping_cost: number;
-  unit_discount_amount: number;
-  total_discount_amount: number;
-  unit_price_with_discount: number;
-  total_price: number;
-  payment_method: string;
-  shipping_address: ShippingAddress;
-  order_item_status_logs: OrderItemStatusLog[];
-  shipping_tracking_data: ShippingTrackingData;
-  shipment_description: string;
-  created_at: string;
-  public_id: string;
-  delivery_code: string;
+  selected_shipment?: SelectedShipment;
+}
+
+export interface Business {
+  id: string;
+  name: string;
 }
 
 export interface OrderItem {
   id: string;
-  name: string;
-  description: string;
-  images: OrderItemImage[];
-  price: number;
-  properties: OrderItemProperty[];
-  available_amount: number;
+  product: Product;
+  quantity: number;
+  currency: string;
+  status: string;
+  sub_total: number;
+  unit_price: number;
+  unit_discount_amount: number;
+  unit_price_with_discount: number;
+  total_price: number;
+  seller?: Seller;
+  shipping_address?: ShippingAddress;
+  order_item_status_logs: OrderItemStatusLog[];
+  created_at: string;
+  public_id?: string;
+  tax_amount: number;
+  shipping_cost?: number;
+  payment_method?: string;
+  shipping_tracking_data?: ShippingTrackingData;
+  shipment_description?: string;
+  delivery_code?: string;
 }
 
-export interface OrderItemImage {
+export interface SelectedShipment {
+  id: string;
+  price: number;
+  currency: string;
+  type: string;
+  description: string;
+  delivery_deadline: string;
+  coverage_area: string;
+  default_shipment: boolean;
+  base_price: number;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  images: ProductImage[];
+  price: number;
+  properties?: ProductProperty[];
+  available_amount?: number;
+}
+
+export interface ProductImage {
   id: string;
   title: string;
   url: string;
   alt: string;
 }
 
-export interface OrderItemProperty {
-  key: string;
-  value: string;
-}
-
-export interface OrderProperties {
+export interface ProductProperty {
   additionalProp1: OrderProperty[];
   additionalProp2: OrderProperty[];
   additionalProp3: OrderProperty[];
@@ -72,7 +90,7 @@ export interface Country {
 export interface ShippingAddress {
   street: string;
   number: string;
-  complement: string;
+  complement?: string;
   neighborhood: string;
   city: string;
   zipCode: string;
@@ -81,7 +99,6 @@ export interface ShippingAddress {
 }
 
 export interface OrderItemStatusLog {
-  id?: string;
   description: string;
   occurred_on: string;
   order_item_status: string;
@@ -93,6 +110,7 @@ export interface ShippingTrackingData {
   tracking_id: string;
 }
 
+
 export interface State {
   orders: Order[];
   order_loader: boolean;
@@ -103,11 +121,11 @@ export type Action =
   | {
       type: 'SET_ORDERS';
       value: Order[];
-  }
+    }
   | {
       type: 'SET_ORDER_LOADER';
       value: boolean;
-  };
+    };
 
 export interface OrdersContextProps {
   state: State;

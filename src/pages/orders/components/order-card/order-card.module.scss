@@ -1,13 +1,49 @@
+.card {
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 1px #0000003a;
+    margin-bottom: 27px;
+    background-color: hsl(0, 0%, 100%);
+    padding-top: 1%;
+
+    .business_section_title {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 2.6%;
+        padding-left: 2%;
+        padding: auto 0;
+
+        strong{
+            color: var(--blue-principal-000052);
+        }
+
+        .businessName {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            h3 {
+                border-radius: 0px;
+                background-color: var(--blue-principal-000052);
+                color: #ffff;   
+                font-size: 12px;
+                margin: 0;
+                width: 124px;
+            }
+        }
+        
+    }
+}
+
+
 .ActualCard {
     border-radius: 5px;
     min-height: 153px;
     height: 100%;
-    box-shadow: 0px 0px 8px 1px #0000003a;
-    background-color: #FFFFFF;
     display: flex;
     justify-content: space-evenly;
-    padding: 30px 14px;
-    margin-bottom: 27px;
+    padding: 10px 0px;
+    margin-bottom: 5px;
 
     img{
         width: 102px;
@@ -18,10 +54,12 @@
 
 .CardstitleDate {
     width: 55%;
+
     h5{
-    padding-bottom: 1%;
-    margin-top: 1%;
+        padding-bottom: 1%;
+        margin-top: 1%;
     }
+
     .title{
         display: flex;
         gap: 0 8px;
