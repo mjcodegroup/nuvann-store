@@ -28,14 +28,19 @@ export default function App({ Component, pageProps }: AppProps) {
   const {redirect} = useNavigation();
 
   useBeforeLeave((url) => {
-    if(url !== RoutesUrls.Login) {
+    if(url && url !== RoutesUrls.Login) {
       localStorage.setItem("lastUrl", url);
     }
   });
 
-  function onRedirectCallback(appState: any) {
+  function onRedirectCallback() {
     const getRedirectUrl = localStorage.getItem("lastUrl");
-    redirect(window.location.origin + getRedirectUrl as RoutesUrls)
+
+  const redirectUrl = getRedirectUrl
+    ? `${window.location.origin}${getRedirectUrl}`
+    : window.location.origin;
+
+  redirect(redirectUrl as RoutesUrls);
   }
   return (
     <>

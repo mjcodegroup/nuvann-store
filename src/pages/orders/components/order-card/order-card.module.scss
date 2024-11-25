@@ -131,22 +131,22 @@
         background-color: hsl(0, 0%, 100%);
 
         .business_section_title {
-            padding-top: 2%;
+            padding: 8px;
             text-align: center;
             flex-direction: column;
-
+            
             strong {
                 color: var(--blue-principal-000052);
             }
-
+            
             .businessName {
+                padding: 8px 0;
                 h3 {
                     border-radius: 0px;
                     background-color: var(--blue-principal-000052);
                     color: #ffff;
                     font-size: 12px;
                     margin: 0;
-                    width: 124px;
                 }
             }
 
