@@ -164,7 +164,9 @@
       "shipping_title": "Shipping Tracking",
       "company": "Company",
       "tracking_id": "Tracking ID",
-      "confirmation_code": "Confirmation code"
+      "confirmation_code": "Confirmation code",
+      "oficial_store": "Official store",
+      "shipping_price": "Shipping price"
     },
     "seller_page": {
       "products": "Products",
