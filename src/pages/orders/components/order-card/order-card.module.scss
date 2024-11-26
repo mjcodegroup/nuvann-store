@@ -8,11 +8,9 @@
     .business_section_title {
         text-align: center;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        padding-right: 2.6%;
-        padding-left: 2%;
-        padding: auto 0;
+        margin-bottom: 24px;
 
         strong {
             color: var(--blue-principal-000052);
