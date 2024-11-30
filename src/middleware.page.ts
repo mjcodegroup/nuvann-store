@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function middleware(req: any) {
 
   const res = NextResponse.next();
-  const auth0Token = req.cookies.get('auth0.BvVWpwUjzMrzvRhM7qpWZQ8XHO79OKiL.is.authenticated');
+  const auth0Token = req.cookies.get(process.env.NEXT_PUBLIC_AUTH0_IS_AUTHENTICATED);
 
   if (!auth0Token?.value) {
     const loginUrl = new URL('/login', req.url);
