@@ -1,14 +1,14 @@
-import { Order } from "../orders/types";
+import { OrderItem } from "../orders/types";
 
 export interface State {
-    order: Order;
+    order: OrderItem;
     order_details_loader: boolean;
     update_order_loader: boolean;
 }
 
 export type Action = 
     | {
-         type: 'SET_ORDER_DETAILS'; value: Order;
+         type: 'SET_ORDER_DETAILS'; value: OrderItem;
     }
     | {
          type: 'SET_ORDER_DETAILS_LOADER'; value: boolean;

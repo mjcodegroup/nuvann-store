@@ -165,7 +165,9 @@
       "shipping_title": "Swivi livrezon",
       "company": "Konpayi",
       "tracking_id": "ID pou swiv",
-      "confirmation_code": "Kòd konfimasyon"
+      "confirmation_code": "Kòd konfimasyon",
+      "oficial_store": "Magazen ofisyèl",
+      "shipping_price": "Pri livrezon"
     },
     "seller_page": {
       "products": "Pwodwi",

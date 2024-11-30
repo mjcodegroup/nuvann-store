@@ -3,7 +3,7 @@ import Styles from "./card-products.module.scss"
 import { useTranslation } from 'react-i18next';
 import { CardProductsProps } from '../../types';
 import Image from 'next/image';
-import { BusinessItems, CheckoutItem } from '@/contexts/checkout/types';
+import { BusinessItems } from '@/contexts/checkout/types';
 import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsis';
 import CustomButton from '@/components/custom-button';
 import { getDefaultShipment } from '@/utils/get-default-shipment';
