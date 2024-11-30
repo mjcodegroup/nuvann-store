@@ -48,7 +48,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                     <h3>{t('oficial_store')}:</h3><small>{order?.business?.name}</small>
                 </div>
                 <div>
-                    <strong>{t('shipping_price')}: {formatMoney(order.subtotal, order.selected_shipment?.currency)}</strong>
+                    <strong>{t('shipping_price')}: {formatMoney(order.selected_shipment?.price ?? 0.00, order.selected_shipment?.currency)}</strong>
                 </div>
             </div>
             {order.items.map((item) => (
