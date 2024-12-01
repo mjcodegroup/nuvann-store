@@ -1,6 +1,6 @@
 import { useProducts } from "@/contexts/products";
 import { getProductsParams, PostQuickPurchaseType, ProductDetailsParams } from "@/contexts/products/types";
-import { nuvannApi } from "@/services/api";
+import { nuvannApi, nuvannPublicApi } from "@/services/api";
 import { useNavigation } from "../useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
@@ -20,7 +20,7 @@ export function useProductsInfo() {
             size: 20
         }
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params
             })
             productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
@@ -35,7 +35,7 @@ export function useProductsInfo() {
     async function getNewProducts() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params: {
                     new_product: true,
                     size: 20
@@ -52,7 +52,7 @@ export function useProductsInfo() {
     async function getPromotionProducts() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params: {
                     in_promotion: true,
                     size: 20
@@ -67,20 +67,22 @@ export function useProductsInfo() {
     }
 
     async function getProductDetails(params: ProductDetailsParams) {
-        let queryParams = '';
-
-        if (params.size) {
-          queryParams += `&size=${params.size}`;
-        }
-        
-        if (params.color) {
-          queryParams += `&color=${params.color}`;
-        }
-        
-        const queryString = queryParams ? '?' + queryParams.slice(1) : '';
-        const response = await nuvannApi.get(`/products/${params.id}${queryString}`);
+        const queryParams: Record<string, string | undefined> = {
+            size: params.size,
+            color: params.color,
+        };
+    
+        const queryString = Object.entries(queryParams)
+            .filter(([, value]) => value !== undefined && value !== '') // Filtra valores undefined ou vazios
+            .map(([key, value]) => `${key}=${encodeURIComponent(value!)}`) // Encode para segurança
+            .join('&');
+    
+        const fullPath = `/products/${params.id}${queryString ? `?${queryString}` : ''}`;
+        const response = await nuvannPublicApi.get(fullPath);
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
     }
+    
+    
 
     async function handleQuickPurchase(productId: string, data: PostQuickPurchaseType) {
         productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: true });

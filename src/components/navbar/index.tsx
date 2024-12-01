@@ -26,6 +26,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import sessionManager from '@/utils/session-manager';
 import cookie from '@/utils/cookie';
 import { generateRandomString } from '@/utils/generate-random-string';
+import { useUser } from '@/contexts/user';
 
 interface selectedCountry {
   label: string;
@@ -39,19 +40,21 @@ export const Navbar: React.FC = () => {
       getAccessTokenSilently,
       user, isLoading: loading,
       logout, isAuthenticated,
-      loginWithPopup: handleLogin
+      loginWithRedirect: handleLogin,
   } = useAuth0();
   const {countries} = useCountriesInfo();
+  const { categoriesState} = useCategoriesInfo();
   const {
     handleBecomeSeller,
     getUserInfo,
     user: userInfos,
     isLoading: userInfosLoader,
     modalTerm,
+    token,
     setModalTerm
   } = useUserInfo();
+  const {dispatch: userDispatch} =useUser();
   const { cartState} = useCartInfo();
-  const { categoriesState} = useCategoriesInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();
@@ -79,22 +82,11 @@ export const Navbar: React.FC = () => {
   const setSession = async() => {
     const token = await getAccessTokenSilently();
     if(token){
+      userDispatch({ type: 'SET_TOKEN', value: token });
       sessionManager.setSession(token);
     }
   }
 
-  React.useEffect(() => {
-    if(!isAuthenticated) return;
-    setSession();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
-
-  React.useEffect(() => {
-    if(isAuthenticated && !userInfos.name) {
-      getUserInfo();
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  } , [isAuthenticated]);
 
   React.useEffect(() => {
     if(becomeseller) {
@@ -107,6 +99,20 @@ export const Navbar: React.FC = () => {
     logout();
     sessionManager.clearSession();
   }
+
+  React.useEffect(() => {
+    if(isAuthenticated && token && !userInfos.name) {
+      getUserInfo();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
+  React.useEffect(() => {
+    if(isAuthenticated) {
+      setSession();
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   return (
     <>

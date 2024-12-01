@@ -8,6 +8,7 @@ import { CartItem } from '@/contexts/cart/types';
 import { CartCardProps } from '../../types';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
+import { formatMoney } from '@/utils/formatter/format-money.util';
 
 
 const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
@@ -36,8 +37,8 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
               </div>
               <div className={styles.content_desc}>
                 <p>{t('price')}:</p>
-                  <span>{item.sub_total?.raw !== item.product?.price && (<small className={styles.line_through}> {`${item?.currency}  ${item.price}`} </small>)}
-                      <small className={styles.revert_line_through}> {` ${item.currency} ${item?.unit_price_with_discount}`}</small>
+                  <span>{item.sub_total?.raw !== item.product?.price && (<small className={styles.line_through}>{formatMoney(item.price, item.currency)} </small>)}
+                      <small className={styles.revert_line_through}>{formatMoney(item?.unit_price_with_discount, item.currency)}</small>
                 </span>
               </div>
               {
@@ -79,7 +80,7 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 ) :
                 (
                   <p>
-                    {item.sub_total?.formatted}
+                    {formatMoney(item.sub_total?.raw, item.currency)}
                   </p>
                 )
               }

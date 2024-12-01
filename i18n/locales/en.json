@@ -1,4 +1,9 @@
 {
+  "common": {
+    "free_text": "Free",
+    "btn_confirm": "Confirm",
+    "btn_cancel": "Cancel"
+  },
     "nav_content": {
         "home": "Home",
         "promotion": "Promotion",
@@ -99,7 +104,8 @@
       "price": "Price",
       "amount": "Amount",
       "_subtotal": "Subtotal",
-      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location."
+      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location.",
+      "ocicial_store": "Official store"
     },
     "footer": {
       "contact_us": "Contact us",
@@ -113,7 +119,8 @@
       "how_to_sell": "How to sell",
       "faq": "FAQ",
       "about_us_text": "We take your product to your main community -- We bring your local product to help satisfy the longing.",
-      "country_region": "Country & Region"
+      "country_region": "Country & Region",
+      "terms_and_conditions": "Terms and Conditions"
     },
     "search": {
       "title": "There are no products that match your search.",
@@ -159,7 +166,13 @@
       "shipping_title": "Shipping Tracking",
       "company": "Company",
       "tracking_id": "Tracking ID",
-      "confirmation_code": "Confirmation code"
+      "confirmation_code": "Confirmation code",
+      "oficial_store": "Official store",
+      "shipping_price": "Shipping price",
+      "confirm_receipt": "Confirm receipt",
+      "modal_receive_order_title": "Did you receive the order",
+      "modal_receive_order_description": "Are you sure the order is exactly as you ordered it ?",
+      "confirmation_date": "Confirmation code"
     },
     "seller_page": {
       "products": "Products",

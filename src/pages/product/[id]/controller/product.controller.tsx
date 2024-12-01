@@ -6,7 +6,6 @@ import { useProducts } from '@/contexts/products';
 import { useProductsInfo } from '@/hooks/use-products-info';
 import { useCartInfo } from '@/hooks/use-cart-info';
 import { useAuth0 } from '@auth0/auth0-react';
-import { has } from 'lodash';
 
 
 interface SizeandProductIE {
@@ -109,26 +108,46 @@ const handleAddProductToCart = async() => {
     const isColorSelected = !!selectedColor.value;
     const isSizeSelected = !!selectedSize.value;
   
-    // Define os parâmetros básicos do request
     const requestParams: any = { id: params.id };
   
-    // Adiciona color e size apenas se forem necessários e selecionados
     if (hasColor && isColorSelected) requestParams.color = selectedColor.value;
     if (hasSize && isSizeSelected) requestParams.size = selectedSize.value;
   
-    // Faz o request apenas se:
-    // - Ambos color e size estiverem disponíveis e selecionados
-    // - Apenas um deles estiver disponível e selecionado
-    // - Nenhum estiver disponível
-    if (
-      (!hasColor || isColorSelected) && 
-      (!hasSize || isSizeSelected)
-    ) {
+    if ((!hasColor || isColorSelected) && (!hasSize || isSizeSelected)) {
       getProductDetails(requestParams);
     }
-  
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params?.id, selectedColor, selectedSize]);
+
+  useEffect(() => {
+    if (!params?.id) return;
+  
+    const hasColor = !!productDetails.product?.properties?.color?.length;
+    const hasSize = !!productDetails.product?.properties?.size?.length;
+    const isColorSelected = !!selectedColor.value;
+    const isSizeSelected = !!selectedSize.value;
+  
+    const requestParams: any = { id: params.id };
+  
+    if (hasColor && isColorSelected) requestParams.color = selectedColor.value;
+    if (hasSize && isSizeSelected) requestParams.size = selectedSize.value;
+  
+    if ((!hasColor || isColorSelected) && (!hasSize || isSizeSelected)) {
+      getProductDetails(requestParams);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params?.id, selectedColor, selectedSize]);
+
+  useEffect(() => {
+    if (params?.id) getProductDetails({
+      id: params.id,
+      color: selectedColor?.value || undefined,
+      size: selectedSize?.value || undefined,
+      
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params?.id])
+  
   
   
 

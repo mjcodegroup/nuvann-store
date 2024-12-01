@@ -6,6 +6,7 @@ import { CartProps } from '../types';
 import EmptyCart from '../components/empty-cart';
 import CartCardSkeleton from '../components/cart-card-skeleton';
 import OrderResume from '@/components/order-resume';
+import { formatMoney } from '@/utils/formatter/format-money.util';
 
 
 const Cart: React.FC<CartProps> = (props: CartProps) => {
@@ -43,9 +44,9 @@ const Cart: React.FC<CartProps> = (props: CartProps) => {
           <OrderResume
             data={{
               count: data.count,
-              sub_total: data.sub_total,
-              shipping_cost: data.shipping_cost,
-              total: data.total,
+              sub_total: formatMoney( data.sub_total, data.currency),
+              shipping_cost: formatMoney(data.shipping_cost, data.currency),
+              total: formatMoney(data.total, data.currency),
             }}
             hideShippingCost
             OnCheckout={props.onCheckout}

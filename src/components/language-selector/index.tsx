@@ -6,7 +6,7 @@ import { FormControl, MenuItem, Select } from '@mui/material';
 import Image from 'next/image';
 
 export default function LanguageSelector() {
-    const [lng, setLng] = useState<string>(process.env.NEXT_I18LANG || 'fr')
+    const [lng, setLng] = useState<string>(process.env.NEXT_I18LANG || 'ht')
     const { i18n } = useTranslation();
 
     const handleLangChange = (event: any): void =>  {

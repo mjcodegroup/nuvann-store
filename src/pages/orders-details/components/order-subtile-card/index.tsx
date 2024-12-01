@@ -1,19 +1,16 @@
 import React from 'react';
 import Styles from './order-subtile.module.scss';
-import { Order } from '@/contexts/orders/types';
+import { Order, OrderItem } from '@/contexts/orders/types';
 import { formatDate } from '@/utils/date-convert';
 import { useTranslation } from 'react-i18next';
 
 interface OrderSubCardProps {
-    order: Order;
+    order: OrderItem;
 }
 
 const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
     const { t } = useTranslation('order');
-    
-
     const allStatuses = ['AWAITING_PAYMENT', 'PAID', 'PROCESSING', 'SHIPPED', 'CANCELLED', 'DELIVERED'];
-
     const descriptionStatus = [
         t('waiting_for_payment_confirmation'),
         t('payment_received'),
@@ -22,10 +19,9 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
         t('order_cancelled'),
         t('order_delivered'),
     ];
-
     let showNextStatuses = true;
     const lastKnownStatus = allStatuses.reduce((acc, status) => {
-        const statusLog = order.order_item_status_logs?.find(log => log.order_item_status === status);
+        const statusLog = order?.order_item_status_logs?.find(log => log.order_item_status === status);
         return statusLog ? status : acc;
     }, '');
 
@@ -35,7 +31,7 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                 <div className={Styles.about}>
                     <ul className={Styles.StepProgress}>
                         {allStatuses.map((status, index) => {
-                            const statusLog = order.order_item_status_logs?.find(log => log.order_item_status === status);
+                            const statusLog = order?.order_item_status_logs?.find(log => log.order_item_status === status);
 
                             if (status === 'CANCELLED') {
                                 if (statusLog) {
@@ -51,15 +47,13 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                             return (
                                 <li
                                     key={status}
-                                    className={`${Styles.StepProgressItem} ${
-                                        statusLog ? Styles.isActive : Styles.isInactive
-                                    } ${status === lastKnownStatus ? Styles.current : ''} ${
-                                        status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' ? Styles.isCancelled : ''
-                                    }`}
+                                    className={`${Styles.StepProgressItem} ${statusLog ? Styles.isActive : Styles.isInactive
+                                        } ${status === lastKnownStatus ? Styles.current : ''} ${status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' ? Styles.isCancelled : ''
+                                        }`}
                                 >
                                     <strong style={{
-                                                color: status === lastKnownStatus ? 'green': ''
-                                            }}>{descriptionStatus[index]}</strong>
+                                        color: status === lastKnownStatus ? 'green' : ''
+                                    }}>{descriptionStatus[index]}</strong>
                                     {statusLog && (
                                         <div>
                                             <span>{formatDate(statusLog.occurred_on, t('date_format'))}</span>
