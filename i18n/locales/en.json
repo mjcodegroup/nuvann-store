@@ -1,6 +1,8 @@
 {
   "common": {
-    "free_text": "Free"
+    "free_text": "Free",
+    "btn_confirm": "Confirm",
+    "btn_cancel": "Cancel"
   },
     "nav_content": {
         "home": "Home",
@@ -166,7 +168,11 @@
       "tracking_id": "Tracking ID",
       "confirmation_code": "Confirmation code",
       "oficial_store": "Official store",
-      "shipping_price": "Shipping price"
+      "shipping_price": "Shipping price",
+      "confirm_receipt": "Confirm receipt",
+      "modal_receive_order_title": "Did you receive the order",
+      "modal_receive_order_description": "Are you sure the order is exactly as you ordered it ?",
+      "confirmation_date": "Confirmation code"
     },
     "seller_page": {
       "products": "Products",

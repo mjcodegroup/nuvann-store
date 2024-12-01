@@ -1,6 +1,8 @@
 {
   "common": {
-    "free_text": "Gratuit"
+    "free_text": "Gratuit",
+    "btn_confirm": "Confirmer",
+    "btn_cancel": "Annuler"
   },
     "nav_content": {
       "home": "Accueil",
@@ -166,7 +168,13 @@
       "tracking_id": "Identifiant de suivi",
       "confirmation_code": "Code de confirmation",
       "oficial_store": "Boutique officielle",
-      "shipping_price": "Prix d'expédition"
+      "shipping_price": "Prix d'expédition",
+      "confirm_receipt": "Confirmer la Réception",
+      "btn_confirm": "Confirmer",
+      "btn_cancel": "Annuler",
+      "modal_receive_order_title": "Avez-vous reçu la commande",
+      "modal_receive_order_description": "Êtes-vous sûr que la commande est exactement comme vous l'avez commandée ?",
+      "confirmation_date": "Date de confirmation"
     },
     "seller_page": {
       "products": "Produits",

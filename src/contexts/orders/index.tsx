@@ -10,6 +10,7 @@ const initialState: State = {
     orders: [],
     order_loader: false,
     update_order_loader: false,
+    confirm_receipt_loader: false,
 };
 
 export function OrdersProvider({ children }: { children: React.ReactNode }) {
