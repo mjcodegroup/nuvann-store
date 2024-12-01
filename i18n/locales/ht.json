@@ -175,7 +175,8 @@
       "btn_cancel": "Anile",
       "modal_receive_order_title": "Eske ou resevwa kòmand la",
       "modal_receive_order_description": "Eske ou sèten kòmand la se egzakteman jan ou te mande l lan ?",
-      "confirmation_date": "Dat konfimasyon"
+      "confirmation_date": "Dat konfimasyon",
+      "order_price": "Pri kòmand"
     },
     "seller_page": {
       "products": "Pwodwi",
