@@ -1,6 +1,8 @@
 {
   "common": {
-    "free_text": "Gratis"
+    "free_text": "Gratis",
+    "btn_confirm": "Confirmar",
+    "btn_cancel": "Cancelar"
   },
     "nav_content": {
       "home": "Inico",
@@ -167,7 +169,13 @@
       "tracking_id": "ID de seguimiento",
       "confirmation_code": "Código de confirmación",
       "oficial_store": "Tienda oficial",
-      "shipping_price": "Precio de envío"
+      "shipping_price": "Precio de envío",
+      "confirm_receipt": "Confirmar Recepción",
+      "btn_confirm": "Confirmar",
+      "btn_cancel": "Cancelar",
+      "modal_receive_order_title": "¿Recibiste el pedido ",
+      "modal_receive_order_description": "¿Estás seguro de que el pedido es exactamente como lo pediste ?",
+      "confirmation_date": "Fecha de confirmación"
     },
     "seller_page": {
       "products": "Productos",

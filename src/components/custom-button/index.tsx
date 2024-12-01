@@ -14,6 +14,7 @@ interface Props extends ButtonProps {
   color?: ButtonProps['color'];
   type?: 'button' | 'submit' | 'reset';
   disabledBackgroundColor?: string;
+  variant?: 'text' | 'outlined' | 'contained';
 }
 
 const CustomButton: React.FC<Props> = ({
@@ -39,7 +40,8 @@ const CustomButton: React.FC<Props> = ({
     width,
     height,
     color: textColor,
-    backgroundColor: isLoading ||disabled ? disabledBackgroundColor : backgroundColor
+    backgroundColor: isLoading ||disabled ? disabledBackgroundColor : backgroundColor,
+    variant: variant,
   };
 
   return (

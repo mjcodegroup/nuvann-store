@@ -1,0 +1,41 @@
+.simple_modal_container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: space-between; //to verify
+    gap: 3px;
+
+    .simple_modal_content {
+        text-align: center;
+
+        .simple_modal_title {
+            text-align: left;
+            color: red;
+            font-size: 18px;
+            color: #707070;
+            opacity: 1;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: left;
+            font-size: 16px;
+            color: #707070;
+            opacity: 1;
+        }
+    }
+
+    .simple_modal_buttons {
+        display: flex;
+        justify-content: center;
+        button {
+            margin-left: 20px;
+
+            span {
+                text-transform: none;
+                font-size: 16px;
+            }
+        }
+    }
+}
