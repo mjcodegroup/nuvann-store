@@ -35,7 +35,7 @@ export interface Order {
   business: Business;
   items: OrderItem[];
   subtotal: number;
-  selected_shipment?: SelectedShipment;
+  selected_shipment: SelectedShipment;
 }
 
 export interface Business {

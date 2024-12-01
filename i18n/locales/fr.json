@@ -174,7 +174,8 @@
       "btn_cancel": "Annuler",
       "modal_receive_order_title": "Avez-vous reçu la commande",
       "modal_receive_order_description": "Êtes-vous sûr que la commande est exactement comme vous l'avez commandée ?",
-      "confirmation_date": "Date de confirmation"
+      "confirmation_date": "Date de confirmation",
+      "order_price": "Prix de la commande"
     },
     "seller_page": {
       "products": "Produits",

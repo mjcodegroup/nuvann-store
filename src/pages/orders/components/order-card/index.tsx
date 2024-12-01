@@ -21,12 +21,12 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     const { redirect } = useNavigation();
     const { t } = useTranslation('order');
     const { handleQuickPurchase, quickPurchaseLoader } = useProductsInfo();
-    const [ selectedOrderId, setSelectedOrderId ] = useState('');
+    const [selectedOrderId, setSelectedOrderId] = useState('');
     const { openModalReceipt,
-        setOpenModalReceipt ,
+        setOpenModalReceipt,
         confirmReceipt,
         ordersState,
-} = useOrdersInfo();
+    } = useOrdersInfo();
 
     const allStatuses = ['AWAITING_PAYMENT', 'PAID', 'PROCESSING', 'SHIPPED', 'CANCELLED', 'DELIVERED'];
 
@@ -61,7 +61,13 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                     <h3>{t('oficial_store')}:</h3><small>{order?.business?.name}</small>
                 </div>
                 <div>
+                    <strong>{t('order_price')}: {formatMoney(order.subtotal ?? 0.00, order.selected_shipment?.currency)}</strong>
+                </div>
+                <div>
                     <strong>{t('shipping_price')}: {formatMoney(order.selected_shipment?.price ?? 0.00, order.selected_shipment?.currency)}</strong>
+                </div>
+                <div>
+                    <strong>{t('total_price')}: {formatMoney((order?.subtotal ?? 0.0) + (order?.selected_shipment?.price ?? 0.00), order.selected_shipment?.currency)}</strong>
                 </div>
             </div>
             {order.items.map((item: OrderItem) => (
@@ -132,7 +138,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                 </div>
             ))}
 
-           <ModalConfirm
+            <ModalConfirm
                 open={openModalReceipt}
                 setOpen={setOpenModalReceipt}
                 title={t('modal_receive_order_title')}

@@ -172,7 +172,8 @@
       "confirm_receipt": "Confirm receipt",
       "modal_receive_order_title": "Did you receive the order",
       "modal_receive_order_description": "Are you sure the order is exactly as you ordered it ?",
-      "confirmation_date": "Confirmation code"
+      "confirmation_date": "Confirmation code",
+      "order_price": "Order price"
     },
     "seller_page": {
       "products": "Products",
