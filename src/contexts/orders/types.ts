@@ -1,3 +1,35 @@
+
+
+export interface State {
+  orders: Order[];
+  order_loader: boolean;
+  update_order_loader: boolean;
+  confirm_receipt_loader: boolean;
+}
+
+export type Action =
+  | {
+    type: 'SET_ORDERS';
+    value: Order[];
+  }
+  | {
+    type: 'SET_ORDER_LOADER';
+    value: boolean;
+  }
+  | {
+    type: 'SET_UPDATE_ORDER_LOADER';
+    value: boolean;
+  }
+  | {
+    type: 'SET_CONFIRM_RECEIPT_LOADER';
+    value: boolean;
+  };
+
+export interface OrdersContextProps {
+  state: State;
+  dispatch: React.Dispatch<Action>;
+}
+
 export interface Order {
   id: string;
   business: Business;
@@ -33,6 +65,7 @@ export interface OrderItem {
   shipping_tracking_data?: ShippingTrackingData;
   shipment_description?: string;
   delivery_code?: string;
+  confirmation_date?: string;
 }
 
 export interface SelectedShipment {
@@ -102,26 +135,4 @@ export interface ShippingTrackingData {
   company_name: string;
   company_url: string;
   tracking_id: string;
-}
-
-
-export interface State {
-  orders: Order[];
-  order_loader: boolean;
-  update_order_loader: boolean;
-}
-
-export type Action =
-  | {
-    type: 'SET_ORDERS';
-    value: Order[];
-  }
-  | {
-    type: 'SET_ORDER_LOADER';
-    value: boolean;
-  };
-
-export interface OrdersContextProps {
-  state: State;
-  dispatch: React.Dispatch<Action>;
 }
