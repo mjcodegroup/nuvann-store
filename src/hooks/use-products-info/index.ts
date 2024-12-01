@@ -67,20 +67,22 @@ export function useProductsInfo() {
     }
 
     async function getProductDetails(params: ProductDetailsParams) {
-        let queryParams = '';
-
-        if (params.size) {
-          queryParams += `&size=${params.size}`;
-        }
-        
-        if (params.color) {
-          queryParams += `&color=${params.color}`;
-        }
-        
-        const queryString = queryParams ? '?' + queryParams.slice(1) : '';
-        const response = await nuvannPublicApi.get(`/products/${params.id}${queryString}`);
+        const queryParams: Record<string, string | undefined> = {
+            size: params.size,
+            color: params.color,
+        };
+    
+        const queryString = Object.entries(queryParams)
+            .filter(([, value]) => value !== undefined && value !== '') // Filtra valores undefined ou vazios
+            .map(([key, value]) => `${key}=${encodeURIComponent(value!)}`) // Encode para segurança
+            .join('&');
+    
+        const fullPath = `/products/${params.id}${queryString ? `?${queryString}` : ''}`;
+        const response = await nuvannPublicApi.get(fullPath);
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
     }
+    
+    
 
     async function handleQuickPurchase(productId: string, data: PostQuickPurchaseType) {
         productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: true });

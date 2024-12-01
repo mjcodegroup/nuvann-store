@@ -7,18 +7,22 @@
         color: rgb(117, 117, 117);
         width: 110px;
         text-transform: capitalize;
-        flex-shrink: 0;
         width: 100%;
+        display: flex;
     }
     span {
         margin-top: 8px;
         font-size: .875rem;
         color: #2e9cc3;
         text-transform: capitalize;
-        &:not(:first-child) {
-            margin: 4px 0;
-            padding: 0 8px;
+        
+        margin: 8px 4px;
+        
+        &:not(:first-of-type) {
+            padding: 0 4px;
             border-left: 1px solid#2e9cc3;
         }
+
+        
     }
 }
