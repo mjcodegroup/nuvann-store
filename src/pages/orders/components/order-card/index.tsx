@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Styles from './order-card.module.scss';
 import { Order, OrderItem } from '@/contexts/orders/types';
@@ -9,6 +9,8 @@ import { formatDate } from '@/utils/date-convert';
 import { useTranslation } from 'react-i18next';
 import { useProductsInfo } from '@/hooks/use-products-info';
 import { formatMoney } from '@/utils/formatter/format-money.util';
+import ModalConfirm from '@/components/modal-confirm';
+import { useOrdersInfo } from '@/hooks/use-orders-info';
 
 interface OrderCardProps {
     order: Order;
@@ -19,6 +21,12 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     const { redirect } = useNavigation();
     const { t } = useTranslation('order');
     const { handleQuickPurchase, quickPurchaseLoader } = useProductsInfo();
+    const [ selectedOrderId, setSelectedOrderId ] = useState('');
+    const { openModalReceipt,
+        setOpenModalReceipt ,
+        confirmReceipt,
+        ordersState,
+} = useOrdersInfo();
 
     const allStatuses = ['AWAITING_PAYMENT', 'PAID', 'PROCESSING', 'SHIPPED', 'CANCELLED', 'DELIVERED'];
 
@@ -41,6 +49,11 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     const statusIndex = allStatuses.indexOf(order.items[0].status);
     const statusDescription = statusIndex !== -1 ? descriptionStatus[statusIndex] : order.items[0].status;
 
+    const handleOpenModalReceipt = (orderId: string) => {
+        setOpenModalReceipt(true);
+        setSelectedOrderId(orderId);
+    }
+
     return (
         <div className={Styles.card}>
             <div className={Styles.business_section_title}>
@@ -51,7 +64,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                     <strong>{t('shipping_price')}: {formatMoney(order.selected_shipment?.price ?? 0.00, order.selected_shipment?.currency)}</strong>
                 </div>
             </div>
-            {order.items.map((item) => (
+            {order.items.map((item: OrderItem) => (
                 <div className={Styles.ActualCard} key={item.id}>
                     <Image
                         src={item.product.images[0]?.url || '/placeholder.png'}
@@ -78,8 +91,29 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                                 {t('confirmation_code')}: <span>{item.delivery_code}</span>
                             </h5>
                         )}
+                        {
+                            item.confirmation_date && (
+                                <h5>
+                                    {t('confirmation_date')}: <span>{formatDate(item.confirmation_date, t('date_format'))}</span>
+                                </h5>
+                            )
+                        }
                     </div>
                     <div className={Styles.CardsButtons}>
+                        {
+                            !item.confirmation_date && (
+                                <CustomButton
+                                    backgroundColor="#0c98af"
+                                    size='large'
+                                    variant='text'
+                                    textColor="#ffff"
+                                    onClick={() => handleOpenModalReceipt(item.id)}
+                                    isLoading={ordersState.confirm_receipt_loader && selectedOrderId === item.id}
+                                >
+                                    {t('confirm_receipt')}
+                                </CustomButton>
+                            )
+                        }
                         <CustomButton
                             backgroundColor="white"
                             textColor="#000052"
@@ -97,6 +131,18 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                     </div>
                 </div>
             ))}
+
+           <ModalConfirm
+                open={openModalReceipt}
+                setOpen={setOpenModalReceipt}
+                title={t('modal_receive_order_title')}
+                description={t('modal_receive_order_description')}
+                textBtnCancel={t('btn_cancel')}
+                textBtnConfirm={t('btn_confirm')}
+                onCLickBtnCancel={() => console.log('cancel')}
+                onClickBtnConfirm={() => confirmReceipt(selectedOrderId)}
+                loading={ordersState.confirm_receipt_loader}
+            />
         </div>
     );
 };
