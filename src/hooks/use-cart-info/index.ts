@@ -4,17 +4,27 @@ import { useNavigation } from "../useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 import React from "react";
+import { useUserInfo } from "../use-user-info";
+import { useAuth0 } from "@auth0/auth0-react";
 
-export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
+export function useCartInfo() {
   const { successToast, errorToast } = useToast();
   const { redirect } = useNavigation();
+  const { token } = useUserInfo();
 
   const { state: cartState, dispatch: cartDispatch } = useCart();
+  const { isAuthenticated } = useAuth0();
 
   async function getCart() {
-    const response = await nuvannApi.get('/carts/items');
-    cartDispatch({ type: 'SET_CART', value: response.data });
-    return response.data;
+    try {
+      const response = await nuvannApi.get('/carts/items');
+      cartDispatch({ type: 'SET_CART', value: response.data });
+      return response.data;
+    } catch (error: any) {
+      console.error('Error getting cart:', error.response?.data.message);
+    } finally {
+      cartDispatch({ type: 'SET_CART_LOADER', value: false });
+    }
   }
 
   async function removeFromCart(id: number) {
@@ -30,38 +40,35 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
   };
 
   async function updateCart(itemId: number, newQuantity: number) {
-    cartDispatch({ type: 'SET_CART_LOADER', value: true });
     try {
       await nuvannApi.patch(`/carts/items/${itemId}?quantity=${newQuantity}`);
       await getCart();
     } catch (error: any) {
       console.error('Error updating item:', error.response?.data.message);
-    }
-    finally {
       cartDispatch({ type: 'SET_CART_LOADER', value: false });
     }
   }
 
   async function addProductToCart(data: CreateProductData) {
-    cartDispatch({ type: 'SET_CART_LOADER', value: true });
+    cartDispatch({ type: 'SET_CART_LOADER_REQUEST', value: true });
     try {
       const response = await nuvannApi.post('/carts/items', data);
       successToast(response.data.message || 'Product added to cart');
       getCart();
+      cartDispatch({ type: 'SET_CART_LOADER_REQUEST', value: false });
       redirect(RoutesUrls.CARTS);
     } catch (error: any) {
       errorToast(error.response.data.message);
-
-    } finally {
-      cartDispatch({ type: 'SET_CART_LOADER', value: false });
+      cartDispatch({ type: 'SET_CART_LOADER_REQUEST', value: false });
     }
   }
 
   React.useEffect(() => {
-    if(cartState.cart.items?.length || !isAuthenticated) return;
-    getCart();
+    if(isAuthenticated && !cartState.cart.count && token) {
+      getCart();
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
+  }, [isAuthenticated, token]);
 
   return {
     cartState,
@@ -70,6 +77,7 @@ export function useCartInfo({ isAuthenticated }: { isAuthenticated: boolean }) {
     updateCart,
     addProductToCart,
     isLoading: cartState.cart_loader,
+    isRequesting: cartState.cart_loader_request
   };
 }
 
@@ -83,5 +91,5 @@ export interface CreateProductData {
     }
   ],
   product_id: string;
-  shipment_id: string | undefined;
+  shipment_id?: string | undefined;
 }

@@ -36,42 +36,57 @@ export interface Checkout {
     currency: string;
     total: number;
     count: number;
-    items: CheckoutItem[];
     sub_total: number;
     shipping_cost: number;
+    business_items: BusinessItems[];
+    order_id: string;
+}
+
+export interface BusinessItems {
+    business:BusinessInfo;
+    items: CheckoutItem[];
+    subtotal: number;
+    available_shipments: Shipment[];
+}
+
+export interface BusinessInfo {
+    id: string;
+    name: string;
 }
 
 export interface CheckoutItem {
     id: number;
     price: number;
     quantity: number;
+    subtotal: Price;
     product: cartProduct
-    sub_total: Price;
-    available_shipments: Shipment[];
+    public_id: string;
+    is_available_for_selected_shipment: boolean;
     shipping_amount: number;
     total_price: number;
     tax_amount: number;
-    shipment: Shipment;
-    discount_amount: number;
-    price_with_applied_discount: number;
+    unit_discount_amount: number;
+    total_discount_amount: number;
+    unit_price_with_discount: number;
 }
 
 export type ShippingInfoTypes = {
 
-    shipping_address: {
-        street: string,
-        number: string,
-        complement: string,
-        neighborhood: string,
-        city: string,
-        zipCode: string,
+    shipping_address?: {
+        street?: string,
+        number?: string,
+        complement?: string,
+        neighborhood?: string,
+        city?: string,
+        zipCode?: string,
         country: Country,
-        state_or_department: string
+        state_or_department: string;
       },
-    shipping_contact: {
-        name: string,
-        phoneNumber: string
-    }
+    shipping_contact?: {
+        name?: string;
+        phoneNumber?: string;
+    },
+    order_id?: string;
 }
 
 
@@ -83,6 +98,7 @@ export type PlaceOrderTypes = {
 }
 
 export type ShipmentInfosTypes = {
-    itemId: string;
+    orderId: string;
+    businessId: string;
     shipmentId: string;
 }

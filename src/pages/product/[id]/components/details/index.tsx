@@ -9,14 +9,17 @@ import CustomButton from '@/components/custom-button';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useTranslation } from 'react-i18next';
 import { DetailsProps } from '../../types';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { useNavigation } from '@/hooks/useNavigation';
 
 export default function Details(props: DetailsProps) {
   const { t } = useTranslation('details');
+  const { redirect } = useNavigation()
+
   const {
     productInfos, 
     onError,
     onSelectedShippingInfo,
-    selectedShippingInfo,
     onSelectedSize,
     selectedSize,
     onSelectedColor,
@@ -26,22 +29,38 @@ export default function Details(props: DetailsProps) {
     onIncrement,
     onDecrement,
     onAddToCart,
-    isLoading,
+    addToCartLoader: isLoading,
     onPurchase
   } = props;
 
+  const redirectToSellerDetails = () => {
+    redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${props.productInfos.seller.business_account_id}&name=${encodeURIComponent(props.productInfos.seller.name)}&country=${encodeURIComponent(props.productInfos.seller.country.name)}&createdAt=${encodeURIComponent(props.productInfos.seller.created_at)}` as RoutesUrls)
+  };
+
   return (
     <div className={Styles.product_infos}>
-        <section>
+      <div>
+      <section>
             <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
-                <p><span>{t('seller')}:</span> <small>{productInfos?.seller?.name}</small>  </p>
+                <p>
+                  <span>{t('seller')}: </span>
+                  <span
+                  className={Styles.seller_name}
+                    onClick={redirectToSellerDetails}
+                  >
+                    {productInfos?.seller?.name}
+                  </span>
+                </p>
                 <p><span>{t('country')}:</span> <small>{productInfos?.seller?.country?.name}</small></p>
-                <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount} unite</small></p>
+                <p><span>{t('sales')}:</span> <small>{productInfos?.sold_amount}  {productInfos.sold_amount ? t('unit_s') : ''}</small></p>
             </div>
 
             <div className={Styles.prices_class}>
-                <small>{productInfos?.prices?.original_price?.formatted}</small>
+                {productInfos.prices?.current_price?.discount?.value ? (
+                  <small>{productInfos?.prices?.original_price?.formatted}</small>
+                ) : ''}
+              
                 <p>{productInfos?.prices?.current_price?.formatted}</p>
                 {
                   productInfos?.prices?.current?.discountPercent && 
@@ -58,30 +77,35 @@ export default function Details(props: DetailsProps) {
                 <SizeComponent sizes={productInfos?.properties?.size} selectedSize={selectedSize?.value} onSelectSize={onSelectedSize} />
             </div>
 
-            <div className={`shipment_infos  ${onError && !selectedShippingInfo.id ? Styles.shake : ''}`}>
-                <ShipmentInfos shippingInfos={productInfos?.shipments} onInfoSelect={onSelectedShippingInfo} />
-            </div>
             {
-            onError ? 
-                <small className="detail_error_message">{t("please_select_size_or_color")}</small>
-            : ''
+              onError ? 
+              <small className="detail_error_message">{t("please_select_size_or_color")}</small>
+              : ''
             }
         </section>
+            {
+              productInfos?.shipments?.length ?
+            <div className={Styles.shipment_infos}>
+                <ShipmentInfos no_default_selected shippingInfos={productInfos?.shipments} onInfoSelect={onSelectedShippingInfo} />
+            </div> : ''
+            }
         <section>
-            <div className={Styles.avalaible_countries}>
-                <AvailableCountries countries={productInfos?.available_countries} />
-            </div>
+          <div className={Styles.avalaible_countries}>
+              <AvailableCountries countries={productInfos?.available_countries} />
+          </div>
         </section>
 
         <InputQuantity
-            total={productInfos?.available_amount}
-            availableText={t('available')}
-            label={t('quantity')}
-            onChange={onChangeQuantity} 
-            value={qty}
-            increment={onIncrement}
-            decrement={onDecrement}
+          total={productInfos?.available_amount}
+          availableText={t('available_s')}
+          label={t('quantity')}
+          onChange={onChangeQuantity} 
+          value={qty}
+          increment={onIncrement}
+          decrement={onDecrement}
+          disabled={productInfos?.available_amount < qty}
         />
+      </div>
 
         <section className={Styles.detail_infos_footer}>
             <CustomButton
@@ -91,16 +115,19 @@ export default function Details(props: DetailsProps) {
               className={Styles.btn_cart}
               variant='outlined'
               onClick={onAddToCart}
-              >
-                {t('add_to_cart')}
+              disabled={productInfos?.available_amount < qty}
+            >
+              {t('add_to_cart')}
             </CustomButton>
             <CustomButton
+                isLoading={props.onPurchaseLoading}
                 className={Styles.btn_purchase}
                 backgroundColor="#00B127"
                 textColor='#fff'
                 onClick={onPurchase}
+                disabled={productInfos?.available_amount < qty}
             >
-                    {t('buy_now')}
+              {t('buy_now')}
             </CustomButton>
         </section>
 

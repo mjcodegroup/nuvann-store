@@ -6,14 +6,14 @@ import { FormControl, MenuItem, Select } from '@mui/material';
 import Image from 'next/image';
 
 export default function LanguageSelector() {
-    const [lng, setLng] = useState<string>(process.env.NEXT_I18LANG || 'fr')
+    const [lng, setLng] = useState<string>(process.env.NEXT_I18LANG || 'ht')
     const { i18n } = useTranslation();
 
     const handleLangChange = (event: any): void =>  {
         const lang = event.target.value
         i18n.changeLanguage(lang)
         setLng(lang)
-        Cookie.setCookie("NEXT_I18LANG", lang, 180)
+        Cookie.setCookie({name: "NEXT_I18LANG", value: lang, days: 180, domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''})
         window.location.reload()
     }
 

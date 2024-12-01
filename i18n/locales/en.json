@@ -1,4 +1,9 @@
 {
+  "common": {
+    "free_text": "Free",
+    "btn_confirm": "Confirm",
+    "btn_cancel": "Cancel"
+  },
     "nav_content": {
         "home": "Home",
         "promotion": "Promotion",
@@ -41,7 +46,7 @@
     "details": {
       "add_to_cart": "Add to cart",
       "available_countries": "Available countries",
-      "available": "Available",
+      "available_s": "Available(s)",
       "buy_now": "Buy now",
       "categories": "Categories",
       "country": "Country",
@@ -57,13 +62,17 @@
       "sales": "Sales",
       "sizes": "Sizes",
       "specific_information": "Specific information",
-      "tags": "Tags"
+      "tags": "Tags",
+      "see_more": "See more shipping options",
+      "see_less": "See less shipment options",
+      "unavailable": "Unavailable",
+      "unit_s": "unit(s)"
     },
     "cart": {
       "shopping_cart": "Shopping cart",
       "product": "Product",
       "quantity": "Quantity",
-      "available": "Available",
+      "available_s": "Available(s)",
       "price": "Price",
       "total": "Total",
       "checkout": "Checkout",
@@ -91,7 +100,12 @@
       "street_name": "Street name",
       "street_number": "Street No.",
       "complement": "Complement",
-      "select_shipment_option_title": "Select shipment option"
+      "select_shipment_option_title": "Select shipment option",
+      "price": "Price",
+      "amount": "Amount",
+      "_subtotal": "Subtotal",
+      "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location.",
+      "ocicial_store": "Official store"
     },
     "footer": {
       "contact_us": "Contact us",
@@ -101,7 +115,12 @@
       "profile": "Profile",
       "carts": "Cart",
       "orders": "Orders",
-      "logout": "Logout"
+      "logout": "Logout",
+      "how_to_sell": "How to sell",
+      "faq": "FAQ",
+      "about_us_text": "We take your product to your main community -- We bring your local product to help satisfy the longing.",
+      "country_region": "Country & Region",
+      "terms_and_conditions": "Terms and Conditions"
     },
     "search": {
       "title": "There are no products that match your search.",
@@ -111,6 +130,57 @@
       "more_generic": "more generic",
       "or_fewer_words": "or fewer words.",
       "browse_categories": "Browse the categories",
-      "to_find_product": "to find a similar product."
+      "to_find_product": "to find a similar product.",
+      "result_s": " result (s)",
+      "daily_deals": "Daily deals",
+      "categories": "Categories"
+      
+    },
+    "order": {
+      "products_already_purchased": "Products you have already purchased",
+      "buy_again": "Buy again",
+      "see_more": "See more",
+      "order_detail": "Order detail",
+      "destination": "Destination",
+      "overview": "Overview",
+      "total_price": "Total price",
+      "delivery": "Delivery",
+      "seller_information": "Seller information",
+      "country": "Country",
+      "name": "Name",
+      "back_to_orders": "Back to orders",
+      "waiting_for_payment_confirmation": "Waiting for payment confirmation",
+      "payment_received": "Payment has been received",
+      "order_being_prepared": "The order is being prepared and processed",
+      "order_shipped": "The order has been shipped",
+      "order_cancelled": "The order was cancelled",
+      "order_delivered": "The order has been delivered",
+      "no_purchases_yet": "You haven't purchased anything yet",
+      "buy": "Buy",
+      "purchase_date": "Purchase date",
+      "status": "Status",
+      "quantity": "Quantity",
+      "delivered_by": "Delivered by",
+      "sub_total": "Subtotal",
+      "date_format": "en-US",
+      "shipping_title": "Shipping Tracking",
+      "company": "Company",
+      "tracking_id": "Tracking ID",
+      "confirmation_code": "Confirmation code",
+      "oficial_store": "Official store",
+      "shipping_price": "Shipping price",
+      "confirm_receipt": "Confirm receipt",
+      "modal_receive_order_title": "Did you receive the order",
+      "modal_receive_order_description": "Are you sure the order is exactly as you ordered it ?",
+      "confirmation_date": "Confirmation code"
+    },
+    "seller_page": {
+      "products": "Products",
+      "total_products": "Total products",
+      "location": "Location",
+      "seller_since": "Seller Since"
+    },
+    "language": {
+      "date_format": "en-US"
     }
   }

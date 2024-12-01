@@ -12,16 +12,13 @@ const AvailableCountries: React.FC<TitleProps> =({countries}) =>{
     return (
         <div className={Styles.available_content}>
             <p>
-                {
-                    countries?.length > 1 &&
-                     
-                    (
-                        countries?.map((ava: string, index:number)=> (
-                            <span key={index}>{ava}</span>
-                        ))
-                    )
-                }
+            {t('available_countries')}
             </p>
+                {
+                    countries?.map((ava: string, index:number)=> (
+                        <span key={index}>{ava}</span>
+                    ))
+                }
         </div>
     )
 }

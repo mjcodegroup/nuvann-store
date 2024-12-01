@@ -1,27 +1,34 @@
+import Cookies from 'js-cookie';
+
 class Cookie {
-    setCookie(name: string, value: string, days: number) {
-        let expires = "";
-        if (days) {
-            let date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  setCookie({name, value, days, domain}:{name: string, value: string, days: number, domain: string}) {
+    if (typeof window !== 'undefined') {
+      Cookies.set(name, value, { 
+        expires: days, 
+        path: '/', 
+        domain: domain, 
+        secure: true
+      });
     }
+  }
 
-    getCookie(name: string) {
-        if (typeof window !== 'undefined') {
-            const cookieValue = RegExp('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)').exec(document.cookie);
-            return cookieValue ? cookieValue.pop() : '';
-        } else {
-            return '';
-        }
+  getCookie(name: string) {
+    if (typeof window !== 'undefined') {
+      return Cookies.get(name) || '';
+    } else {
+      return '';
     }
+  }
 
-    deleteCookie(name: string) {
-        document.cookie = name + '=; Max-Age=-99999999;';
+  deleteCookie(name: string, domain?: string) {
+    if (typeof window !== 'undefined') {
+      Cookies.remove(name, { 
+        path: '/', 
+        domain: domain || process.env.NEXT_PUBLIC_COOKIE_DOMAIN, 
+        secure: true 
+      });
     }
+  }
 }
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default  new Cookie();

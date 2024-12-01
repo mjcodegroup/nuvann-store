@@ -1,5 +1,7 @@
-export function formatDate(receivedDate: string): string {
+
+export function formatDate(receivedDate: string, language: string): string {
     const date = new Date(receivedDate);
+
 
     const options: Intl.DateTimeFormatOptions = {
         year: 'numeric',
@@ -11,5 +13,10 @@ export function formatDate(receivedDate: string): string {
         hour12: true
     };
 
-    return date.toLocaleString('en-US', options);
+    return date.toLocaleString(language, options);
+}
+
+export function getYearFromDate(receivedDate: string): string {
+    const date = new Date(receivedDate);
+    return date.getFullYear().toString();
 }

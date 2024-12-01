@@ -5,7 +5,6 @@ import { Product } from '@/contexts/products/types';
 import { ProductListProps } from '../../types';
 import { truncateStringWithEllipsis } from '@/utils/truncate-string-with-ellipsis';
 import { useTranslation } from 'react-i18next';
-import CartCardSkeleton from '@/pages/carts/components/cart-card-skeleton';
 import { ProductSlideSkeleton } from '@/components/product-slider/product-slider-skeleton';
 
 export default function ProductList(props: ProductListProps) {

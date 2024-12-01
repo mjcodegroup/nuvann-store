@@ -1,9 +1,14 @@
 import { useProducts } from "@/contexts/products";
-import { getProductsParams } from "@/contexts/products/types";
-import { nuvannApi } from "@/services/api";
+import { getProductsParams, PostQuickPurchaseType, ProductDetailsParams } from "@/contexts/products/types";
+import { nuvannApi, nuvannPublicApi } from "@/services/api";
+import { useNavigation } from "../useNavigation";
+import { RoutesUrls } from "@/utils/enums/routesUrl";
+import { useToast } from "@/contexts/toast";
 
 export function useProductsInfo() {
     const { state: productsState, dispatch: productsDispatch } = useProducts();
+    const { redirect } = useNavigation();
+  const { successToast, errorToast } = useToast();
 
     async function getProducts(options?: getProductsParams) {
         productsDispatch({ type: 'SET_LOADING', value: true });
@@ -15,7 +20,7 @@ export function useProductsInfo() {
             size: 20
         }
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params
             })
             productsDispatch({ type: 'SET_PRODUCTS', value: response.data });
@@ -30,7 +35,7 @@ export function useProductsInfo() {
     async function getNewProducts() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params: {
                     new_product: true,
                     size: 20
@@ -47,7 +52,7 @@ export function useProductsInfo() {
     async function getPromotionProducts() {
         productsDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.get('/products', {
+            const response = await nuvannPublicApi.get('/products', {
                 params: {
                     in_promotion: true,
                     size: 20
@@ -61,9 +66,34 @@ export function useProductsInfo() {
         }
     }
 
-    async function getProductDetails(id: string) {
-        const response = await nuvannApi.get(`/products/${id}`)
+    async function getProductDetails(params: ProductDetailsParams) {
+        const queryParams: Record<string, string | undefined> = {
+            size: params.size,
+            color: params.color,
+        };
+    
+        const queryString = Object.entries(queryParams)
+            .filter(([, value]) => value !== undefined && value !== '') // Filtra valores undefined ou vazios
+            .map(([key, value]) => `${key}=${encodeURIComponent(value!)}`) // Encode para segurança
+            .join('&');
+    
+        const fullPath = `/products/${params.id}${queryString ? `?${queryString}` : ''}`;
+        const response = await nuvannPublicApi.get(fullPath);
         productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
+    }
+    
+    
+
+    async function handleQuickPurchase(productId: string, data: PostQuickPurchaseType) {
+        productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: true });
+        try {
+            const response = await nuvannApi.post(`/products/${productId}/quick-purchase`, data)
+            redirect(RoutesUrls.CHECKOUT + `?orderid=${response.data.order_id}` as RoutesUrls)
+        } catch (error: any) {
+            errorToast(error.response.data.message);
+        } finally {
+            productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: false });
+        }
     }
 
     return {
@@ -72,6 +102,8 @@ export function useProductsInfo() {
         getProducts,
         getProductDetails,
         getNewProducts,
-        getPromotionProducts
+        getPromotionProducts,
+        handleQuickPurchase,
+        quickPurchaseLoader: productsState.quickPurchaseLoader
     }
 }

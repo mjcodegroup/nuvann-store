@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HomePageDefault } from '@/components/home-page-default'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Checkout from '../view/checkout.view'
@@ -7,6 +7,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useUserInfo } from '@/hooks/use-user-info';
 import { z } from 'zod';
 import { useCountriesInfo } from '@/hooks/use-countries-info';
+import { useRouter } from 'next/router';
+import { useNavigation } from '@/hooks/useNavigation';
+import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { ShippingInfoTypes } from '@/contexts/checkout/types';
 
 type FormValues = {
     street: string,
@@ -48,6 +52,8 @@ const schema = z.object({
 });
 
 export default function CheckoutController() {
+  const router = useRouter();
+  const { orderid } = router.query;
   const {
     checkout,
     updateShippingInfoLoading,
@@ -59,19 +65,25 @@ export default function CheckoutController() {
     openModalShipment,
     setOpenModalShipment,
     updateShipmentInfos
-  } = useCheckoutInfo();
+  } = useCheckoutInfo(orderid as string);
   const {user} = useUserInfo();
   const {countries} = useCountriesInfo();
   const [currentShippingInfo, setCurrentShippingInfo] = React.useState<any>(null);
   const [selectedShippingInfo, setSelectedShippingInfo] = React.useState<any>(null);
 
-  const { register:shipmentAddress, setValue,  reset, handleSubmit, formState: { errors,isValid } } = useForm<FormValues>({
+  const { register:shipmentAddress,
+    setValue,
+    reset,
+    handleSubmit,
+    formState: { errors,isValid } 
+  } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onChange"
   });
 
   const handleConfirmModalAddress:SubmitHandler<FormValues> = (data: any) => {
-    updateShippingInfo({
+
+    const shippingInfo: ShippingInfoTypes = {
       shipping_address: {
         city: data.city,
         complement: data.complement,
@@ -86,7 +98,11 @@ export default function CheckoutController() {
         name: data.name,
         phoneNumber: data.phoneNumber
       }
-    });
+    };
+    if (orderid) {
+      shippingInfo.order_id = String(orderid);
+    }
+    updateShippingInfo(shippingInfo);
   }
 
   React.useEffect(() => {
@@ -118,25 +134,38 @@ export default function CheckoutController() {
   }
 
   const handleUpdateShippingInfo = (data: any) => {
+    const orderId = checkout.order_id ;
+    const businessId = currentShippingInfo.business.id;
+    const shipmentId=  selectedShippingInfo.id
     updateShipmentInfos({
-      itemId: currentShippingInfo.id,
-      shipmentId: selectedShippingInfo.id
+      orderId,
+      businessId,
+      shipmentId
     });
   }
+
+  // useEffect(() => {
+  //   if (checkout.count <= 0) {
+  //     redirect(RoutesUrls.HOME);
+  //   }
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [checkout.count]);
+  
 
   return (
     <HomePageDefault>
         <Checkout
-          onPlaceOrder={handlePlaceOrder}
+          onPlaceOrder={()=>handlePlaceOrder(orderid as string)}
           placeOrderLoading={placeOrderLoader}
-          orderItems={checkout.items}
+          business_items={checkout.business_items}
           userInfos={user}
           countryList={countries}
           orderResume={{
             count: checkout.count,
             sub_total: checkout.sub_total,
             shipping_cost: checkout.shipping_cost,
-            total: checkout.total
+            total: checkout.total,
+            currency: checkout.currency
           }}
           shipmentAddress={shipmentAddress}
           openModalAddress={openModalAddress}

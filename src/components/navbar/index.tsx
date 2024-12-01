@@ -24,6 +24,9 @@ import getDeviceType from '@/utils/get-device-type';
 import MobileNavbar from './mobile-navbar';
 import { useAuth0 } from "@auth0/auth0-react";
 import sessionManager from '@/utils/session-manager';
+import cookie from '@/utils/cookie';
+import { generateRandomString } from '@/utils/generate-random-string';
+import { useUser } from '@/contexts/user';
 
 interface selectedCountry {
   label: string;
@@ -37,19 +40,21 @@ export const Navbar: React.FC = () => {
       getAccessTokenSilently,
       user, isLoading: loading,
       logout, isAuthenticated,
-      loginWithPopup: handleLogin
+      loginWithRedirect: handleLogin,
   } = useAuth0();
   const {countries} = useCountriesInfo();
+  const { categoriesState} = useCategoriesInfo();
   const {
     handleBecomeSeller,
     getUserInfo,
     user: userInfos,
     isLoading: userInfosLoader,
     modalTerm,
+    token,
     setModalTerm
   } = useUserInfo();
-  const { cartState} = useCartInfo({isAuthenticated: isAuthenticated});
-  const { categoriesState} = useCategoriesInfo();
+  const {dispatch: userDispatch} =useUser();
+  const { cartState} = useCartInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();
@@ -59,7 +64,8 @@ export const Navbar: React.FC = () => {
     if(!isAuthenticated) {
       return handleLogin();
     }
-    if(userInfos.roles.includes(UserRoles.SELLER)) {
+    cookie.setCookie({name: 'nuvann_store_referral', days: 1, value: generateRandomString(24), domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
+    if(userInfos?.roles?.includes(UserRoles.SELLER)) {
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
     setModalTerm(true)
@@ -75,32 +81,38 @@ export const Navbar: React.FC = () => {
   
   const setSession = async() => {
     const token = await getAccessTokenSilently();
-    sessionManager.setSession(token);
+    if(token){
+      userDispatch({ type: 'SET_TOKEN', value: token });
+      sessionManager.setSession(token);
+    }
+  }
+
+
+  React.useEffect(() => {
+    if(becomeseller) {
+      handleClickToBecomeSeller();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [becomeseller]);
+
+  const onLogout = () => {
+    logout();
+    sessionManager.clearSession();
   }
 
   React.useEffect(() => {
-    if(!isAuthenticated) return;
-    setSession();
+    if(isAuthenticated && token && !userInfos.name) {
+      getUserInfo();
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
+  }, [token]);
 
   React.useEffect(() => {
-    if(Object?.keys(userInfos)?.length === 0 && isAuthenticated) {
-      getUserInfo();
-  };
+    if(isAuthenticated) {
+      setSession();
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  } , [isAuthenticated]);
-
-  console.log(typeof becomeseller)
-
-  // React.useEffect(() => {
-  //   if(becomeseller) {
-  //     setModalTerm(true);
-  //   }
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [becomeseller])
-
-  
+  }, [isAuthenticated]);
 
   return (
     <>
@@ -115,7 +127,7 @@ export const Navbar: React.FC = () => {
           user={user}
           onSignIn={handleLogin}
           isLoading={loading}
-          onLogout={logout}
+          onLogout={onLogout}
           cartCount={cartState.cart?.count}
           placeholder={t('searchForAProduct')}
           onSearch={handleSearch}
@@ -141,7 +153,7 @@ export const Navbar: React.FC = () => {
             isAuthenticated={isAuthenticated}
             onSignIn={handleLogin}
             isLoading={loading}
-            onLogout={logout}
+            onLogout={onLogout}
             cartCount={cartState.cart?.count}
           />
         </div>

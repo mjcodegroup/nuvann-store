@@ -1,26 +1,29 @@
 import React from 'react';
 import Styles from './order-subtile.module.scss';
-import { Order } from '@/contexts/orders/types';
+import { Order, OrderItem } from '@/contexts/orders/types';
 import { formatDate } from '@/utils/date-convert';
+import { useTranslation } from 'react-i18next';
 
 interface OrderSubCardProps {
-    order: Order;
+    order: OrderItem;
 }
 
 const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
-
+    const { t } = useTranslation('order');
     const allStatuses = ['AWAITING_PAYMENT', 'PAID', 'PROCESSING', 'SHIPPED', 'CANCELLED', 'DELIVERED'];
-    
     const descriptionStatus = [
-        'Waiting for payment confirmation', 
-        'Payment has been received', 
-        'The order is being prepared and processed', 
-        'The order has been shipped',
-        'The order was cancelled', 
-        'The order has been delivered'
+        t('waiting_for_payment_confirmation'),
+        t('payment_received'),
+        t('order_being_prepared'),
+        t('order_shipped'),
+        t('order_cancelled'),
+        t('order_delivered'),
     ];
-
     let showNextStatuses = true;
+    const lastKnownStatus = allStatuses.reduce((acc, status) => {
+        const statusLog = order?.order_item_status_logs?.find(log => log.order_item_status === status);
+        return statusLog ? status : acc;
+    }, '');
 
     return (
         <div className={Styles.container}>
@@ -28,7 +31,7 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                 <div className={Styles.about}>
                     <ul className={Styles.StepProgress}>
                         {allStatuses.map((status, index) => {
-                            const statusLog = order.order_item_status_logs?.find(log => log.order_item_status === status);
+                            const statusLog = order?.order_item_status_logs?.find(log => log.order_item_status === status);
 
                             if (status === 'CANCELLED') {
                                 if (statusLog) {
@@ -38,20 +41,26 @@ const OrderSubCard: React.FC<OrderSubCardProps> = ({ order }) => {
                                 }
                             }
                             if (!showNextStatuses && status !== 'CANCELLED') {
-                                return null; 
+                                return null;
                             }
+
                             return (
                                 <li
                                     key={status}
-                                    className={`${Styles.StepProgressItem} ${
-                                        statusLog ? Styles.isDone : ''
-                                    }`}
+                                    className={`${Styles.StepProgressItem} ${statusLog ? Styles.isActive : Styles.isInactive
+                                        } ${status === lastKnownStatus ? Styles.current : ''} ${status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' ? Styles.isCancelled : ''
+                                        }`}
                                 >
-                                    <strong>{descriptionStatus[index]}</strong>
+                                    <strong style={{
+                                        color: status === lastKnownStatus ? 'green' : ''
+                                    }}>{descriptionStatus[index]}</strong>
                                     {statusLog && (
                                         <div>
-                                            <span>{formatDate(statusLog.occurred_on)}</span>
+                                            <span>{formatDate(statusLog.occurred_on, t('date_format'))}</span>
                                         </div>
+                                    )}
+                                    {status === 'CANCELLED' && lastKnownStatus === 'CANCELLED' && (
+                                        <span className={Styles.cancelledIcon}></span>
                                     )}
                                 </li>
                             );

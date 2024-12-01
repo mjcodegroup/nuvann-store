@@ -1,4 +1,9 @@
 {
+  "common": {
+    "free_text": "Gratuit",
+    "btn_confirm": "Confirmer",
+    "btn_cancel": "Annuler"
+  },
     "nav_content": {
       "home": "Accueil",
       "promotion": "Promotion",
@@ -40,7 +45,7 @@
       "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
     },
     "details": {
-      "available": "Disponible",
+      "available_s": "Disponible(s)",
       "seller": "Vendeur",
       "country": "Pays",
       "sales": "Ventes",
@@ -58,13 +63,17 @@
       "product_description": "Description du produit",
       "description": "Description",
       "price": "Prix",
-      "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
+      "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur",
+      "see_more": "Voir plus d'options d'expédition",
+      "see_less": "Voir moins d'options d'expédition",
+      "unavailable": "Indisponible",
+      "unit_s": "unité(s)"
     },
     "cart": {
       "shopping_cart": "Panier",
       "product": "Produit",
       "quantity": "Quantité",
-      "available": "Disponible",
+      "available_s": "Disponible(s)",
       "price": "Prix",
       "total": "Total",
       "checkout": "Continuer",
@@ -92,7 +101,12 @@
       "street_name": "Rue",
       "street_number": "Numéro",
       "complement": "Complément",
-      "select_shipment_option_title": "Sélectionnez l'option d'expédition"
+      "select_shipment_option_title": "Sélectionnez l'option d'expédition",
+      "price": "Prix",
+      "amount": "Quantité",
+      "_subtotal": "Sous-total",
+      "shipment_not_available_text": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée. Veuillez choisir une adresse de livraison différente.",
+      "ocicial_store": "Boutique officielle"
     },
     "footer": {
       "contact_us": "Contactez-nous",
@@ -102,7 +116,12 @@
       "profile": "Profil",
       "carts": "Panier",
       "orders": "Commandes",
-      "logout": "Se déconnecter"
+      "logout": "Se déconnecter",
+      "how_to_sell": "Comment vendre",
+      "faq": "FAQ",
+      "about_us_text": "Nuvann est une plateforme de commerce électronique qui permet aux vendeurs de vendre leurs produits en ligne. Nous offrons une variété de produits de différentes catégories. Nous sommes là pour vous aider à trouver ce que vous cherchez.",
+      "country_region": "Pays & Région",
+      "terms_and_conditions": "Termes et Conditions"
     },
     "search": {
       "title": "Aucun produit ne correspond à votre recherche.",
@@ -112,6 +131,58 @@
       "more_generic": " des mots plus génériques",
       "or_fewer_words": "ou moins de mots.",
       "browse_categories": "Parcourez les catégories",
-      "to_find_product": "pour trouver un produit similaire."
+      "to_find_product": "pour trouver un produit similaire.",
+      "result_s": "résultat(s)",
+      "daily_deals": "Promotions",
+      "categories": "Catégories"
+    },
+    "order": {
+      "products_already_purchased": "Produits que vous avez déjà achetés",
+      "buy_again": "Acheter à nouveau",
+      "see_more": "Voir plus",
+      "order_detail": "Détail de la commande",
+      "destination": "Destination",
+      "overview": "Aperçu",
+      "total_price": "Prix total",
+      "delivery": "Livraison",
+      "seller_information": "Informations sur le vendeur",
+      "country": "Pays",
+      "name": "Nom",
+      "back_to_orders": "Retour aux commandes",
+      "waiting_for_payment_confirmation": "En attente de la confirmation du paiement",
+      "payment_received": "Le paiement a été reçu",
+      "order_being_prepared": "La commande est en préparation et en cours de traitement",
+      "order_shipped": "La commande a été expédiée",
+      "order_cancelled": "La commande a été annulée",
+      "order_delivered": "La commande a été livrée",
+      "no_purchases_yet": "Vous n'avez encore rien acheté",
+      "buy": "Acheter",
+      "purchase_date": "Date d'achat",
+      "status": "Statut",
+      "quantity": "Quantité",
+      "delivered_by": "Livré par",
+      "sub_total": "Sous-total",
+      "date_format": "fr-FR",
+      "shipping_title": "Suivi d'expédition",
+      "company": "Entreprise",
+      "tracking_id": "Identifiant de suivi",
+      "confirmation_code": "Code de confirmation",
+      "oficial_store": "Boutique officielle",
+      "shipping_price": "Prix d'expédition",
+      "confirm_receipt": "Confirmer la Réception",
+      "btn_confirm": "Confirmer",
+      "btn_cancel": "Annuler",
+      "modal_receive_order_title": "Avez-vous reçu la commande",
+      "modal_receive_order_description": "Êtes-vous sûr que la commande est exactement comme vous l'avez commandée ?",
+      "confirmation_date": "Date de confirmation"
+    },
+    "seller_page": {
+      "products": "Produits",
+      "total_products": "Total des produits",
+      "location": "Localisation",
+      "seller_since": "Vendeur depuis"
+    },
+    "language": {
+      "date_format": "fr-FR"
     }
   }

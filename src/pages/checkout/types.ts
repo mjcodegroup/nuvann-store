@@ -1,11 +1,11 @@
 import { OrderResumeData } from "@/components/order-resume";
-import { CheckoutItem } from "@/contexts/checkout/types";
+import { BusinessItems, CheckoutItem } from "@/contexts/checkout/types";
 import { User } from "@/contexts/user/types";
 
 export interface CheckoutProps {
     orderResume: OrderResumeData;
     userInfos: User;
-    orderItems: CheckoutItem[];
+    business_items: BusinessItems[];
     openModalAddress: boolean;
     setOpenModalAddress: React.Dispatch<React.SetStateAction<boolean>>;
     disableModalAddressButton: boolean;
@@ -41,8 +41,9 @@ export interface CardAddressProps {
 }
 
 export interface CardProductsProps {
-    items: CheckoutItem[];
-    onClickBtnChangeShipment: (item:any)=> void;        
+    business_items: BusinessItems[];
+    onClickBtnChangeShipment: (item:any)=> void;
+    currency: string;      
 }
 
 export interface CardUpdateShipmentProps {
@@ -51,6 +52,6 @@ export interface CardUpdateShipmentProps {
     disableModalShipmentButton: boolean;
     onConfirmModalShipment: any;
     updateShippingInfoLoading: boolean;
-    item: CheckoutItem;
+    item: BusinessItems;
     onhangeShippmentInfos: (item:any)=> void;
 }

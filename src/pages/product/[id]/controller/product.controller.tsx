@@ -5,8 +5,6 @@ import { useParams } from 'next/navigation';
 import { useProducts } from '@/contexts/products';
 import { useProductsInfo } from '@/hooks/use-products-info';
 import { useCartInfo } from '@/hooks/use-cart-info';
-import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -16,14 +14,17 @@ interface SizeandProductIE {
 }
 export default function ProductController() {
   const params = useParams<{ id: string; }>()
-  const { redirect } = useNavigation();
   const { state: productDetails } = useProducts();
-  const { getProductDetails } = useProductsInfo();
-  const { isAuthenticated } = useAuth0();
+  const {
+    getProductDetails,
+    handleQuickPurchase,
+    quickPurchaseLoader
+  } = useProductsInfo();
+  const { isAuthenticated, loginWithPopup } = useAuth0();
 
-  const { addProductToCart, isLoading: cartLoader} = useCartInfo({isAuthenticated});
+  const { addProductToCart, isRequesting } = useCartInfo();
   const [ selectedSize, setSelectedSize] = React.useState({} as SizeandProductIE);
-  const [ selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
+  // const [ selectedShippingInfo, setSelectedShippingInfo] = React.useState({id:0});
   const [ selectedColor, setSelectedColor] = React.useState({} as SizeandProductIE);
   const [ qty, setQty] = React.useState<number>(1);
   const [ handleError, sethandleError] = React.useState<boolean>(false)
@@ -71,25 +72,25 @@ const handleAddProductToCart = async() => {
   const properties: any = ifExist?.filter(exist=> {
     return exist.value
   })
-  const defaultInfo = productDetails.product.shipments ? productDetails?.product?.shipments.find((info: any) => info?.default_shipment) : {id:0};
+  // const defaultInfo = productDetails.product.shipments ? productDetails?.product?.shipments.find((info: any) => info?.default_shipment) : {id:0};
   if(isAuthenticated) {
     if(handleCartValidation()) {
       await addProductToCart({
        product_id: String(productDetails.product.id),
        quantity: qty,
-       shipment_id:  selectedShippingInfo.id ? String(selectedShippingInfo?.id) : defaultInfo?.id,
+      //  shipment_id:  selectedShippingInfo.id ? String(selectedShippingInfo?.id) : defaultInfo?.id,
        properties: properties.length ? properties : undefined
       });
     }
   } else {
-      redirect(RoutesUrls.CARTS)
+    await loginWithPopup();
   }
 }
 
-  const handleSelectShippingInfo = (selectedShippingInfo: any) => {
-    setSelectedShippingInfo(selectedShippingInfo);
-    sethandleError(false)
-  };
+  // const handleSelectShippingInfo = (selectedShippingInfo: any) => {
+  //   setSelectedShippingInfo(selectedShippingInfo);
+  //   sethandleError(false)
+  // };
 
   const handleSelectSize = (size: any) => {
     setSelectedSize({
@@ -100,22 +101,81 @@ const handleAddProductToCart = async() => {
   };
 
   useEffect(() => {
-    if (params?.id) getProductDetails(params?.id);
+    if (!params?.id) return;
+  
+    const hasColor = !!productDetails.product?.properties?.color?.length;
+    const hasSize = !!productDetails.product?.properties?.size?.length;
+    const isColorSelected = !!selectedColor.value;
+    const isSizeSelected = !!selectedSize.value;
+  
+    const requestParams: any = { id: params.id };
+  
+    if (hasColor && isColorSelected) requestParams.color = selectedColor.value;
+    if (hasSize && isSizeSelected) requestParams.size = selectedSize.value;
+  
+    if ((!hasColor || isColorSelected) && (!hasSize || isSizeSelected)) {
+      getProductDetails(requestParams);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params?.id, selectedColor, selectedSize]);
+
+  useEffect(() => {
+    if (params?.id) getProductDetails({
+      id: params.id,
+      color: selectedColor?.value || undefined,
+      size: selectedSize?.value || undefined,
+      
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params?.id])
+  
+  
+  
+
+
+  const onQuickPurchase = async()=> {
+    const ifExist = [
+      selectedSize,
+      selectedColor
+    ]
+    if(isAuthenticated) {
+      const properties: any = ifExist?.filter(exist=> {
+        return exist.value
+      })
+      const propertyAray = [
+        {color: selectedColor?.value || ''},
+        {size: selectedSize.value || ''}
+      ]
+      if(handleCartValidation()) {
+        handleQuickPurchase(params.id, {
+          quantity: qty,
+          properties: properties.length ? propertyAray : undefined
+        })
+      }
+    } else {
+      await loginWithPopup();
+    }
+
+  }
+
+  if(productDetails.isLoading) {
+    return <HomePageDefault>
+      <h1>Loading....................................</h1>
+    </HomePageDefault>
+  }
 
   return (
     <HomePageDefault>
       <Product
         product={productDetails.product}
         fullLoading={productDetails.isLoading}
-        onSelectedShippingInfo={handleSelectShippingInfo}
+        onSelectedShippingInfo={()=>null}
         onSelectedSize={handleSelectSize}
+        selectedShippingInfo={null}
         sectedSize={selectedSize}
         onError={handleError}
         qty={qty}
-        isLoading={cartLoader}
-        selectedShippingInfo={selectedShippingInfo}
+        addToCartLoader={isRequesting}
         selectedSize={selectedSize}
         onSelectedColor={handleSelectColor}
         selectedColor={selectedColor}
@@ -123,7 +183,8 @@ const handleAddProductToCart = async() => {
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
         onAddToCart={handleAddProductToCart}
-        onPurchase={handleAddProductToCart}
+        onPurchase={onQuickPurchase}
+        onPurchaseLoading={quickPurchaseLoader}
       />
     </HomePageDefault>
   )

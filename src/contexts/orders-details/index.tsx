@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from 'react';
-import { Order } from '../orders/types';
+import { OrderItem } from '../orders/types';
 import { OrdersDetailsContextProps, State } from './types';
 import { reducer } from './orders-details-reducer';
 
@@ -8,7 +8,7 @@ export const OrdersDetailsContext = createContext<OrdersDetailsContextProps>(
 );
 
 const initialState: State = {
-    order: {} as Order,
+    order: {} as OrderItem,
     order_details_loader: false,
     update_order_loader: false,
 };

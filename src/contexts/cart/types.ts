@@ -3,6 +3,7 @@ import { ImageMedia, Price } from "../products/types";
 export interface State {
     cart: Cart;
     cart_loader: boolean;
+    cart_loader_request: boolean;
     update_cart_loader: boolean;
 }
 
@@ -23,6 +24,10 @@ export type Action =
     | {
         type: 'UPDATE_CART';
         value: any;
+    }
+    | {
+        type: 'SET_CART_LOADER_REQUEST';
+        value: boolean;
     }
 
 
@@ -47,6 +52,12 @@ export type CartItem = {
     product: cartProduct;
     shipment: Shipment
     sub_total: Price;
+    tax_amount: number;
+    total_discount_amount: number;
+    total_price: number;
+    unit_discount_amount: number;
+    unit_price_with_discount: number;
+    currency: string;
 }
 
 export type cartProduct = {

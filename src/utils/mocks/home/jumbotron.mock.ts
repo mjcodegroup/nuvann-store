@@ -7,7 +7,7 @@ const categoriesMock: Category[] = [
     description: "desc",
     tags: ["tag1", "tag2"],
     image: {
-      id: 1,
+      id: 'anyuuid',
       title: 'laptop',
       url: "../assets/categories/laptop.svg",
       alt: "laptop",
@@ -20,7 +20,7 @@ const categoriesMock: Category[] = [
     description: "desc",
     tags: ["tag1", "tag2"],
     image: {
-      id: 1,
+      id: 'anyuuid',
       title: 'laptop',
       url: "../assets/categories/phone.svg",
       alt: "laptop",
@@ -32,7 +32,7 @@ const categoriesMock: Category[] = [
     description: "desc",
     tags: ["tag1", "tag2"],
     image: {
-      id: 1,
+      id: 'anyuuid',
       title: 'laptop',
       url: "../assets/categories/ipad.svg",
       alt: "laptop",
@@ -44,7 +44,7 @@ const categoriesMock: Category[] = [
     description: "desc",
     tags: ["tag1", "tag2"],
     image: {
-      id: 1,
+      id: 'anyuuid',
       title: 'laptop',
       url: "../assets/categories/headset.svg",
       alt: "laptop",

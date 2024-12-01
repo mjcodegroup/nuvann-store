@@ -1,4 +1,9 @@
 {
+  "common": {
+    "free_text": "Gratis",
+    "btn_confirm": "Confirmar",
+    "btn_cancel": "Cancelar"
+  },
     "nav_content": {
       "home": "Inico",
       "promotion": "Promoción",
@@ -40,7 +45,7 @@
   
     },
     "details": {
-      "available": "Disponible",
+      "available_s": "Disponible",
       "seller": "Vendedor",
       "country": "País",
       "sales": "Ventas",
@@ -58,13 +63,17 @@
       "product_description": "Descripción del producto",
       "description": "Descripción",
       "price": "Precio",
-      "please_select_size_or_color": "Por favor seleccione una talla o color"
+      "please_select_size_or_color": "Por favor seleccione una talla o color",
+       "see_more": "Ver más opciones de envío",
+      "see_less": "Ver menos opciones de envío",
+      "unavailable": "No disponible",
+      "unit_s": "unidad(es)"
     },
     "cart": {
       "shopping_cart": "Carro de la compra",
       "product": "Productos",
       "quantity": "Cantidad",
-      "available": "Disponible",
+      "available_s": "Disponible",
       "price": "Precio",
       "total": "Total",
       "checkout": "Continuar",
@@ -92,7 +101,13 @@
       "street_name": "Nombre de la calle",
       "street_number": "Número de calle",
       "complement": "Complemento",
-      "select_shipment_option_title": "Seleccione la opción de envío"
+      "select_shipment_option_title": "Seleccione la opción de envío",
+      "price": "Precio",
+      "amount": "Cantidad",
+      "_subtotal": "Subtotal",
+      "shipment_not_available_text": "Este artículo no se puede enviar a la ubicación de entrega seleccionada. Elija una ubicación de entrega diferente.",
+      "ocicial_store": "Tienda oficial"
+
     },
     "footer": {
       "contact_us": "Contáctenos",
@@ -102,7 +117,12 @@
       "profile": "Perfil",
       "carts": "Carrito",
       "orders": "Pedidos",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "how_to_sell": "Cómo vender",
+      "faq": "FAQ",
+      "about_us_text": "Somos una empresa que se dedica a la venta de productos de calidad a precios asequibles. Nuestro objetivo es satisfacer las necesidades de nuestros clientes y garantizar su satisfacción.",
+      "country_region": "País y región",
+      "terms_and_conditions": "Términos y Condiciones"
     },
     "search": {
       "title": "Não há produtos que correspondam à sua pesquisa.",
@@ -112,6 +132,58 @@
       "more_generic": "palabras más genéricas",
       "or_fewer_words": "o menos palabras.",
       "browse_categories": "Explore las categorías",
-      "to_find_product": "para encontrar un producto similar."
+      "to_find_product": "para encontrar un producto similar.",
+      "result_s": "resultado(s)",
+      "daily_deals": "Ofertas",
+      "categories": "Categorías"
+    },
+    "order": {
+      "products_already_purchased": "Productos que ya has comprado",
+      "buy_again": "Comprar de nuevo",
+      "see_more": "Ver más",
+      "order_detail": "Detalle del pedido",
+      "destination": "Destino",
+      "overview": "Vista previa",
+      "total_price": "Precio total",
+      "delivery": "Entrega",
+      "seller_information": "Información del vendedor",
+      "country": "País",
+      "name": "Nombre",
+      "back_to_orders": "Volver a pedidos",
+      "waiting_for_payment_confirmation": "Esperando la confirmación de pago",
+      "payment_received": "El pago ha sido recibido",
+      "order_being_prepared": "El pedido está siendo preparado y procesado",
+      "order_shipped": "El pedido ha sido enviado",
+      "order_cancelled": "El pedido fue cancelado",
+      "order_delivered": "El pedido ha sido entregado",
+      "no_purchases_yet": "Aún no has comprado nada",
+      "buy": "Comprar",
+      "purchase_date": "Fecha de compra",
+      "status": "Estado",
+      "quantity": "Cantidad",
+      "delivered_by": "Entregado por",
+      "sub_total": "Subtotal",
+      "date_format": "es-ES",
+      "shipping_title": "Seguimiento de envío",
+      "company": "Empresa",
+      "tracking_id": "ID de seguimiento",
+      "confirmation_code": "Código de confirmación",
+      "oficial_store": "Tienda oficial",
+      "shipping_price": "Precio de envío",
+      "confirm_receipt": "Confirmar Recepción",
+      "btn_confirm": "Confirmar",
+      "btn_cancel": "Cancelar",
+      "modal_receive_order_title": "¿Recibiste el pedido ",
+      "modal_receive_order_description": "¿Estás seguro de que el pedido es exactamente como lo pediste ?",
+      "confirmation_date": "Fecha de confirmación"
+    },
+    "seller_page": {
+      "products": "Productos",
+      "total_products": "Productos totales",
+      "location": "Ubicación",
+      "seller_since": "Vendedor desde"
+    },
+    "language": {
+      "date_format": "es-ES"
     }
   }

@@ -8,6 +8,7 @@ import { CartItem } from '@/contexts/cart/types';
 import { CartCardProps } from '../../types';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
+import { formatMoney } from '@/utils/formatter/format-money.util';
 
 
 const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
@@ -32,11 +33,13 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
               </h3>
               <div className={styles.content_desc}>
                 <p>{t('description')}:</p>
-                <span>{truncateStringWithEllipsis(item.product.description, 60) || 'No Description Available'}</span>
+                <span>{truncateStringWithEllipsis(item.product.description, 40)}</span>
               </div>
               <div className={styles.content_desc}>
                 <p>{t('price')}:</p>
-                <span>{item.price}</span>
+                  <span>{item.sub_total?.raw !== item.product?.price && (<small className={styles.line_through}>{formatMoney(item.price, item.currency)} </small>)}
+                      <small className={styles.revert_line_through}>{formatMoney(item?.unit_price_with_discount, item.currency)}</small>
+                </span>
               </div>
               {
                 item.product.properties?.map((property, index) => (
@@ -64,7 +67,8 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 disabled={props.disableIncrementAndDecrementBtn}
                 value={item?.quantity}
                 label={t('quantity')}
-                availableText={t('available')}
+                total={item.product.available_amount}
+                availableText={t('available_s')}
                 decrement={() => props.onDecrementButton(item.id, index)} 
                 increment={() => props.onIncrementButton(item.id, index)}
               />
@@ -76,14 +80,10 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                 ) :
                 (
                   <p>
-                    {item.sub_total?.formatted}
-                    {item.sub_total?.raw !== item.product?.price && (
-                      <span> {item?.product?.price}</span>
-                    )}
+                    {formatMoney(item.sub_total?.raw, item.currency)}
                   </p>
                 )
               }
-         
             </div>
           </div>
         </div>

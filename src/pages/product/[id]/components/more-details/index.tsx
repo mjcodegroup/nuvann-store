@@ -3,6 +3,7 @@ import Styles from "./more-details.module.scss";
 import { Category } from "@/contexts/categories/types";
 import { MoreDetailsProps } from "../../types";
 import { useTranslation } from "react-i18next";
+import { formatHashtags } from "@/utils/formatter/format-hashtags.util";
 
 
 const MoreDetails: React.FC<MoreDetailsProps> =({
@@ -31,7 +32,7 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
                 <div className={Styles.__desc}>
                     {
                         pro_categories?.map((category: Category, index:number) =>(
-                            <p key={index} className={Styles.tag}> {category.name} </p>
+                            <span key={index} className={Styles.tag}> {category.name} </span>
                         ))
                     }
                 </div>
@@ -44,7 +45,7 @@ const MoreDetails: React.FC<MoreDetailsProps> =({
                 <div className={Styles.__desc}>
                     {
                         pro_categories ?.map((tag: Category, index:number) =>(
-                            <p key={index} className={Styles.tag}> #{tag.tags} </p>
+                            <span key={index} className={Styles.tag}> {formatHashtags(tag.tags)} </span>
                         ))
                     }
                 </div>

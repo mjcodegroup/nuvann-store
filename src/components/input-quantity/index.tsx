@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from './input-quantity.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface InputQuantityProps {
   label: string;
@@ -26,6 +27,7 @@ const InputQuantity: React.FC<InputQuantityProps> = ({
   minLength = 1,
   disabled = false,
 }) => {
+  const { t } = useTranslation('details');
   const isDecrementDisabled = value <= minLength || disabled;
   const isIncrementDisabled = total ? value >= total || disabled : disabled;
 
@@ -56,10 +58,12 @@ const InputQuantity: React.FC<InputQuantityProps> = ({
       </form>
       {total ? (
         <span className={Styles._label}>
-          {total} {availableText}
+          {total} {total > 0 ? availableText: ''}
         </span>
       ) : (
-        ''
+        <span style={{color: 'red'}}> 
+          {total && t("unavailable")}
+        </span>
       )}
     </section>
   );

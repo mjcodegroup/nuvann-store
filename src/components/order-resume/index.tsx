@@ -8,12 +8,14 @@ import { Skeleton } from '@mui/material';
 
 export interface OrderResumeData {
   count: number;
-  sub_total: number;
-  shipping_cost: number;
-  total: number;
+  sub_total: number | string;
+  shipping_cost: number | string | any;
+  total: number | string;
+  currency?: string;
 }
 export interface OrderResumeProps {
     data: OrderResumeData;
+    hideShippingCost?: boolean;
     OnCheckout: () => void;
     loading: boolean;
     disabled?: boolean;
@@ -37,30 +39,36 @@ const OrderResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             )}
         </div>
         <hr />
-
-        <div className={styles.resume_separated_info}>
-          <p>{t('delivery')}</p>
-          {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
-            ) :
-            (
-              <h5>{data.shipping_cost}</h5>
+        {
+          props.hideShippingCost ? null : (
+              <>
+          <div className={styles.resume_separated_info}>
+            <p>{t('delivery')}</p>
+            {props.loading ? (
+              <p><Skeleton typeof='..........' width={100} height={30}/> </p>
+              ) :
+              (
+                <h5>{data.shipping_cost}</h5>
+              )
+            }
+          </div>
+          <hr />
+          </>
             )
           }
-        </div>
-        <hr />
-
-        <div className={styles.resume_separated_info}>
-          <p>{t("total")} </p>
-          {props.loading ? (
-            <p><Skeleton typeof='..........' width={100} height={30}/> </p>
-            ) :
-            (
-              <h5>{data.total}</h5>
-            )
-          }
-        </div>
-        <hr />
+     
+              <div className={styles.resume_separated_info}>
+                <p>{t('total')}</p>
+                {props.loading ? (
+                  <p><Skeleton typeof='..........' width={100} height={30}/> </p>
+                ) :
+                (
+                  <h5>{data.total}</h5>
+                )
+              }
+              </div>
+              <hr />
+           
       </div>
 
       <div className={styles.resume_buttons}>

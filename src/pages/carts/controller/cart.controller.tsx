@@ -8,10 +8,8 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function CartController() {
-  const { isAuthenticated } = useAuth0();
-
-  const { state: cartState, dispatch: cartDispatch } = useCart();
-  const { removeFromCart, updateCart } = useCartInfo({ isAuthenticated });
+  const { dispatch: cartDispatch } = useCart();
+  const { removeFromCart, updateCart, cartState } = useCartInfo();
 
   const { redirect } = useNavigation();
 
@@ -46,16 +44,16 @@ export default function CartController() {
     }
   }
   return (
-    <HomePageDefault>
-      <Cart
-      fullLoader={cartState.cart_loader}
-        onCheckout={handleCheckout}
-        data={cartState.cart}
-        removeFromCart={removeFromCart}
-        onDecrementButton={handleDecrementButton}
-        onIncrementButton={handleIncrementButton}
-        disableIncrementAndDecrementBtn={cartState.cart_loader}
-      />
-    </HomePageDefault>
+        <HomePageDefault>
+          <Cart
+            fullLoader={cartState.cart_loader}
+            onCheckout={handleCheckout}
+            data={cartState.cart}
+            removeFromCart={removeFromCart}
+            onDecrementButton={handleDecrementButton}
+            onIncrementButton={handleIncrementButton}
+            disableIncrementAndDecrementBtn={cartState.cart_loader}
+          />
+        </HomePageDefault>
   );
 }
