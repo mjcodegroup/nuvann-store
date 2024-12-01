@@ -101,6 +101,44 @@ const handleAddProductToCart = async() => {
   };
 
   useEffect(() => {
+    if (!params?.id) return;
+  
+    const hasColor = !!productDetails.product?.properties?.color?.length;
+    const hasSize = !!productDetails.product?.properties?.size?.length;
+    const isColorSelected = !!selectedColor.value;
+    const isSizeSelected = !!selectedSize.value;
+  
+    const requestParams: any = { id: params.id };
+  
+    if (hasColor && isColorSelected) requestParams.color = selectedColor.value;
+    if (hasSize && isSizeSelected) requestParams.size = selectedSize.value;
+  
+    if ((!hasColor || isColorSelected) && (!hasSize || isSizeSelected)) {
+      getProductDetails(requestParams);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params?.id, selectedColor, selectedSize]);
+
+  useEffect(() => {
+    if (!params?.id) return;
+  
+    const hasColor = !!productDetails.product?.properties?.color?.length;
+    const hasSize = !!productDetails.product?.properties?.size?.length;
+    const isColorSelected = !!selectedColor.value;
+    const isSizeSelected = !!selectedSize.value;
+  
+    const requestParams: any = { id: params.id };
+  
+    if (hasColor && isColorSelected) requestParams.color = selectedColor.value;
+    if (hasSize && isSizeSelected) requestParams.size = selectedSize.value;
+  
+    if ((!hasColor || isColorSelected) && (!hasSize || isSizeSelected)) {
+      getProductDetails(requestParams);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params?.id, selectedColor, selectedSize]);
+
+  useEffect(() => {
     if (params?.id) getProductDetails({
       id: params.id,
       color: selectedColor?.value || undefined,
@@ -108,7 +146,10 @@ const handleAddProductToCart = async() => {
       
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params?.id, selectedColor, selectedSize])
+  }, [params?.id])
+  
+  
+  
 
 
   const onQuickPurchase = async()=> {
