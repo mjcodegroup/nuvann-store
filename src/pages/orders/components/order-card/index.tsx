@@ -11,6 +11,7 @@ import { useProductsInfo } from '@/hooks/use-products-info';
 import { formatMoney } from '@/utils/formatter/format-money.util';
 import ModalConfirm from '@/components/modal-confirm';
 import { useOrdersInfo } from '@/hooks/use-orders-info';
+import { OrderStatusEnum } from '@/utils/enums/order-status-enum';
 
 interface OrderCardProps {
     order: Order;
@@ -101,7 +102,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                     </div>
                     <div className={Styles.CardsButtons}>
                         {
-                            !item.confirmation_date && (
+                            (!item.confirmation_date && item.status === OrderStatusEnum.DELIVERED) && (
                                 <CustomButton
                                     backgroundColor="#0c98af"
                                     size='large'

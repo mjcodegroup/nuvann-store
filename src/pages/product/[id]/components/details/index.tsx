@@ -39,7 +39,6 @@ export default function Details(props: DetailsProps) {
 
   return (
     <div className={Styles.product_infos}>
-      <div>
       <section>
             <h3>{props.productInfos?.name}</h3>
             <div className={Styles.title_footer}>
@@ -105,7 +104,6 @@ export default function Details(props: DetailsProps) {
           decrement={onDecrement}
           disabled={productInfos?.available_amount < qty}
         />
-      </div>
 
         <section className={Styles.detail_infos_footer}>
             <CustomButton

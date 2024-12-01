@@ -101,8 +101,7 @@ const handleAddProductToCart = async() => {
   };
 
   useEffect(() => {
-    if (!params?.id) return;
-  
+    if (!params?.id || !selectedColor.value || !selectedSize.value) return;
     const hasColor = !!productDetails.product?.properties?.color?.length;
     const hasSize = !!productDetails.product?.properties?.size?.length;
     const isColorSelected = !!selectedColor.value;
@@ -117,7 +116,7 @@ const handleAddProductToCart = async() => {
       getProductDetails(requestParams);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params?.id, selectedColor, selectedSize]);
+  }, [selectedColor.value, selectedSize.value]);
 
   useEffect(() => {
     if (params?.id) getProductDetails({
@@ -129,7 +128,10 @@ const handleAddProductToCart = async() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params?.id])
   
-  
+  function cleanCache() {
+    setSelectedSize({} as SizeandProductIE);
+    setSelectedColor({} as SizeandProductIE);
+  }
   
 
 
