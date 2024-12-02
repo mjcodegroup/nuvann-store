@@ -106,8 +106,9 @@
       "amount": "Cantidad",
       "_subtotal": "Subtotal",
       "shipment_not_available_text": "Este artículo no se puede enviar a la ubicación de entrega seleccionada. Elija una ubicación de entrega diferente.",
-      "ocicial_store": "Tienda oficial"
-
+      "ocicial_store": "Tienda oficial",
+      "empty_checkout_message": "No tienes nada que perseguir",
+      "buy_btn": "Comprar"
     },
     "footer": {
       "contact_us": "Contáctenos",
@@ -175,7 +176,8 @@
       "btn_cancel": "Cancelar",
       "modal_receive_order_title": "¿Recibiste el pedido ",
       "modal_receive_order_description": "¿Estás seguro de que el pedido es exactamente como lo pediste ?",
-      "confirmation_date": "Fecha de confirmación"
+      "confirmation_date": "Fecha de confirmación",
+      "order_price": "Precio del pedido"
     },
     "seller_page": {
       "products": "Productos",

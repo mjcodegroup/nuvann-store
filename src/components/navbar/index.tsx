@@ -43,7 +43,9 @@ export const Navbar: React.FC = () => {
       loginWithRedirect: handleLogin,
   } = useAuth0();
   const {countries} = useCountriesInfo();
+  const { cartState} = useCartInfo();
   const { categoriesState} = useCategoriesInfo();
+  const {dispatch: userDispatch} =useUser();
   const {
     handleBecomeSeller,
     getUserInfo,
@@ -53,8 +55,6 @@ export const Navbar: React.FC = () => {
     token,
     setModalTerm
   } = useUserInfo();
-  const {dispatch: userDispatch} =useUser();
-  const { cartState} = useCartInfo();
   const [businessName, setBusinessName] = React.useState<string>("");
   const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();

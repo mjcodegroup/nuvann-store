@@ -116,5 +116,6 @@ export interface PostQuickPurchaseType {
 }
 
 type Properties = {
-    [key: string ]: string | undefined
+    value: string;
+    key: string;
 }

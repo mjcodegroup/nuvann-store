@@ -106,7 +106,9 @@
       "amount": "Quantité",
       "_subtotal": "Sous-total",
       "shipment_not_available_text": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée. Veuillez choisir une adresse de livraison différente.",
-      "ocicial_store": "Boutique officielle"
+      "ocicial_store": "Boutique officielle",
+      "empty_checkout_message": "Vous n'avez rien à poursuivre",
+      "buy_btn": "Acheter"
     },
     "footer": {
       "contact_us": "Contactez-nous",
@@ -174,7 +176,8 @@
       "btn_cancel": "Annuler",
       "modal_receive_order_title": "Avez-vous reçu la commande",
       "modal_receive_order_description": "Êtes-vous sûr que la commande est exactement comme vous l'avez commandée ?",
-      "confirmation_date": "Date de confirmation"
+      "confirmation_date": "Date de confirmation",
+      "order_price": "Prix de la commande"
     },
     "seller_page": {
       "products": "Produits",

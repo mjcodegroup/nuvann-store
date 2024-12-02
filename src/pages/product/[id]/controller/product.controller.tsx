@@ -144,9 +144,9 @@ const handleAddProductToCart = async() => {
       const properties: any = ifExist?.filter(exist=> {
         return exist.value
       })
-      const propertyAray = [
-        {color: selectedColor?.value || ''},
-        {size: selectedSize.value || ''}
+      const propertyAray: any = [
+        {...selectedColor},
+        {...selectedSize}
       ]
       if(handleCartValidation()) {
         handleQuickPurchase(params.id, {

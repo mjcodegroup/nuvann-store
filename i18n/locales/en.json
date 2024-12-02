@@ -105,7 +105,9 @@
       "amount": "Amount",
       "_subtotal": "Subtotal",
       "shipment_not_available_text": "This item cannot be shipped to your selected delivery location. Please choose a different delivery location.",
-      "ocicial_store": "Official store"
+      "ocicial_store": "Official store",
+      "empty_checkout_message": "You have nothing to sue",
+      "buy_btn": "Buy"
     },
     "footer": {
       "contact_us": "Contact us",
@@ -172,7 +174,8 @@
       "confirm_receipt": "Confirm receipt",
       "modal_receive_order_title": "Did you receive the order",
       "modal_receive_order_description": "Are you sure the order is exactly as you ordered it ?",
-      "confirmation_date": "Confirmation code"
+      "confirmation_date": "Confirmation code",
+      "order_price": "Order price"
     },
     "seller_page": {
       "products": "Products",

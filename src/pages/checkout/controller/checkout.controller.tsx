@@ -8,8 +8,6 @@ import { useUserInfo } from '@/hooks/use-user-info';
 import { z } from 'zod';
 import { useCountriesInfo } from '@/hooks/use-countries-info';
 import { useRouter } from 'next/router';
-import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
 import { ShippingInfoTypes } from '@/contexts/checkout/types';
 
 type FormValues = {
@@ -64,7 +62,8 @@ export default function CheckoutController() {
     placeOrderLoader,
     openModalShipment,
     setOpenModalShipment,
-    updateShipmentInfos
+    updateShipmentInfos,
+    loading
   } = useCheckoutInfo(orderid as string);
   const {user} = useUserInfo();
   const {countries} = useCountriesInfo();
@@ -183,6 +182,7 @@ export default function CheckoutController() {
           selectedShippingInfo={selectedShippingInfo}
           onhangeShippmentInfos={(item) => setSelectedShippingInfo(item)}
           currentShippingInfo={currentShippingInfo}
+          isLoading={loading}
           
         />
     </HomePageDefault>
