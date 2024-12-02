@@ -54,13 +54,13 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
 
         <div className={Styles.resume_container}>
           {
-            (props.orderResume.total && !props.placeOrderLoading) && (
+            props.orderResume.total && (
               <OrderResume
                 disabled={!props.userInfos.address || hasNoAvailableShipments(props.business_items)}
                 data={{
                   count: props.orderResume.count,
                   sub_total: formatMoney(Number(props.orderResume?.sub_total), String(props.orderResume?.currency)),
-                  shipping_cost: <FreeShippingText text={formatPrice(Number(props.orderResume?.shipping_cost), String(props.orderResume?.currency))}/>,
+                  shipping_cost: !hasNoAvailableShipments(props.business_items) ? <FreeShippingText text={formatPrice(Number(props.orderResume?.shipping_cost), String(props.orderResume?.currency))}/> : '-',
                   total: formatMoney(Number(props.orderResume?.total), String(props.orderResume?.currency)),
                 }}
                 OnCheckout={props.onPlaceOrder}
