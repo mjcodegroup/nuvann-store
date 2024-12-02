@@ -3,6 +3,7 @@ import { BusinessItems, CheckoutItem } from "@/contexts/checkout/types";
 import { User } from "@/contexts/user/types";
 
 export interface CheckoutProps {
+    isLoading: boolean;
     orderResume: OrderResumeData;
     userInfos: User;
     business_items: BusinessItems[];

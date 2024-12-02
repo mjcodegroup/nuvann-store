@@ -9,10 +9,19 @@ import { hasNoAvailableShipments } from '@/utils/get-default-shipment';
 import { formatMoney } from '@/utils/formatter/format-money.util';
 import FreeShippingText from '@/components/free-shipping-text';
 import { formatPrice } from '@/utils/formatter/format-price.util';
+import EmptyCheckout from '../components/empty-checkout';
+import CheckoutSkeleton from '../components/checkout-skeleton';
 
 export default function Checkout(props: Readonly<CheckoutProps>) {
   return (
-    <div className={Styles.checkout_wrapper}>
+    <>
+    {
+      props.isLoading ? (
+       <CheckoutSkeleton />
+      ) : props.business_items?.length === 0 ? (
+         <EmptyCheckout />
+      ) : (
+        <div className={Styles.checkout_wrapper}>
         <div className={Styles.address_container}>
             <CardAddress
               updateShippingInfoLoading={props.updateShippingInfoLoading}
@@ -60,6 +69,8 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
             )
           }
         </div>
-    </div>
-  )
+        </div>
+      )}
+    </>
+  );
 }
