@@ -1,22 +1,27 @@
 import { useCheckout } from "@/contexts/checkout";
-import { ShipmentInfosTypes, ShippingInfoTypes } from "@/contexts/checkout/types";
+import { Checkout, ShipmentInfosTypes, ShippingInfoTypes } from "@/contexts/checkout/types";
 import { useToast } from "@/contexts/toast";
 import { nuvannApi } from "@/services/api";
 import React, { useEffect } from "react";
 import { useUserInfo } from "../use-user-info";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export function useCheckoutInfo(orderId?: string) {
     const { state: checkoutState, dispatch: checkoutDispatch } = useCheckout();
     const{getUserInfo} = useUserInfo();
+  const { isAuthenticated } = useAuth0();
+
   const { successToast, errorToast } = useToast();
   const [openModalAddress, setOpenModalAddress] = React.useState(false);
   const [openModalShipment, setOpenModalShipment] = React.useState(false);
 
-    async function getCheckout() {
-        checkoutDispatch({ type: 'SET_LOADING', value: true });
-        const hasquery = orderId ? `?order_id=${orderId}` : '';
+  const hasquery = orderId ? `?order_id=${orderId}` : '';
+    async function getCheckout(order_id?: string) {
         try {
+            checkoutDispatch({ type: 'SET_LOADING', value: true });
             const response = await nuvannApi.get('/checkout/items' + hasquery);
+
+            console.log(response.data);
             checkoutDispatch({ type: 'SET_CHECKOUT', value: response.data });
         } catch (error) {
             console.log(error);
@@ -78,14 +83,15 @@ export function useCheckoutInfo(orderId?: string) {
     }
 
     useEffect(() => {
-        getCheckout();
+        if(isAuthenticated) {
+            getCheckout();
+          }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [orderId]);
+      }, [ hasquery, isAuthenticated]);
 
     return {
         checkout: checkoutState.checkout,
         loading: checkoutState.loading,
-        getCheckout,
         updateShippingInfoLoading: checkoutState.updateShippingInfosLoading,
         updateShippingInfo,
         openModalAddress,
