@@ -142,6 +142,13 @@ export default function CheckoutController() {
       shipmentId
     });
   }
+
+  // useEffect(() => {
+  //   if (checkout.count <= 0) {
+  //     redirect(RoutesUrls.HOME);
+  //   }
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [checkout.count]);
   
 
   return (
