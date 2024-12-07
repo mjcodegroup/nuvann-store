@@ -10,11 +10,14 @@ import { RoutesUrls } from '@/utils/enums/routesUrl';
 export default function SellerDetailsController() {
     const router = useRouter();
     const { redirect } = useNavigation();
-    const { orderId, name, country, createdAt } = router.query;
+
+    const { sellerId, name, country, createdAt } = router.query;
     const sellerName = Array.isArray(name) ? name[0] : name || '';
     const sellerCountry = Array.isArray(country) ? country[0] : country || '';
     const sellerCreatedAt = Array.isArray(createdAt) ? createdAt[0] : createdAt || '';
-    const { products, isLoading } = useSellerDetailsInfo(orderId as string);
+
+    const { products, isLoading } = useSellerDetailsInfo(sellerId as string);
+
     const handleRedirectToProductDetails = React.useCallback((id: string | number) => {
         redirect(`/product/${id}` as RoutesUrls);
     }, [redirect]);

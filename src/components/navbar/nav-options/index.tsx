@@ -117,7 +117,7 @@ export default function NavOptions(props: NavOptionProps) {
     }
     <li>
       <Link href={RoutesUrls.CARTS}>
-        <Badge color="error" badgeContent={props.cartCount}>
+        <Badge color="error" badgeContent={ props.isAuthenticated ? props.cartCount : 0}>
           <Image src={cartIcon} alt="cartIcon" />
         </Badge>
       </Link>

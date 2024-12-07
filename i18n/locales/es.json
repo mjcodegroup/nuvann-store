@@ -2,7 +2,35 @@
   "common": {
     "free_text": "Gratis",
     "btn_confirm": "Confirmar",
-    "btn_cancel": "Cancelar"
+    "btn_cancel": "Cancelar",
+      "#ffffff": "Blanco",
+      "#000000": "Negro",
+      "#ff0000": "Rojo",
+      "#008000": "Verde",
+      "#0000ff": "Azul",
+      "#ffff00": "Amarillo",
+      "#00ffff": "Cian",
+      "#ff00ff": "Magenta",
+      "#808080": "Gris",
+      "#ffa500": "Naranja",
+      "#800080": "Púrpura",
+      "#a52a2a": "Marrón",
+      "#ffc0cb": "Rosa",
+      "#00ff00": "Lima",
+      "#4b0082": "Índigo",
+      "#ee82ee": "Violeta",
+      "#ffd700": "Oro",
+      "#c0c0c0": "Plata",
+      "#f5f5dc": "Beige",
+      "#008080": "Verde azulado",
+      "#000080": "Azul marino",
+      "#808000": "Oliva",
+      "#ff7f50": "Coral",
+      "#40e0d0": "Turquesa",
+      "#e6e6fa": "Lavanda",
+      "#98ff98": "Menta",
+      "#dda0dd": "Ciruela",
+      "#ffdab9": "Durazno"
   },
     "nav_content": {
       "home": "Inico",
@@ -177,7 +205,9 @@
       "modal_receive_order_title": "¿Recibiste el pedido ",
       "modal_receive_order_description": "¿Estás seguro de que el pedido es exactamente como lo pediste ?",
       "confirmation_date": "Fecha de confirmación",
-      "order_price": "Precio del pedido"
+      "order_price": "Precio del pedido",
+      "color": "Color",
+      "size": "Talla"
     },
     "seller_page": {
       "products": "Productos",

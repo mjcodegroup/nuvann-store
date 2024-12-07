@@ -10,35 +10,51 @@ type Option = {
 
 type SelectProps = {
   options: Option[];
-  title?: string
+  title?: string;
   onSelect: (value: Option) => void;
+  disabled?: boolean;
 };
 
-const CustomSelect: React.FC<SelectProps> = ({ options, onSelect, title }) => {
-    const { t } = useTranslation("placeholders");
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+const CustomSelect: React.FC<SelectProps> = ({ options, onSelect, title, disabled = false }) => {
+  const { t } = useTranslation("placeholders");
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
-    const toggleSelect = () => {
-        setIsOpen(!isOpen);
-    };
+  const toggleSelect = () => {
+    if (!disabled) {
+      setIsOpen(!isOpen);
+    }
+  };
 
-    const handleOptionSelect = (option: Option) => {
-        setSelectedOption(option);
-        setIsOpen(false);
-        onSelect(option);
-    };
+  const handleOptionSelect = (option: Option) => {
+    if (!disabled) {
+      setSelectedOption(option);
+      setIsOpen(false);
+      onSelect(option);
+    }
+  };
 
   return (
-    <div className={`${Styles.custom_select} ${isOpen ? Styles.open : ""}`}>
-        <p>{title} <span>*</span></p>
-      <div className={Styles.select_header} onClick={toggleSelect}>
+    <div
+      className={`${Styles.custom_select} ${isOpen ? Styles.open : ""} ${
+        disabled ? Styles.disabled : ""
+      }`}
+    >
+      <p>
+        {title} <span>*</span>
+      </p>
+      <div
+        className={`${Styles.select_header} ${disabled ? Styles.disabled_header : ""}`}
+        onClick={toggleSelect}
+      >
         <span className={Styles.selected_option}>
           {selectedOption ? selectedOption.name : t("custom_select_placeholder")}
         </span>
-        <BiChevronDown className={`${Styles.toggle_icon} ${isOpen ? Styles.rotated : ""}`} />
+        <BiChevronDown
+          className={`${Styles.toggle_icon} ${isOpen ? Styles.rotated : ""}`}
+        />
       </div>
-      {isOpen && (
+      {isOpen && !disabled && (
         <ul className={Styles.options_list}>
           {options?.map((option) => (
             <li

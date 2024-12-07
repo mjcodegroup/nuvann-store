@@ -21,7 +21,8 @@ interface OrderCardProps {
 const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
     const { redirect } = useNavigation();
     const { t } = useTranslation('order');
-    const { handleQuickPurchase, quickPurchaseLoader } = useProductsInfo();
+    const { t: tr } = useTranslation('common');
+    const { handleQuickPurchase } = useProductsInfo();
     const [selectedOrderId, setSelectedOrderId] = useState('');
     const { openModalReceipt,
         setOpenModalReceipt,
@@ -90,9 +91,19 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                         <h5>
                             {t('status')}: <span>{statusDescription}</span>
                         </h5>
-                        <h5>
-                            {t('quantity')}: <span>{item.quantity}</span>
-                        </h5>
+                        {
+                            item.properties?.color?.[0]?.value && (
+                                <h5>
+                                    {t('color')}: <span>{tr(item.properties?.color?.[0]?.value)}</span>
+                                </h5>
+                            )
+                        }
+                        { item.properties?.size?.[0]?.value && (
+                            <h5>
+                                {t('size')}: <span>{item.properties?.size?.[0]?.value}</span>
+                            </h5>
+                        )}
+
                         {item.delivery_code && (
                             <h5>
                                 {t('confirmation_code')}: <span>{item.delivery_code}</span>
