@@ -66,6 +66,10 @@ export interface OrderItem {
   shipment_description?: string;
   delivery_code?: string;
   confirmation_date?: string;
+  properties?: {
+    color?: ProductProperty[];
+    size?: ProductProperty[];
+  };
 }
 
 export interface SelectedShipment {

@@ -67,19 +67,28 @@ export function useProductsInfo() {
     }
 
     async function getProductDetails(params: ProductDetailsParams) {
-        const queryParams: Record<string, string | undefined> = {
-            size: params.size,
-            color: params.color,
-        };
-    
-        const queryString = Object.entries(queryParams)
-            .filter(([, value]) => value !== undefined && value !== '') // Filtra valores undefined ou vazios
-            .map(([key, value]) => `${key}=${encodeURIComponent(value!)}`) // Encode para segurança
-            .join('&');
-    
-        const fullPath = `/products/${params.id}${queryString ? `?${queryString}` : ''}`;
-        const response = await nuvannPublicApi.get(fullPath);
-        productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
+
+        try {
+            productsDispatch({ type: 'SET_LOADING', value: true });
+            const queryParams: Record<string, string | undefined> = {
+                size: params.size,
+                color: params.color,
+            };
+            const queryString = Object.entries(queryParams)
+                .filter(([, value]) => value !== undefined && value !== '')
+                .map(([key, value]) => `${key}=${encodeURIComponent(value!)}`)
+                .join('&');
+        
+            const fullPath = `/products/${params.id}${queryString ? `?${queryString}` : ''}`;
+            const response = await nuvannPublicApi.get(fullPath);
+            productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
+            
+        } catch (error: any) {
+            redirect(RoutesUrls.HOME as RoutesUrls)
+            errorToast(error.response.data.message);
+        } finally {
+            productsDispatch({ type: 'SET_LOADING', value: false });
+        }
     }
     
     

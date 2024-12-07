@@ -2,7 +2,35 @@
   "common": {
     "free_text": "Free",
     "btn_confirm": "Confirm",
-    "btn_cancel": "Cancel"
+    "btn_cancel": "Cancel",
+      "#ffffff": "White",
+      "#000000": "Black",
+      "#ff0000": "Red",
+      "#008000": "Green",
+      "#0000ff": "Blue",
+      "#ffff00": "Yellow",
+      "#00ffff": "Cyan",
+      "#ff00ff": "Magenta",
+      "#808080": "Gray",
+      "#ffa500": "Orange",
+      "#800080": "Purple",
+      "#a52a2a": "Brown",
+      "#ffc0cb": "Pink",
+      "#00ff00": "Lime",
+      "#4b0082": "Indigo",
+      "#ee82ee": "Violet",
+      "#ffd700": "Gold",
+      "#c0c0c0": "Silver",
+      "#f5f5dc": "Beige",
+      "#008080": "Teal",
+      "#000080": "Navy",
+      "#808000": "Olive",
+      "#ff7f50": "Coral",
+      "#40e0d0": "Turquoise",
+      "#e6e6fa": "Lavender",
+      "#98ff98": "Mint",
+      "#dda0dd": "Plum",
+      "#ffdab9": "Peach"
   },
     "nav_content": {
         "home": "Home",
@@ -175,7 +203,9 @@
       "modal_receive_order_title": "Did you receive the order",
       "modal_receive_order_description": "Are you sure the order is exactly as you ordered it ?",
       "confirmation_date": "Confirmation code",
-      "order_price": "Order price"
+      "order_price": "Order price",
+      "color": "Color",
+      "size": "Size"
     },
     "seller_page": {
       "products": "Products",

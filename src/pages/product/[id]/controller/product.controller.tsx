@@ -160,12 +160,6 @@ const handleAddProductToCart = async() => {
 
   }
 
-  if(productDetails.isLoading) {
-    return <HomePageDefault>
-      <h1>Loading....................................</h1>
-    </HomePageDefault>
-  }
-
   return (
     <HomePageDefault>
       <Product
