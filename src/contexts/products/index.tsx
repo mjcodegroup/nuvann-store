@@ -11,7 +11,7 @@ const initialState: State = {
     newProducts: {} as ProductsData,
     promotionProducts: {} as ProductsData,
     product: {} as ProductDetails,
-    isLoading: false,
+    isLoading: true,
     quickPurchaseLoader: false,
 };
 

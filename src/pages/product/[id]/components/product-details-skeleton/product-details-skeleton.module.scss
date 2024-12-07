@@ -1,0 +1,13 @@
+.product_details_skeleton {
+    margin: 16px 0;
+    
+    ._skeleton_content {
+        padding: 16px;
+        display: grid; 
+        background-color: var(--background-white);
+        grid-template-columns: 45% 55%; 
+        gap: 0px 22px;
+        height: 100%;
+
+    }
+}

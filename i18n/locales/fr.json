@@ -2,7 +2,35 @@
   "common": {
     "free_text": "Gratuit",
     "btn_confirm": "Confirmer",
-    "btn_cancel": "Annuler"
+    "btn_cancel": "Annuler",
+      "#ffffff": "Blanc",
+      "#000000": "Noir",
+      "#ff0000": "Rouge",
+      "#008000": "Vert",
+      "#0000ff": "Bleu",
+      "#ffff00": "Jaune",
+      "#00ffff": "Cyan",
+      "#ff00ff": "Magenta",
+      "#808080": "Gris",
+      "#ffa500": "Orange",
+      "#800080": "Violet",
+      "#a52a2a": "Marron",
+      "#ffc0cb": "Rose",
+      "#00ff00": "Citron vert",
+      "#4b0082": "Indigo",
+      "#ee82ee": "Violette",
+      "#ffd700": "Or",
+      "#c0c0c0": "Argent",
+      "#f5f5dc": "Beige",
+      "#008080": "Sarcelle",
+      "#000080": "Bleu marine",
+      "#808000": "Olive",
+      "#ff7f50": "Corail",
+      "#40e0d0": "Turquoise",
+      "#e6e6fa": "Lavande",
+      "#98ff98": "Menthe",
+      "#dda0dd": "Prune",
+      "#ffdab9": "Pêche"
   },
     "nav_content": {
       "home": "Accueil",
@@ -177,7 +205,9 @@
       "modal_receive_order_title": "Avez-vous reçu la commande",
       "modal_receive_order_description": "Êtes-vous sûr que la commande est exactement comme vous l'avez commandée ?",
       "confirmation_date": "Date de confirmation",
-      "order_price": "Prix de la commande"
+      "order_price": "Prix de la commande",
+      "color": "Couleur",
+      "size": "Taille"
     },
     "seller_page": {
       "products": "Produits",

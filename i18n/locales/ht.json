@@ -2,7 +2,35 @@
   "common": {
     "free_text": "Gratis",
     "btn_confirm": "Konfime",
-    "btn_cancel": "Anile"
+    "btn_cancel": "Anile",
+    "#ffffff": "Blan",
+    "#000000": "Nwa",
+      "#ff0000": "Rouj",
+      "#008000": "Vèt",
+      "#0000ff": "Ble",
+      "#ffff00": "Jòn",
+      "#00ffff": "Sian",
+      "#ff00ff": "Majenta",
+      "#808080": "Gris",
+      "#ffa500": "Oranj",
+      "#800080": "Vyo",
+      "#a52a2a": "Ma",
+      "#ffc0cb": "Woz",
+      "#00ff00": "Sitwon",
+      "#4b0082": "Endigo",
+      "#ee82ee": "Vyolèt",
+      "#ffd700": "Lò",
+      "#c0c0c0": "Ajan",
+      "#f5f5dc": "Bej",
+      "#008080": "Til",
+      "#000080": "Ble Nwa",
+      "#808000": "Olive",
+      "#ff7f50": "Koral",
+      "#40e0d0": "Tikwaz",
+      "#e6e6fa": "Lavann",
+      "#98ff98": "Mant",
+      "#dda0dd": "Prunèl",
+      "#ffdab9": "Pèch"
   },
     "nav_content": {
       "home": "Akèy",
@@ -178,7 +206,9 @@
       "modal_receive_order_title": "Eske ou resevwa kòmand la",
       "modal_receive_order_description": "Eske ou sèten kòmand la se egzakteman jan ou te mande l lan ?",
       "confirmation_date": "Dat konfimasyon",
-      "order_price": "Pri kòmand"
+      "order_price": "Pri kòmand",
+      "color": "Koulè",
+      "size": "Gwosè"
     },
     "seller_page": {
       "products": "Pwodwi",

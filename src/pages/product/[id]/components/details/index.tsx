@@ -34,7 +34,7 @@ export default function Details(props: DetailsProps) {
   } = props;
 
   const redirectToSellerDetails = () => {
-    redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${props.productInfos.seller.business_account_id}&name=${encodeURIComponent(props.productInfos.seller.name)}&country=${encodeURIComponent(props.productInfos.seller.country.name)}&createdAt=${encodeURIComponent(props.productInfos.seller.created_at)}` as RoutesUrls)
+    redirect(`${RoutesUrls.SELLER_DETAILS}?sellerId=${props.productInfos.seller.business_account_id}&name=${encodeURIComponent(props.productInfos.seller.name)}&country=${encodeURIComponent(props.productInfos.seller.country.name)}&createdAt=${encodeURIComponent(props.productInfos.seller.created_at)}` as RoutesUrls)
   };
 
   return (

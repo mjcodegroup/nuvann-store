@@ -12,7 +12,8 @@ import { formatMoney } from '@/utils/formatter/format-money.util';
 
 
 const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
-  const { t } = useTranslation('cart');
+  const { t } = useTranslation( ['cart'] );
+  const { t: tr } = useTranslation( ['common'] );
   return (
     <>
       {props.data?.items?.map((item: CartItem, index) => (
@@ -46,7 +47,7 @@ const CartCard: React.FC<CartCardProps> = ( props: CartCardProps) => {
                   property?.key && property?.value && (
                     <div key={index} className={styles.content_desc}>
                       <p>{property.key === "size" ? t('size') : t('color')}:</p>
-                      <span>{property.value}</span>
+                      <span>{property.key === "color" ? tr(`${property.value}`) : property.value}</span>
                     </div>
                   )
                 ))
