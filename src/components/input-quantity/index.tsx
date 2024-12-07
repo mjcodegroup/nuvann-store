@@ -58,11 +58,11 @@ const InputQuantity: React.FC<InputQuantityProps> = ({
       </form>
       {total ? (
         <span className={Styles._label}>
-          {total} {total > 0 ? availableText: ''}
+          {total} {total > 0 ? availableText : 'teste'}
         </span>
       ) : (
-        <span style={{color: 'red'}}> 
-          {total && t("unavailable")}
+        <span style={{color: 'red', marginLeft: 8}}> 
+          {total ? total : t("unavailable")}
         </span>
       )}
     </section>
