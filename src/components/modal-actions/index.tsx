@@ -5,6 +5,7 @@ import CustomButton from '../custom-button';
 import Styles from './modal-actions.module.scss';
 import { useTranslation } from 'react-i18next';
 import getDeviceType from '@/utils/get-device-type';
+import Link from 'next/link';
 
 interface CustomModalProps {
     title: string; 
@@ -20,6 +21,8 @@ interface CustomModalProps {
     loading?: boolean;
     children: React.ReactNode;
     disable?: boolean;
+    titleIcon?: React.ReactNode;
+    titleLink?: string;
 }
 
 export const ModalActions: React.FC<CustomModalProps> = ({
@@ -36,6 +39,8 @@ export const ModalActions: React.FC<CustomModalProps> = ({
     loading = false,
     children,
     disable = false,
+    titleIcon,
+    titleLink,
 }) => {
     const { t } = useTranslation('buttons');
 
@@ -77,9 +82,11 @@ export const ModalActions: React.FC<CustomModalProps> = ({
                         padding: '20px 16px 16px',
                     }}
                 >
-                    <h2 id="__modal-title" className={Styles.title}>
-                        {title} <AiOutlineQuestionCircle color="#f50057" />
-                    </h2>
+                    <Link href={titleLink || ''} target='_blank'>
+                        <h2 id="__modal-title" className={Styles.title}>
+                            {title} {titleIcon ? titleIcon : <AiOutlineQuestionCircle color="#f50057" />}
+                        </h2>
+                    </Link>
                     <div className={Styles.__description}>{children}</div>
                     <div className={Styles.simple_modal_buttons}>
                         <CustomButton

@@ -170,6 +170,7 @@ export const Navbar: React.FC = () => {
     }
     <ModalActions
       title={t('term_and_contitions')}
+      titleLink='https://faqs.nuvann.com/en/termes-et-conditions'
       open ={modalTerm}
       setOpen= {setModalTerm}
       loading={userInfosLoader}
@@ -181,7 +182,7 @@ export const Navbar: React.FC = () => {
         })
       }}
     >
-      <CustomInput label={t('business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
+      <CustomInput placeholder='Ex: Nuvann Store' label={t('business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
       <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('country')} />
     </ModalActions>
     </>

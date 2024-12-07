@@ -18,6 +18,10 @@
       &:focus{
         outline:none;
       }
+
+      &::placeholder {
+        color: #bdb5b5;
+      }
     }
 
     label {
