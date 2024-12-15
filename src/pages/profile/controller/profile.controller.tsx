@@ -1,21 +1,21 @@
 import { HomePageDefault } from '@/components/home-page-default';
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Profile } from '../view/profile.view';
 import { User } from '@auth0/auth0-react';
 import { useUserInfo } from '@/hooks/use-user-info';
 import ProfileCardSkeleton from '../components/profile-card-skeleton';
 
 export default function ProfileController() {
-    const { user, isLoading, getUserInfo } = useUserInfo();
+    const { user, isLoading } = useUserInfo();
     const [formData, setFormData] = React.useState({
         name: "",
         email: "",
-        cpf: "",
         phone: "",
         cep: "",
-        estado: "",
-        ville: "",
-        nimewo: ""
+        state_or_department: "",
+        city: "",
+        number: "",
+        country: ""
     });
 
 
@@ -24,12 +24,12 @@ export default function ProfileController() {
             setFormData({
                 name: user.name || "",
                 email: user.email || "",
-                cpf: user.address?.number || "",
                 phone: user.phone_number || "",
                 cep: user.address?.zipCode || "",
-                estado: user.address?.state_or_department || "",
-                ville: user.address?.city || "",
-                nimewo: user.address?.number || ""
+                state_or_department: user.address?.state_or_department || "",
+                city: user.address?.city || "",
+                number: user.address?.number || "",
+                country: user.address?.country.name || ""
             });
         }
     }, [user]);

@@ -29,11 +29,35 @@ export function useUserInfo() {
         }
         userDispatch({ type: 'SET_LOADING', value: false });
     }
+
+    async function updateUser(data: {
+        street: string;
+        number: string;
+        complement?: string;
+        neighborhood: string;
+        city: string;
+        zipCode: string;
+        country: { code: string; name: string };
+        state_or_department: string;
+    }) {
+        userDispatch({ type: 'SET_LOADING', value: true });
+        try {
+            const response = await nuvannApi.patch('/api/v1/users/address', data);
+            successToast(response.data?.message || 'User address updated successfully!');
+            getUserInfo(); // Refresh user data
+        } catch (error: any) {
+            errorToast(error.response?.data?.message || 'Failed to update user address.');
+        } finally {
+            userDispatch({ type: 'SET_LOADING', value: false });
+        }
+    }    
+
     return {
         user: state.user,
         isLoading: state.isLoading,
         getUserInfo,
         handleBecomeSeller,
+        updateUser,
         modalTerm,
         setModalTerm,
         token: state.token,
