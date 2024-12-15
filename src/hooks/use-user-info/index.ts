@@ -34,6 +34,7 @@ export function useUserInfo() {
         street: string;
         number: string;
         complement?: string;
+        phone?: string;
         neighborhood: string;
         city: string;
         zipCode: string;
@@ -42,9 +43,9 @@ export function useUserInfo() {
     }) {
         userDispatch({ type: 'SET_LOADING', value: true });
         try {
-            const response = await nuvannApi.patch('/api/v1/users/address', data);
+            const response = await nuvannApi.patch('/users/address', data);
             successToast(response.data?.message || 'User address updated successfully!');
-            getUserInfo(); // Refresh user data
+            getUserInfo(); 
         } catch (error: any) {
             errorToast(error.response?.data?.message || 'Failed to update user address.');
         } finally {

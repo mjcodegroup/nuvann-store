@@ -1,9 +1,8 @@
+import React from 'react';
 import { BsPersonAdd } from 'react-icons/bs';
 import Styles from './profile.module.scss';
 import { User } from '@auth0/auth0-react';
 import CustomButton from '@/components/custom-button';
-import React from 'react';
-import { useUserInfo } from '@/hooks/use-user-info';
 
 type ProfileProps = {
     user: User;
@@ -18,32 +17,11 @@ type ProfileProps = {
         country: string;
     };
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleRegisterClick: () => void;
+    errors: Record<string, string>;
 };
 
-export function Profile({ user, formData, handleChange }: ProfileProps) {
-    const { updateUser } = useUserInfo();
-
-    const handleRegisterClick = async () => {
-        try {
-            await updateUser({
-                street: formData.name,
-                number: formData.number,
-                complement: '',
-                neighborhood: '',
-                city: formData.city,
-                zipCode: formData.cep,
-                country: {
-                    code: 'BR',
-                    name: formData.country,
-                },
-                state_or_department: formData.state_or_department,
-            });
-        } catch (error) {
-            console.error('Error updating user address:', error);
-        }
-    };
-    
-
+export function Profile({ user, formData, handleChange, handleRegisterClick, errors }: ProfileProps) {
     return (
         <div className={Styles.profile}>
             <div className={Styles.picturePart}>
@@ -61,86 +39,30 @@ export function Profile({ user, formData, handleChange }: ProfileProps) {
             </div>
             <div className={Styles.infosPart}>
                 <h2>Personal informations</h2>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>Name:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>Phone:</label>
-                    <input
-                        type="text"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>ZIP:</label>
-                    <input
-                        type="text"
-                        name="cep"
-                        value={formData.cep}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>Estado:</label>
-                    <input
-                        type="text"
-                        name="estado"
-                        value={formData.state_or_department}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>Ville:</label>
-                    <input
-                        type="text"
-                        name="ville"
-                        value={formData.city}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>Nimewo:</label>
-                    <input
-                        type="text"
-                        name="nimewo"
-                        value={formData.number}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
-                <div className={Styles.infoItem}>
-                    <label className={Styles.label}>Pays:</label>
-                    <input
-                        type="text"
-                        name="country"
-                        value={formData.country}
-                        onChange={handleChange}
-                        className={Styles.input}
-                    />
-                </div>
+                {[
+                    { label: 'Name', name: 'name', value: formData.name },
+                    { label: 'Email', name: 'email', value: formData.email },
+                    { label: 'Phone', name: 'phone', value: formData.phone },
+                    { label: 'ZIP', name: 'cep', value: formData.cep },
+                    { label: 'Estado', name: 'state_or_department', value: formData.state_or_department },
+                    { label: 'Ville', name: 'city', value: formData.city },
+                    { label: 'Nimewo', name: 'number', value: formData.number },
+                    { label: 'Pays', name: 'country', value: formData.country },
+                ].map((field) => (
+                    <div className={Styles.infoItem} key={field.name}>
+                        <label className={Styles.label}>{field.label}:</label>
+                        <input
+                            type="text"
+                            name={field.name}
+                            value={field.value}
+                            onChange={handleChange}
+                            className={Styles.input}
+                        />
+                        {errors[field.name] && (
+                            <span className={Styles.error}>{errors[field.name]}</span>
+                        )}
+                    </div>
+                ))}
                 <div className={Styles.registerButtom}>
                     <CustomButton
                         backgroundColor="green"
