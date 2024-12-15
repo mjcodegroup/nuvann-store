@@ -57,7 +57,6 @@ export default function ProfileController() {
 
     const handleRegisterClick = async () => {
         try {
-            // Validate the formData with Zod
             schema.parse({
                 country: formData.country,
                 name: formData.name,
@@ -68,7 +67,6 @@ export default function ProfileController() {
                 number: formData.number,
             });
 
-            // If validation passes, update user info
             await updateUser({
                 street: formData.name,
                 number: formData.number,
@@ -83,8 +81,6 @@ export default function ProfileController() {
                 },
                 state_or_department: formData.state_or_department,
             });
-
-            // Clear errors after successful submission
             setErrors({});
         } catch (error) {
             if (error instanceof z.ZodError) {
