@@ -39,8 +39,8 @@ export default function ProductList(props: ProductListProps) {
                     ) : ''
                     }
                     <p className={Styles.current_price}>{prod.prices?.current_price?.formatted}
-                    {prod.prices.current_price?.discount.value ? (
-                        <span>{prod.prices.current_price?.discount?.value} %</span>
+                    {prod.prices.current_price?.discount.percent ? (
+                        <span>{prod.prices.current_price?.discount?.percent}%</span>
                     ) : ''}
                     </p>
                     <p className={Styles.description}>
