@@ -1,32 +1,27 @@
 import React from 'react';
 import { BsPersonAdd } from 'react-icons/bs';
 import Styles from './profile.module.scss';
-import { User } from '@auth0/auth0-react';
 import CustomButton from '@/components/custom-button';
+import { Avatar } from '@mui/material';
+import { ProfileProps } from '../types';
 
-type ProfileProps = {
-    user: User;
-    formData: {
-        name: string;
-        email: string;
-        phone: string;
-        cep: string;
-        state_or_department: string;
-        city: string;
-        number: string;
-        country: string;
-    };
-    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    handleRegisterClick: () => void;
-    errors: Record<string, string>;
-};
 
-export function Profile({ user, formData, handleChange, handleRegisterClick, errors }: ProfileProps) {
+
+export function Profile({ user, formData, handleChange, handleRegisterClick, errors, userAvatar }: ProfileProps) {
     return (
         <div className={Styles.profile}>
             <div className={Styles.picturePart}>
                 <div className={Styles.profilePic}>
-                    <BsPersonAdd className={Styles.sellerIcon} size={120} />
+                    {
+                        userAvatar ?
+                        <Avatar
+                            alt={user.name}
+                            src={userAvatar}
+                            sx={{ width: '90%', height: '90%' }}
+                        />
+                        :
+                        <BsPersonAdd className={Styles.sellerIcon} size={120} />
+                    }
                 </div>
                 <h2>{user.name}</h2>
                 <div className={Styles.details}>

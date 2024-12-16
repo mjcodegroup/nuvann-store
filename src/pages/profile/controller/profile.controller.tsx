@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { HomePageDefault } from '@/components/home-page-default';
 import { Profile } from '../view/profile.view';
-import { User } from '@auth0/auth0-react';
+import { useAuth0, User } from '@auth0/auth0-react';
 import { useUserInfo } from '@/hooks/use-user-info';
 import ProfileCardSkeleton from '../components/profile-card-skeleton';
 import { z } from 'zod';
@@ -22,6 +22,9 @@ const schema = z.object({
 
 export default function ProfileController() {
     const { user, isLoading, updateUser } = useUserInfo();
+    const {
+        user: Auth0UserInfos,
+    } = useAuth0();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -108,6 +111,7 @@ export default function ProfileController() {
                     handleChange={handleChange}
                     handleRegisterClick={handleRegisterClick}
                     errors={errors}
+                    userAvatar={Auth0UserInfos?.picture || ''}
                 />
             )}
         </HomePageDefault>
