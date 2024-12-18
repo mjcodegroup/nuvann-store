@@ -129,11 +129,11 @@ export default function ProductSlide(props: SliderProps) {
                   </div>
                   <div className={Styles.img_separator}></div>
                   <div className={Styles.bottom}>
-                    {(product.prices.current_price.discount.percent && props.havePromo) ? (
+                    {(product.prices.current_price.discount.percent > 0 && props.havePromo) ? (
                       <p className={Styles.daily_deal}>{t("today_deals")}</p>
                     ): ''}
                     {
-                      (product.prices.current_price.discount.percent && props.havePromo) && product.prices.current_price.discount.percent ? (
+                      (product.prices?.current_price?.discount?.percent > 0 && props.havePromo) && product.prices.current_price.discount.percent ? (
                         <p>
                           <i>
                             <span className={Styles.lastprice}>
@@ -145,7 +145,7 @@ export default function ProductSlide(props: SliderProps) {
                     }
                     <p className={Styles.currentPrice}>{product.prices.current_price.formatted}
                       {
-                        (product.prices.current_price.discount.percent && props.havePromo) ? 
+                        (product.prices?.current_price?.discount?.percent > 0 && props.havePromo) ? 
                           <span>{product.prices.current_price.discount.percent}% OFF</span>
                          : 
                          ''
