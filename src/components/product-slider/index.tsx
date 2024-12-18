@@ -145,7 +145,10 @@ export default function ProductSlide(props: SliderProps) {
                     }
                     <p className={Styles.currentPrice}>{product.prices.current_price.formatted}
                       {
-                        (product.prices.current_price.discount.percent && props.havePromo) && <span>{product.prices.current_price.discount.percent}% OFF</span>
+                        (product.prices.current_price.discount.percent && props.havePromo) ? 
+                          <span>{product.prices.current_price.discount.percent}% OFF</span>
+                         : 
+                         ''
                       }
                     </p>
                     <h2>
