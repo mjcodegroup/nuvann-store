@@ -66,15 +66,12 @@ export default function CardAddress(props: CardAddressProps) {
         >
 
           <CustomValidateSelect
-            defaultValue={{ code: user?.address?.country?.code, name: user?.address?.country?.name as string }}
-            options={formatCountriesArray(props.countryList)}
-            title={t('countries')}
-            onSelect={(value) => props.setValues('country', value)}
-            name="country"
-            error={
-              props.shipmentformErrors?.country?.code?.message || 
-              props.shipmentformErrors?.country?.name?.message
-            }
+          defaultValue={{ code: user?.address?.country?.code, name: user?.address?.country?.name as string }}
+           options={formatCountriesArray(props.countryList)}
+           title={t('countries')}
+           onSelect={(value) => props.setValues('country', value)}
+           name="country"
+           error={props.shipmentformErrors?.country?.code?.message || props.shipmentformErrors?.country?.name?.message}
            />
 
           <CustomValidateInput
