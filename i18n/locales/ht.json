@@ -218,5 +218,17 @@
     },
     "language": {
       "date_format": "fr-FR"
+    },
+    "profile_page": {
+      "name": "Non",
+      "email": "Email",
+      "country": "Peyi",
+      "phone": "Telefòn",
+      "zip_code": "Kòd Postal",
+      "state": "Eta",
+      "city": "Vil",
+      "number": "Nimewo",
+      "personal_information": "Enfòmasyon Pèsonèl",
+      "register": "Anrejistre"
     }
 }

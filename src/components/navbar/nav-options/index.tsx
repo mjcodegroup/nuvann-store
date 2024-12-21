@@ -84,13 +84,15 @@ export default function NavOptions(props: NavOptionProps) {
                 anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
               >
                 <div></div>
-                <MenuItem
-                 onClick={handleClose}>
-                  <ListItemIcon>
-                    <FaPerson fontSize="small" />
-                  </ListItemIcon>
-                  {t('my_profile')}
-                </MenuItem>
+                <Link href={RoutesUrls.PROFILE}>
+                  <MenuItem
+                    onClick={handleClose}>
+                    <ListItemIcon>
+                      <FaPerson fontSize="small" />
+                    </ListItemIcon>
+                    {t('my_profile')}
+                  </MenuItem>
+                </Link>
                 <Link href={RoutesUrls.ORDERS}>
                   <MenuItem>
                     <ListItemIcon>
