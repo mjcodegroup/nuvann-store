@@ -1,0 +1,207 @@
+.profile {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 670px;
+    background-color: #f8f8f8;
+    margin-top: 5%;
+
+    .picturePart {
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 25%;
+        height: 670px;
+        border-radius: 9px;
+        background-color: #001038;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .profilePic {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 2px solid #f1c40f;
+            background-color: transparent;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .sellerIcon {
+                color: white;
+            }
+        }
+
+        h2 {
+            color: white;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .details {
+            width: 100%;
+            padding: 0 6%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        
+            .detailItem {
+                margin-top: 9%;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding: 4px;
+        
+                .label {
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 8px;
+                    text-align: left;
+                }
+                
+                .value {
+                    color: white;
+                    text-align: right;
+                }
+            }
+        }            
+    }
+
+    .infosPart {
+        width: 75%;
+        height: 670px;
+        background-color: transparent;
+        padding-left: 3%;
+
+        h2{
+            color: #001038;
+            margin-left: 5.5%;
+            margin-bottom: 3%;
+        }
+
+        .infoItem {
+            display: flex;
+            align-items: center;
+            padding-bottom: 4%;
+        
+            label {
+                font-weight: bold;
+                margin-right: 8px;
+                min-width: 100px;
+                text-align: right;
+            }
+
+            .select {
+                width: 700px;
+                max-width: 700px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+                outline: none;
+            
+                &:focus {
+                    border: 1px solid #ccc;
+                    box-shadow: 0 0 4px rgba(243, 245, 247, 0.5);
+                }
+            }
+
+            .input {
+                flex: 1;
+                width: auto;
+                max-width: 700px;
+                padding: 8px;
+                border: none;
+                border-bottom: 2px solid #ccc;
+                font-size: 14px;
+                background-color: #f9f9f9;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        
+                &:focus {
+                    border-bottom-color: #007bff;
+                    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+                    outline: none;
+                }
+        
+                &:hover {
+                    border-bottom-color: #0056b3;
+                }
+            }
+        }
+
+        .registerButtom{
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 5%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+        height: auto;
+
+        .picturePart {
+            width: 100%;
+            height: auto;
+            padding: 2% 0;
+
+            .profilePic {
+                height: 150px;
+                width: 150px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .details {
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .detailItem {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .label {
+                        font-weight: bold;
+                        margin-right: 8px;
+                    }
+                    
+                    .value {
+                        text-align: right;
+                        flex: 1;
+                    }
+                }
+            }
+        }
+
+        .infosPart {
+            width: 100%;
+            padding-left: 0;
+            padding-top: 2%;
+
+            .infoItem {
+                .input {
+                    width: 90%;
+                    font-size: 12px;
+                }
+            }
+
+            button {
+                width: 90%;
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -217,5 +217,17 @@
     },
     "language": {
       "date_format": "fr-FR"
+    },
+    "profile_page": {
+      "name": "Nom",
+      "email": "Email",
+      "country": "Pays",
+      "phone": "Téléphone",
+      "zip_code": "Code Postal",
+      "state": "État",
+      "city": "Ville",
+      "number": "Numéro",
+      "personal_information": "Informations personnelles",
+      "register": "Enregistrer"
     }
   }

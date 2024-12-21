@@ -215,5 +215,17 @@
     },
     "language": {
       "date_format": "en-US"
+    },
+    "profile_page": {
+      "name": "Name",
+      "email": "Email",
+      "country": "Country",
+      "phone": "Phone",
+      "zip_code": "Zip Code",
+      "state": "State",
+      "city": "City",
+      "number": "Number",
+      "personal_information": "Personal Information",
+      "register": "Register"
     }
   }
