@@ -82,7 +82,7 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
                   <Link href={RoutesUrls.ORDERS}>
                   <FcShipped /> {t("my_orders")}
                   </Link>
-                  <Link href="#">
+                  <Link href={RoutesUrls.PROFILE}>
                   <FaUserAlt size={"14"} color='#000052'/> {t("my_profile")}
                   </Link>
                 </>
