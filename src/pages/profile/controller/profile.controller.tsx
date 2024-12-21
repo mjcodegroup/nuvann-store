@@ -5,6 +5,8 @@ import { useAuth0, User } from '@auth0/auth0-react';
 import { useUserInfo } from '@/hooks/use-user-info';
 import ProfileCardSkeleton from '../components/profile-card-skeleton';
 import { z } from 'zod';
+import { useCountriesInfo } from '@/hooks/use-countries-info';
+import { formatCountriesArray } from '@/utils/format-countries-array';
 
 const schema = z.object({
     country: z.string().min(1, "Country is required"),
@@ -35,8 +37,8 @@ export default function ProfileController() {
         number: "",
         country: ""
     });
-
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const {countries} = useCountriesInfo();
 
     useEffect(() => {
         if (user) {
@@ -112,6 +114,7 @@ export default function ProfileController() {
                     handleRegisterClick={handleRegisterClick}
                     errors={errors}
                     userAvatar={Auth0UserInfos?.picture || ''}
+                    countryList={formatCountriesArray(countries)}
                 />
             )}
         </HomePageDefault>

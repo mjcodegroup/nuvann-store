@@ -12,6 +12,7 @@ export type ProfileProps = {
         number: string;
         country: string;
     };
+    countryList: any;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleRegisterClick: () => void;
     errors: Record<string, string>;

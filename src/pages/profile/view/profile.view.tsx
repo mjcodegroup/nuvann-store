@@ -6,39 +6,53 @@ import { Avatar } from '@mui/material';
 import { ProfileProps } from '../types';
 import { useTranslation } from 'react-i18next';
 
-export function Profile({ user, formData, handleChange, handleRegisterClick, errors, userAvatar }: ProfileProps) {
+export function Profile({ user, formData, handleChange, handleRegisterClick, errors, userAvatar, countryList }: ProfileProps) {
     const { t } = useTranslation('profile_page');
-
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target;
         handleChange({
             target: { name, value }
         } as React.ChangeEvent<HTMLInputElement>);
     };
-
     return (
         <div className={Styles.profile}>
             <div className={Styles.picturePart}>
                 <div className={Styles.profilePic}>
                     {
                         userAvatar ?
-                        <Avatar
-                            alt={user.name}
-                            src={userAvatar}
-                            sx={{ width: '90%', height: '90%' }}
-                        />
-                        :
-                        <BsPersonAdd className={Styles.sellerIcon} size={120} />
+                            <Avatar
+                                alt={user.name}
+                                src={userAvatar}
+                                sx={{ width: '90%', height: '90%' }}
+                            />
+                            :
+                            <BsPersonAdd className={Styles.sellerIcon} size={120} />
                     }
                 </div>
                 <h2>{user.name}</h2>
                 <div className={Styles.details}>
-                    <span>{t('email')}: {user.email}</span>
-                    <span>{t('phone')}: {formData.phone}</span>
-                    <span>{t('zip_code')}: {formData.cep}</span>
-                    <span>{t('city')}: {formData.city}</span>
-                    <span>{t('country')}: {formData.country}</span>
+                    <div className={Styles.detailItem}>
+                        <span className={Styles.label}>{t('email')}:</span>
+                        <span className={Styles.value}>{user.email}</span>
+                    </div>
+                    <div className={Styles.detailItem}>
+                        <span className={Styles.label}>{t('phone')}:</span>
+                        <span className={Styles.value}>{formData.phone}</span>
+                    </div>
+                    <div className={Styles.detailItem}>
+                        <span className={Styles.label}>{t('zip_code')}:</span>
+                        <span className={Styles.value}>{formData.cep}</span>
+                    </div>
+                    <div className={Styles.detailItem}>
+                        <span className={Styles.label}>{t('city')}:</span>
+                        <span className={Styles.value}>{formData.city}</span>
+                    </div>
+                    <div className={Styles.detailItem}>
+                        <span className={Styles.label}>{t('country')}:</span>
+                        <span className={Styles.value}>{formData.country}</span>
+                    </div>
                 </div>
+
             </div>
             <div className={Styles.infosPart}>
                 <h2>{t('personal_information')}</h2>
@@ -66,7 +80,6 @@ export function Profile({ user, formData, handleChange, handleRegisterClick, err
                     </div>
                 ))}
 
-                {/* Country Field as a Select Input */}
                 <div className={Styles.infoItem}>
                     <label className={Styles.label}>{t('country')}:</label>
                     <select
@@ -75,9 +88,9 @@ export function Profile({ user, formData, handleChange, handleRegisterClick, err
                         onChange={handleSelectChange}
                         className={Styles.select}
                     >
-                        {["USA", "Canada", "Brazil", "Chile"].map((country) => (
-                            <option key={country} value={country}>
-                                {country}
+                        {countryList.map((country: any) => (
+                            <option key={country.isoAlpha2} value={country.isoAlpha2}>
+                                {country.name}
                             </option>
                         ))}
                     </select>

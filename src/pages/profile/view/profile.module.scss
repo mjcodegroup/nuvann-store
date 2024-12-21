@@ -44,19 +44,34 @@
         }
 
         .details {
+            width: 100%;
+            padding: 0 6%;
             display: flex;
-            justify-content: space-between;
             flex-direction: column;
-            height: 40%;
+            gap: 8px;
             font-size: 16px;
-            align-items: center;
             font-weight: bold;
-
-            span {
-                color: white;
-                margin: 4px 0;
+        
+            .detailItem {
+                margin-top: 9%;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding: 4px;
+        
+                .label {
+                    color: white;
+                    font-weight: bold;
+                    margin-right: 8px;
+                    text-align: left;
+                }
+                
+                .value {
+                    color: white;
+                    text-align: right;
+                }
             }
-        }
+        }            
     }
 
     .infosPart {
@@ -150,6 +165,24 @@
 
             .details {
                 font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .detailItem {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .label {
+                        font-weight: bold;
+                        margin-right: 8px;
+                    }
+                    
+                    .value {
+                        text-align: right;
+                        flex: 1;
+                    }
+                }
             }
         }
 
