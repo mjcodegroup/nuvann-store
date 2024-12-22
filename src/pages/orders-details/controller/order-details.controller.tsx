@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import { HomePageDefault } from '@/components/home-page-default';
 import OrderDetails from '../view';
 import { useOrdersDetailsInfo } from '@/hooks/use-order-details-info';
-import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
 import { useEffect } from 'react';
+import OrderDetailsSkeleton from '../components/orders-card-skeleton';
 
 export default function OrderDetailsController() {
     const router = useRouter();
@@ -21,7 +21,7 @@ export default function OrderDetailsController() {
     return (
         <HomePageDefault>
             {isLoading ? (
-                <OrdersCardSkeleton />
+                <OrderDetailsSkeleton />
             ) : (
                 <OrderDetails order={order} isLoading={isLoading} />
             )}
