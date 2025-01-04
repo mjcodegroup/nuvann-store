@@ -54,13 +54,13 @@ export function useUserInfo() {
     }    
 
     return {
-        user: state.user,
-        isLoading: state.isLoading,
+        user: state?.user,
+        isLoading: state?.isLoading,
         getUserInfo,
         handleBecomeSeller,
         updateUser,
         modalTerm,
         setModalTerm,
-        token: state.token,
+        token: state?.token,
     }
 }

@@ -13,19 +13,49 @@ import { CartProvider } from "@/contexts/cart";
 import { OrdersProvider } from "@/contexts/orders";
 import { CategoriesProvider } from "@/contexts/categories";
 import ToastProvider from "@/contexts/toast";
-import { UserProvider } from "@/contexts/user";
+import { UserProvider, useUser } from "@/contexts/user";
 import { CheckoutProvider } from "@/contexts/checkout";
 import { CountriesProvider } from "@/contexts/countries";
 import { OrdersDetailsProvider } from "@/contexts/orders-details";
 import { NoSsr } from "@mui/material";
-import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import { SellerDetailsProvider } from "@/contexts/seller-details";
 import useBeforeLeave from "@/hooks/use-befor-leave";
 import { useNavigation } from "@/hooks/useNavigation";
 import { RoutesUrls } from "@/utils/enums/routesUrl";
+import React from "react";
+import sessionManager from '@/utils/session-manager';
+import { useUserInfo } from "@/hooks/use-user-info";
+import { get } from "lodash";
 
 export default function App({ Component, pageProps }: AppProps) {
+    const {dispatch: userDispatch} =useUser();
+    const {
+      getAccessTokenSilently,
+      isAuthenticated,
+  } = useAuth0();
+    const {
+      handleBecomeSeller,
+      getUserInfo,
+      user: userInfos,
+      isLoading: userInfosLoader,
+      modalTerm,
+      token,
+      setModalTerm
+    } = useUserInfo();
+
   const {redirect} = useNavigation();
+
+    const setSession = async() => {
+      const token = await getAccessTokenSilently();
+      console.log('token', token);
+      if(token){
+        userDispatch({ type: 'SET_TOKEN', value: token });
+        sessionManager.setSession(token);
+        getUserInfo();
+      }
+    }
+  
 
   useBeforeLeave((url) => {
     if(url && url !== RoutesUrls.Login) {
@@ -36,12 +66,20 @@ export default function App({ Component, pageProps }: AppProps) {
   function onRedirectCallback() {
     const getRedirectUrl = localStorage.getItem("lastUrl");
 
-  const redirectUrl = getRedirectUrl
+    const redirectUrl = getRedirectUrl
     ? `${window.location.origin}${getRedirectUrl}`
     : window.location.origin;
 
-  redirect(redirectUrl as RoutesUrls);
+    redirect(redirectUrl as RoutesUrls);
   }
+
+  React.useEffect(() => {
+    if(!isAuthenticated) {
+      setSession();
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
+
   return (
     <>
       <style jsx global>{`
@@ -52,15 +90,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <I18nextProvider i18n={i18n}>
         <NoSsr>
           <CountriesProvider>
-            <Auth0Provider
-              domain={process.env.NEXT_PUBLIC_AUTH0_ISSUER_BASE_URL as string}
-              clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID as string}
-              authorizationParams={{
-                audience: process.env.NEXT_PUBLIC_AUTH0_AUDIENCE,
-                redirect_uri: typeof window !== "undefined" ? window.location.origin : '',
-              }}
-              onRedirectCallback={onRedirectCallback}
-            >
               <UserProvider>
                 <ProductsProvider>
                   <ToastProvider>
@@ -80,7 +109,6 @@ export default function App({ Component, pageProps }: AppProps) {
                   </ToastProvider>
                 </ProductsProvider>
               </UserProvider>
-            </Auth0Provider>
           </CountriesProvider>
         </NoSsr>
       </I18nextProvider>

@@ -5,11 +5,15 @@ import { useTranslation } from 'react-i18next';
 import DropdownSimple from '@/components/dropdown-simple';
 import { Category } from '@/contexts/categories/types';
 import { NavListProps } from '../types';
+import { UserRoles } from '@/utils/enums/user.enum';
 
 
 export default function NavList(props: NavListProps) {  
   const { t } = useTranslation('nav_content');
-  
+
+  const sellerRedirect = props.userInfos?.roles?.includes(UserRoles.SELLER)
+  const adminRedirect = props.userInfos?.roles?.includes(UserRoles.ADMINISTRATOR)
+
   return (
     <nav className={Styles.navbar_list}>
         <ul>
@@ -24,9 +28,17 @@ export default function NavList(props: NavListProps) {
             <Link href={`/search?in_promotion=${true}`}>
               {t("promotion")}
             </Link>
+            {
+              !props.isLoading &&
               <div onClick={props.onClickSellerMenu}>
-                {t("sell")}
+                {props.isAuthenticated && sellerRedirect
+                  ? "Espas Vandè"
+                  : props.isAuthenticated && adminRedirect
+                  ? "Espas Adm"
+                  : t("sell")
+                }
               </div>
+            }
         </ul>
     </nav>
   )

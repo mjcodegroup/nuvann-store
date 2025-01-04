@@ -46,7 +46,7 @@ export default function NavOptions(props: NavOptionProps) {
           src={props?.user?.picture}
           sx={{ width: 32, height: 32 }}
         />
-        <span>{truncateStringWithEllipsis(props.user?.given_name || props.user?.name, 12)} <IoChevronDownSharp /></span>
+        <span>{truncateStringWithEllipsis(props.user?.given_name || props.user?.name || '', 12)} <IoChevronDownSharp /></span>
       </li>
               <Menu
                 anchorEl={anchorEl}

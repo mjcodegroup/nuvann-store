@@ -1,5 +1,6 @@
 import { UserRoles } from "@/utils/enums/user.enum";
 import { Country } from "../countries/types";
+import { AccountStatusEnum } from "@/utils/enums/account-status-enum";
 
 export interface State {
     user: User;
@@ -33,30 +34,36 @@ export interface User {
     roles: UserRoles;
     address?: Address;
     phone_number?: string;
-    seller_infos: Partial<SellerInfos>;
+    business_account?: BusinessAccount;
     shipping_contact: Partial<ShippingContact>;
 }
 
 export interface Address {
-    street: string;
-    number: string;
+    street?: string;
+    number?: string;
     complement?: string;
     neighborhood?: string;
-    city: string;
-    zipCode: string;
+    city?: string;
+    zipCode?: string;
     country: Country;
     state_or_department: string;
 }
 
-export interface SellerInfos {
+export interface BusinessAccount {
+    id?: string;
+    createdAt?: string;
+    deletedAt?: string;
     currency?: Partial<Currency>;
-    country?: Country;
-    document_id?: string;
+    address?: Address;
+    description?: string;
+    rating?: number;
     business_name?: string;
-    payment_account?: Partial<PaymentAccount>;
-    seller_terms_and_condition_accepted?: boolean;
+    account_status?: AccountStatusEnum;
+    payment_details?: Partial<PaymentAccount>;
+    business_categories?: string[];
     is_onboarding_completed?: boolean;
     is_able_to_sell?: boolean;
+
 }
 
 export interface Currency {
@@ -69,11 +76,11 @@ export interface Currency {
 }
 
 export interface PaymentAccount {
-    strategy?: string
-    account_id?: string
-    details_submitted?: boolean
-    payouts_enabled?: boolean
-    charges_enabled?: boolean
+    payment_strategy?: string
+    payment_account_id?: string
+    payment_details_submitted?: boolean
+    payment_payouts_enabled?: boolean
+    payment_charges_enabled?: boolean
 }
 
 export interface PostBecomeSellerRequest {
@@ -82,6 +89,6 @@ export interface PostBecomeSellerRequest {
 }
 
 export type ShippingContact = {
-    name: string;
-    phoneNumber: string;
+    name?: string;
+    phoneNumber?: string;
 }

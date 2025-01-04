@@ -1,0 +1,5 @@
+export enum AccountStatusEnum {
+    ACTIVE = 'ACTIVE',
+    WAITING_ACTIVATION = 'WAITING_ACTIVATION',
+    SUSPENDED= 'SUSPENDED',
+}

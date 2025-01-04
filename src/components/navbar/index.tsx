@@ -26,8 +26,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import sessionManager from '@/utils/session-manager';
 import cookie from '@/utils/cookie';
 import { generateRandomString } from '@/utils/generate-random-string';
-import { useUser } from '@/contexts/user';
-
 interface selectedCountry {
   label: string;
   value: string;
@@ -37,15 +35,14 @@ export const Navbar: React.FC = () => {
   const router = useRouter();
   const { search, becomeseller } = router.query;
   const {
-      getAccessTokenSilently,
-      user, isLoading: loading,
+      user,
+      isLoading: loading,
       logout, isAuthenticated,
       loginWithRedirect: handleLogin,
   } = useAuth0();
   const {countries} = useCountriesInfo();
   const { cartState} = useCartInfo();
   const { categoriesState} = useCategoriesInfo();
-  const {dispatch: userDispatch} =useUser();
   const {
     handleBecomeSeller,
     getUserInfo,
@@ -78,15 +75,6 @@ export const Navbar: React.FC = () => {
   const handleSearch = (searchText: string) => {
     redirect(`/search?search=${searchText}` as RoutesUrls)
   }
-  
-  const setSession = async() => {
-    const token = await getAccessTokenSilently();
-    if(token){
-      userDispatch({ type: 'SET_TOKEN', value: token });
-      sessionManager.setSession(token);
-    }
-  }
-
 
   React.useEffect(() => {
     if(becomeseller) {
@@ -101,18 +89,15 @@ export const Navbar: React.FC = () => {
   }
 
   React.useEffect(() => {
-    if(isAuthenticated && token && !userInfos.name) {
+    if(isAuthenticated && token && !userInfos?.name) {
       getUserInfo();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
-
-  React.useEffect(() => {
-    if(isAuthenticated) {
-      setSession();
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
+
+  console.log(isAuthenticated)
+  console.log(userInfos)
+
 
   return (
     <>
@@ -133,6 +118,7 @@ export const Navbar: React.FC = () => {
           onSearch={handleSearch}
           onClickMenu={()=>{}}
           width='100%'
+          userInfos={userInfos}
         /> 
       :
       (
@@ -163,6 +149,8 @@ export const Navbar: React.FC = () => {
           onCategorySelect={handleRedirectToCategory}
           onClickSellerMenu={()=>handleClickToBecomeSeller()}
           isAuthenticated={isAuthenticated}
+          userInfos={userInfos}
+          isLoading={loading || userInfosLoader}
         />
       </div>
       ) 
