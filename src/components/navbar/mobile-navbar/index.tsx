@@ -92,11 +92,11 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
               props.isAuthenticated && (
                 <>
                   <Link href={RoutesUrls.ORDERS}>
-                  <FcShipped /> {t("my_orders")}
+                    <FcShipped /> {t("my_orders")}
                   </Link>
-                  <Link href={RoutesUrls.PROFILE}>
-                  <FaUserAlt size={"14"} color='#000052'/> {t("my_profile")}
-                  </Link>
+                  {/* <Link href={RoutesUrls.PROFILE}>
+                    <FaUserAlt size={"14"} color='#000052'/> {t("my_profile")}
+                  </Link> */}
                 </>
               )
             }
