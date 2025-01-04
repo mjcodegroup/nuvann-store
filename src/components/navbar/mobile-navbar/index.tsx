@@ -17,11 +17,15 @@ import { Category } from '@/contexts/categories/types'
 import CustomButton from '@/components/custom-button'
 import { FcShipped } from 'react-icons/fc'
 import { FaUserAlt } from 'react-icons/fa'
+import { UserRoles } from '@/utils/enums/user.enum'
 
 
 const MobileNavbar = (props: MobileNavbarProps)=> {
   const { t } = useTranslation('nav_content');
   const [open, setOpen] = React.useState(false);
+
+    const sellerRedirect = props.userInfos?.roles?.includes(UserRoles.SELLER)
+    const adminRedirect = props.userInfos?.roles?.includes(UserRoles.ADMINISTRATOR)
   return (
     <>
       <nav className={Styles.mobile_nav_container}>
@@ -48,7 +52,7 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
                         src={props?.user?.picture}
                         sx={{ width: 40, height: 40 }}
                       />
-                      <h4>{truncateStringWithEllipsis(props.user?.given_name || props.user?.name, 40)} </h4>
+                      <h4>{truncateStringWithEllipsis(props.user?.given_name || props.user?.name || '', 40)} </h4>
                     </div> 
                   :
                   <button onClick={props.onSignIn}><FiUser color='#000052'/> <span>{t('sign_in')}</span> | {t('sign_up')}</button>
@@ -73,9 +77,17 @@ const MobileNavbar = (props: MobileNavbarProps)=> {
                 <Link href={`/search?in_promotion=${true}`}>
                   {t("promotion")}
                 </Link>
-                <div onClick={props.onClickSellerMenu}>
-                  {t("sell")}
-                </div>
+                {
+              !props.isLoading &&
+              <div onClick={props.onClickSellerMenu}>
+                {props.isAuthenticated && sellerRedirect
+                  ? "Espas Vandè"
+                  : props.isAuthenticated && adminRedirect
+                  ? "Espas Adm"
+                  : t("sell")
+                }
+              </div>
+            }
             {
               props.isAuthenticated && (
                 <>

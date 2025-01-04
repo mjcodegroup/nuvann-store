@@ -44,7 +44,9 @@
       "sign_up": "S'inscrire",
       "logout": "Se déconnecter",
       "my_orders": "Mes commandes",
-      "my_profile": "Mon profil"
+      "my_profile": "Mon profil",
+      "seller_space": "Espace vendeur",
+      "admin_space": "Espace administrateur"
     },
     "placeholders": {
       "custom_select_placeholder": "Sélectionnez une option"
