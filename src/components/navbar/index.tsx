@@ -65,7 +65,7 @@ export const Navbar: React.FC = () => {
       return handleLogin();
     }
     cookie.setCookie({name: 'nuvann_store_referral', days: 1, value: generateRandomString(24), domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
-    if(userInfos?.roles?.includes(UserRoles.SELLER)) {
+    if(Array.isArray(userInfos?.roles) && userInfos?.roles?.some(role => [UserRoles.SELLER, UserRoles.ADMINISTRATOR]?.includes(role))) {
       return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
     }
     setModalTerm(true)
@@ -133,6 +133,7 @@ export const Navbar: React.FC = () => {
           onSearch={handleSearch}
           onClickMenu={()=>{}}
           width='100%'
+          userInfos={userInfos}
         /> 
       :
       (
@@ -163,6 +164,8 @@ export const Navbar: React.FC = () => {
           onCategorySelect={handleRedirectToCategory}
           onClickSellerMenu={()=>handleClickToBecomeSeller()}
           isAuthenticated={isAuthenticated}
+          userInfos={userInfos}
+          isLoading={loading || userInfosLoader}
         />
       </div>
       ) 

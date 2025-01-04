@@ -1,6 +1,6 @@
 {
   "name": "nuvann-store",
-  "version": "0.1.131",
+  "version": "0.1.134",
   "private": true,
   "scripts": {
     "dev": "next dev",

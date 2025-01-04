@@ -45,7 +45,9 @@
       "logout": "Dekonekte",
       "my_orders": "kòmand",
       "my_profile": "Profil mwen",
-      "fast_delivery": "Livrezon rapid"
+      "fast_delivery": "Livrezon rapid",
+      "seller_space": "Espas Machann",
+      "admin_space": "Espas Admin"
     },
     "placeholders": {
       "custom_select_placeholder": "Chwazi yon opsyon"
