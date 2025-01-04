@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
     }
     cookie.setCookie({name: 'nuvann_store_referral', days: 1, value: generateRandomString(24), domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
     if(Array.isArray(userInfos?.roles) && userInfos?.roles?.some(role => [UserRoles.SELLER, UserRoles.ADMINISTRATOR]?.includes(role))) {
-      return window.location.href = process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string;
+      return window.open(process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string, '_blank');
     }
     setModalTerm(true)
   }
