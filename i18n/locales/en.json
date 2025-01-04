@@ -44,7 +44,9 @@
         "sign_up": "Register",
         "logout": "Logout",
         "my_orders": "My orders",
-        "my_profile": "My profile"
+        "my_profile": "My profile",
+        "seller_space": "Seller space",
+        "admin_space": "Admin space"
     },
     "placeholders": {
       "custom_select_placeholder": "Select an option"
@@ -215,5 +217,17 @@
     },
     "language": {
       "date_format": "en-US"
+    },
+    "profile_page": {
+      "name": "Name",
+      "email": "Email",
+      "country": "Country",
+      "phone": "Phone",
+      "zip_code": "Zip Code",
+      "state": "State",
+      "city": "City",
+      "number": "Number",
+      "personal_information": "Personal Information",
+      "register": "Register"
     }
   }

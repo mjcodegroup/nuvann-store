@@ -48,65 +48,67 @@ export default function NavOptions(props: NavOptionProps) {
         />
         <span>{truncateStringWithEllipsis(props.user?.given_name || props.user?.name, 12)} <IoChevronDownSharp /></span>
       </li>
-              <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                PaperProps={{
-                  elevation: 0,
-                  sx: {
-                    overflow: 'visible',
-                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                    mt: 1,
-                    '& .MuiAvatar-root': {
-                      width: 32,
-                      height: 32,
-                      ml: -0.5,
-                      mr: 1,
-                    },
-                    '&:before': {
-                      content: '""',
-                      display: 'block',
-                      position: 'absolute',
-                      top: 0,
-                      right: 30,
-                      width: 10,
-                      height: 10,
-                      bgcolor: 'background.paper',
-                      transform: 'translateY(-50%) rotate(45deg)',
-                      zIndex: 0,
-                    },
-                  },
-                }}
-                transformOrigin={{ horizontal: 'left', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-              >
-                <div></div>
-                <MenuItem
-                 onClick={handleClose}>
-                  <ListItemIcon>
-                    <FaPerson fontSize="small" />
-                  </ListItemIcon>
-                  {t('my_profile')}
-                </MenuItem>
-                <Link href={RoutesUrls.ORDERS}>
-                  <MenuItem>
-                    <ListItemIcon>
-                      <FcShipped fontSize="small" />
-                    </ListItemIcon>
-                    {t('my_orders')}
-                  </MenuItem>
-                </Link>
-                <Divider />
-                <MenuItem onClick={props.onLogout}>
-                  <ListItemIcon>
-                    <FiLogOut fontSize="small" />
-                  </ListItemIcon>
-                  {t('logout')}
-                </MenuItem>
-              </Menu>
+      <Menu
+        anchorEl={anchorEl}
+        id="account-menu"
+        open={open}
+        onClose={handleClose}
+        onClick={handleClose}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            overflow: 'visible',
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            mt: 1,
+            '& .MuiAvatar-root': {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
+            },
+            '&:before': {
+              content: '""',
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              right: 30,
+              width: 10,
+              height: 10,
+              bgcolor: 'background.paper',
+              transform: 'translateY(-50%) rotate(45deg)',
+              zIndex: 0,
+            },
+          },
+        }}
+        transformOrigin={{ horizontal: 'left', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+      >
+        <div></div>
+        {/* <Link href={RoutesUrls.PROFILE}>
+          <MenuItem
+            onClick={handleClose}>
+            <ListItemIcon>
+              <FaPerson fontSize="small" />
+            </ListItemIcon>
+            {t('my_profile')}
+          </MenuItem>
+        </Link> */}
+        <Link href={RoutesUrls.ORDERS}>
+          <MenuItem>
+            <ListItemIcon>
+              <FcShipped fontSize="small" />
+            </ListItemIcon>
+            {t('my_orders')}
+          </MenuItem>
+        </Link>
+        <Divider />
+        <MenuItem onClick={props.onLogout}>
+          <ListItemIcon>
+            <FiLogOut fontSize="small" />
+          </ListItemIcon>
+          {t('logout')}
+        </MenuItem>
+      </Menu>
     </>
     :
     <li>

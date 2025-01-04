@@ -45,7 +45,9 @@
       "logout": "Dekonekte",
       "my_orders": "kòmand",
       "my_profile": "Profil mwen",
-      "fast_delivery": "Livrezon rapid"
+      "fast_delivery": "Livrezon rapid",
+      "seller_space": "Espas Machann",
+      "admin_space": "Espas Admin"
     },
     "placeholders": {
       "custom_select_placeholder": "Chwazi yon opsyon"
@@ -218,5 +220,17 @@
     },
     "language": {
       "date_format": "fr-FR"
+    },
+    "profile_page": {
+      "name": "Non",
+      "email": "Email",
+      "country": "Peyi",
+      "phone": "Telefòn",
+      "zip_code": "Kòd Postal",
+      "state": "Eta",
+      "city": "Vil",
+      "number": "Nimewo",
+      "personal_information": "Enfòmasyon Pèsonèl",
+      "register": "Anrejistre"
     }
 }

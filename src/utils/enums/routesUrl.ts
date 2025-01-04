@@ -8,6 +8,7 @@ export enum RoutesUrls {
     ORDERS_DETAILS = '/orders-details',
     SELLER_DETAILS = '/seller-details',
     Login  = '/login',
+    PROFILE  = '/profile',
 }
 
 export type RouteUrl = 
@@ -19,4 +20,5 @@ export type RouteUrl =
     | RoutesUrls.CHECKOUT
     | RoutesUrls.ORDERS_DETAILS
     | RoutesUrls.SELLER_DETAILS
-    | RoutesUrls.Login;
+    | RoutesUrls.Login
+    | RoutesUrls.PROFILE;
