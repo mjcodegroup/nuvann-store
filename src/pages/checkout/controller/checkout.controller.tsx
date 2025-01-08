@@ -34,12 +34,17 @@ const schema = z.object({
   name: z
   .string().min(1, "Name is required"),
   phoneNumber: z
-    .string()
-    .trim()
-    .min(1, "Phone is required")
-    .regex(/^[0-9]*$/, "Phone must be a number") // Garante que seja um número
-    .transform((val) => parseInt(val)),
-  zipCode: z.string().min(1, "Zip code is required").regex(/^[0-9]*$/, "Zip code must be a number"),
+  .string()
+  .trim()
+  .min(1, "Phone is required")
+  .regex(
+    /^(\+55|55)?\s?\(?\d{2}\)?\s?\d{5}-?\d{4}$/,
+    "Phone must be a valid Brazilian number (e.g., (55)49 99999-9999, 5549999999999, +5549999999999)"
+  ),
+
+  zipCode: z.string()
+    .min(1, "Zip code is required")
+    .regex(/^\d{5}-?\d{3}$/, "Zip code must be a valid format (e.g., 99999999 or 99999-999)"),
   state_or_department: z.string().min(1, "State or department is required"),
   city: z.string().min(1, "City is required"),
   neighborhood: z.string().min(1, "Neighborhood is required"),
