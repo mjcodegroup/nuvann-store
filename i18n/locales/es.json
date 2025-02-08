@@ -97,7 +97,8 @@
        "see_more": "Ver más opciones de envío",
       "see_less": "Ver menos opciones de envío",
       "unavailable": "No disponible",
-      "unit_s": "unidad(es)"
+      "unit_s": "unidad(es)",
+      "not_available_message": "Este artículo no se puede enviar a la ubicación de entrega seleccionada."
     },
     "cart": {
       "shopping_cart": "Carro de la compra",

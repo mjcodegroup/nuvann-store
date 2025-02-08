@@ -96,7 +96,8 @@
       "see_more": "See more shipping options",
       "see_less": "See less shipment options",
       "unavailable": "Unavailable",
-      "unit_s": "unit(s)"
+      "unit_s": "unit(s)",
+      "not_available_message": "This item cannot be shipped to your selected delivery location."
     },
     "cart": {
       "shopping_cart": "Shopping cart",

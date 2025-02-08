@@ -98,7 +98,8 @@
       "see_more": "Wè plis opsyon livrezon",
       "see_less": "Wè mwens opsyon livrezon",
       "unavailable": "Non disponib",
-      "unit_s": "inite"
+      "unit_s": "inite",
+      "not_available_message": "Atik sa a pa disponib nan peyi ou ye an."
     },
     "cart": {
       "shopping_cart": "Panye",
