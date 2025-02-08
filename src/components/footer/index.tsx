@@ -1,6 +1,5 @@
-import React, { use } from 'react'
-import { AiOutlineUser, AiOutlineShoppingCart, AiOutlineLogout } from 'react-icons/ai';
-import {FaMapMarkerAlt, FaPhoneAlt, FaEnvelope} from 'react-icons/fa';
+import React from 'react'
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import Image from 'next/image';
 import styles from './styles.module.scss'
 
