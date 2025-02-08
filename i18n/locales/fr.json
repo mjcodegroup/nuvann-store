@@ -97,7 +97,8 @@
       "see_more": "Voir plus d'options d'expédition",
       "see_less": "Voir moins d'options d'expédition",
       "unavailable": "Indisponible",
-      "unit_s": "unité(s)"
+      "unit_s": "unité(s)",
+      "not_available_message": "Cet article ne peut pas être expédié à l'adresse de livraison sélectionnée."
     },
     "cart": {
       "shopping_cart": "Panier",
