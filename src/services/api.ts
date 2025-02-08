@@ -74,7 +74,8 @@ nuvannPublicApi.interceptors.request.use(
         const selectedLanguage = getCookie('NEXT_I18LANG');
         config.headers = {
             ...config.headers,
-            'Accept-Language' : selectedLanguage || process.env.NEXT_I18LANG
+            'Accept-Language' : selectedLanguage || process.env.NEXT_I18LANG,
+            'X-Country-Code' : config.headers['X-Country-Code']
         };
         return config;
     },
