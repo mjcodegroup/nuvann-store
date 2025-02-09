@@ -5,7 +5,7 @@ import { HomePageDefault } from '@/components/home-page-default';
 import { useProductsInfo } from '@/hooks/use-products-info';
 import { getProductsParams } from '@/contexts/products/types';
 import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { RoutesUrls, RouteUrl } from '@/utils/enums/routesUrl';
 import { useCategoriesInfo } from '@/hooks/use-categories-info';
 
 export default function SearchController() {
@@ -31,14 +31,14 @@ export default function SearchController() {
       }, [search, category_id, in_promotion])
 
       const handleRedirectToProductDetails = React.useCallback( (id: string | number) => {
-        redirect(`/product/${id}` as RoutesUrls)
+        redirect(`/product/${id}` as RouteUrl)
       }, [redirect])
 
       const handleChangeFilter = React.useCallback( (categoryId: string, inPromotion: boolean) => {
         setDefaultCheckedPromotion(inPromotion);
         setCategoryID(categoryId);
         setOpenMobileFilter(false);
-        redirect(`/search?search=${search || ''}&category_id=${categoryId}&in_promotion=${inPromotion}` as RoutesUrls)
+        redirect(`/search?search=${search || ''}&category_id=${categoryId}&in_promotion=${inPromotion}` as RouteUrl)
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [Boolean(in_promotion)])
       

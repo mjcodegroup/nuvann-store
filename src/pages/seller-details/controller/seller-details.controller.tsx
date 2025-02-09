@@ -5,7 +5,7 @@ import SellerDetails from '../view';
 import SellerCardSkeleton from '../components/seller-card-skeleton';
 import { useSellerDetailsInfo } from '@/hooks/use-seller-details-info';
 import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { RoutesUrls, RouteUrl } from '@/utils/enums/routesUrl';
 
 export default function SellerDetailsController() {
     const router = useRouter();
@@ -19,7 +19,7 @@ export default function SellerDetailsController() {
     const { products, isLoading } = useSellerDetailsInfo(sellerId as string);
 
     const handleRedirectToProductDetails = React.useCallback((id: string | number) => {
-        redirect(`/product/${id}` as RoutesUrls);
+        redirect(`/product/${id}` as RouteUrl);
     }, [redirect]);
 
     return (

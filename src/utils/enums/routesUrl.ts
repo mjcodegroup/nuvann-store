@@ -9,6 +9,7 @@ export enum RoutesUrls {
     SELLER_DETAILS = '/seller-details',
     Login  = '/login',
     PROFILE  = '/profile',
+    SellerOnboarding  = '/seller-onboarding',
 }
 
 export type RouteUrl = 
