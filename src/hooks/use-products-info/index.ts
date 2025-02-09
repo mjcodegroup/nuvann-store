@@ -2,7 +2,7 @@ import { useProducts } from "@/contexts/products";
 import { getProductsParams, PostQuickPurchaseType, ProductDetailsParams } from "@/contexts/products/types";
 import { nuvannApi, nuvannPublicApi } from "@/services/api";
 import { useNavigation } from "../useNavigation";
-import { RoutesUrls } from "@/utils/enums/routesUrl";
+import { RoutesUrls, RouteUrl } from "@/utils/enums/routesUrl";
 import { useToast } from "@/contexts/toast";
 
 export function useProductsInfo() {
@@ -84,7 +84,7 @@ export function useProductsInfo() {
             productsDispatch({ type: 'SET_PRODUCT_DETAILS', value: response.data });
             
         } catch (error: any) {
-            redirect(RoutesUrls.HOME as RoutesUrls)
+            redirect(RoutesUrls.HOME)
             errorToast(error.response.data.message);
         } finally {
             productsDispatch({ type: 'SET_LOADING', value: false });
@@ -97,7 +97,7 @@ export function useProductsInfo() {
         productsDispatch({ type: 'SET_QUICK_PURCHASE_LOADER', value: true });
         try {
             const response = await nuvannApi.post(`/products/${productId}/quick-purchase`, data)
-            redirect(RoutesUrls.CHECKOUT + `?orderid=${response.data.order_id}` as RoutesUrls)
+            redirect(RoutesUrls.CHECKOUT + `?orderid=${response.data.order_id}` as RouteUrl)
         } catch (error: any) {
             errorToast(error.response.data.message);
         } finally {

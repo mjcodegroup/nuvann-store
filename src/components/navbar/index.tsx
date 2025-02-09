@@ -17,7 +17,7 @@ import { useCountriesInfo } from '@/hooks/use-countries-info';
 import { formatCountriesArray } from '@/utils/format-countries-array';
 import { UserRoles } from '@/utils/enums/user.enum';
 import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { RoutesUrls, RouteUrl } from '@/utils/enums/routesUrl';
 import { Category } from '@/contexts/categories/types';
 import { useRouter } from 'next/router';
 import getDeviceType from '@/utils/get-device-type';
@@ -42,21 +42,15 @@ export const Navbar: React.FC = () => {
       logout, isAuthenticated,
       loginWithRedirect: handleLogin,
   } = useAuth0();
-  const {countries} = useCountriesInfo();
   const { cartState} = useCartInfo();
   const { categoriesState} = useCategoriesInfo();
   const {dispatch: userDispatch} =useUser();
   const {
-    handleBecomeSeller,
     getUserInfo,
     user: userInfos,
     isLoading: userInfosLoader,
-    modalTerm,
     token,
-    setModalTerm
   } = useUserInfo();
-  const [businessName, setBusinessName] = React.useState<string>("");
-  const [selectedCountry, setSelectedCountry] = React.useState<selectedCountry[] | any>([]);
   const { redirect } = useNavigation();
 
 
@@ -68,15 +62,16 @@ export const Navbar: React.FC = () => {
     if(Array.isArray(userInfos?.roles) && userInfos?.roles?.some(role => [UserRoles.SELLER, UserRoles.ADMINISTRATOR]?.includes(role))) {
       return window.open(process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string, '_blank');
     }
-    setModalTerm(true)
+    // setModalTerm(true)
+    redirect('/seller-onboarding' as RouteUrl);
   }
 
   const handleRedirectToCategory = (category: Category) => {
-    redirect(`/search?category_id=${category.id}` as RoutesUrls);
+    redirect(`/search?category_id=${category.id}` as RouteUrl);
   }
 
   const handleSearch = (searchText: string) => {
-    redirect(`/search?search=${searchText}` as RoutesUrls)
+    redirect(`/search?search=${searchText}` as RouteUrl)
   }
   
   const setSession = async() => {
@@ -171,7 +166,7 @@ export const Navbar: React.FC = () => {
       ) 
 
     }
-    <ModalActions
+    {/* <ModalActions
       title={t('term_and_contitions')}
       titleLink='https://faqs.nuvann.com/en/termes-et-conditions'
       open ={modalTerm}
@@ -187,7 +182,7 @@ export const Navbar: React.FC = () => {
     >
       <CustomInput placeholder='Ex: Nuvann Store' label={t('business_name')} type='text' value={businessName} onChange={(e: any) =>setBusinessName(e)} />
       <CustomSelect options={countries.length && formatCountriesArray(countries) as any} onSelect={(e)=> setSelectedCountry(e)} title={t('country')} />
-    </ModalActions>
+    </ModalActions> */}
     </>
   );
 };

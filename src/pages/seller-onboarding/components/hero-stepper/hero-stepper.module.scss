@@ -1,0 +1,25 @@
+.seller_onboarding_hero_stepper {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.stepper_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 64px;
+    gap: 32px;
+
+    h1 {
+        color: var(--blue-principal-000052);
+        margin-bottom: 16px;
+        font-size: 32px;
+    }
+
+    p {
+        color: rgb(119, 114, 114);
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+}

@@ -22,7 +22,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { SellerDetailsProvider } from "@/contexts/seller-details";
 import useBeforeLeave from "@/hooks/use-befor-leave";
 import { useNavigation } from "@/hooks/useNavigation";
-import { RoutesUrls } from "@/utils/enums/routesUrl";
+import { RoutesUrls, RouteUrl } from "@/utils/enums/routesUrl";
 
 export default function App({ Component, pageProps }: AppProps) {
   const {redirect} = useNavigation();
@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
     ? `${window.location.origin}${getRedirectUrl}`
     : window.location.origin;
 
-  redirect(redirectUrl as RoutesUrls);
+  redirect(redirectUrl as RouteUrl);
   }
   return (
     <>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Styles from './order-card.module.scss';
 import { Order, OrderItem } from '@/contexts/orders/types';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { RoutesUrls, RouteUrl } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
 import CustomButton from '@/components/custom-button';
 import { formatDate } from '@/utils/date-convert';
@@ -141,7 +141,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
                         </CustomButton>
                         <CustomButton
                             onClick={() =>
-                                redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${item.id}` as RoutesUrls)
+                                redirect(`${RoutesUrls.ORDERS_DETAILS}?orderId=${item.id}` as RouteUrl)
                             }
                         >
                             {t('see_more')}
