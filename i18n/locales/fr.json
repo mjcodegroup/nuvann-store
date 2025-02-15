@@ -72,7 +72,10 @@
       "today_deals": "Offres du jour",
       "best_sellers": "Meilleures ventes",
       "no_products_found": "Aucun produit trouvé",
-      "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur"
+      "please_select_size_or_color": "Veuillez sélectionner une taille ou une couleur",
+      "seller_hero_title": "Rejoignez Nuvann Store aujourd'hui et commencez à gagner avec votre boutique!",
+      "seller_hero_desc": "Vendez vos produits sur Nuvann Store et attirez des milliers de clients à travers le monde.",
+      "become_a_seller_button": "Devenir vendeur"
     },
     "details": {
       "available_s": "Disponible(s)",

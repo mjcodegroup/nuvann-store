@@ -71,8 +71,10 @@
       "new": "Nuevo",
       "today_deals": "Ofertas del día",
       "best_sellers": "Los más vendidos",
-      "no_products_found": "No se encontraron productos"
-  
+      "no_products_found": "No se encontraron productos",
+      "seller_hero_title": "¡Únete a Nuvann Store hoy y comienza a ganar con tu tienda!",
+      "seller_hero_desc": "Vende tus productos en Nuvann Store y llega a miles de clientes en todo el mundo.",
+      "become_a_seller_button": "Conviértete en vendedor"
     },
     "details": {
       "available_s": "Disponible",

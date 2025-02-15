@@ -55,9 +55,9 @@ export const Navbar: React.FC = () => {
 
 
   const handleClickToBecomeSeller = () => {
-    if(!isAuthenticated) {
-      return handleLogin();
-    }
+    // if(!isAuthenticated) {
+    //   return handleLogin();
+    // }
     cookie.setCookie({name: 'nuvann_store_referral', days: 1, value: generateRandomString(24), domain: process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ''});
     if(Array.isArray(userInfos?.roles) && userInfos?.roles?.some(role => [UserRoles.SELLER, UserRoles.ADMINISTRATOR]?.includes(role))) {
       return window.open(process.env.NEXT_PUBLIC_DASHBOARD_ACCESS_URL as string, '_blank');
@@ -83,12 +83,12 @@ export const Navbar: React.FC = () => {
   }
 
 
-  React.useEffect(() => {
-    if(becomeseller) {
-      handleClickToBecomeSeller();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [becomeseller]);
+  // React.useEffect(() => {
+  //   if(becomeseller) {
+  //     handleClickToBecomeSeller();
+  //   }
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [becomeseller]);
 
   const onLogout = () => {
     logout();

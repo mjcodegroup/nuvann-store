@@ -71,7 +71,10 @@
       "new": "New",
       "today_deals": "Today's deals",
       "best_sellers": "Best sellers",
-      "no_products_found": "No products found"
+      "no_products_found": "No products found",
+      "seller_hero_title": "Join Nuvann Store today and start earning with your shop!",
+      "seller_hero_desc": "Sell ​​all your products in Nuvann Store and have thousands of customers all over the world.",
+      "become_a_seller_button": "Become a seller"
     },
     "details": {
       "add_to_cart": "Add to cart",
