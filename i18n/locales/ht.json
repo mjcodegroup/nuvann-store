@@ -73,7 +73,10 @@
       "today_deals": "Òf jounen an",
       "best_sellers": "Pwodui ki vann plis",
       "no_products_found": "Pa gen pwodui disponib",
-      "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè"
+      "please_select_size_or_color": "Tanpri chwazi yon gwosè oswa yon koulè",
+      "seller_hero_title": "Jwenn Nuvann Store jodi a epi kòmanse fè lajan ak boutik ou an!",
+      "seller_hero_desc": "Vann pwodwi ou yo sou Nuvann Store epi atire plizyè milye kliyan atravè mond lan.",
+      "become_a_seller_button": "Vin yon machann"
     },
     "details": {
       "available_s": "Disponib",
