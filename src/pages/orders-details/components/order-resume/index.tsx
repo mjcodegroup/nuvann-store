@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@mui/material';
 import { OrderItem } from '@/contexts/orders/types';
 import Title from '../title';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { RoutesUrls, RouteUrl } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
 import { useProductsInfo } from '@/hooks/use-products-info';
 import { formatMoney } from '@/utils/formatter/format-money.util';
@@ -78,7 +78,7 @@ const OrdersResume: React.FC<OrderResumeProps> = (props: OrderResumeProps) => {
             {t('name')}:{' '}
             <span
               className={styles.seller_name}
-              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order?.seller?.business_account_id}&name=${encodeURIComponent(order?.seller?.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RoutesUrls)}
+              onClick={() => redirect(`${RoutesUrls.SELLER_DETAILS}?orderId=${order?.seller?.business_account_id}&name=${encodeURIComponent(order?.seller?.name)}&country=${encodeURIComponent(order.seller.country.name)}&createdAt=${encodeURIComponent(order.seller.created_at)}` as RouteUrl)}
 
             >
               {order?.seller?.name}

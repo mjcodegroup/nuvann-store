@@ -9,7 +9,7 @@ import CustomButton from '@/components/custom-button';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useTranslation } from 'react-i18next';
 import { DetailsProps } from '../../types';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { RoutesUrls, RouteUrl } from '@/utils/enums/routesUrl';
 import { useNavigation } from '@/hooks/useNavigation';
 
 export default function Details(props: DetailsProps) {
@@ -34,8 +34,10 @@ export default function Details(props: DetailsProps) {
   } = props;
 
   const redirectToSellerDetails = () => {
-    redirect(`${RoutesUrls.SELLER_DETAILS}?sellerId=${props.productInfos.seller.business_account_id}&name=${encodeURIComponent(props.productInfos.seller.name)}&country=${encodeURIComponent(props.productInfos.seller.country.name)}&createdAt=${encodeURIComponent(props.productInfos.seller.created_at)}` as RoutesUrls)
+    redirect(`${RoutesUrls.SELLER_DETAILS}?sellerId=${props.productInfos.seller.business_account_id}&name=${encodeURIComponent(props.productInfos.seller.name)}&country=${encodeURIComponent(props.productInfos.seller.country.name)}&createdAt=${encodeURIComponent(props.productInfos.seller.created_at)}` as RouteUrl);
   };
+
+  const disabledButtons = productInfos?.available_amount < qty || !productInfos?.available_in_current_country
 
   return (
     <div className={Styles.product_infos}>
@@ -104,7 +106,14 @@ export default function Details(props: DetailsProps) {
           decrement={onDecrement}
           disabled={productInfos?.available_amount < qty}
         />
-
+        {
+          productInfos?.available_in_current_country ? '' : 
+          <section>
+            <p style={{
+              color: 'red'
+            }}>{t('not_available_message')}</p>
+          </section>
+        }
         <section className={Styles.detail_infos_footer}>
             <CustomButton
               isLoading={isLoading}
@@ -113,7 +122,7 @@ export default function Details(props: DetailsProps) {
               className={Styles.btn_cart}
               variant='outlined'
               onClick={onAddToCart}
-              disabled={productInfos?.available_amount < qty}
+              disabled={disabledButtons}
             >
               {t('add_to_cart')}
             </CustomButton>
@@ -123,7 +132,7 @@ export default function Details(props: DetailsProps) {
                 backgroundColor="#00B127"
                 textColor='#fff'
                 onClick={onPurchase}
-                disabled={productInfos?.available_amount < qty}
+                disabled={disabledButtons}
             >
               {t('buy_now')}
             </CustomButton>

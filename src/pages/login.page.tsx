@@ -1,6 +1,6 @@
 import { HomePageDefault } from '@/components/home-page-default';
 import { useNavigation } from '@/hooks/useNavigation';
-import { RoutesUrls } from '@/utils/enums/routesUrl';
+import { RoutesUrls, RouteUrl } from '@/utils/enums/routesUrl';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Backdrop, CircularProgress } from '@mui/material';
 import React, { useEffect } from 'react'
@@ -13,7 +13,7 @@ export default function LoginPage() {
     if (!isAuthenticated && !loading) {
       loginWithRedirect();
     } else {
-      redirect(window.location.origin as RoutesUrls);
+      redirect(window.location.origin as RouteUrl);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
