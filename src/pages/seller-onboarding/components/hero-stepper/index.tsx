@@ -12,8 +12,8 @@ const SellerOnboardingHeroStepper: React.FC = () => {
   return (
     <div className={Styles.seller_onboarding_hero_stepper}>
       <section>
-        <Stepper activeStep={3} alternativeLabel>
-          {steps.map((label) => (
+        <Stepper activeStep={3}>
+          {steps.map((label, i) => (
             <Step key={label}>
                 <StepLabel ></StepLabel>
             </Step>
@@ -23,15 +23,18 @@ const SellerOnboardingHeroStepper: React.FC = () => {
 
       <section className={Styles.stepper_content}>
         <div>
+          {/* <p className={Styles.steps}>1</p> */}
           <h1>Apply to shop and start earning today</h1>
           <p>Sign up now and see why over 600,000 shoppers choose Instacart for flexible earnings.</p>
         </div>
         <div>
+          {/* <p className={Styles.steps}>2</p> */}
           <h1>Apply to shop and start earning today</h1>
           <p>Sign up now and see why over 600,000 shoppers choose Instacart for flexible earnings.</p>
         </div>
 
         <div>
+          {/* <p className={Styles.steps}>3</p> */}
           <h1>Apply to shop and start earning today</h1>
           <p>Sign up now and see why over 600,000 shoppers choose Instacart for flexible earnings.</p>
         </div>
