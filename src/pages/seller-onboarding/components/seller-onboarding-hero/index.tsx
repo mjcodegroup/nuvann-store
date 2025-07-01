@@ -70,7 +70,7 @@ const {
               </CustomButton>
           </section>
           <section className={Styles.hero_image}>
-
+          {/* Hero images */}
           </section>
       </div>
 

@@ -17,6 +17,28 @@
     margin-top: 64px;
     gap: 32px;
 
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            height: 32px;
+            width: 32px;
+
+            border: 2px solid var(--blue-principal-000052);
+            border-radius: 50%;
+
+            p {
+                font-size: 1.125rem;
+                font-weight: 700;
+            }
+        }
+    }
+
     h1 {
         color: var(--blue-principal-000052);
         margin-bottom: 16px;
