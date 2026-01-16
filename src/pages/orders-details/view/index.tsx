@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import styles from './orders-details.module.scss';
 import { OrderItem } from '@/contexts/orders/types';
-import OrdersCardSkeleton from '../../orders/components/orders-card-skeleton';
 import OrderSubCard from '../components/order-subtile-card';
 import OrdersResume from '../components/order-resume';
 import { useTranslation } from 'react-i18next';
 import getDeviceType from '@/utils/get-device-type';
+import OrderDetailsSkeleton from '../components/orders-card-skeleton';
 
 interface OrderDetailsProps {
     order: OrderItem;
@@ -41,7 +41,7 @@ export default function OrderDetails({ order, isLoading }: OrderDetailsProps) {
     };
 
     if (isLoading) {
-        return <OrdersCardSkeleton />;
+        return <OrderDetailsSkeleton />;
     }
 
     return (
